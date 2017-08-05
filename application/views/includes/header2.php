@@ -287,9 +287,10 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Documents</a></li>
                         <li><a href="<?PHP echo base_url(); ?>index.php/system/live_chats"><i class="fa fa-comments"></i> Live Chats</a></li>
                         <li><a href="<?PHP echo base_url(); ?>index.php/system/video_call"><i class="fa fa-video-camera"></i> Video Calls</a></li>
+                        <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Documents</a></li>
+                        
                     </ul>
                 </li>
 
