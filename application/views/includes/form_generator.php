@@ -71,9 +71,9 @@ function create_form($fields) {
                     $dropdown[$dkey] = $val;
                 }
 
-
+                $non_underscore = underscore_remover($type);
                 $attributes = 'class="form-control" id="' . $type . '"';
-
+                echo form_label($non_underscore, $type);
                 echo form_dropdown($type, $dropdown, $val, $attributes);
             }
 

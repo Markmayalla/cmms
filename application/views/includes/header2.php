@@ -1,7 +1,7 @@
 <header class="header">
 <a href="index.html" class="logo">
     <!-- Add the class icon to your logo image or logo icon to add the margining -->
-    PES_CASS
+    PESDES
 </a>
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
@@ -213,7 +213,7 @@
         <li class="user-header bg-light-blue">
             <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar3.png" class="img-circle" alt="User Image" />
             <p>
-                <?PHP echo $this->session->userdata('first_name') . ' ' . $this->session->userdata('last_name'); ?> - PES_CASS Member
+                <?PHP echo $this->session->userdata('first_name') . ' ' . $this->session->userdata('last_name'); ?> - PESDES Member
                 <small>Member since Nov. 2017</small>
             </p>
         </li>
@@ -290,6 +290,8 @@
                         <li><a href="<?PHP echo base_url(); ?>index.php/system/live_chats"><i class="fa fa-comments"></i> Live Chats</a></li>
                         <li><a href="<?PHP echo base_url(); ?>index.php/system/video_call"><i class="fa fa-video-camera"></i> Video Calls</a></li>
                         <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Documents</a></li>
+                        <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Forum</a></li>
+                        <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Marketing </a></li>
                         
                     </ul>
                 </li>
@@ -301,23 +303,23 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="directory"><i class="fa fa-archive"></i> Directory</a></li>
+                        <li><a href="identity"><i class="fa fa-archive"></i> Identity</a></li>
+                        <li><a href="roles"><i class="fa fa-archive"></i> Roles</a></li>
+                        <li><a href="compensation"><i class="fa fa-archive"></i> Compensation</a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-bar-chart-o"></i> <span>PES Monitoring & Evaluation</span>
+                        <i class="fa fa-bar-chart-o"></i> <span>PESDES Competition Platform</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="working_plan"><i class="fa fa-money"></i> PES Planing & Budgeting</a></li>
-                        <li><a href="administration"><i class="fa fa-group"></i> PES Administration </a></li>
-                        <li><a href="monitoring"><i class="fa fa-dashboard"></i> PES Monitoring and Evaluation</a></li>
+                        <li><a href="entry_requirements"><i class="fa fa-money"></i> Entry Requirements</a></li>
+                        <li><a href="competition_management"><i class="fa fa-group"></i> Competition Management </a></li>
+                        <li><a href="performance_assessment"><i class="fa fa-dashboard"></i> Performance Assesment</a></li>
                     </ul>
                 </li>
-
-                <li><a href="evaluation"><i class="fa fa-table"></i> <span>Evaluation Criteria</span></a></li>
 
 
 

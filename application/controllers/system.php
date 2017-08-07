@@ -33,23 +33,33 @@ class System extends CI_Controller {
         $this->load->view('includes/system.php', $data);
     }
 
-    public function directory() {
-        $data['main_content'] = 'directory';
+    public function identity() {
+        $data['main_content'] = 'identity';
         $this->load->view('includes/system.php', $data);
     }
 
-    public function working_plan() {
-        $data['main_content'] = 'working_plan';
+    public function roles() {
+        $data['main_content'] = 'roles';
         $this->load->view('includes/system.php', $data);
     }
 
-    public function administration() {
-        $data['main_content'] = 'administration';
+    public function compensation() {
+        $data['main_content'] = 'compensation';
         $this->load->view('includes/system.php', $data);
     }
 
-    public function monitoring() {
-        $data['main_content'] = 'monitoring';
+    public function entry_requirements() {
+        $data['main_content'] = 'entry_requirements';
+        $this->load->view('includes/system.php', $data);
+    }
+
+    public function competition_management() {
+        $data['main_content'] = 'competition_management';
+        $this->load->view('includes/system.php', $data);
+    }
+
+    public function performance_assessment() {
+        $data['main_content'] = 'performance_assessment';
         $this->load->view('includes/system.php', $data);
     }
 
@@ -57,6 +67,8 @@ class System extends CI_Controller {
         $data['main_content'] = 'evaluation';
         $this->load->view('includes/system.php', $data);
     }
+
+    
 
 
 }
