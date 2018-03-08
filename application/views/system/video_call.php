@@ -1,4 +1,27 @@
 <div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid bg-green">
+            <div class="box-header">
+                <h3 class="box-title">Welcome to video calls sub-suite...</h3>
+            </div>
+
+            <div class="box-body">
+                <p>It is a sub-suite belonging to the awareness suite. It aims at enhancing communication between members through video calling.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="box box-solid bg-red">
+            <div class="box-header">
+                <h3 class="box-title"><span class="fa fa-warning"></span> Sorry, This service is inactive awaiting the SSL certificate. </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
 
     <Div class="col-sm-7">
         <div class="row">
@@ -10,66 +33,53 @@
 
                     <div class="box-body">
 
-                        <table class="table table-stripped table-hover chat" >
-                            <tr>
-                                <th>Avatar</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Status</th>
+                        <table id="contacts" class="table table-stripped table-hover chat" >
+                            <thead>
+                                <tr>
+                                    <th>Avatar</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Status</th>
+                                    <th>Call</th>
 
-                            </tr>
+                                </tr>
+                            </thead>
 
-                            <tr>
-                                <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar.png" alt="user image" class="online"/></td>
-                                <td>Mark</td>
-                                <td>Mayalla</td>
-                                <td>markmayalla@gmail.com</td>
-                                <td>0654303353</td>
-                                <td><p class="text-green">Online</p> </td>
-                                <td><button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-facetime-video"></span> </button> </td>
-                            </tr>
+                            <tbody>
+                                <?PHP
 
-                            <tr>
-                                <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar04.png" alt="user image" class="offline"/></td>
-                                <td>Horace</td>
-                                <td>Owiti</td>
-                                <td>horace_owiti79@yahoo.com</td>
-                                <td>0716166199</td>
-                                <td><p class="text-red">Offline</p> </td>
-                                <td><button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-facetime-video"></span> </button> </td>
-                            </tr>
+                                foreach ($users as $contact) {
 
-                            <tr>
-                                <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar2.png" alt="user image" class="offline"/></td>
-                                <td>Jerry</td>
-                                <td>Onasaa</td>
-                                <td>jerry@gmail.com</td>
-                                <td>0766554433</td>
-                                <td><p class="text-red">Offline</p> </td>
-                                <td><button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-facetime-video"></span> </button> </td>
-                            </tr>
+                                    ?>
+                                    <tr>
+                                        <?PHP
 
-                            <tr>
-                                <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar5.png" alt="user image" class="online"/></td>
-                                <td>Bonaventure</td>
-                                <td>Baya</td>
-                                <td>tomy.oranga@yahoo.com</td>
-                                <td>0758400800</td>
-                                <td><p class="text-green">Online</p> </td>
-                                <td><button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-facetime-video"></span> </button> </td>
-                            </tr>
+                                        if ($contact->avatar == '') {
+                                            if ($contact->gender == 'male') {
+                                                $avatar = base_url() . 'AdminLTE/img/avatar5.png';
+                                            } else {
+                                                $avatar = base_url() . 'AdminLTE/img/avatar3.png';
+                                            }
+                                        } else {
+                                            $avatar = $contact->avatar;
+                                        }
 
-                            <tr>
-                                <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar3.png" alt="user image" class="offline"/></td>
-                                <td>Sabrina</td>
-                                <td>Constantine</td>
-                                <td>sabrina82@hotmail.com/td>
-                                <td>0655439987</td>
-                                <td><p class="text-red">Offline</p> </td>
-                                <td><button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-facetime-video"></span> </button> </td>
-                            </tr>
+                                        ?>
+                                        <td class="item"><img src="<?PHP echo $avatar; ?>" alt="user image" class="online"/></td>
+                                        <td><?PHP echo $contact->first_name; ?></td>
+                                        <td><?PHP echo $contact->last_name; ?></td>
+                                        <td><span id="<?PHP echo $contact->id; ?>"><?PHP echo $contact->email; ?></span></td>
+                                        <td><?PHP echo $contact->phone; ?></td>
+                                        <td><p class="text-red">offline</p> </td>
+                                        <td><button class="btn btn-sm btn-success" name="<?PHP echo $contact->id; ?>" id="call"><span class="glyphicon glyphicon-facetime-video"></span> </button> </td>
+                                    </tr>
+                                <?PHP
+                                }
+                                ?>
+                            </tbody>
+
                         </table>
                     </div>
                 </Div>
@@ -87,14 +97,14 @@
     <Div class="col-sm-5">
         <div class="box box-success">
             <div class="box-header">
-                <h3 class="box-title"><i class="fa fa-video-camera"></i> Conference Calls</h3>
+                <h3 class="box-title"><i class="fa fa-video-camera"></i> Video Call Screen</h3>
                 <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
 
                 </div>
             </div>
             <div class="box-body" >
-                <div class="jumbotron">
-                    <h3>Reserved for Conference Calls Development</h3>
+                <div id="video_out">
+
                 </div>
             </div><!-- /.chat -->
             <div class="box-footer">

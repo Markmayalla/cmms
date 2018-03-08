@@ -1,53 +1,354 @@
-.navbar-inverse {
-    background-color: #00CC00;
-}
 
-.navbar-inverse .navbar-nav li a {
-    color: #ffffff;
-
-}
-
-.navbar-inverse .navbar-nav li a:hover {
-    background-color: #0000FF;
-}
-
-.navbar-inverse .navbar-header .navbar-brand {
-
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: #ffffff;
-    color: #0000FF;
-}
-
-.dropdown-menu li a {
-    background-color: #00CC00;
-}
-
-.navbar-inverse .navbar-header .navbar-brand:hover {
-
+#header_container {
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 1em;
+    background: #1b2c34;
     color: #ffffff;
 }
 
-#topHeader {
-
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.margin {
-    margin-top: 30px;
-}
-
-#footer {
-    background: #f3753b;
-    border-radius: 1em;
-    padding-bottom: 2em;
-}
-
-#footer h3, h4, blockquote {
-    color: #5e5e5e;
-}
-
-#footer a {
+#footer_container {
+    padding-left: 4em;
+    padding-right: 4em;
+    background: #1b2c34;
     color: #ffffff;
+}
+
+#logo {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#header_menu_top {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    float: right;
+}
+
+#header_menu_top li {
+    text-align: center;
+    padding-right: 1em;
+    padding-left: 1em;
+    border-right: solid 1px #ffffff;
+}
+
+#header_menu_top li:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+
+#header_menu_top li a {
+    color: mintcream;
+}
+
+#header_menu_top li a:hover {
+    color: #00aae5;
+}
+
+#header_menu_top li a:active {
+    color: #00aae5;
+}
+
+#main_menu {
+    padding-top: 1em;
+}
+
+
+#main_menu li {
+    font-size: 16px;
+    padding-right: 2em;
+    padding-left: 1em;
+}
+
+#main_menu_md ul {
+    display: block;
+    width: 150px;
+    background: #1b2c34;
+    position: absolute;
+    padding-left: 1em;
+    padding-right: 1em;
+    list-style: none;
+    z-index: 10;
+}
+
+#main_menu_md li a {
+    margin-bottom: 3em;
+    color: mintcream;
+
+}
+
+#main_menu_md li a:hover {
+    color: #00aae5;
+}
+
+#menu_btn {
+    color: mintcream;
+    border: 1px solid mintcream;
+}
+
+#menu_btn:hover {
+    color: #00aae5;
+    border: 1px solid #00aae5;
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display:block !important;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
+
+#main_menu li:last-child {
+    padding-right: 0;
+}
+
+#main_menu li a {
+    color: mintcream;
+}
+
+#main_menu li a:hover {
+    border-bottom: solid 2px #00aae5;
+}
+
+#main_menu li a:active {
+    border-bottom: solid 2px #00aae5;
+}
+
+#body {
+    padding-left: 4em;
+    padding-right: 4em;
+
+}
+
+#section_two {
+    background: #f7f8f7;
+    margin-top: 1em;
+    margin-right: 3em;
+    margin-left: 1em;
+
+}
+
+#sectwo_control {
+    padding-left: 1em;
+    padding-top: 3px;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    height: 300px;
+    color: #f7f8f7;
+    background: #1b2c34;
+}
+
+#sectwo_control h3 {
+    border-bottom: solid 2px #f7f8f7;
+    border-spacing: 1em;
+}
+
+.sectwo_btn {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.sectwo_btn:hover {
+    border: 1px solid #ffffff;
+}
+
+.exersise_category {
+    position: relative;
+    height: 300px;
+    width: 320px;
+    background: #ffffff;
+}
+
+.picture, .session, .session_description {
+    position: absolute;
+}
+
+.session {
+    top: 170px;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    width: 110px;
+    margin: auto;
+}
+
+.session p {
+    text-align: center;
+    background: #1b2c34;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.session_description {
+    border-top: 3px solid #1b2c34;
+    margin-top: 200px;
+    padding-right: 1em;
+    padding-left: 1em;
+
+}
+
+#section_three {
+    background: #ffffff;
+    margin-top: 1em;
+    padding-top: 1em;
+    margin-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+
+}
+
+.trainer_picture {
+
+}
+
+.trainer_picture .img-responsive {
+    padding-top: 1em;
+    border-top: 3px solid #1b2c34;
+    margin: auto;
+}
+
+#footer_container .icons_row .col-lg-4 {
+    background: #0281a3;
+    height: 90px;
+}
+
+#footer_container .icons_row .dark_blue{
+    background: #00aae5;
+}
+
+#footer_container .icons_row {
+    position: relative;
+}
+
+#footer_container .footer_column_even .footer_icon, #footer_container .footer_column_odd .footer_icon{
+    position: relative;
+    bottom: 3em;
+    text-align: center;
+}
+
+
+.footer_icon i {
+    font-size: 24px;
+    bottom: 5px;
+    padding: 1em;
+    border: 1px solid #1b2c34;
+    border-radius: 50%;
+}
+
+.footer_description {
+    position: relative;
+    bottom: 5em;
+
+}
+
+.footer_column_even .footer_icon i {
+    border-color: #0281a3;
+    background: #0281a3;
+}
+
+.footer_column_odd .footer_icon i {
+    border-color: #00aae5;
+    background: #00aae5;
+}
+
+.footer_details {
+    color: #737373;
+}
+
+.footer_details i {
+    color: #00aae5;
+}
+
+.footer_details hr {
+    color: #545454;
+    opacity: 0.1;
+}
+
+.footer_details strong {
+    color: #c9c9c9;
+    font-weight: lighter;
+}
+
+.footer_details h3 {
+    color: #ffffff;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #9b9b9b;
+    border-spacing: 10px;
+}
+
+#about_us .container {
+    margin-top: 1em;
+    background: #ffffff;
+    margin-bottom: 1em;
+}
+
+.space {
+    margin-bottom: 4em;
+}
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+    color: green;
+    border: 1px solid green;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+    color: red;
+    border: 1px solid red;
+}
+
+
+.parsley-errors-list {
+    margin: 2px 0 3px;
+    padding: 0;
+    list-style-type: none;
+    font-size: 0.9em;
+    line-height: 0.9em;
+    opacity: 0;
+    color: red;
+
+    transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list li {
+    padding-left: 1.3em;
+}
+
+.parsley-errors-list li:before {
+    content: "\f071"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em; /* same as padding-left set on li */
+    width: 1.3em; /* same as padding-left set on li */
+}
+
+.parsley-errors-list.filled {
+    opacity: 1;
+}
+
+#map {
+    height: 500px;
+}
+
+#gym_map {
+    height: 500px;
+}
+
+#my_gyms, #address_map {
+    height: 350px;
 }

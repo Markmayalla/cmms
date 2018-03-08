@@ -1,4 +1,18 @@
 <div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid bg-green">
+            <div class="box-header">
+                <h3 class="box-title">Welcome to live chats sub-suite...</h3>
+            </div>
+
+            <div class="box-body">
+                <p>It is a sub-suite belonging to the awareness suite. It aims at enhancing communication between members through chatting.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
 
     <Div class="col-sm-7">
        <div class="row">
@@ -10,66 +24,58 @@
 
                    <div class="box-body">
 
-                       <table class="table table-stripped table-hover chat" >
-                           <tr>
-                               <th>Avatar</th>
-                               <th>First Name</th>
-                               <th>Last Name</th>
-                               <th>Email</th>
-                               <th>Phone</th>
-                               <th>Status</th>
+                       <table id="contacts" class="table table-stripped table-hover chat" >
+                           <thead>
+                               <tr>
+                                   <th>Avatar</th>
+                                   <th>First Name</th>
+                                   <th>Last Name</th>
+                                   <th>Email</th>
+                                   <th>Phone</th>
+                                   <th>Status</th>
+                                   <th>Chat</th>
 
-                           </tr>
+                               </tr>
+                           </thead>
 
-                           <tr>
-                               <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar.png" alt="user image" class="online"/></td>
-                               <td>Mark</td>
-                               <td>Mayalla</td>
-                               <td>markmayalla@gmail.com</td>
-                               <td>0654303353</td>
-                               <td><p class="text-green">Online</p> </td>
-                               <td><button class="btn btn-sm btn-info"><span class="glyphicon glyphicon-comment"></span> </button> </td>
-                           </tr>
 
-                           <tr>
-                               <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar04.png" alt="user image" class="offline"/></td>
-                               <td>Horace</td>
-                               <td>Owiti</td>
-                               <td>horace_owiti79@yahoo.com</td>
-                               <td>0716166199</td>
-                               <td><p class="text-red">Offline</p> </td>
-                               <td><button class="btn btn-sm btn-info"><span class="glyphicon glyphicon-comment"></span> </button> </td>
-                           </tr>
+                           <tbody>
+                               <?PHP
 
-                           <tr>
-                               <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar2.png" alt="user image" class="offline"/></td>
-                               <td>Jerry</td>
-                               <td>Onasaa</td>
-                               <td>jerry@gmail.com</td>
-                               <td>0766554433</td>
-                               <td><p class="text-red">Offline</p> </td>
-                               <td><button class="btn btn-sm btn-info"><span class="glyphicon glyphicon-comment"></span> </button> </td>
-                           </tr>
+                               foreach ($users as $contact) {
 
-                           <tr>
-                               <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar5.png" alt="user image" class="online"/></td>
-                               <td>Bonaventure</td>
-                               <td>Baya</td>
-                               <td>tomy.oranga@yahoo.com</td>
-                               <td>0758400800</td>
-                               <td><p class="text-green">Online</p> </td>
-                               <td><button class="btn btn-sm btn-info"><span class="glyphicon glyphicon-comment"></span> </button> </td>
-                           </tr>
+                                   ?>
 
-                           <tr>
-                               <td class="item"><img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar3.png" alt="user image" class="offline"/></td>
-                               <td>Sabrina</td>
-                               <td>Constantine</td>
-                               <td>sabrina82@hotmail.com/td>
-                               <td>0655439987</td>
-                               <td><p class="text-red">Offline</p> </td>
-                               <td><button class="btn btn-sm btn-info"><span class="glyphicon glyphicon-comment"></span> </button> </td>
-                           </tr>
+                                   <tr>
+                                       <?PHP
+
+                                       if ($contact->avatar == '') {
+                                           if ($contact->gender == 'male') {
+                                               $avatar = base_url() . 'AdminLTE/img/avatar5.png';
+                                           } else {
+                                               $avatar = base_url() . 'AdminLTE/img/avatar3.png';
+                                           }
+                                       } else {
+                                           $avatar = $contact->avatar;
+                                       }
+
+                                       ?>
+                                       <td class="item"><img src="<?PHP echo $avatar; ?>" alt="user image" class="online"/></td>
+                                       <td><?PHP echo $contact->first_name; ?></td>
+                                       <td><?PHP echo $contact->last_name; ?></td>
+                                       <td><?PHP echo $contact->email; ?></td>
+                                       <td><?PHP echo $contact->phone; ?></td>
+                                       <td><p class="text-danger">offline</p> </td>
+                                       <td><a href="<?PHP echo base_url(); ?>index.php/system/live_chats/chat/<?PHP echo $contact->id ?>" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-comment"></span> </a> </td>
+                                   </tr>
+
+                               <?PHP
+
+                               }
+
+                               ?>
+                           </tbody>
+
                        </table>
                    </div>
                </Div>
@@ -112,7 +118,7 @@
     <Div class="col-sm-5">
         <div class="box box-success">
             <div class="box-header">
-                <h3 class="box-title"><i class="fa fa-comments-o"></i> Recent Chats</h3>
+                <h3 class="box-title"><i class="fa fa-comments-o"></i> Unread Messeges</h3>
                 <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
                     <div class="btn-group" data-toggle="btn-toggle" >
                         <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i></button>
@@ -122,61 +128,56 @@
             </div>
             <div class="box-body chat" id="chat-box">
                 <!-- chat item -->
-                <div class="item">
-                    <img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar.png" alt="user image" class="online"/>
-                    <p class="message">
-                        <a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                            Mark Mayalla
-                        </a>
-                        I would like to meet you to discuss the latest news about
-                        the arrival of the new theme. They say it is going to be one the
-                        best themes on the market
-                    </p>
-                    <div class="attachment">
-                        <h4>Attachments:</h4>
-                        <p class="filename">
-                            Theme-thumbnail-image.jpg
-                        </p>
-                        <div class="pull-right">
-                            <button class="btn btn-primary btn-sm btn-flat">Open</button>
-                        </div>
-                    </div><!-- /.attachment -->
-                </div><!-- /.item -->
+
+                    <?PHP
+
+                    if (isset($success)) {
+                        echo '<div class="alert alert-success">' . $success . '</div>';
+                    }
+
+                    if (isset($inbox)) {
+                        ChromePhp::log('Count Inbox Value: '. count($inbox));
+                        if (is_array($inbox)) {
+                            foreach ($inbox as $key => $value) {
+                    ?>
+
+                                <div class="item">
+                                    <img src="<?PHP
+
+                                    if ($sender[$key]->avatar == '') {
+                                        if ($sender[$key]->gender == 'male') {
+                                            echo base_url() . 'AdminLTE/img/avatar5.png';
+                                        } else {
+                                            echo base_url() . 'AdminLTE/img/avatar3.png';
+                                        }
+                                    }  else {
+                                        echo $sender[$key]->avatar;
+                                    }
+
+                                    ?>" alt="user image" class="offline"/>
+                                    <p class="message">
+                                        <a href="<?PHP echo base_url() . 'index.php/system/live_chats/read/' . $value->id; ?>" class="name">
+                                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <?PHP echo $value->time; ?></small>
+                                            <?PHP echo $sender[$key]->first_name . ' ' . $sender[$key]->last_name ?>
+                                        </a>
+                                        <strong>Status: </strong> <?PHP echo $value->status; ?>
+                                    </p>
+                                </div>
+
+                    <?PHP
+                            }
+                        } else {
+                            echo $inbox;
+                        }
+                    }
+
+                    ?>
+
                 <!-- chat item -->
-                <div class="item">
-                    <img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar04.png" alt="user image" class="offline"/>
-                    <p class="message">
-                        <a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                            Horace Owiti
-                        </a>
-                        I would like to meet you to discuss the latest news about
-                        the arrival of the new theme. They say it is going to be one the
-                        best themes on the market
-                    </p>
-                </div><!-- /.item -->
-                <!-- chat item -->
-                <div class="item">
-                    <img src="<?PHP echo base_url(); ?>AdminLTE/img/avatar5.png" alt="user image" class="offline"/>
-                    <p class="message">
-                        <a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
-                            B.T. Baya
-                        </a>
-                        I would like to meet you to discuss the latest news about
-                        the arrival of the new theme. They say it is going to be one the
-                        best themes on the market
-                    </p>
-                </div><!-- /.item -->
+
             </div><!-- /.chat -->
             <div class="box-footer">
-                <div class="input-group">
-                    <input class="form-control" placeholder="Type message..."/>
-                    <div class="input-group-btn">
-                        <button class="btn btn-success"><i class="fa fa-plus"></i></button>
-                    </div>
-                </div>
+
             </div>
         </div><!-- /.box (chat box) -->
     </Div>

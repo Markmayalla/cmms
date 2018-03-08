@@ -1,4 +1,20 @@
 <div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid bg-green">
+            <div class="box-header">
+                <h3 class="box-title">Welcome to Entry Requirements Sub-Suite</h3>
+            </div>
+
+            <div class="box-body">
+                <p>This sub-suite is intended to moderate the quality of applicants to the competition by reviewing their suitability at the entry point and provide prequalification results.</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="row">
 
     <div class="col-md-4">
         <div class="box box-info">
@@ -8,28 +24,39 @@
 
             <div class="box-body">
                 
-                <?PHP 
+                <?PHP
 
-                echo form_open('system/entryForm');
+                if (isset($successMsg)) {
+                    echo '<div class="alert alert-success"> ' . $successMsg . '</div>';
+                }
 
-                $entryForm = array(
+                if (isset($entry_requirement_flag)) {
+                    if ($entry_requirement_flag == false) {
 
-                    'basin' => array('Pangani' => 'Pangani', 'Wami-Ruvu' => 'Wami-Ruvu', 'Rufiji' => 'Rufiji', 'Lake Victoria' => 'Lake Victoria'),
-                    'land_ownership' => array('communal_land' => 'communal_land', 'private' => 'private', 'hired' => 'hired'),
-                    '3 text' => 'mandates',
-                    'group_type' => array('PES' => 'PES', 'WUAs' => 'WUAs'),
-                    'coverage_area' => array('small' => 'small', 'medium' => 'medium', 'large' => 'large'),
-                    'type_of_ES_delivered' => array('water' => 'water', 'carbon' => 'carbon'),
-                    'relevant_techniacal_skills' => 'technical_competency',
-                    '2 text' => 'relevant_skills',
-                    'resource_availability' => array('inkind' => 'In-Kind', 'financial' => 'Financial'),
-                    '1 button' => 'Request Entry'
 
-                    );
+                        echo form_open('system/entry_requirements');
 
-                create_form($entryForm);
+                        $entryForm = array(
+                            '4 text' => 'Apex_Group_Name',
+                            'basin' => array('Pangani' => 'Pangani', 'Wami-Ruvu' => 'Wami-Ruvu', 'Rufiji' => 'Rufiji', 'Lake Victoria' => 'Lake Victoria'),
+                            'land_ownership' => array('communal_land' => 'communal_land', 'private' => 'private', 'hired' => 'hired'),
+                            '3 text' => 'mandates',
+                            'group_type' => array('PES' => 'PES', 'WUAs' => 'WUAs'),
+                            'coverage_area' => array('small' => 'small', 'medium' => 'medium', 'large' => 'large'),
+                            'type_of_ES_delivered' => array('water' => 'water', 'carbon' => 'carbon'),
+                            '2 text' => 'relevant_skills',
+                            'resource_availability' => array('inkind' => 'In-Kind', 'financial' => 'Financial'),
+                            '1 submit' => 'Request_Entry'
 
-                echo form_close();
+                        );
+
+                        create_form($entryForm);
+
+                        echo form_close();
+                    } else {
+                        echo '<div class="alert alert-info">You have already applied, you results will be fowarded to the "Competition Suitability Assessment" Panel. Thanks for showing interest in this competition</div>';
+                    }
+                }
 
                 ?>
 
@@ -47,15 +74,37 @@
                 
                  <div class="row">
 
-                    <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
-                        <input type="text" class="knob" data-readonly="true" value="73" data-width="60" data-height="60" data-fgColor="#f56954"/>
-                        <div class="knob-label">Evaluation Score</div>
-                    </div><!-- ./col -->
-                    <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
-                        <Strong>Remarks: </strong> <p class="text-danger">Not Qualified</p>
-                    </div>
+                    <?PHP
+
+                    if (isset($entry_requirement_flag)) {
+                        if ($entry_requirement_flag == false) {
+                              echo '<div class="alert alert-info">Please Request for competition Entry. Your evaluation score and remarks will be obtained here.</div>';
+                        } else {
+
+                            if ($entry_requirement->status == 'pending') {
+                                echo '<div class="alert alert-info">PESDES competition management team is still processing your request. Your results (feedback) will be provided in due course and notification will be provided through your email.</div>';
+                            } else {
+
+                        ?>
+
+                     <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
+                         <input type="text" class="knob" data-readonly="true" value="<?PHP echo $entry_requirement->evaluation_score; ?>" data-width="60" data-height="60" data-fgColor="<?PHP echo ($entry_requirement->evaluation_score > 50 ? '#00a65a' : '#f56954'); ?>"/>
+                         <div class="knob-label">Evaluation Score</div>
+                     </div><!-- ./col -->
+                     <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
+                         <Strong>Remarks: </strong> <p class="text-<?PHP echo ($entry_requirement->evaluation_score > 50 ? 'success' : 'danger'); ?>"><?PHP echo ($entry_requirement->evaluation_score > 50 ? 'Pass' : 'Fail'); ?></p>
+                     </div>
+
+                     <?PHP
+                            }
+                        }
+                    }
+
+                    ?>
 
                  </div>
+
+
 
 
                     
@@ -72,10 +121,39 @@
             </div>
 
             <div class="box-body">
+
+                <?PHP
+
+                if (isset($entry_requirement_flag)) {
+                    if ($entry_requirement_flag == false) {
+                        echo '<div class="alert alert-info">Please Request for competition Entry. Competition Endorsment Form will be obtained here.</div>';
+                    } else {
+
+                    if ($entry_requirement->status == 'pending') {
+                        echo '<div class="alert alert-info">PESDES competition management team is still processing your request. Your results (feedback) will be provided in due course and notification will be provided through your email</div>';
+                    } else {
+
+                ?>
+
                 <Div class="jumbotron">
-                    <strong>Competition Endorsment Form: </strong> <a href="#">View</a>
+                    <strong>Competition endorsement Form: </strong>
+                    <?PHP
+
+                    if ($entry_requirement->evaluation_score < 50 ) {
+                        echo 'We regret to inform you that, you have not fullfilled the requirements for participating in the Competition. Please try in the upcoming competition';
+                    } else {
+
+                    ?>
+
+                    <a href="<?PHP echo base_url(); ?>files/documents/competition_endorsment_form.pdf">View</a>
                 </div>
 
+                    <?PHP }
+                    }
+                    }
+                }
+
+                ?>
             </div>
         </div>
     </div>
@@ -85,181 +163,4 @@
 
 </div>
 
-<div id="ResourceMobilization" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Resource Mobilization</h4>
-            </div>
-
-            <div class="modal-body">
-
-
-                <table class="table table-stripped table-hover">
-                    <tr>
-                        <th>No.</th>
-                        <th>Item</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Deficity</th>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Slashes</td>
-                        <td>Wood Handed From Local Retails</td>
-                        <td>15</td>
-                        <td>5</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Gum Boots</td>
-                        <td>Plastic Made</td>
-                        <td>18</td>
-                        <td>2</td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Rain Coats</td>
-                        <td>-</td>
-                        <td>11</td>
-                        <td>9</td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>Hand Gloves</td>
-                        <td>-</td>
-                        <td>20</td>
-                        <td>0</td>
-                    </tr>
-
-                    <tr>
-                        <td>5</td>
-                        <td>Panga</td>
-                        <td>-</td>
-                        <td>14</td>
-                        <td>6</td>
-                    </tr>
-                </table>
-
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-
-<div id="Opportunity" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Opportunity Cost Forfeiture</h4>
-            </div>
-
-            <div class="modal-body">
-
-
-                <table class="table table-stripped table-hover">
-                    <tr>
-                        <th>No.</th>
-                        <th>Previous Activity</th>
-                        <th>Quantity Output</th>
-                        <th>Unit Cost</th>
-                        <th>Adopted Activity</th>
-                        <th>Calculated Quantity Output</th>
-                        <th>Unit Cost</th>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Burning Charcoal</td>
-                        <td>10 Sucks</td>
-                        <td>60,000</td>
-                        <td>Vegetable Production</td>
-                        <td>20,000 Heeps</td>
-                        <td>500</td>
-                    </tr>
-
-
-                </table>
-
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-
-<div id="Compensation" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Rewarding & Compensation (R & C)</h4>
-            </div>
-
-            <div class="modal-body">
-
-
-                <table class="table table-stripped table-hover">
-                    <tr>
-                        <th>No.</th>
-                        <th>ES Delivered</th>
-                        <th>Quantity Output</th>
-                        <th>Quality Output</th>
-                        <th>Unit Cost</th>
-                        <th>Buyer</th>
-                        <th>Seller</th>
-                        <th>Witness</th>
-                        <th>Recursion</th>
-                    </tr>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Water</td>
-                        <td>10,000 Liters/sec</td>
-                        <td>ISO Standard</td>
-                        <td>1 Tsh/Liter</td>
-                        <td>Tanga Uwasa</td>
-                        <td>Uwamakizi</td>
-                        <td>Tanga Water Basin Office</td>
-                        <td>5 Years</td>
-                    </tr>
-
-
-                </table>
-
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-
-    </div>
 </div>

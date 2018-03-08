@@ -2,15 +2,21 @@
 
 
 
-<?PHP $this->load->view('includes/header'); ?>
-
-<div class="container-fluid">
-    <?PHP
-        $this->load->view('web/' . $main_content);
-    ?>
-</div>
-
-<?PHP $this->load->view('includes/footer'); ?>
+<?PHP
 
 
-<?PHP $this->load->view('includes/page_end.php'); ?>
+
+    $this->load->view('includes/web_header');
+
+    $this->load->view('web/' . $main_content);
+
+    $this->load->view('includes/web_footer');
+
+
+?>
+
+
+
+
+
+<?PHP $this->load->view('includes/page_end2.php'); ?>

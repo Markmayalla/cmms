@@ -1,4 +1,19 @@
 <div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid bg-green">
+            <div class="box-header">
+                <h3 class="box-title">Welcome to Competition Management Sub-Suite</h3>
+            </div>
+
+            <div class="box-body">
+                <p>This sub-suite is intended to manage the enrolled groups in the competition by using the set criteria and  standards in order to determine winners and awards.</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="row">
 
     <div class="col-md-4">
         <div class="box box-info">

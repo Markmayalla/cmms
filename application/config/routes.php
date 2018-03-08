@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "pes";
+$route['default_controller'] = "web";
 $route['404_override'] = '';
 
 

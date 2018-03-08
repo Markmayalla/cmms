@@ -1,4 +1,19 @@
 <div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid bg-green">
+            <div class="box-header">
+                <h3 class="box-title">Welcome to Performance Assessment Sub-Suite</h3>
+            </div>
+
+            <div class="box-body">
+                <p>This sub-suite is responsible for assessing and providing monitoring and evaluation functions, setting of criteria and standards as may be required to guide competition. It is also responsible for record management and monitoring of key performance indicators that impact competition and conservation.</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="row">
 
     <div class="col-md-4">
         <div class="box box-info">

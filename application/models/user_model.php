@@ -1,12 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: user
- * Date: 6/20/17
- * Time: 9:00 PM
+ * User: Mark
+ * Date: 12/6/17
+ * Time: 11:28 PM
  */
 
 class User_model extends MY_Model {
+
 
 
 }

@@ -4,12 +4,16 @@
 $(document).ready(function() {
 
 
+    var base_url = 'http://localhost/wellnesstz.com/';
+
+
+
     $("#addPost").click(function() {
         page = $("#page").val();
         heading = $("#heading").val();
         body = $("#body").val();
 
-        $.post("http://localhost/pes.co.tz/index.php/pes/home", {page: page, heading: heading, body: body}, function(result) {
+        $.post(base_url + 'pes/home', {page: page, heading: heading, body: body}, function(result) {
             if (result == 'Data Populated Successfully') {
                 $("#page").val("");
                 $("#heading").val("");
@@ -26,6 +30,7 @@ $(document).ready(function() {
      * FORMS HANDLER ------------------------------------------------------------------------------------------------------------------------------
      *
      */
+
 
     $("#loginForm #login").click(function() {
 
@@ -49,7 +54,7 @@ $(document).ready(function() {
 
         jsonData = JSON.parse(jsonData);
 
-        $.post("http://localhost/pes.co.tz/index.php/pes/login", jsonData, function(result) {
+        $.post(base_url + "index.php/pes/login", jsonData, function(result) {
 
             if (result != "success") {
 
@@ -78,7 +83,7 @@ $(document).ready(function() {
 
             } else {
 
-                window.location.replace("http://localhost/pes.co.tz/index.php/system");
+                window.location.replace(base_url + "index.php/system");
             }
 
         });
@@ -88,8 +93,7 @@ $(document).ready(function() {
 
      $("#registrationForm #register").click(function() {
 
-         alert("Button Clicked");
-
+         console.log("Registration Button Clicked");
          $("#registrationForm #regError").remove();
 
          var form_fields = $("#registrationForm input");
@@ -124,18 +128,21 @@ $(document).ready(function() {
 
          }
 
-         alert(jsonData);
 
          jsonData = JSON.parse(jsonData);
+         console.log("Json Object Created");
+         console.log(jsonData);
 
 
 
-         $.post("http://localhost/pes.co.tz/index.php/pes/registration", jsonData , function(result) {
+         $.post(base_url + "index.php/pes/registration", jsonData , function(result) {
 
-
+               console.log("Ajax Request Sent");
                if (result != "success") {
 
+                   console.log("PHP Form Validation Failed");
                    jsonObject = JSON.parse(result);
+                   console.log(result);
 
 
                    for (i = 0; i < form_fields.length; i++) {
@@ -145,7 +152,7 @@ $(document).ready(function() {
 
 
                        if (jsonObject[name] != "success") {
-
+                           console.log("Error Displayed on: " + name);
                            $("#" + name).css("border-color", "red");
                            $("#" + name).before(jsonObject[name]);
 
@@ -191,6 +198,15 @@ $(document).ready(function() {
      * FORMS HANDLER END------------------------------------------------------------------------------------------------------------------------------
      *
      */
+
+
+    /**
+     * File Upload Handler
+     */
+
+    $('#add_document').click(function() {
+       alert("Add Document, Am clicked");
+    });
 
 
 

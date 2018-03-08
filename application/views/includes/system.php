@@ -1,10 +1,10 @@
-<?PHP $this->load->view('includes/page_start2.php'); ?>
+<?PHP $this->load->view('includes/page_start2.php');  echo "hello there"; ?>
 
 
 
 <?PHP
 
-if ($this->session->userdata("status") != "logged_in") {
+if ($this->session->userdata("status") != "user") {
     echo '<div class="alert alert-danger">This is a Restricted Page, You are Required to Login before access !! Navigate back to ' . anchor('pes/home', 'Home Page') . '</div>';
 } else {
 

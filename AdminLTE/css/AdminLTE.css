@@ -1573,6 +1573,16 @@ body > .header .logo .icon {
 .box .chat .item:after {
   clear: both;
 }
+
+.img_round {
+    width: 40px;
+    height: 40px;
+    border: 2px solid transparent;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
 .box .chat .item > img {
   width: 40px;
   height: 40px;
@@ -1586,6 +1596,10 @@ body > .header .logo .icon {
 }
 .box .chat .item > img.offline {
   border: 2px solid #f56954;
+}
+.reply_details {
+    margin-left: 55px;
+    margin-top: -40px;
 }
 .box .chat .item > .message {
   margin-left: 55px;

@@ -1,7 +1,7 @@
 <header class="header">
 <a href="index.html" class="logo">
     <!-- Add the class icon to your logo image or logo icon to add the margining -->
-    PESDES
+    Wellness Guru Fit
 </a>
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
@@ -18,74 +18,13 @@
 <li class="dropdown messages-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="fa fa-envelope"></i>
-        <span class="label label-success">4</span>
+        <span class="label label-success"></span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">You have 4 messages</li>
+        <li class="header">You have X messages</li>
         <li>
             <!-- inner menu: contains the actual data -->
-            <ul class="menu">
-                <li><!-- start message -->
-                    <a href="#">
-                        <div class="pull-left">
-                            <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar3.png" class="img-circle" alt="User Image"/>
-                        </div>
-                        <h4>
-                            Support Team
-                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                    </a>
-                </li><!-- end message -->
-                <li>
-                    <a href="#">
-                        <div class="pull-left">
-                            <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar2.png" class="img-circle" alt="user image"/>
-                        </div>
-                        <h4>
-                            AdminLTE Design Team
-                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="pull-left">
-                            <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar.png" class="img-circle" alt="user image"/>
-                        </div>
-                        <h4>
-                            Developers
-                            <small><i class="fa fa-clock-o"></i> Today</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="pull-left">
-                            <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar2.png" class="img-circle" alt="user image"/>
-                        </div>
-                        <h4>
-                            Sales Department
-                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="pull-left">
-                            <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar.png" class="img-circle" alt="user image"/>
-                        </div>
-                        <h4>
-                            Reviewers
-                            <small><i class="fa fa-clock-o"></i> 2 days</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                    </a>
-                </li>
-            </ul>
+            <ul><li>Preserved for Msg Notificatoins</li></ul>
         </li>
         <li class="footer"><a href="#">See All Messages</a></li>
     </ul>
@@ -94,40 +33,13 @@
 <li class="dropdown notifications-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="fa fa-warning"></i>
-        <span class="label label-warning">10</span>
+        <span class="label label-warning"></span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">You have 10 notifications</li>
+        <li class="header">You have X notifications</li>
         <li>
             <!-- inner menu: contains the actual data -->
-            <ul class="menu">
-                <li>
-                    <a href="#">
-                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-users warning"></i> 5 new members joined
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <i class="ion ion-ios7-cart success"></i> 25 sales made
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="ion ion-ios7-person danger"></i> You changed your username
-                    </a>
-                </li>
-            </ul>
+            <ul><li>Preserved for other notifications</li></ul>
         </li>
         <li class="footer"><a href="#">View all</a></li>
     </ul>
@@ -136,66 +48,13 @@
 <li class="dropdown tasks-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="fa fa-tasks"></i>
-        <span class="label label-danger">9</span>
+        <span class="label label-danger"></span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">You have 9 tasks</li>
+        <li class="header">You have X updates</li>
         <li>
             <!-- inner menu: contains the actual data -->
-            <ul class="menu">
-                <li><!-- Task item -->
-                    <a href="#">
-                        <h3>
-                            Design some buttons
-                            <small class="pull-right">20%</small>
-                        </h3>
-                        <div class="progress xs">
-                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                <span class="sr-only">20% Complete</span>
-                            </div>
-                        </div>
-                    </a>
-                </li><!-- end task item -->
-                <li><!-- Task item -->
-                    <a href="#">
-                        <h3>
-                            Create a nice theme
-                            <small class="pull-right">40%</small>
-                        </h3>
-                        <div class="progress xs">
-                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                <span class="sr-only">40% Complete</span>
-                            </div>
-                        </div>
-                    </a>
-                </li><!-- end task item -->
-                <li><!-- Task item -->
-                    <a href="#">
-                        <h3>
-                            Some task I need to do
-                            <small class="pull-right">60%</small>
-                        </h3>
-                        <div class="progress xs">
-                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </a>
-                </li><!-- end task item -->
-                <li><!-- Task item -->
-                    <a href="#">
-                        <h3>
-                            Make beautiful transitions
-                            <small class="pull-right">80%</small>
-                        </h3>
-                        <div class="progress xs">
-                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                <span class="sr-only">80% Complete</span>
-                            </div>
-                        </div>
-                    </a>
-                </li><!-- end task item -->
-            </ul>
+            <ul><li>Preserved for Updates</li></ul>
         </li>
         <li class="footer">
             <a href="#">View all tasks</a>
@@ -211,31 +70,31 @@
     <ul class="dropdown-menu">
         <!-- User image -->
         <li class="user-header bg-light-blue">
-            <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar3.png" class="img-circle" alt="User Image" />
+            <img src="<?PHP
+            if ($this->session->userdata('avatar') == '') {
+                if ($this->session->userdata('gender') == 'male') {
+                    echo base_url() . 'AdminLTE/img/avatar5.png';
+                } else {
+                    echo base_url() . 'AdminLTE/img/avatar3.png';
+                }
+            } else {
+                echo $this->session->userdata('avatar');
+            }
+            ?>" class="img-circle" alt="User Image" />
             <p>
                 <?PHP echo $this->session->userdata('first_name') . ' ' . $this->session->userdata('last_name'); ?> - PESDES Member
-                <small>Member since Nov. 2017</small>
+
             </p>
         </li>
         <!-- Menu Body -->
-        <li class="user-body">
-            <div class="col-xs-4 text-center">
-                <a href="#">Followers</a>
-            </div>
-            <div class="col-xs-4 text-center">
-                <a href="#">Sales</a>
-            </div>
-            <div class="col-xs-4 text-center">
-                <a href="#">Friends</a>
-            </div>
-        </li>
+
         <!-- Menu Footer-->
         <li class="user-footer">
             <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                <a href="<?PHP echo base_url(); ?>index.php/system/profile" class="btn btn-default btn-flat">Profile</a>
             </div>
             <div class="pull-right">
-                <a href="<?PHP echo base_url(); ?>index.php/pes/logout" class="btn btn-default btn-flat">Sign out</a>
+                <a href="<?PHP echo base_url(); ?>index.php/web/logout" class="btn btn-default btn-flat">Sign out</a>
             </div>
         </li>
     </ul>
@@ -254,7 +113,17 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?PHP echo base_url(); ?>adminLTE/img/avatar3.png" class="img-circle" alt="User Image" />
+                    <img src="<?PHP
+                    if ($this->session->userdata('avatar') == '') {
+                        if ($this->session->userdata('gender') == 'male') {
+                            echo base_url() . 'AdminLTE/img/avatar5.png';
+                        } else {
+                            echo base_url() . 'AdminLTE/img/avatar3.png';
+                        }
+                    } else {
+                        echo $this->session->userdata('avatar');
+                    }
+                    ?>" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p>Hello, <?PHP echo $this->session->userdata('first_name'); ?></p>
@@ -274,52 +143,186 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
+                <?PHP if ($this->session->userdata("user_type") == "user") { ?>
                 <li class="active">
-                    <a href="<?PHP echo base_url(); ?>index.php/system/dashboard">
+                    <a href="<?PHP echo base_url(); ?>index.php/cms/dashboard">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-info-circle"></i>
-                        <span>Awareness Suite</span>
-                        <i class="fa fa-angle-left pull-right"></i>
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/cms/trainers">
+                        <i class="fa fa-user-md"></i>
+                        <span>Trainers</span>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="<?PHP echo base_url(); ?>index.php/system/live_chats"><i class="fa fa-comments"></i> Live Chats</a></li>
-                        <li><a href="<?PHP echo base_url(); ?>index.php/system/video_call"><i class="fa fa-video-camera"></i> Video Calls</a></li>
-                        <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Documents</a></li>
-                        <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Forum</a></li>
-                        <li><a href="<?PHP echo base_url(); ?>index.php/system/documents"><i class="fa fa-briefcase"></i> Marketing </a></li>
-                        
-                    </ul>
+
                 </li>
 
-                <li class="treeview">
-                    <a href="#">
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/cms/exercise_plans">
                         <i class="fa fa-gears"></i>
-                        <span>Facilitation & Incentive</span>
-                        <i class="fa fa-angle-left pull-right"></i>
+                        <span>Exersise Plans</span>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="identity"><i class="fa fa-archive"></i> Identity</a></li>
-                        <li><a href="roles"><i class="fa fa-archive"></i> Roles</a></li>
-                        <li><a href="compensation"><i class="fa fa-archive"></i> Compensation</a></li>
-                    </ul>
                 </li>
 
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-bar-chart-o"></i> <span>PESDES Competition Platform</span>
-                        <i class="fa fa-angle-left pull-right"></i>
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/cms/diet_plans">
+                        <i class="fa fa-apple"></i>
+                        <span>Diet Plans</span>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="entry_requirements"><i class="fa fa-money"></i> Entry Requirements</a></li>
-                        <li><a href="competition_management"><i class="fa fa-group"></i> Competition Management </a></li>
-                        <li><a href="performance_assessment"><i class="fa fa-dashboard"></i> Performance Assesment</a></li>
-                    </ul>
                 </li>
+
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/cms/gym">
+                        <i class="fa fa-location-arrow"></i>
+                        <span>Find a GYM</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/cms/progress_report">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>Progress Report</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/cms/review">
+                        <i class="fa fa-comments"></i>
+                        <span>Rating & Review</span>
+                    </a>
+                </li>
+
+                <?PHP
+                }
+
+                if ($this->session->userdata('user_type') == 'trainer') {
+
+                ?>
+
+                <li class="active">
+                    <a href="<?PHP echo base_url(); ?>index.php/tms/dashboard">
+                        <i class="fa fa-dashboard"></i> <span>Trainer Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/tms/skills">
+                        <i class="fa fa-comments"></i>
+                        <span>Skills</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?PHP echo base_url(); ?>index.php/tms/Activities">
+                        <i class="fa fa-comments"></i>
+                        <!-- Include scheduals, timetable etc -->
+                        <span>Activities & Tasks</span>
+                    </a>
+                </li>
+
+
+
+
+
+                <?PHP
+
+                }
+                if ($this->session->userdata('user_type') == 'admin') {
+
+                    ?>
+
+                    <li class="<?PHP echo (isset($menu_active) && $menu_active == 'dashboard' ? 'active' : ''); ?>">
+                        <a href="<?PHP echo base_url(); ?>index.php/root/dashboard">
+                            <i class="fa fa-dashboard"></i> <span>Admin Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="<?PHP echo (isset($menu_active) && $menu_active == 'fitness' ? 'active' : ''); ?>">
+                        <a href="<?PHP echo base_url(); ?>index.php/root/fitness/exercises">
+                            <i class="fa fa-comments"></i>
+                            <!-- Include scheduals, timetable etc -->
+                            <span>Fitness</span>
+                        </a>
+                    </li>
+
+                    <li class="<?PHP echo (isset($menu_active) && $menu_active == 'diet' ? 'active' : ''); ?>">
+                        <a href="<?PHP echo base_url(); ?>index.php/root/diet/meals_components">
+                            <i class="fa fa-comments"></i>
+                            <!-- Include scheduals, timetable etc -->
+                            <span>Diet</span>
+                        </a>
+                    </li>
+
+
+                <?PHP
+
+                }
+                if ($this->session->userdata('user_type') == 'gym') {
+
+                    ?>
+
+                    <li class="<?PHP echo (isset($active) && $active == 'dashboard' ? 'active' : ''); ?>">
+                        <a href="<?PHP echo base_url(); ?>index.php/gym/dashboard">
+                            <i class="fa fa-dashboard"></i> <span>GYM Dashboard</span>
+                        </a>
+                    </li>
+
+                    <?PHP if (isset($gym) && count($gym) > 0) { ?>
+                        <li class="<?PHP echo (isset($active) && $active == 'view_gym' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/view_gym/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-flash"></i> <span><?PHP echo strtoupper($gym->name); ?></span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'about_gym' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/about_gym/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-question"></i> <span>About GYM</span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'gym_photos' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_photos/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-picture-o"></i> <span>Manage Photos</span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'gym_address' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_address/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-map-marker"></i> <span>Manage Address</span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'gym_classes' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_classes/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-calendar-o"></i> <span>Manage Classes</span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'gym_rates' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_rates/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-money"></i> <span>Manage Rates</span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'gym_working_hours' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_working_hours/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-clock-o"></i> <span>Set Working Hours</span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'gym_facilities' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_facilities/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-tasks"></i> <span>Manage Facilities</span>
+                            </a>
+                        </li>
+                        <li class="<?PHP echo (isset($active) && $active == 'gym_equipments' ? 'active' : ''); ?>">
+                            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_equipments/<?PHP echo $gym->id; ?>">
+                                <i class="fa fa-chain"></i> <span>Manage Equipments</span>
+                            </a>
+                        </li>
+                    <?PHP } ?>
+
+                <?PHP
+
+                }
+
+                ?>
+
+
 
 
 
@@ -332,12 +335,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Dashboard
+                <?PHP echo sentence_case($this->uri->segment(2)); ?>
                 <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
+                <li class="active"><?PHP $uriElement1 = $this->uri->segment(2); echo $uriElement1; ?></li>
             </ol>
         </section>
 

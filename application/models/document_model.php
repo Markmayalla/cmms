@@ -8,6 +8,12 @@
 
 class Document_model Extends MY_Model {
 
+    public function addDocument() {
 
+        $documentValues = array();
+        $documentValues['title'] = $this->input->post('title');
+        $documentValues['description'] = $this->input->post('description');
+
+    }
 
 }

@@ -5,8 +5,12 @@
  *      This is a demo file used only for the main dashboard (index.html)
  **/
 
+
+
 $(function() {
     "use strict";
+
+    console.log('Dashboard Js is fully active');
 
     //Make the dashboard widgets sortable Using jquery UI
     $(".connectedSortable").sortable({
@@ -29,21 +33,21 @@ $(function() {
     $(".textarea").wysihtml5();
 
     $('.daterange').daterangepicker(
-            {
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
-                    'Last 7 Days': [moment().subtract('days', 6), moment()],
-                    'Last 30 Days': [moment().subtract('days', 29), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
-                },
-                startDate: moment().subtract('days', 29),
-                endDate: moment()
+        {
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+                'Last 7 Days': [moment().subtract('days', 6), moment()],
+                'Last 30 Days': [moment().subtract('days', 29), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
             },
-    function(start, end) {
-        alert("You chose: " + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-    });
+            startDate: moment().subtract('days', 29),
+            endDate: moment()
+        },
+        function(start, end) {
+            alert("You chose: " + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        });
 
     /* jQueryKnob */
     $(".knob").knob();
@@ -77,10 +81,10 @@ $(function() {
         },
         series: {
             regions: [{
-                    values: visitorsData,
-                    scale: ["#3c8dbc", "#2D79A6"], //['#3E5E6B', '#A6BAC2'],
-                    normalizeFunction: 'polynomial'
-                }]
+                values: visitorsData,
+                scale: ["#3c8dbc", "#2D79A6"], //['#3E5E6B', '#A6BAC2'],
+                normalizeFunction: 'polynomial'
+            }]
         },
         onRegionLabelShow: function(e, el, code) {
             if (typeof visitorsData[code] != "undefined")
@@ -135,8 +139,8 @@ $(function() {
     //Date for the calendar events (dummy data)
     var date = new Date();
     var d = date.getDate(),
-            m = date.getMonth(),
-            y = date.getFullYear();
+        m = date.getMonth(),
+        y = date.getFullYear();
 
     //Calendar
     $('#calendar').fullCalendar({
@@ -145,7 +149,7 @@ $(function() {
             {
                 title: 'All Day Event',
                 start: new Date(y, m, 1),
-                backgroundColor: "#3c8dbc", //light-blue 
+                backgroundColor: "#3c8dbc", //light-blue
                 borderColor: "#3c8dbc" //light-blue
             },
             {
@@ -207,7 +211,7 @@ $(function() {
         height: '250px'
     });
 
-    /* Morris.js Charts */
+    /* Morris.js Charts
     // Sales chart
     var area = new Morris.Area({
         element: 'revenue-chart',
@@ -230,6 +234,7 @@ $(function() {
         lineColors: ['#a0d0e0', '#3c8dbc'],
         hideHover: 'auto'
     });
+
     //Donut Chart
     var donut = new Morris.Donut({
         element: 'sales-chart',
@@ -260,7 +265,8 @@ $(function() {
         ykeys: ['a', 'b'],
         labels: ['CPU', 'DISK'],
         hideHover: 'auto'
-    });
+    }); */
+
     //Fix for charts under tabs
     $('.box ul.nav a').on('shown.bs.tab', function(e) {
         area.redraw();
@@ -268,7 +274,7 @@ $(function() {
     });
 
 
-    /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) */
+    /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts)
     $("#loading-example").boxRefresh({
         source: "ajax/dashboard-boxrefresh-demo.php",
         onLoadDone: function(box) {
@@ -291,7 +297,7 @@ $(function() {
                 hideHover: 'auto'
             });
         }
-    });
+    }); */
 
     /* The todo list plugin */
     $(".todo-list").todolist({

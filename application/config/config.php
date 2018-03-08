@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/pes.co.tz';
+$config['base_url'] = 'http://localhost/wellnessgurufit';
 
 /*
 |--------------------------------------------------------------------------
