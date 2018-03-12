@@ -10,8 +10,12 @@ include 'ChromePhp.php';
 
 class Gym extends CI_Controller {
 
+    
+
     public function index() {
         $this->dashboard();
+        $this->load->model('gym_model');
+
     }
 
     public function dashboard() {
@@ -23,7 +27,7 @@ class Gym extends CI_Controller {
     public function ajaxRequestGyms() {
         $this->load->model('gym_model');
         $gyms = $this->gym_model->get_many_by(array('admin_id' => $this->session->userdata('user_id')));
-
+    
         if (count($gyms) > 0) {
 
             echo json_encode($gyms);
@@ -43,6 +47,7 @@ class Gym extends CI_Controller {
         $gym = $this->gym_model->get($uri_Segment3);
         if (count($gym) > 0) {
             $data['gym'] = $gym;
+
         }
 
         $data['active'] = 'view_gym';
@@ -107,6 +112,68 @@ class Gym extends CI_Controller {
         $data['active'] = "gym_address";
         $this->load->view('includes/gym', $data);
     }
+   
+    public function gym_working_hours(){
 
+         $uri_segment3 = $this->uri->segment(3);
+        $uri_segment4 = $this->uri->segment(4);
+          $uriSegment_5 = $this->uri->segment(5);
+
+        //Loading Important Models
+        $this->load->model('gym_model');
+         $this->load->model('gym_working_hour_model');
+
+
+        //my input data to database table gym_working_hours
+        if ($uri_segment4 == "insert") {
+             $this->load->model('gym_model');
+            $this->load->model('gym_working_hour_model');
+            $gym = $this->gym_model->get_by(array('id' => $_POST['gym_id']));
+            $formData = array();
+            $formData['gym_id'] = $gym->id;
+            $formData['day'] = strtolower($_POST['day']);
+            $formData['timerange'] = strtolower($_POST['timerange']);
+            $this->gym_working_hour_model->insert($formData);
+            
+        }
+              
+         
+          $data['success_msg'] = "Added Successfull";
+        
+         //$gym = $this->gym_model->get($uri_segment3);
+        $gym = $this->gym_working_hour_model->get($uri_segment4);
+        $data['gym'] = $gym;
+              
+
+        $gym = $this->gym_model->get($uri_segment3);
+        $data['gym'] = $gym;
+        $data['main_content'] = "gym_working_hours";
+        $data['active'] = "gym_working_hours";
+        $this->load->view('includes/gym', $data);
+
+
+
+    }
+    
+       public function gym_rates(){
+          $data['menu_active'] = 'rates';
+            //passing the URi segmemnts
+        $uri_segment3 = $this->uri->segment(3);
+        $uri_segment4 = $this->uri->segment(4);
+        $uriSegment_5 = $this->uri->segment(5);
+
+        //loading content models
+        $this->load->model('gym_model');
+       // $this->load->model('gym_rate_group_model');
+       // $this->load->model('gym_rate_duration_bundle_model');
+       // $this->load->model('gym_rate_model');
+
+         $gym= $this->gym_model->get($uri_segment3);
+         $data['gym'] = $gym;
+         $data['main_content'] = "gym_rates";
+         $data['active'] = "gym_rates";
+         $this->load->view('includes/gym' ,$data);
+    }
 
 }
+

@@ -18,18 +18,20 @@
                 <li class="pull-left header">
                     <span class="fa fa-flash"></span> My Gyms
                 </li>
-
+                        
             </ul>
 
             <div class="tab-content no-padding">
                 <div class="tab-pane active" id="map_view">
                     <div id="my_gyms">
+                       
+                       
 
                     </div>
                 </div>
 
                 <div class="tab-pane" id="list_view">
-                    <table class="table table-stripped table-hover">
+                    <table class="table table-stripped table-hover" id="table">
                         <thead>
                         <tr>
                             <td>Name</td>
@@ -42,7 +44,8 @@
                         </tr>
                         </thead>
                         <tbody id="gyms_list">
-
+                         
+                       
                         </tbody>
                     </table>
                 </div>
@@ -65,3 +68,4 @@
 
     }
 </script>
+ 

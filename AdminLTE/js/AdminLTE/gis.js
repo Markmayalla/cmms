@@ -4,7 +4,8 @@
 
 
 console.log("Hey, GIS is Active");
-var gis_base_url = 'http://localhost/wellnessgurufit/';
+//this is my path 
+var gis_base_url = 'http://localhost/FITNESS/wellnessgurufit/';
 var map;
 var marker;
 var infowindow;

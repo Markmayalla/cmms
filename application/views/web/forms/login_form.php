@@ -20,5 +20,6 @@
         <div class="col-lg-12 form-group">
             <input type="submit" name="login" class="btn btn-info form-control" value="Login" />
         </div>
+        <p align="center"><a href="<?PHP echo base_url(); ?>index.php/web/forgot" >forgot password ?</a> </p>
     </Div>
 </form>
