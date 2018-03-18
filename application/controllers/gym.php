@@ -116,8 +116,8 @@ class Gym extends CI_Controller {
     public function gym_working_hours(){
 
          $uri_segment3 = $this->uri->segment(3);
-        $uri_segment4 = $this->uri->segment(4);
-          $uriSegment_5 = $this->uri->segment(5);
+         $uri_segment4 = $this->uri->segment(4);
+         $uriSegment_5 = $this->uri->segment(5);
 
         //Loading Important Models
         $this->load->model('gym_model');
@@ -126,23 +126,23 @@ class Gym extends CI_Controller {
 
         //my input data to database table gym_working_hours
         if ($uri_segment4 == "insert") {
-             $this->load->model('gym_model');
-            $this->load->model('gym_working_hour_model');
-            $gym = $this->gym_model->get_by(array('id' => $_POST['gym_id']));
+
+
+
             $formData = array();
-            $formData['gym_id'] = $gym->id;
+            $formData['gym_id'] = $uri_segment3;
             $formData['day'] = strtolower($_POST['day']);
             $formData['timerange'] = strtolower($_POST['timerange']);
             $this->gym_working_hour_model->insert($formData);
-            
+
         }
               
          
           $data['success_msg'] = "Added Successfull";
         
-         //$gym = $this->gym_model->get($uri_segment3);
-        $gym = $this->gym_working_hour_model->get($uri_segment4);
-        $data['gym'] = $gym;
+        //Geting Gym Working Hours with respect to the Gym ID
+        $gym_working_hours = $this->gym_working_hour_model->get_many_by(array('gym_id' => $uri_segment3));
+        $data['gym_working_hours'] = $gym_working_hours;
               
 
         $gym = $this->gym_model->get($uri_segment3);
