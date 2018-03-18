@@ -126,11 +126,11 @@ class Gym extends CI_Controller {
 
         //my input data to database table gym_working_hours
         if ($uri_segment4 == "insert") {
-             $this->load->model('gym_model');
-            $this->load->model('gym_working_hour_model');
-            $gym = $this->gym_model->get_by(array('id' => $_POST['gym_id']));
+            //$this->load->model('gym_model');
+            //$this->load->model('gym_working_hour_model');
+            //$gym = $this->gym_model->get_by(array('id' => $uri_segment3));
             $formData = array();
-            $formData['gym_id'] = $gym->id;
+            $formData['gym_id'] = $uri_segment3;
             $formData['day'] = strtolower($_POST['day']);
             $formData['timerange'] = strtolower($_POST['timerange']);
             $this->gym_working_hour_model->insert($formData);
@@ -141,7 +141,7 @@ class Gym extends CI_Controller {
           $data['success_msg'] = "Added Successfull";
         
          //$gym = $this->gym_model->get($uri_segment3);
-        $gym = $this->gym_working_hour_model->get($uri_segment4);
+        $gym = $this->gym_working_hour_model->get_many_by(array('gym_id' =>$uri_segment3));
         $data['gym'] = $gym;
               
 
@@ -154,19 +154,99 @@ class Gym extends CI_Controller {
 
 
     }
-    
+    //this function is for gym groups
        public function gym_rates(){
-          $data['menu_active'] = 'rates';
+    
             //passing the URi segmemnts
         $uri_segment3 = $this->uri->segment(3);
         $uri_segment4 = $this->uri->segment(4);
-        $uriSegment_5 = $this->uri->segment(5);
+
 
         //loading content models
         $this->load->model('gym_model');
-       // $this->load->model('gym_rate_group_model');
-       // $this->load->model('gym_rate_duration_bundle_model');
-       // $this->load->model('gym_rate_model');
+        $this->load->model('gym_rate_group_model');
+       
+           if ($uri_segment4 == "insert") {
+            $formData = array();
+            $formData['gym_id'] = $uri_segment3;
+            $formData['gym_groupname'] = strtolower($_POST['gym_groupname']);
+            $this->gym_rate_group_model->insert($formData);
+            
+        }
+              
+         
+          $data['success_msg'] = "Added Successfull";
+        
+            
+
+         $gym= $this->gym_model->get($uri_segment3);
+         $data['gym'] = $gym;
+         $data['main_content'] = "gym_rates";
+         $data['active'] = "gym_rates";
+         $this->load->view('includes/gym' ,$data);
+    }
+        //this fucntion if for duration bundle 
+        public function gym_bundle(){
+    
+            //passing the URi segmemnts
+        $uri_segment3 = $this->uri->segment(3);
+        $uri_segment4 = $this->uri->segment(4);
+    
+
+        //loading content models
+        $this->load->model('gym_model');
+        $this->load->model('gym_rate_duration_bundle_model');
+       
+           if ($uri_segment4 == "insert") {
+            $formData = array();
+            $formData['gym_id'] = $uri_segment3;
+            $formData['bundle_name'] = strtolower($_POST['bundle_name']);
+            $this->gym_rate_duration_bundle_model->insert($formData);
+            
+        }
+              
+         
+          $data['success_msg'] = "Added Successfull";
+        
+            
+
+         $gym= $this->gym_model->get($uri_segment3);
+         $data['gym'] = $gym;
+         $data['main_content'] = "gym_rates";
+         $data['active'] = "gym_rates";
+         $this->load->view('includes/gym' ,$data);
+    }
+        //this function is for amount for each duration bundle 
+        public function gym_rate_amount(){
+    
+            //passing the URi segmemnts
+        $uri_segment3 = $this->uri->segment(3);
+        $uri_segment4 = $this->uri->segment(4);
+    
+
+        //loading content models
+        $this->load->model('gym_model');
+        $this->load->model('gym_rate_duration_bundle_model');
+        $this->load->model('gym_rate_group_model');
+        $this->load->model('gym_rate_duration_bundle_model');
+     
+
+       
+           if ($uri_segment4 == "insert") {
+        $gym = $this->gym_rate_group_model->get_by(array('id' => $_POST['group_id']));
+        $gym = $this->gym_rate_duration_bundle_model->get_by(array('id' => $_POST['bundle_id']));
+
+            $formData = array();
+            $formData['gym_id'] = $uri_segment3;
+            $formData['bundle_name'] = strtolower($_POST['bundle_name']);
+            $this->gym_rate_duration_bundle_model->insert($formData);
+            
+        }
+              
+         
+          $data['success_msg'] = "Added Successfull";
+        
+            
 
          $gym= $this->gym_model->get($uri_segment3);
          $data['gym'] = $gym;

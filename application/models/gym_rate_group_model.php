@@ -6,6 +6,33 @@
  * Time: 7:23 PM
  */
 
-class gym_rate_groug_model extends MY_Model {
+ class gym_rate_group_model extends MY_Model {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>

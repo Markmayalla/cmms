@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/fitness/wellnessgurufit';
+$config['base_url'] = 'http://localhost/wellnessgurufit';
 
 /*
 |--------------------------------------------------------------------------
