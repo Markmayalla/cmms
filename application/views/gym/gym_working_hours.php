@@ -66,22 +66,22 @@
                         </tr>
                         </thead>
                         <tbody id="gyms_list">
-                         
-                        	<tr>
-                        		<td>
-                        <?php echo $gym->name;  ?>
-                    </td>
-                   
-                   	<td>
-                           <?php echo $gym->timerange; ?>
-                    </td>
-                     		<td>
-                          
-                    </td>
-                     		<td>
-           <a href="" class="btn btn-info"  title="EDIT" ><i class="fa fa-pencil"></i></a> &nbsp;<a href="" class="btn btn-danger" title="DELETE" ><i class="fa fa-trash-o fa-lg" ></i></a>
-                    </td>
-                       </tr>
+                         <?PHP
+                         if (isset($gym_working_hours) && count($gym_working_hours) > 0) {
+                             foreach ($gym_working_hours as $gym_working_hour) {
+                         ?>
+
+                             <tr>
+                                 <td><?PHP echo $gym->name; ?></td>
+                                 <td><?PHP echo $gym_working_hour->day; ?></td>
+                                 <td><?PHP echo $gym_working_hour->timerange; ?></td>
+                                 <td>
+                                     <a href="#" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>
+                                 </td>
+                             </tr>
+                         <?PHP
+                             }}
+                         ?>
             
                         </tbody>
                     </table>
