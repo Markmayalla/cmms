@@ -76,7 +76,8 @@
                                  <td><?PHP echo $gym_working_hour->day; ?></td>
                                  <td><?PHP echo $gym_working_hour->timerange; ?></td>
                                  <td>
-                                     <a href="#" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>
+                            <a href="#" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>
+            <a href="<?PHP echo base_url(); ?>index.php/gym/gym_working_hours/delete/<?PHP echo $gym_working_hour->id; ?>" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>
                                  </td>
                              </tr>
                          <?PHP

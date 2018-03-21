@@ -119,22 +119,14 @@ class Gym extends CI_Controller {
          $uri_segment4 = $this->uri->segment(4);
          $uriSegment_5 = $this->uri->segment(5);
 
+
         //Loading Important Models
         $this->load->model('gym_model');
          $this->load->model('gym_working_hour_model');
 
 
         //my input data to database table gym_working_hours
-        if ($uri_segment4 == "insert") {
-<<<<<<< HEAD
-            //$this->load->model('gym_model');
-            //$this->load->model('gym_working_hour_model');
-            //$gym = $this->gym_model->get_by(array('id' => $uri_segment3));
-=======
-
-
-
->>>>>>> c343bb3fdd708a9fc9acce1ce89306033da3aa1d
+        if ($uri_segment4 == "insert") { 
             $formData = array();
             $formData['gym_id'] = $uri_segment3;
             $formData['day'] = strtolower($_POST['day']);
@@ -142,21 +134,32 @@ class Gym extends CI_Controller {
             $this->gym_working_hour_model->insert($formData);
 
         }
+
+           if ($uri_segment4 == "update") {
+            $form_data = array();
+            foreach ($_POST as $key => $value) {
+                if ($key != 'update') {
+                    $form_data[$key] = $value;
+                }
+            }
+            $this->gym_working_hour_model->update($uri_segment3, $form_data);
+            $data['success_msg'] = "Update Successfull";
+        }
               
-         
+             
+
+               if($uri_segment4 =="delete"){
+             $this->gym_working_hour_model->delete($uriSegment_5);
+                $data['success_msg'] = "Deleted  is successfull";
+
+         }
           $data['success_msg'] = "Added Successfull";
         
-<<<<<<< HEAD
-         //$gym = $this->gym_model->get($uri_segment3);
-        $gym = $this->gym_working_hour_model->get_many_by(array('gym_id' =>$uri_segment3));
-        $data['gym'] = $gym;
-=======
+ 
         //Geting Gym Working Hours with respect to the Gym ID
         $gym_working_hours = $this->gym_working_hour_model->get_many_by(array('gym_id' => $uri_segment3));
-        $data['gym_working_hours'] = $gym_working_hours;
->>>>>>> c343bb3fdd708a9fc9acce1ce89306033da3aa1d
-              
-
+        $data['gym_working_hours'] = $gym_working_hours; 
+       
         $gym = $this->gym_model->get($uri_segment3);
         $data['gym'] = $gym;
         $data['main_content'] = "gym_working_hours";
@@ -188,8 +191,12 @@ class Gym extends CI_Controller {
               
          
           $data['success_msg'] = "Added Successfull";
-        
-            
+        //getting gym group name corresponding gym id
+        $gym_rate_group = $this->gym_rate_group_model->get_many_by(array('gym_id' => $uri_segment3));
+       $data['gym_rate_group'] = $gym_rate_group;
+         //gym_get selcect option value 
+        $gym_option = $this->gym_rate_group_model->get_many_by(array('gym_id' => $uri_segment3));
+       $data['gym_option'] = $gym_option;
 
          $gym= $this->gym_model->get($uri_segment3);
          $data['gym'] = $gym;
@@ -219,8 +226,12 @@ class Gym extends CI_Controller {
               
          
           $data['success_msg'] = "Added Successfull";
-        
-            
+         //getting gym duration bundle corresponding gym id
+        $gym_rate_bundle = $this->gym_rate_duration_bundle_model->get_many_by(array('gym_id' => $uri_segment3));
+       $data['gym_rate_bundle'] = $gym_rate_bundle;
+       //get data from option value 
+        $select = $this->gym_rate_duration_bundle_model->get_many_by(array('gym_id' => $uri_segment3));
+       $data['select'] = $select;
 
          $gym= $this->gym_model->get($uri_segment3);
          $data['gym'] = $gym;
@@ -234,32 +245,42 @@ class Gym extends CI_Controller {
             //passing the URi segmemnts
         $uri_segment3 = $this->uri->segment(3);
         $uri_segment4 = $this->uri->segment(4);
+        $uri_segment5  = $this->uri->segment(5);
     
 
         //loading content models
         $this->load->model('gym_model');
         $this->load->model('gym_rate_duration_bundle_model');
         $this->load->model('gym_rate_group_model');
-        $this->load->model('gym_rate_duration_bundle_model');
+        $this->load->model('gym_rate_model');
      
 
        
            if ($uri_segment4 == "insert") {
-        $gym = $this->gym_rate_group_model->get_by(array('id' => $_POST['group_id']));
-        $gym = $this->gym_rate_duration_bundle_model->get_by(array('id' => $_POST['bundle_id']));
+        $gym = $this->gym_rate_group_model->get_by(array('id' => $_POST['id']));
+        $gym = $this->gym_rate_duration_bundle_model->get_by(array('id' => $_POST['id']));
 
             $formData = array();
             $formData['gym_id'] = $uri_segment3;
-            $formData['bundle_name'] = strtolower($_POST['bundle_name']);
-            $this->gym_rate_duration_bundle_model->insert($formData);
+            $formData['amount'] = strtolower($_POST['amount']);
+            $this->gym_rate_model->insert($formData);
             
         }
+
+         if($uri_segment4 =='delete_rate_amount'){
+
+            //$this->gym_rate_model->delete_by(array('id' => $uriSegment5));
+             $this->gym_rate_model->delete($uriSegment5);
+                $data['success_msg'] = "Deleted  is successfull";
+
+         }
               
          
           $data['success_msg'] = "Added Successfull";
-        
-            
-
+         
+        //gym rates amount for each bundle and group match to gym ID
+        $gym_amount = $this->gym_rate_model->get_many_by(array('gym_id' => $uri_segment3));
+        $data['gym_amount'] = $gym_amount; 
          $gym= $this->gym_model->get($uri_segment3);
          $data['gym'] = $gym;
          $data['main_content'] = "gym_rates";
