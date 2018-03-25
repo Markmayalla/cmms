@@ -288,17 +288,22 @@
                             <a href="<?PHP echo base_url(); ?>index.php/gym/gym_address/<?PHP echo $gym->id; ?>">
                                 <i class="fa fa-map-marker"></i> <span>Manage Address</span>
                             </a>
+
                         </li>
+
                         <li class="<?PHP echo (isset($active) && $active == 'gym_classes' ? 'active' : ''); ?>">
                             <a href="<?PHP echo base_url(); ?>index.php/gym/gym_classes/<?PHP echo $gym->id; ?>">
                                 <i class="fa fa-calendar-o"></i> <span>Manage Classes</span>
                             </a>
                         </li>
+                        
                         <li class="<?PHP echo (isset($active) && $active == 'gym_rates' ? 'active' : ''); ?>">
                             <a href="<?PHP echo base_url(); ?>index.php/gym/gym_rates/<?PHP echo $gym->id; ?>">
                                 <i class="fa fa-money"></i> <span>Manage Rates</span>
                             </a>
+                            
                         </li>
+                    
                         <li class="<?PHP echo (isset($active) && $active == 'gym_working_hours' ? 'active' : ''); ?>">
                             <a href="<?PHP echo base_url(); ?>index.php/gym/gym_working_hours/<?PHP echo $gym->id; ?>">
                                 <i class="fa fa-clock-o"></i> <span>Set Working Hours</span>
