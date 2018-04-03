@@ -1,13 +1,19 @@
-<div class="container">
+ <div class="row">
     <div class="col-lg-3">
-
-        <ul>
-            <li><a href="<?PHP echo base_url() ?>index.php/gym/gym_rates/<?PHP echo $gym->id; ?>/groups">Rate Groups</a> </li>
+        <div class="box box-danger">
+            <div class="box-header">
+                <h3 class="box-title">Gym Rate Menu </h3>
+            </div>
+            <div class="box-body">
+        <ul class="nav nav-pills nav-stacked">
+            <li class=""><a  href="<?PHP echo base_url() ?>index.php/gym/gym_rates/<?PHP echo $gym->id; ?>/groups">Rate Groups</a> </li>
             <li><a href="<?PHP echo base_url() ?>index.php/gym/gym_rates/<?PHP echo $gym->id; ?>/bundles">Rate Bundles</a> </li>
             <li><a href="<?PHP echo base_url() ?>index.php/gym/gym_rates/<?PHP echo $gym->id; ?>/rates">Rates Amounts</a> </li>
         </ul>
 
     </div>
+</div>
+</div>
 
     <div class="col-lg-9">
         <?PHP if (isset($success_msg)) { ?>
