@@ -26,7 +26,7 @@
       <file leaf-file-name="gym.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/gym.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="426" column="43" selection-start="15017" selection-end="15017" vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="6645">
+            <state line="426" column="0" selection-start="15055" selection-end="15055" vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="7050">
               <folding />
             </state>
           </provider>
@@ -35,25 +35,25 @@
       <file leaf-file-name="groups.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/groups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="108" selection-start="661" selection-end="661" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="1050">
+            <state line="21" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="1185">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bundles.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="bundles.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/bundles.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="106" selection-start="665" selection-end="665" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="1050">
+            <state line="20" column="10" selection-start="910" selection-end="910" vertical-scroll-proportion="0.47393364" vertical-offset="0" max-vertical-offset="1140">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gym_photos.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gym_photos.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/gym/gym_photos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="0.048" vertical-offset="0" max-vertical-offset="625">
+            <state line="2" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="rates.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/rates.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="29" selection-start="112" selection-end="112" vertical-scroll-proportion="13.125" vertical-offset="360" max-vertical-offset="1560">
+            <state line="3" column="29" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1560">
               <folding />
             </state>
           </provider>
@@ -71,21 +71,8 @@
       <file leaf-file-name="gym_rates.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1812" selection-end="1812" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="720">
-              <folding>
-                <marker date="1522261537000" expanded="true" signature="21:1810" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="52:1214" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="95:1198" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="136:215" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="255:1179" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="314:1156" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="422:585" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="694:859" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="966:1130" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="1246:1799" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="1276:1710" placeholder="..." />
-                <marker date="1522261537000" expanded="true" signature="1316:1691" placeholder="..." />
-              </folding>
+            <state line="42" column="0" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="750">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,7 +89,7 @@
       <file leaf-file-name="header2.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/includes/header2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="-197.5" vertical-offset="0" max-vertical-offset="5400">
+            <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="0.0" vertical-offset="4740" max-vertical-offset="5400">
               <folding />
             </state>
           </provider>
@@ -192,9 +179,9 @@
         <option value="$PROJECT_DIR$/application/views/gym/gym_rates.php" />
         <option value="$PROJECT_DIR$/application/controllers/gym.php" />
         <option value="$PROJECT_DIR$/application/views/includes/header2.php" />
+        <option value="$PROJECT_DIR$/application/views/gym/gym_photos.php" />
         <option value="$PROJECT_DIR$/application/views/gym/gym_rates/groups.php" />
         <option value="$PROJECT_DIR$/application/views/gym/gym_rates/bundles.php" />
-        <option value="$PROJECT_DIR$/application/views/gym/gym_photos.php" />
       </list>
     </option>
   </component>
@@ -229,7 +216,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,6 +400,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym_rates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pes.co.tz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wellnessgurufit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -492,6 +504,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -578,14 +591,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32808024" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23564954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23499268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3994452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -593,11 +606,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32808024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32808024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -615,9 +628,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23564954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -870,27 +883,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1812" selection-end="1812" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="720">
-          <folding>
-            <marker date="1522261537000" expanded="true" signature="21:1810" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="52:1214" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="95:1198" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="136:215" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="255:1179" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="314:1156" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="422:585" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="694:859" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="966:1130" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="1246:1799" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="1276:1710" placeholder="..." />
-            <marker date="1522261537000" expanded="true" signature="1316:1691" placeholder="..." />
-          </folding>
+        <state line="42" column="0" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="750">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/gym.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="426" column="43" selection-start="15017" selection-end="15017" vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="6645">
+        <state line="426" column="0" selection-start="15055" selection-end="15055" vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="7050">
           <folding />
         </state>
       </provider>
@@ -904,35 +904,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/includes/header2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="-197.5" vertical-offset="0" max-vertical-offset="5400">
+        <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="0.0" vertical-offset="4740" max-vertical-offset="5400">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/rates.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29" selection-start="112" selection-end="112" vertical-scroll-proportion="13.125" vertical-offset="360" max-vertical-offset="1560">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/groups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="108" selection-start="661" selection-end="661" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/bundles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="106" selection-start="665" selection-end="665" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="1050">
+        <state line="3" column="29" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1560">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/gym/gym_photos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="0.048" vertical-offset="0" max-vertical-offset="625">
+        <state line="2" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/groups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/bundles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="10" selection-start="910" selection-end="910" vertical-scroll-proportion="0.47393364" vertical-offset="0" max-vertical-offset="1140">
           <folding />
         </state>
       </provider>
