@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-lg-6">
         <div class="box box-primary">
@@ -16,7 +17,17 @@
                 </form>
             </div>
         </div>
+
     </div>
+  </div>
+</div>
+
+      <div class="col-lg-5">
+        <Div class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">Gym Rate Groups</h3>
+            </div>
+
 
     <div class="col-lg-6">
         <div class="box box-info">
@@ -50,6 +61,7 @@
                                 </td>
                             </tr>
 
+
                         <?PHP
                         }
                     }
@@ -57,9 +69,11 @@
                     ?>
                     <tbody>
 
+
                     </tbody>
                 </table>
             </div>
         </div>
+
     </div>
 </div>

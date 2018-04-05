@@ -1,4 +1,5 @@
 
+
     <div class="row">
         <div class="col-lg-3">
 
@@ -36,6 +37,7 @@
 
                 </Div>
             </div>
+
 
             <?PHP $this->load->view('gym/gym_rates/' . $sub_content); ?>
         </div>
