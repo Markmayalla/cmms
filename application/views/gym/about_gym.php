@@ -41,16 +41,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="box box-info">
-            <div class="box-header">
-                <h3 class="box-title">About <?PHP echo strtoupper($gym->name); ?></h3>
-            </div>
-
-            <div class="box-body">
-
-            </div>
-        </div>
     </div>
 
     <div class="col-lg-6">
@@ -87,7 +77,7 @@
             console.log(position);
             var address_map = new google.maps.Map(document.getElementById('address_map'), {
                 center: position,
-                zoom: 17
+                zoom: 8
             });
 
             var marker = new google.maps.Marker({

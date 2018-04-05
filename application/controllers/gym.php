@@ -106,6 +106,17 @@ class Gym extends CI_Controller {
         //Loading Important Models
         $this->load->model('gym_model');
 
+        if ($uri_segment4 == "update") {
+            $form_data = array();
+            foreach ($_POST as $key => $value) {
+                if ($key != 'update') {
+                    $form_data[$key] = $value;
+                }
+            }
+            $this->gym_model->update($uri_segment3, $form_data);
+            $data['success_msg'] = "Update Successfull";
+        }
+
         $gym = $this->gym_model->get($uri_segment3);
         $data['gym'] = $gym;
         $data['main_content'] = "gym_address";
