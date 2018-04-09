@@ -7,8 +7,12 @@
 
             <div class="box-body">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="">Classes</a> </li>
-                    <li><a href="">Scheduals</a> </li>
+                    <li class="<?PHP echo (isset($active) && $active == 'classes' ? 'active' : ''); ?>">
+                        <a href="<?PHP echo base_url() ?>index.php/gym/gym_classes/<?PHP echo $gym->id; ?>/classes">Classes</a>
+                    </li>
+                    <li class="<?PHP echo (isset($active) && $active == 'scheduals' ? 'active' : ''); ?>">
+                        <a href="<?PHP echo base_url() ?>index.php/gym/gym_classes/<?PHP echo $gym->id; ?>/scheduals">Scheduals</a>
+                    </li>
                 </ul>
             </div>
         </div>

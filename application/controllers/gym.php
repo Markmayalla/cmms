@@ -134,6 +134,7 @@ class Gym extends CI_Controller {
         //Loading Important Models
         $this->load->model('gym_model');
         $this->load->model('class_model');
+        $this->load->model('class_schedual_model');
 
         if ($uriSegment4 == 'classes' || $uriSegment4 == false) {
 
@@ -189,8 +190,10 @@ class Gym extends CI_Controller {
                     'btn_name' => 'add_class',
                     'btn_value' => 'Add Class'
                 );
-                $this->class_model->delete($uriSegment6);
+                
                 $this->class_schedual_model->delete_by(array('classes_id' => $uriSegment6));
+                $this->class_model->delete($uriSegment6);
+
             }
 
             $result = $this->class_model->get_many_by(array('gyms_id' => $uriSegment3));
@@ -201,6 +204,78 @@ class Gym extends CI_Controller {
 
             $data['active'] = 'classes';
             $data['sub_content'] = 'classes';
+        }
+
+        if ($uriSegment4 == 'scheduals') {
+
+            if ($uriSegment5 == 'insert' || $uriSegment5 == false) {
+                $data['form'] = array(
+                    'action' => base_url() . "index.php/gym/gym_classes/" . $uriSegment3 . '/scheduals/insert',
+                    'btn_name' => 'add_schedual',
+                    'btn_value' => 'Add Schedual'
+                );
+
+                if (isset($_POST['add_schedual'])) {
+                    $formData = array();
+                    foreach ($_POST as $key => $value) {
+                        if ($key != 'add_schedual') {
+                            $formData[$key] = $value;
+                        }
+                    }
+                    $formData['gyms_id'] = $uriSegment3;
+                    $this->class_schedual_model->insert($formData);
+                    $data['success_msg'] = 'Schedual Added Successfully';
+                }
+
+            }
+
+            if ($uriSegment5 == 'update') {
+                $data['form'] = array(
+                    'action' => base_url() . "index.php/gym/gym_classes/" . $uriSegment3 . '/scheduals/update/' . $uriSegment6,
+                    'btn_name' => 'edit_schedual',
+                    'btn_value' => 'Edit Schedual'
+                );
+                $form_values = $this->class_schedual_model->get($uriSegment6);
+                $data['form_values'] = $form_values;
+
+                if (isset($_POST['edit_schedual'])) {
+                    $formData = array();
+                    foreach ($_POST as $key => $value) {
+                        if ($key != 'edit_schedual') {
+                            $formData[$key] = $value;
+                        }
+                    }
+
+                    $this->class_schedual_model->update($uriSegment6, $formData);
+                    $data['success_msg'] = 'Schedual Updated Successfully';
+                }
+
+
+
+            }
+
+            if ($uriSegment5 == 'delete') {
+                $data['form'] = array(
+                    'action' => base_url() . "index.php/gym/gym_classes/" . $uriSegment3 . '/schedual/insert',
+                    'btn_name' => 'add_schedual',
+                    'btn_value' => 'Add Schedual'
+                );
+                $this->class_schedual_model->delete($uriSegment6);
+            }
+
+            $result = $this->class_schedual_model->get_many_by(array('gyms_id' => $uriSegment3));
+            $classes = $this->class_model->get_many_by(array('gyms_id' => $uriSegment3));
+
+            if (count($classes) > 0) {
+                $data['classes'] = $classes;
+            }
+
+            if (count($result) > 0) {
+                $data['scheduals'] = $result;
+            }
+
+            $data['active'] = 'scheduals';
+            $data['sub_content'] = 'scheduals';
         }
 
         $gym = $this->gym_model->get($uriSegment3);
