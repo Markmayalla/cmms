@@ -19,7 +19,7 @@ class Gym extends CI_Controller {
     }
 
     public function dashboard() {
-        $data['active'] = 'dashboard';
+        $data['menu_active'] = 'dashboard';
         $data['main_content'] = 'dashboard';
         $this->load->view('includes/gym', $data);
     }
@@ -50,7 +50,7 @@ class Gym extends CI_Controller {
 
         }
 
-        $data['active'] = 'view_gym';
+        $data['menu_active'] = 'view_gym';
         $data['main_content'] = 'dashboard';
         $this->load->view('includes/gym', $data);
     }
@@ -77,7 +77,7 @@ class Gym extends CI_Controller {
         $gym = $this->gym_model->get($uri_segment3);
         $data['gym'] = $gym;
 
-        $data['active'] = 'about_gym';
+        $data['menu_active'] = 'about_gym';
         $data['main_content'] = 'about_gym';
         $this->load->view('includes/gym', $data);
     }
@@ -92,7 +92,7 @@ class Gym extends CI_Controller {
 
         $gym = $this->gym_model->get($uri_segment3);
         $data['gym'] = $gym;
-        $data['active'] = 'gym_photos';
+        $data['menu_active'] = 'gym_photos';
         $data['main_content'] = 'gym_photos';
         $this->load->view('includes/gym', $data);
     }
@@ -120,10 +120,96 @@ class Gym extends CI_Controller {
         $gym = $this->gym_model->get($uri_segment3);
         $data['gym'] = $gym;
         $data['main_content'] = "gym_address";
-        $data['active'] = "gym_address";
+        $data['menu_active'] = "gym_address";
         $this->load->view('includes/gym', $data);
     }
-   
+
+    public function gym_classes() {
+        //Instantiation URI Segments
+        $uriSegment3 = $this->uri->segment(3);
+        $uriSegment4 = $this->uri->segment(4);
+        $uriSegment5 = $this->uri->segment(5);
+        $uriSegment6 = $this->uri->segment(6);
+
+        //Loading Important Models
+        $this->load->model('gym_model');
+        $this->load->model('class_model');
+
+        if ($uriSegment4 == 'classes' || $uriSegment4 == false) {
+
+            if ($uriSegment5 == 'insert' || $uriSegment5 == false) {
+                $data['form'] = array(
+                    'action' => base_url() . "index.php/gym/gym_classes/" . $uriSegment3 . '/classes/insert',
+                    'btn_name' => 'add_class',
+                    'btn_value' => 'Add Class'
+                );
+
+                if (isset($_POST['add_class'])) {
+                    $formData = array();
+                    foreach ($_POST as $key => $value) {
+                        if ($key != 'add_class') {
+                            $formData[$key] = $value;
+                        }
+                    }
+                    $formData['gyms_id'] = $uriSegment3;
+                    $this->class_model->insert($formData);
+                    $data['success_msg'] = 'Class Added Successfully';
+                }
+
+            }
+
+            if ($uriSegment5 == 'update') {
+                $data['form'] = array(
+                    'action' => base_url() . "index.php/gym/gym_classes/" . $uriSegment3 . '/classes/update/' . $uriSegment6,
+                    'btn_name' => 'edit_class',
+                    'btn_value' => 'Edit Class'
+                );
+                $form_values = $this->class_model->get($uriSegment6);
+                $data['form_values'] = $form_values;
+
+                if (isset($_POST['edit_class'])) {
+                    $formData = array();
+                    foreach ($_POST as $key => $value) {
+                        if ($key != 'edit_class') {
+                            $formData[$key] = $value;
+                        }
+                    }
+
+                    $this->class_model->update($uriSegment6, $formData);
+                    $data['success_msg'] = 'Class Updated Successfully';
+                }
+
+
+
+            }
+
+            if ($uriSegment5 == 'delete') {
+                $data['form'] = array(
+                    'action' => base_url() . "index.php/gym/gym_classes/" . $uriSegment3 . '/classes/insert',
+                    'btn_name' => 'add_class',
+                    'btn_value' => 'Add Class'
+                );
+                $this->class_model->delete($uriSegment6);
+                $this->class_schedual_model->delete_by(array('classes_id' => $uriSegment6));
+            }
+
+            $result = $this->class_model->get_many_by(array('gyms_id' => $uriSegment3));
+
+            if (count($result) > 0) {
+                $data['classes'] = $result;
+            }
+
+            $data['active'] = 'classes';
+            $data['sub_content'] = 'classes';
+        }
+
+        $gym = $this->gym_model->get($uriSegment3);
+        $data['gym'] = $gym;
+        $data['menu_active'] = 'gym_classes';
+        $data['main_content'] = 'gym_classes';
+        $this->load->view('includes/gym', $data);
+    }
+
     public function gym_working_hours(){
 
          $uriSegment3 = $this->uri->segment(3);
@@ -201,7 +287,7 @@ class Gym extends CI_Controller {
         $gym = $this->gym_model->get($uriSegment3);
         $data['gym'] = $gym;
         $data['main_content'] = "gym_working_hours";
-        $data['active'] = "gym_working_hours";
+        $data['menu_active'] = "gym_working_hours";
         $this->load->view('includes/gym', $data);
 
 

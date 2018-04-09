@@ -23,14 +23,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gym.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="gym.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/gym.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="9" selection-start="3253" selection-end="3253" vertical-scroll-proportion="-18.791666" vertical-offset="1229" max-vertical-offset="2055">
+            <state line="160" column="0" selection-start="4810" selection-end="4810" vertical-scroll-proportion="0.55417955" vertical-offset="1967" max-vertical-offset="6180">
               <folding>
                 <element signature="n#gym_working_hours#0;n#Gym#0;n#!!top" expanded="false" />
-                <element signature="n#gym_rates#0;n#Gym#0;n#!!top" expanded="false" />
+                <element signature="e#10394#13020#0" expanded="false" />
+                <element signature="e#10464#11309#0" expanded="false" />
+                <element signature="e#11323#12258#0" expanded="false" />
+                <element signature="e#12272#12728#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class_schedual_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/class_schedual_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="240">
+              <folding>
+                <element signature="e#6#84#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/class_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="123" selection-end="123" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="240">
+              <folding>
+                <element signature="e#6#84#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gym_classes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/gym/gym_classes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="66" selection-start="566" selection-end="566" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/gym/classes/classes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="98" selection-start="815" selection-end="815" vertical-scroll-proportion="-7.5" vertical-offset="60" max-vertical-offset="1200">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -38,16 +81,7 @@
       <file leaf-file-name="groups.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/groups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="1185">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bundles.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/bundles.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="10" selection-start="910" selection-end="910" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="1140">
+            <state line="72" column="10" selection-start="916" selection-end="2619" vertical-scroll-proportion="-24.5" vertical-offset="492" max-vertical-offset="1185">
               <folding />
             </state>
           </provider>
@@ -62,28 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rates.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/rates.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="29" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1560">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="gym_rates.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="root.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/root.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="28" selection-start="8939" selection-end="8939" vertical-scroll-proportion="0.0" vertical-offset="3345" max-vertical-offset="15015">
+            <state line="42" column="0" selection-start="1788" selection-end="1788" vertical-scroll-proportion="-26.25" vertical-offset="0" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
@@ -92,25 +108,16 @@
       <file leaf-file-name="header2.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/includes/header2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="0.0" vertical-offset="4740" max-vertical-offset="5400">
+            <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="-9.375" vertical-offset="4515" max-vertical-offset="5400">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about_gym.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="about_gym.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/gym/about_gym.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="23" selection-start="3559" selection-end="3559" vertical-scroll-proportion="0.38388625" vertical-offset="942" max-vertical-offset="1575">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gym_address.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/gym/gym_address.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="23" selection-start="8697" selection-end="8697" vertical-scroll-proportion="-10.125" vertical-offset="2217" max-vertical-offset="2850">
+            <state line="65" column="0" selection-start="2890" selection-end="4058" vertical-scroll-proportion="-1.375" vertical-offset="942" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
@@ -126,10 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/root/diet/vitamins.php" />
-        <option value="$PROJECT_DIR$/application/views/root/diet/meal_categories.php" />
-        <option value="$PROJECT_DIR$/application/models/meal_elements_category_model.php" />
-        <option value="$PROJECT_DIR$/application/models/meals_elements_category_model.php" />
         <option value="$PROJECT_DIR$/application/models/meals_category_model.php" />
         <option value="$PROJECT_DIR$/application/views/root/diet/meal_categories_true.php" />
         <option value="$PROJECT_DIR$/application/views/root/diet/meals_components.php" />
@@ -174,9 +177,13 @@
         <option value="$PROJECT_DIR$/application/views/gym/gym_photos.php" />
         <option value="$PROJECT_DIR$/application/views/gym/gym_rates/groups.php" />
         <option value="$PROJECT_DIR$/application/views/gym/gym_rates/bundles.php" />
-        <option value="$PROJECT_DIR$/application/controllers/gym.php" />
         <option value="$PROJECT_DIR$/application/views/gym/gym_address.php" />
         <option value="$PROJECT_DIR$/application/views/gym/about_gym.php" />
+        <option value="$PROJECT_DIR$/application/views/gym/gym_classes.php" />
+        <option value="$PROJECT_DIR$/application/models/class_model.php" />
+        <option value="$PROJECT_DIR$/application/models/class_schedual_model.php" />
+        <option value="$PROJECT_DIR$/application/views/gym/classes/classes.php" />
+        <option value="$PROJECT_DIR$/application/controllers/gym.php" />
       </list>
     </option>
   </component>
@@ -378,6 +385,58 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gym" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pes.co.tz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wellnessgurufit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym_rates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pes.co.tz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wellnessgurufit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -603,26 +662,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/root/diet/add_meal_component.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="48" selection-start="3158" selection-end="3158" vertical-scroll-proportion="-30.625" vertical-offset="0" max-vertical-offset="1095" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/root/diet/diet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/exercise_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="240" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/program_exercise_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="135" selection-end="135" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="240" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/exercise_program_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="670" />
@@ -822,23 +861,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/root.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="223" column="28" selection-start="8939" selection-end="8939" vertical-scroll-proportion="0.0" vertical-offset="3345" max-vertical-offset="15015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/includes/header2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="0.0" vertical-offset="4740" max-vertical-offset="5400">
           <folding />
         </state>
       </provider>
@@ -850,34 +875,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_photos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/groups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="1185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/bundles.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="10" selection-start="910" selection-end="910" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="1140">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/gym.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="9" selection-start="3253" selection-end="3253" vertical-scroll-proportion="-18.791666" vertical-offset="1229" max-vertical-offset="2055">
-          <folding>
-            <element signature="n#gym_working_hours#0;n#Gym#0;n#!!top" expanded="false" />
-            <element signature="n#gym_rates#0;n#Gym#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,8 +891,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/gym/about_gym.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="23" selection-start="3559" selection-end="3559" vertical-scroll-proportion="0.38388625" vertical-offset="942" max-vertical-offset="1575">
+        <state line="65" column="0" selection-start="2890" selection-end="4058" vertical-scroll-proportion="-1.375" vertical-offset="942" max-vertical-offset="1575">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/includes/header2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="316" column="82" selection-start="13867" selection-end="13867" vertical-scroll-proportion="-9.375" vertical-offset="4515" max-vertical-offset="5400">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1788" selection-end="1788" vertical-scroll-proportion="-26.25" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_photos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_classes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="66" selection-start="566" selection-end="566" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/class_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="123" selection-end="123" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="240">
+          <folding>
+            <element signature="e#6#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/class_schedual_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="240">
+          <folding>
+            <element signature="e#6#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/gym/gym_rates/groups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="10" selection-start="916" selection-end="2619" vertical-scroll-proportion="-24.5" vertical-offset="492" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/gym/classes/classes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="98" selection-start="815" selection-end="815" vertical-scroll-proportion="-7.5" vertical-offset="60" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/gym.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="0" selection-start="4810" selection-end="4810" vertical-scroll-proportion="0.55417955" vertical-offset="1967" max-vertical-offset="6180">
+          <folding>
+            <element signature="n#gym_working_hours#0;n#Gym#0;n#!!top" expanded="false" />
+            <element signature="e#10394#13020#0" expanded="false" />
+            <element signature="e#10464#11309#0" expanded="false" />
+            <element signature="e#11323#12258#0" expanded="false" />
+            <element signature="e#12272#12728#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
