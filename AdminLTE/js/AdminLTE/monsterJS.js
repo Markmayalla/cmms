@@ -61,34 +61,215 @@
         last_name: "",
         middle_name: "",
         gender: "",
-        phone: {},
-        email: {},
-        address: {}
+        phones: [],
+        emails: [],
+        address: []
     };
 
-    phone = {
-        type
-    }
 
 
     $('#step2').hide();
+    $('#step3').hide();
+    $('#step4').hide();
+
     $('#next1').click(function () {
-        $('#step').html("2");
-        $('#reg_progress').css('width', '70%');
-       $('#step1').hide();
-       $('#step2').show();
+
+        userStep1 = $('#user_step1').parsley();
+
+        if (userStep1.validate()) {
+
+            $('#step').html("2");
+            $('#reg_progress').css('width', '50%');
+            $('#step1').hide();
+            $('#step2').show();
+
+            regObj.first_name = $('#first_name').val();
+            regObj.last_name = $('#last_name').val();
+            regObj.middle_name = $('#middle_name').val();
+            regObj.gender = $('#gender').val();
+
+            console.log(regObj);
+
+        } else {
+
+        }
+
+
     });
+
+    userStep2 = $('#user_step2').parsley();
+    userStep3 = $('#user_step3').parsley();
 
     $('#back_to_1').click(function () {
         $('#step').html("1");
-        $('#reg_progress').css('width', '40%');
+        $('#reg_progress').css('width', '25%');
         $('#step1').show();
         $('#step2').hide();
     });
 
+    $('#back_to_2').click(function () {
+        $('#step').html("2");
+        $('#reg_progress').css('width', '50%');
+        $('#step2').show();
+        $('#step3').hide();
+    });
+
+    $('#back_to_3').click(function () {
+        $('#step').html("3");
+        $('#reg_progress').css('width', '75%');
+        $('#step3').show();
+        $('#step4').hide();
+    });
+
+    $('#reset_phone').click(function () {
+       regObj.phones = [];
+       $('#phones').html(".");
+    });
+
     $('#add_phone').click(function () {
 
+        if (userStep2.validate()) {
+            title = $('#title').val();
+            number = $('#phone').val();
+            console.log("title: " + title + ", number: " + number);
+            phoneObj = {};
+            phoneObj['title'] = title;
+            phoneObj['number'] = number;
+            regObj.phones.push(phoneObj);
+            phones = $('#phones');
+            phones.html("");
+            phones.append('<ul></ul>');
+            phones = $('#phones ul');
+
+            for (i=0;i<regObj.phones.length;i++) {
+                phones.append("<li>" + regObj.phones[i].title + ": " + regObj.phones[i].number + "</li>");
+            }
+
+            console.log(regObj);
+        } else {
+
+        }
+
     });
+
+    $('#reset_email').click(function () {
+        regObj.emails = [];
+        $('#emails').html(".");
+    });
+
+    $('#add_email').click(function () {
+
+        if (userStep2.validate()) {
+            email = $('#email').val();
+            console.log("email: " + email);
+            emailObj = {};
+            emailObj['email'] = email;
+            regObj.emails.push(emailObj);
+            emails = $('#emails');
+            emails.html("");
+            emails.append('<ul></ul>');
+            emails = $('#emails ul');
+
+            for (i=0;i<regObj.emails.length;i++) {
+                emails.append("<li>" + regObj.emails[i].email + "</li>");
+            }
+
+            console.log(regObj);
+        } else {
+
+        }
+
+    });
+
+    $('#next2').click(function () {
+        userStep2 = $('#user_step2').parsley();
+
+        if (userStep2.validate()) {
+
+            $('#step').html("3");
+            $('#reg_progress').css('width', '75%');
+            $('#step2').hide();
+            $('#step3').show();
+
+            console.log(regObj);
+
+        } else {
+
+        }
+    });
+
+    $('#reset_address').click(function () {
+        regObj.address = [];
+        $('#addresses').html(".");
+    });
+
+    $('#add_address').click(function () {
+
+
+        if (userStep3.validate()) {
+            box = $('#box').val();
+            street = $('#street').val();
+            district = $('#district').val();
+            region = $('#region').val();
+            country = $('#country').val();
+            addressObj = {};
+            addressObj['box'] = box;
+            addressObj['street'] = street;
+            addressObj['district'] = district;
+            addressObj['region'] = region;
+            addressObj['country'] = country;
+            regObj.address.push(addressObj);
+            addresses = $('#addresses');
+            addresses.html("");
+            addresses.append('<ul></ul>');
+            addresses = $('#addresses ul');
+
+            for (i=0;i<regObj.address.length;i++) {
+                addresses.append("<li>" + regObj.address[i].box + ", " +
+                    regObj.address[i].street + ", " +
+                    regObj.address[i].district + ", " +
+                    regObj.address[i].region + ", " +
+                    regObj.address[i].country + "</li>");
+            }
+
+            console.log(regObj);
+        } else {
+
+        }
+
+    });
+
+    $('#next3').click(function () {
+        userStep3 = $('#user_step3').parsley();
+
+        if (userStep3.validate()) {
+
+        $('#step').html("4");
+        $('#reg_progress').css('width', '100%');
+        $('#step3').hide();
+        $('#step4').show();
+
+        console.log(regObj);
+
+    } else {
+
+    }
+});
+
+    $('#finish').click(function () {
+        userStep4 = $('#user_step4').parsley();
+
+        if (userStep4.validate()) {
+
+            alert("Ajax Calls to insert values to the database");
+
+            console.log(regObj);
+
+        } else {
+
+        }
+    });
+
 
 
 
