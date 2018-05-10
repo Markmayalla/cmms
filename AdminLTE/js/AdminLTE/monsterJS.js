@@ -56,6 +56,43 @@
     $('#products_table').DataTable();
     $('#default_table').DataTable();
 
+    regObj = {
+        first_name: "",
+        last_name: "",
+        middle_name: "",
+        gender: "",
+        phone: {},
+        email: {},
+        address: {}
+    };
+
+    phone = {
+        type
+    }
+
+
+    $('#step2').hide();
+    $('#next1').click(function () {
+        $('#step').html("2");
+        $('#reg_progress').css('width', '70%');
+       $('#step1').hide();
+       $('#step2').show();
+    });
+
+    $('#back_to_1').click(function () {
+        $('#step').html("1");
+        $('#reg_progress').css('width', '40%');
+        $('#step1').show();
+        $('#step2').hide();
+    });
+
+    $('#add_phone').click(function () {
+
+    });
+
+
+
+
     /* --- Charts --- */
     try {
         var ctx = document.getElementById("sampleChart").getContext('2d');

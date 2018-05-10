@@ -1,5 +1,16 @@
-.top-bar {
-    padding: 20px;
+#logo h1 {
+    padding-left: 40px;
+    font-family: "Arial Narrow";
+    font-style: italic;
+    color: darkcyan;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+
+#header_row {
+    border-bottom: 2px solid darkcyan;
 }
 
 input.parsley-success,

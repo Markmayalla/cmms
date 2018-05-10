@@ -4,7 +4,9 @@
 $(document).ready(function() {
 
 
-    var base_url = 'http://localhost/wellnesstz.com/';
+    var base_url = 'http://localhost/cpms/';
+
+
 
 
 
