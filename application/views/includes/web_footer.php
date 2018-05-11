@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-lg-3 col-md-4">
-        <P>Copyright 2018 &copy; <a href="#">CPMS </a> <br />Developed by <a href="http://www.comptech.co.tz">Jawadu</a> </P>
+        <P>Copyright 2018 &copy; <a href="#">CMMS </a> <br />Developed by <a href="http://www.comptech.co.tz">Jawadu & </a> </P>
         </div>
 
         <div class="col-lg-offset-6 col-lg-3 col-md-offset-4 col-md-4 hidden-sm hidden-xs">

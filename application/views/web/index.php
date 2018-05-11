@@ -3,11 +3,11 @@
         <div class="col-md-7">
             <div class="box box-solid bg-aqua">
                 <div class="box-header">
-                    <h3 class="box-title">About CPMS</h3>
+                    <h3 class="box-title">About CMMS</h3>
                 </div>
 
                 <div class="box-body">
-                    <p>CPMS - Stands for Computerized Maintenance System</p>
+                    <p>CMMS - Stands for Computerized Maintenance Managemant System</p>
                 </div>
             </div>
         </div>
@@ -16,7 +16,7 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs pull-right">
                     <li class="pull-left header">
-                        <i class="fa fa-user"></i> Welcome to CPMS
+                        <i class="fa fa-user"></i> Welcome to CMMS
                     </li>
                     <li><a href="#register" data-toggle="tab">Register</a> </li>
                     <li class="active"><a href="#login" data-toggle="tab">Login</a> </li>

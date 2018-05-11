@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>CPMS | <?PHP $bool = isset($page_title); echo ($bool == true ? $page_title : ''); ?></title>
+        <title>CMMS | <?PHP $bool = isset($page_title); echo ($bool == true ? $page_title : ''); ?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="<?PHP echo base_url(); ?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
