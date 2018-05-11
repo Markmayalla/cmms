@@ -1,7 +1,7 @@
 <div class="tab-pane" id="organization">
                                 <p class="margin-top">Step <span id="step_org">1</span>/4</p>
                                 <div class="progress progress-striped active">
-                                    <div id="reg_progress" class="progress-bar progress-bar-aqua" role="progressbar"
+                                    <div id="reg_progress_org" class="progress-bar progress-bar-aqua" role="progressbar"
                                          aria-valuenow="30"
                                          aria-valuemin="0"
                                          aria-valuemax="100"

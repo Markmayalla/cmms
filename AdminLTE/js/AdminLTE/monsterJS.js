@@ -6,6 +6,7 @@
 
 
     var base_url = 'http://localhost/pes.co.tz/';
+    var site_url = 'http://localhost/cmms/index.php/';
 
     console.log("The Monster is Active");
     $('#gym_reg_form').parsley();
@@ -288,7 +289,6 @@
 	
 	regObj_org = {
         comp_name: "",
-        gender: "",
         phones: [],
         emails: [],
         address: []
@@ -309,12 +309,7 @@
             $('#reg_progress_org').css('width', '50%');
             $('#step1_org').hide();
             $('#step2_org').show();
-
             regObj_org.comp_name = $('#name_org').val();
-            regObj_org.gender = $('#gender').val();
-
-            console.log(regObj_org);
-
         } else {
 
         }
@@ -322,33 +317,33 @@
 	
 
 
-    userStep2 = $('#user_step2').parsley();
-    userStep3 = $('#user_step3').parsley();
+    userStep2 = $('#user_step2_org').parsley();
+    userStep3 = $('#user_step3_org').parsley();
 
     $('#back_to_1_org').click(function () {
-        $('#step').html("1");
-        $('#reg_progress').css('width', '25%');
+        $('#step_org').html("1");
+        $('#reg_progress_org').css('width', '25%');
         $('#step1_org').show();
         $('#step2_org').hide();
     });
 
     $('#back_to_2_org').click(function () {
-        $('#step').html("2");
-        $('#reg_progress').css('width', '50%');
+        $('#step_org').html("2");
+        $('#reg_progress_org').css('width', '50%');
         $('#step2_org').show();
         $('#step3_org').hide();
     });
 
     $('#back_to_3_org').click(function () {
-        $('#step').html("3");
-        $('#reg_progress').css('width', '75%');
+        $('#step_org').html("3");
+        $('#reg_progress_org').css('width', '75%');
         $('#step3_org').show();
         $('#step4_org').hide();
     });
 
     $('#reset_phone_org').click(function () {
        regObj_org.phones = [];
-       $('#phones').html(" ");
+       $('#phones_org').html(" ");
     });
 
     $('#add_phone_org').click(function () {
@@ -389,7 +384,7 @@
             console.log("email_org: " + email);
             emailObj = {};
             emailObj['email'] = email;
-            regObj.emails.push(emailObj);
+            regObj_org.emails.push(emailObj);
             emails = $('#emails_org');
             emails.html("");
             emails.append('<ul></ul>');
@@ -411,11 +406,11 @@
 
         if (userStep2.validate()) {
 
-            $('#step').html("3");
-            $('#reg_progress').css('width', '75%');
+            $('#step_org').html("3");
+            $('#reg_progress_org').css('width', '75%');
             $('#step2_org').hide();
             $('#step3_org').show();
-
+			
             console.log(regObj_org);
 
         } else {
@@ -425,7 +420,7 @@
 
     $('#reset_address_org').click(function () {
         regObj_org.address = [];
-        $('#addresses_org').html(".");
+        $('#addresses_org').html(" No address found");
     });
 
     $('#add_address_org').click(function () {
@@ -449,8 +444,8 @@
             addresses.append('<ul></ul>');
             addresses = $('#addresses_org ul');
 
-            for (i=0;i<regObj.address.length;i++) {
-                addresses.append("<li>" + regObj.address[i].box + ", " +
+            for (i=0;i<regObj_org.address.length;i++) {
+                addresses.append("<li>" + regObj_org.address[i].box + ", " +
                     regObj_org.address[i].street + ", " +
                     regObj_org.address[i].district + ", " +
                     regObj_org.address[i].region + ", " +
@@ -469,11 +464,11 @@
 
         if (userStep3.validate()) {
 
-        $('#step').html("4");
-        $('#reg_progress').css('width', '100%');
+        $('#step_org').html("4");
+        $('#reg_progress_org').css('width', '100%');
         $('#step3_org').hide();
         $('#step4_org').show();
-
+		
         console.log(regObj_org);
 
     } else {
@@ -482,26 +477,29 @@
 });
 
     $('#finish_organization').click(function () {
-        userStep4 = $('#user_step4').parsley();
+        userStep4 = $('#user_step4_org').parsley();
 
-		var string = "hshhshs"; // JSON.stringify(regObj);
+		var string = escape(JSON.stringify(regObj_org));
+		
+		var link = site_url + "Web/register_user"; 
+		
+		console.log(link);
+		console.log(string);
+		
         if (userStep4.validate()) {
 			$.ajax({
-				type : "POST",
-				url : "http://localhost/cmms/index.php/Web/register_user",
-				data : {
+				url: link,
+				type: 'post',
+				data: {
 					myData : string
 				},
 				success: function(response){
-					$('success_string').html(response);
-				},
-				error: function(response){
-					$('success_string').html(response);
+					alert(response);
 				}
 			});
 
         } else {
-
+			alert("failed");
         }
     });
 	
