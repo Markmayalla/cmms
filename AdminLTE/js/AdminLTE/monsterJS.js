@@ -284,7 +284,7 @@
     });
 
 
-	////Organization Registration
+////Organization Registration
 	
 	regObj_org = {
         comp_name: "",
@@ -366,7 +366,7 @@
             phones.append('<ul></ul>');
             phones = $('#phones_org ul');
 
-            for (i=0;i<regObj.phones.length;i++) {
+            for (i = 0;i < regObj_org.phones.length; i++) {
                 phones.append("<li>" + regObj_org.phones[i].title + ": " + regObj_org.phones[i].number + "</li>");
             }
 

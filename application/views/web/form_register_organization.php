@@ -1,5 +1,5 @@
 <div class="tab-pane" id="organization">
-                                <p class="margin-top">Step <span id="step">1</span>/4</p>
+                                <p class="margin-top">Step <span id="step_org">1</span>/4</p>
                                 <div class="progress progress-striped active">
                                     <div id="reg_progress" class="progress-bar progress-bar-aqua" role="progressbar"
                                          aria-valuenow="30"

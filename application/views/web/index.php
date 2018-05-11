@@ -8,7 +8,7 @@
 
                 <div class="box-body">
                     <p>CMMS - Stands for Computerized Maintenance Management System</p>
-					<div id="success_string">hh</div>
+					<div id="success_string"></div>
                 </div>
             </div>
         </div>
