@@ -15,4 +15,7 @@ class Web extends CI_Controller {
         $this->load->view("includes/web", $data);
     }
 
+	public function register_user(){
+		echo $user_data = $this->input->post('myData');
+	}
 }

@@ -56,6 +56,7 @@
     $('#products_table').DataTable();
     $('#default_table').DataTable();
 
+	///User Registration
     regObj = {
         first_name: "",
         last_name: "",
@@ -71,6 +72,7 @@
     $('#step2').hide();
     $('#step3').hide();
     $('#step4').hide();
+	
 
     $('#next1').click(function () {
 
@@ -93,9 +95,9 @@
         } else {
 
         }
-
-
     });
+	
+
 
     userStep2 = $('#user_step2').parsley();
     userStep3 = $('#user_step3').parsley();
@@ -256,14 +258,25 @@
     }
 });
 
-    $('#finish').click(function () {
+///preparation of user registration_form
+    $('#finish_user').click(function () {
         userStep4 = $('#user_step4').parsley();
 
+		var string = "hshhshs"; // JSON.stringify(regObj);
         if (userStep4.validate()) {
-
-            alert("Ajax Calls to insert values to the database");
-
-            console.log(regObj);
+			$.ajax({
+				type : "POST",
+				url : "http://localhost/cmms/index.php/Web/register_user",
+				data : {
+					myData : string
+				},
+				success: function(response){
+					$('success_string').html(response);
+				},
+				error: function(response){
+					$('success_string').html(response);
+				}
+			});
 
         } else {
 
@@ -271,52 +284,228 @@
     });
 
 
+	////Organization Registration
+	
+	regObj_org = {
+        comp_name: "",
+        gender: "",
+        phones: [],
+        emails: [],
+        address: []
+    };
+
+	
+	$('#step2_org').hide();
+    $('#step3_org').hide();
+    $('#step4_org').hide();
+
+    $('#next_1_org').click(function () {
+
+        userStep1 = $('#org_step1').parsley();
+
+        if (userStep1.validate()) {
+
+            $('#step_org').html("2");
+            $('#reg_progress_org').css('width', '50%');
+            $('#step1_org').hide();
+            $('#step2_org').show();
+
+            regObj_org.comp_name = $('#name_org').val();
+            regObj_org.gender = $('#gender').val();
+
+            console.log(regObj_org);
+
+        } else {
+
+        }
+    });
+	
 
 
+    userStep2 = $('#user_step2').parsley();
+    userStep3 = $('#user_step3').parsley();
 
-    /* --- Charts --- */
-    try {
-        var ctx = document.getElementById("sampleChart").getContext('2d');
+    $('#back_to_1_org').click(function () {
+        $('#step').html("1");
+        $('#reg_progress').css('width', '25%');
+        $('#step1_org').show();
+        $('#step2_org').hide();
+    });
 
-        var sampleChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
+    $('#back_to_2_org').click(function () {
+        $('#step').html("2");
+        $('#reg_progress').css('width', '50%');
+        $('#step2_org').show();
+        $('#step3_org').hide();
+    });
+
+    $('#back_to_3_org').click(function () {
+        $('#step').html("3");
+        $('#reg_progress').css('width', '75%');
+        $('#step3_org').show();
+        $('#step4_org').hide();
+    });
+
+    $('#reset_phone_org').click(function () {
+       regObj_org.phones = [];
+       $('#phones').html(" ");
+    });
+
+    $('#add_phone_org').click(function () {
+
+        if (userStep2.validate()) {
+            title = $('#title_org').val();
+            number = $('#phone_org').val();
+            console.log("title: " + title + ", number: " + number);
+            phoneObj = {};
+            phoneObj['title'] = title;
+            phoneObj['number'] = number;
+            regObj_org.phones.push(phoneObj);
+            phones = $('#phones_org');
+            phones.html("");
+            phones.append('<ul></ul>');
+            phones = $('#phones_org ul');
+
+            for (i=0;i<regObj.phones.length;i++) {
+                phones.append("<li>" + regObj_org.phones[i].title + ": " + regObj_org.phones[i].number + "</li>");
             }
-        });
-    } catch (e) {
-        console.log("ERROR: " + e);
+
+            console.log(regObj_org);
+        } else {
+
+        }
+
+    });
+
+    $('#reset_email_org').click(function () {
+        regObj_org.emails = [];
+        $('#emails_org').html(".");
+    });
+
+    $('#add_email_org').click(function () {
+
+        if (userStep2.validate()) {
+            email = $('#email_org').val();
+            console.log("email_org: " + email);
+            emailObj = {};
+            emailObj['email'] = email;
+            regObj.emails.push(emailObj);
+            emails = $('#emails_org');
+            emails.html("");
+            emails.append('<ul></ul>');
+            emails = $('#emails_org ul');
+
+            for (i=0;i<regObj_org.emails.length;i++) {
+                emails.append("<li>" + regObj_org.emails[i].email + "</li>");
+            }
+
+            console.log(regObj_org);
+        } else {
+
+        }
+
+    });
+
+    $('#next2_org').click(function () {
+        userStep2 = $('#user_step2_org').parsley();
+
+        if (userStep2.validate()) {
+
+            $('#step').html("3");
+            $('#reg_progress').css('width', '75%');
+            $('#step2_org').hide();
+            $('#step3_org').show();
+
+            console.log(regObj_org);
+
+        } else {
+
+        }
+    });
+
+    $('#reset_address_org').click(function () {
+        regObj_org.address = [];
+        $('#addresses_org').html(".");
+    });
+
+    $('#add_address_org').click(function () {
+
+
+        if (userStep3.validate()) {
+            box = $('#box_org').val();
+            street = $('#street_org').val();
+            district = $('#district_org').val();
+            region = $('#region_org').val();
+            country = $('#country_org').val();
+            addressObj = {};
+            addressObj['box'] = box;
+            addressObj['street'] = street;
+            addressObj['district'] = district;
+            addressObj['region'] = region;
+            addressObj['country'] = country;
+            regObj_org.address.push(addressObj);
+            addresses = $('#addresses_org');
+            addresses.html("");
+            addresses.append('<ul></ul>');
+            addresses = $('#addresses_org ul');
+
+            for (i=0;i<regObj.address.length;i++) {
+                addresses.append("<li>" + regObj.address[i].box + ", " +
+                    regObj_org.address[i].street + ", " +
+                    regObj_org.address[i].district + ", " +
+                    regObj_org.address[i].region + ", " +
+                    regObj_org.address[i].country + "</li>");
+            }
+
+            console.log(regObj_org);
+        } else {
+
+        }
+
+    });
+
+    $('#next3_org').click(function () {
+        userStep3 = $('#user_step3_org').parsley();
+
+        if (userStep3.validate()) {
+
+        $('#step').html("4");
+        $('#reg_progress').css('width', '100%');
+        $('#step3_org').hide();
+        $('#step4_org').show();
+
+        console.log(regObj_org);
+
+    } else {
+
     }
+});
+
+    $('#finish_organization').click(function () {
+        userStep4 = $('#user_step4').parsley();
+
+		var string = "hshhshs"; // JSON.stringify(regObj);
+        if (userStep4.validate()) {
+			$.ajax({
+				type : "POST",
+				url : "http://localhost/cmms/index.php/Web/register_user",
+				data : {
+					myData : string
+				},
+				success: function(response){
+					$('success_string').html(response);
+				},
+				error: function(response){
+					$('success_string').html(response);
+				}
+			});
+
+        } else {
+
+        }
+    });
+	
+	/////Ended here
 
 
     $("#add_document").click(function() {
