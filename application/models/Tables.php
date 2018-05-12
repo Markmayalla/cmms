@@ -4,6 +4,10 @@
 		////Start registering user_error
 		
 		public function register_user($array){
+				$arrayUser['phones'] = array();
+				$arrayUser['address'] = array();
+				$arrayUser['emails'] = array();
+				
 				$array_id = array();
 				$phone = $array->phones;
 				$email = $array->emails;
@@ -31,15 +35,21 @@
 					$k++;
 				}
 				
+				
 				$arrayUser['user']['first_name'] = $array->first_name;
 				$arrayUser['user']['last_name'] = $array->last_name;
 				$arrayUser['user']['middle_name'] = $array->middle_name;
 				$arrayUser['user']['gender'] = $array->gender;
 				
-				if($this->db->insert('user',$arrayUser['user'])){
-				  $people_id	= $this->db->insert_id();
-				 
-				  $array_id = array();
+				
+				
+				if($this->db->insert('users',$arrayUser['user'])){
+				  $people_id = $this->db->insert_id();
+				  
+				  $array_id['phones'] = array();
+				  $array_id['address'] = array();
+				  $array_id['emails'] = array();
+				  
 				  for($i = 0; $i < count($arrayUser['phones']); $i++){
 					  $this->db->insert('phones',$arrayUser['phones'][$i]);
 					  $array_id['phones'][$i]['people_id'] = $people_id;
@@ -75,6 +85,10 @@
 		
 		//Start registering Organization
 		public function register_organization($array){
+				$arrayUser['phones'] = array();
+				$arrayUser['address'] = array();
+				$arrayUser['emails'] = array();
+				
 				$array_id = array();
 				$phone = $array->phones;
 				$email = $array->emails;
@@ -107,7 +121,10 @@
 				if($this->db->insert('organizations',$arrayUser['organization'])){
 				  $organization_id	= $this->db->insert_id();
 				 
-				  $array_id = array();
+				  $array_id['phones'] = array();
+				  $array_id['address'] = array();
+				  $array_id['emails'] = array();
+				  
 				  for($i = 0; $i < count($arrayUser['phones']); $i++){
 					  $this->db->insert('phones',$arrayUser['phones'][$i]);
 					  $array_id['phones'][$i]['organizations_id'] = $organization_id;

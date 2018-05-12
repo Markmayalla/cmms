@@ -26,7 +26,7 @@ class Web extends CI_Controller {
 	
 	public function register_user(){
 		
-		//$data = "%7B%22comp_name%22%3A%22Neymon%20Investment%22%2C%22phones%22%3A%5B%7B%22title%22%3A%22mob%22%2C%22number%22%3A%220685639653%22%7D%2C%7B%22title%22%3A%22tel%22%2C%22number%22%3A%22222678282%22%7D%5D%2C%22emails%22%3A%5B%7B%22email%22%3A%22hemmy6894@gmail.com%22%7D%5D%2C%22address%22%3A%5B%7B%22box%22%3A%221775%22%2C%22street%22%3A%22Posta%22%2C%22district%22%3A%22Kinondoni%22%2C%22region%22%3A%22Dar%20es%20salaam%22%2C%22country%22%3A%22Tanzania%22%7D%2C%7B%22box%22%3A%221775%22%2C%22street%22%3A%22Posta%22%2C%22district%22%3A%22Kinondoni%22%2C%22region%22%3A%22Dar%20es%20salaam%22%2C%22country%22%3A%22Tanzania%22%7D%5D%7D";
+		//$data = "%7B%22first_name%22%3A%22Hemedi%20%22%2C%22last_name%22%3A%22Manyinja%22%2C%22middle_name%22%3A%22Mshamu%22%2C%22gender%22%3A%22male%22%2C%22phones%22%3A%5B%5D%2C%22emails%22%3A%5B%7B%22email%22%3A%22hemmy6894@gmail.com%22%7D%5D%2C%22address%22%3A%5B%7B%22box%22%3A%22677%22%2C%22street%22%3A%22Posta%22%2C%22district%22%3A%22Kinondoni%22%2C%22region%22%3A%22Dar%20es%20salaam%22%2C%22country%22%3A%22Tanzania%22%7D%5D%7D";
 		$user_data = urldecode($this->input->post('myData'));
 		$array = json_decode($user_data);
 		$this->load->model('Tables','insert');

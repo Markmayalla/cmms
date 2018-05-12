@@ -56,7 +56,21 @@
     $('#contacts').DataTable();
     $('#products_table').DataTable();
     $('#default_table').DataTable();
-
+	/// Login User In System
+	loginObject = {
+		password_user = "",
+		username = "",
+		retry = 3
+	}
+	
+	$("#login_system").click(function(){
+		//userStep1 = $("#login_form").parsley();
+		
+			loginObject.password_user = $("#password_login").val();
+			loginObject.username = $("#email_login").val();
+			loginObject.retry = loginObject.retry - 1;
+			console.log(loginObject);
+	});
 	///User Registration
     regObj = {
         first_name: "",
