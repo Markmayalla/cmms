@@ -7,8 +7,6 @@
 <!-- jQuery UI 1.10.3 -->
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 
-<!-- Google Maps Javascript API -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyVbgwJq_0M--diI2SA4KbzMTZVIp1QY8&callback=initMap"></script>
 
 
 <!-- Bootstrap -->
