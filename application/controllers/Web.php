@@ -15,40 +15,21 @@ class Web extends CI_Controller {
         $this->load->view("includes/web", $data);
     }
 
+	public function register_organization(){
+		
+		//$data = "%7B%22comp_name%22%3A%22Neymon%20Investment%22%2C%22phones%22%3A%5B%7B%22title%22%3A%22mob%22%2C%22number%22%3A%220685639653%22%7D%2C%7B%22title%22%3A%22tel%22%2C%22number%22%3A%22222678282%22%7D%5D%2C%22emails%22%3A%5B%7B%22email%22%3A%22hemmy6894@gmail.com%22%7D%5D%2C%22address%22%3A%5B%7B%22box%22%3A%221775%22%2C%22street%22%3A%22Posta%22%2C%22district%22%3A%22Kinondoni%22%2C%22region%22%3A%22Dar%20es%20salaam%22%2C%22country%22%3A%22Tanzania%22%7D%2C%7B%22box%22%3A%221775%22%2C%22street%22%3A%22Posta%22%2C%22district%22%3A%22Kinondoni%22%2C%22region%22%3A%22Dar%20es%20salaam%22%2C%22country%22%3A%22Tanzania%22%7D%5D%7D";
+		$user_data = urldecode($this->input->post('myData'));
+		$array = json_decode($user_data);
+		$this->load->model('Tables','insert');
+		$this->insert->register_organization($array);
+	}
+	
 	public function register_user(){
-		 $user_data = urldecode($this->input->post('myData'));
-		 
-		 $arrayUser = array();
-		 $array = json_decode($user_data);
-		 
 		
-		 $phone = $array->phones;
-		 $email = $array->emails;
-		 $address = $array->address;
-		 
-		$i = 0;
-		foreach($phone as $key => $value){
-			$arrayUser['title'][$i] = $value->title;
-			$arrayUser['number'][$i] = $value->number;
-			$i++;
-		}
-		$j = 0;
-		foreach($email as  $value){
-			$arrayUser['email'][$j] = $value->email;
-			$j++;
-		}
-		
-		$k = 0;
-		foreach($address as  $value){
-			$arrayUser['box'][$k] = $value->box;
-			$arrayUser['street'][$k] = $value->street;
-			$arrayUser['district'][$k] = $value->district;
-			$arrayUser['region'][$k] = $value->region;
-			$arrayUser['country'][$k] = $value->country;
-			$k++;
-		}
-		
-		$arrayUser['comp_name'] = $array->comp_name;
-		print_r($arrayUser);
+		//$data = "%7B%22comp_name%22%3A%22Neymon%20Investment%22%2C%22phones%22%3A%5B%7B%22title%22%3A%22mob%22%2C%22number%22%3A%220685639653%22%7D%2C%7B%22title%22%3A%22tel%22%2C%22number%22%3A%22222678282%22%7D%5D%2C%22emails%22%3A%5B%7B%22email%22%3A%22hemmy6894@gmail.com%22%7D%5D%2C%22address%22%3A%5B%7B%22box%22%3A%221775%22%2C%22street%22%3A%22Posta%22%2C%22district%22%3A%22Kinondoni%22%2C%22region%22%3A%22Dar%20es%20salaam%22%2C%22country%22%3A%22Tanzania%22%7D%2C%7B%22box%22%3A%221775%22%2C%22street%22%3A%22Posta%22%2C%22district%22%3A%22Kinondoni%22%2C%22region%22%3A%22Dar%20es%20salaam%22%2C%22country%22%3A%22Tanzania%22%7D%5D%7D";
+		$user_data = urldecode($this->input->post('myData'));
+		$array = json_decode($user_data);
+		$this->load->model('Tables','insert');
+		$this->insert->register_user($array);
 	}
 }

@@ -263,24 +263,30 @@
     $('#finish_user').click(function () {
         userStep4 = $('#user_step4').parsley();
 
-		var string = "hshhshs"; // JSON.stringify(regObj);
+		var string = escape(JSON.stringify(regObj));
+		
+		var link = site_url + "Web/register_user"; 
+		
+		console.log(link);
+		console.log(string);
+		
         if (userStep4.validate()) {
 			$.ajax({
-				type : "POST",
-				url : "http://localhost/cmms/index.php/Web/register_user",
-				data : {
+				url: link,
+				type: 'post',
+				data: {
 					myData : string
 				},
 				success: function(response){
-					$('success_string').html(response);
+					alert(response);
 				},
 				error: function(response){
-					$('success_string').html(response);
+					alert(response);
 				}
 			});
 
         } else {
-
+			alert("failed");
         }
     });
 
@@ -481,7 +487,7 @@
 
 		var string = escape(JSON.stringify(regObj_org));
 		
-		var link = site_url + "Web/register_user"; 
+		var link = site_url + "Web/register_organization"; 
 		
 		console.log(link);
 		console.log(string);
@@ -494,6 +500,9 @@
 					myData : string
 				},
 				success: function(response){
+					alert(response);
+				},
+				error: function(response){
 					alert(response);
 				}
 			});
