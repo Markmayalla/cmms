@@ -184,14 +184,30 @@
                                          aria-valuemax="100"
                                          aria-valuetext="Step" style="width: 25%"></div>
                                 </div>
-                                <div id="step_1">
-                                    <form id="org_step1" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
+                                <div id="org_step1">
+                                    <form id="user_step1" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
                                         <div class="form-group">
-                                            <input type="text" id="name" name="name" class="form-control" placeholder="Organization Name" required>
+                                            <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <button id="next_1" class="btn btn-info">Next</button>
+                                            <input type="text" id="middle_name" name="middle_name" class="form-control" placeholder="Middle Name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <select id="gender" name="gender" class="form-control" required>
+                                                <option value="">Choose Gender...</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button id="next1" class="btn btn-info">Next</button>
                                         </div>
                                     </form>
                                 </div>
