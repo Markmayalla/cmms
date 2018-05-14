@@ -29,14 +29,14 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>
-                                    <input id="email_login" type="email" name="email" class="form-control" placeholder="Your Email">
+                                    <input id="email_login" type="email" name="email" class="form-control" placeholder="Your Email" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-lock"></span> </span>
-                                    <input id="password_login" type="password" name="password" class="form-control" placeholder="Your Password">
+                                    <input id="password_login" type="password" name="password" class="form-control" placeholder="Your Password" required>
                                 </div>
                             </div>
 

@@ -58,18 +58,40 @@
     $('#default_table').DataTable();
 	/// Login User In System
 	loginObject = {
-		password_user = "",
-		username = "",
-		retry = 3
+		password_user : "",
+		username : "",
+		retry : 3
 	}
 	
 	$("#login_system").click(function(){
-		//userStep1 = $("#login_form").parsley();
-		
-			loginObject.password_user = $("#password_login").val();
-			loginObject.username = $("#email_login").val();
-			loginObject.retry = loginObject.retry - 1;
-			console.log(loginObject);
+		userStep1 = $("#login_form").parsley();
+		if(userStep1.validate()){
+
+			var link = site_url + "Web/login_user";
+			if(loginObject.retry > 0){
+				loginObject.password_user = $("#password_login").val();
+				loginObject.username = $("#email_login").val();
+				loginObject.retry = loginObject.retry - 1;
+				var string = JSON.stringify(loginObject);
+				$.ajax(
+					{
+						type : "POST",
+						url : link,
+						data : {
+							myData : string
+						},
+						success : function(response){
+							window.location = site_url + response;
+						},
+						error : function(response){
+							
+						}
+					}
+				);
+			}else{
+				alert("Maximum retry is Three");
+			}
+		}
 	});
 	///User Registration
     regObj = {
@@ -77,6 +99,9 @@
         last_name: "",
         middle_name: "",
         gender: "",
+		accont_type : "",
+		password_new : "",
+		password_confirm : "",
         phones: [],
         emails: [],
         address: []
@@ -87,6 +112,7 @@
     $('#step2').hide();
     $('#step3').hide();
     $('#step4').hide();
+    $('#step5').hide();
 	
 
     $('#next1').click(function () {
@@ -136,6 +162,13 @@
         $('#reg_progress').css('width', '75%');
         $('#step3').show();
         $('#step4').hide();
+    });
+	
+	$('#back_to_4').click(function () {
+        $('#step').html("4");
+        $('#reg_progress').css('width', '75%');
+        $('#step4').show();
+        $('#step5').hide();
     });
 
     $('#reset_phone').click(function () {
@@ -257,51 +290,68 @@
     });
 
     $('#next3').click(function () {
-        userStep3 = $('#user_step3').parsley();
+		userStep3 = $('#user_step3').parsley();
 
-        if (userStep3.validate()) {
+		if (userStep3.validate()) {
 
-        $('#step').html("4");
-        $('#reg_progress').css('width', '100%');
-        $('#step3').hide();
-        $('#step4').show();
+			$('#step').html("4");
+			$('#reg_progress').css('width', '80%');
+			$('#step3').hide();
+			$('#step4').show();
 
-        console.log(regObj);
+			console.log(regObj);
 
-    } else {
+		} else {
 
-    }
-});
+		}
+	});
+	
+	$('#next4').click(function () {
+		userStep4 = $('#user_step4').parsley();
+
+		if (userStep4.validate()) {
+			$('#step').html("5");
+			$('#reg_progress').css('width', '100%');
+			$('#step4').hide();
+			$('#step5').show();
+			console.log(regObj);
+		} else {
+
+		}
+	});
+	
 
 ///preparation of user registration_form
     $('#finish_user').click(function () {
-        userStep4 = $('#user_step4').parsley();
+        userStep4 = $('#user_step5').parsley();
+		regObj.password_new = $('#password_user_new').val();
+		regObj.accont_type = "user_account";
+		if(userStep4.validate()){
+			var string = escape(JSON.stringify(regObj));
+			var link = site_url + "Web/register_user"; 
+			
+		    //console.log(link);
+		    //console.log(string);
+			
+			if (userStep4.validate()){
+				$.ajax({
+					url: link,
+					type: 'post',
+					data: {
+						myData : string
+					},
+					success: function(response){
+						window.location = 'http://localhost/cmms';
+					},
+					error: function(response){
+						alert(response);
+					}
+				});
 
-		var string = escape(JSON.stringify(regObj));
-		
-		var link = site_url + "Web/register_user"; 
-		
-		console.log(link);
-		console.log(string);
-		
-        if (userStep4.validate()) {
-			$.ajax({
-				url: link,
-				type: 'post',
-				data: {
-					myData : string
-				},
-				success: function(response){
-					alert(response);
-				},
-				error: function(response){
-					alert(response);
-				}
-			});
-
-        } else {
-			alert("failed");
-        }
+			} else {
+				alert("failed");
+			}
+		}
     });
 
 
@@ -309,6 +359,8 @@
 	
 	regObj_org = {
         comp_name: "",
+        password_new: "",
+        account_type: "",
         phones: [],
         emails: [],
         address: []
@@ -318,6 +370,7 @@
 	$('#step2_org').hide();
     $('#step3_org').hide();
     $('#step4_org').hide();
+    $('#step5_org').hide();
 
     $('#next_1_org').click(function () {
 
@@ -356,9 +409,16 @@
 
     $('#back_to_3_org').click(function () {
         $('#step_org').html("3");
-        $('#reg_progress_org').css('width', '75%');
+        $('#reg_progress_org').css('width', '65%');
         $('#step3_org').show();
         $('#step4_org').hide();
+    });
+	
+	$('#back_to_4_org').click(function () {
+        $('#step_org').html("4");
+        $('#reg_progress_org').css('width', '75%');
+        $('#step4_org').show();
+        $('#step5_org').hide();
     });
 
     $('#reset_phone_org').click(function () {
@@ -481,32 +541,42 @@
 
     $('#next3_org').click(function () {
         userStep3 = $('#user_step3_org').parsley();
-
         if (userStep3.validate()) {
+			$('#step_org').html("4");
+			$('#reg_progress_org').css('width', '100%');
+			$('#step3_org').hide();
+			$('#step4_org').show();
+			console.log(regObj_org);
+		} else {
 
-        $('#step_org').html("4");
-        $('#reg_progress_org').css('width', '100%');
-        $('#step3_org').hide();
-        $('#step4_org').show();
-		
-        console.log(regObj_org);
+		}
+	});
 
-    } else {
+		$('#next4_org').click(function () {
+			userStep4 = $('#user_step4_org').parsley();
 
-    }
-});
+			if (userStep4.validate()) {
+				$('#step_org').html("5");
+				$('#reg_progress_org').css('width', '100%');
+				$('#step4_org').hide();
+				$('#step5_org').show();
+				console.log(regObj);
+			} else {
+
+			}
+		});
 
     $('#finish_organization').click(function () {
-        userStep4 = $('#user_step4_org').parsley();
+        userStep4 = $('#user_step5_org').parsley();
 
-		var string = escape(JSON.stringify(regObj_org));
-		
-		var link = site_url + "Web/register_organization"; 
-		
-		console.log(link);
-		console.log(string);
+		regObj_org.password_new = $("#password_user_new_org").val();
+		regObj_org.account_type = "organization";
+	
+		console.log(regObj_org);
 		
         if (userStep4.validate()) {
+			var string = escape(JSON.stringify(regObj_org));
+			var link = site_url + "Web/register_organization"; 
 			$.ajax({
 				url: link,
 				type: 'post',
