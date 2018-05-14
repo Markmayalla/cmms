@@ -1,9 +1,10 @@
 <?php
 	#### Created by Programing
 	class Tables extends CI_Model{
-		////Start registering user_error
+		//Start registering user_error
 		
 		public function register_user($array){
+
 				$array_id = array();
 				$phone = $array->phones;
 				$email = $array->emails;

@@ -254,10 +254,14 @@
 
         console.log(regObj);
 
-    } else {
+        } else {
 
-    }
-});
+        }
+    });
+
+    $('#next4').click(function () {
+
+    });
 
 ///preparation of user registration_form
     $('#finish_user').click(function () {
