@@ -1,9 +1,18 @@
 <?php
 	#### Created by Programing
 	class Tables extends CI_Model{
-		//Start registering user_error
+
+		////Start Login user
+		public function login_user($array){
+			echo "Web/dashboard";
+		}
+		////End login user
+		////Start registering user_error
 		
 		public function register_user($array){
+				$arrayUser['phones'] = array();
+				$arrayUser['address'] = array();
+				$arrayUser['emails'] = array();
 
 				$array_id = array();
 				$phone = $array->phones;
@@ -32,15 +41,25 @@
 					$k++;
 				}
 				
+				
 				$arrayUser['user']['first_name'] = $array->first_name;
 				$arrayUser['user']['last_name'] = $array->last_name;
 				$arrayUser['user']['middle_name'] = $array->middle_name;
 				$arrayUser['user']['gender'] = $array->gender;
+				$arrayUser['account']['password'] = $array->password_new;
+				$arrayUser['account']['type'] = $array->accont_type;
 				
-				if($this->db->insert('user',$arrayUser['user'])){
-				  $people_id	= $this->db->insert_id();
-				 
-				  $array_id = array();
+				
+				
+				if($this->db->insert('users',$arrayUser['user'])){
+				  $people_id = $this->db->insert_id();
+				  $arrayUser['account']['user_id'] = $people_id;
+				  
+				  $array_id['phones'] = array();
+				  $array_id['address'] = array();
+				  $array_id['emails'] = array();
+				  
+				  $this->db->insert('accounts',$arrayUser['account']);
 				  for($i = 0; $i < count($arrayUser['phones']); $i++){
 					  $this->db->insert('phones',$arrayUser['phones'][$i]);
 					  $array_id['phones'][$i]['people_id'] = $people_id;
@@ -76,6 +95,10 @@
 		
 		//Start registering Organization
 		public function register_organization($array){
+				$arrayUser['phones'] = array();
+				$arrayUser['address'] = array();
+				$arrayUser['emails'] = array();
+				
 				$array_id = array();
 				$phone = $array->phones;
 				$email = $array->emails;
@@ -104,11 +127,20 @@
 				}
 				
 				$arrayUser['organization']['name'] = $array->comp_name;
+				$arrayUser['account']['password'] = $array->password_new;
+				$arrayUser['account']['type'] = $array->account_type;
 				
 				if($this->db->insert('organizations',$arrayUser['organization'])){
 				  $organization_id	= $this->db->insert_id();
 				 
-				  $array_id = array();
+				  $arrayUser['account']['user_id'] = $organization_id;
+				  
+				  $array_id['phones'] = array();
+				  $array_id['address'] = array();
+				  $array_id['emails'] = array();
+				  
+				  $this->db->insert('accounts',$arrayUser['account']);
+				  
 				  for($i = 0; $i < count($arrayUser['phones']); $i++){
 					  $this->db->insert('phones',$arrayUser['phones'][$i]);
 					  $array_id['phones'][$i]['organizations_id'] = $organization_id;

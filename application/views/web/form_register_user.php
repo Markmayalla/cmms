@@ -1,5 +1,6 @@
 <div class="tab-pane active" id="user">
-    <p class="margin-top">Step <span id="step">1</span>/4</p>
+
+    <p class="margin-top">Step <span id="step">1</span>/5</p>
     <div class="progress progress-striped active">
         <div id="reg_progress" class="progress-bar progress-bar-aqua" role="progressbar"
              aria-valuenow="30"
@@ -113,9 +114,27 @@
                 <button id="add_address" class="btn btn-sm btn-success pull-right"><span class="fa fa-plus"></span> </button>
                 <button id="reset_address" class="btn btn-sm btn-danger pull-right"><span class="fa fa-refresh"></span> </button>
                 <button id="back_to_3" class="btn btn-info">Back</button>
-                <button id="finish_user" class="btn btn-info">Finish</button>
+                <button id="next4" class="btn btn-info">Next</button>
             </div>
         </form>
     </div>
 
+    <div id="step5">
+        <div id="addresses"></div>
+        <form id="user_step5" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
+            <div class="form-group">
+                <input type="password" id="password_user_new" data-parsley-length="[6, 20]" name="password" class="form-control" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password_user_new_confirm" data-parsley-equalto="#password_user_new" name="password_conf" class="form-control" placeholder="Confirm password" required>
+            </div>
+
+            <div class="form-group">
+                <button id="back_to_4" class="btn btn-info">Back</button>
+                <button id="finish_user" class="btn btn-info">Finish</button>
+            </div>
+        </form>
+    </div>
 </div>
+

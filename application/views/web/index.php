@@ -25,23 +25,23 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="login">
-                        <form method="post" action="#" data-parsley-validate>
+                        <form id="login_form" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>
-                                    <input type="email" name="email" class="form-control" placeholder="Your Email">
+                                    <input id="email_login" type="email" name="email" class="form-control" placeholder="Your Email" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-lock"></span> </span>
-                                    <input type="password" name="password" class="form-control" placeholder="Your Password">
+                                    <input id="password_login" type="password" name="password" class="form-control" placeholder="Your Password" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" name="login" class="btn btn-info" value="Login">
+                                <input id="login_system" type="submit" name="login" class="btn btn-info" value="Login">
                             </div>
                         </form>
 

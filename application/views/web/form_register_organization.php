@@ -97,6 +97,23 @@
                                             <button id="add_address_org" class="btn btn-sm btn-success pull-right"><span class="fa fa-plus"></span> </button>
                                             <button id="reset_address_org" class="btn btn-sm btn-danger pull-right"><span class="fa fa-refresh"></span> </button>
                                             <button id="back_to_3_org" class="btn btn-info">Back</button>
+                                            <button id="next4_org" class="btn btn-info">Next</button>
+                                        </div>
+                                    </form>
+                                </div>
+								
+								<div id="step5_org">
+                                    <form id="user_step5_org" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
+                                        <div class="form-group">
+                                            <input type="password" id="password_user_new_org" data-parsley-length="[6, 20]" name="password" class="form-control" placeholder="Password">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="password" id="password_user_new_confirm_org" data-parsley-equalto="#password_user_new_org" name="password_conf" class="form-control" placeholder="Confirm password" required>
+                                        </div>
+
+                                        <div class="form-group">
+											<button id="back_to_4_org" class="btn btn-info">Back</button>
                                             <button id="finish_organization" class="btn btn-info">Finish</button>
                                         </div>
                                     </form>

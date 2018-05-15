@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/models/account_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/address_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/phone_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/user_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/users_has_address_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/users_has_email_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/users_has_phone_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/worker_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/device-2018-05-13-012611.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Web.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Tables.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/system/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/system/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/web/form_register_organization.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/web/form_register_organization.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/web/form_register_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/web/form_register_user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/system.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/web/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/web/index.php" afterDir="false" />
     </list>
     <ignored path="pes.co.tz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +31,8 @@
       <file leaf-file-name="Web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="600">
+              <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -47,15 +40,8 @@
       <file leaf-file-name="form_register_user.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/web/form_register_user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#!!top" />
-                <element signature="n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#4;n#div#0;n#!!top" />
-                <element signature="n#div#5;n#div#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="534">
+              <caret line="137" column="10" lean-forward="true" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -81,13 +67,9 @@
       <file leaf-file-name="monsterJS.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="258" column="9" lean-forward="true" selection-start-line="258" selection-start-column="9" selection-end-line="258" selection-end-column="9" />
+            <state relative-caret-position="-31491">
+              <caret line="321" selection-start-line="321" selection-end-line="321" />
               <folding>
-                <element signature="e#3604#4184#0" />
-                <element signature="e#4222#4528#0" />
-                <element signature="e#4574#4645#0" />
-                <element signature="e#4689#5813#0" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -127,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/account_model.php">
+      <file leaf-file-name="Tables.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Tables.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="-1821">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -214,7 +196,6 @@
         <option value="$PROJECT_DIR$/application/views/includes/system.php" />
         <option value="$PROJECT_DIR$/css/system.css" />
         <option value="$PROJECT_DIR$/application/views/system/dashboard.php" />
-        <option value="$PROJECT_DIR$/application/models/Tables.php" />
         <option value="$PROJECT_DIR$/application/models/account_model.php" />
         <option value="$PROJECT_DIR$/application/models/worker_model.php" />
         <option value="$PROJECT_DIR$/application/models/phone_model.php" />
@@ -225,6 +206,7 @@
         <option value="$PROJECT_DIR$/application/models/user_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Web.php" />
         <option value="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" />
+        <option value="$PROJECT_DIR$/application/models/Tables.php" />
         <option value="$PROJECT_DIR$/application/views/web/form_register_user.php" />
       </list>
     </option>
@@ -287,12 +269,6 @@
               <item name="cmms" type="b2602c69:ProjectViewProjectNode" />
               <item name="cmms" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cmms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cmms" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cmms" type="b2602c69:ProjectViewProjectNode" />
@@ -389,12 +365,13 @@
       <option name="presentableId" value="Default" />
       <updated>1497303977153</updated>
       <workItem from="1525941979791" duration="7917000" />
-      <workItem from="1525951846787" duration="22572000" />
+      <workItem from="1525951846787" duration="22926000" />
+      <workItem from="1526360658900" duration="477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30489000" />
+    <option name="totallyTimeSpent" value="31320000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -434,8 +411,8 @@
       <window_info anchor="bottom" id="Debug" order="5" weight="0.3994452" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Changes" order="8" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32681563" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
@@ -487,9 +464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8505">
           <caret line="567" column="36" selection-start-line="567" selection-start-column="36" selection-end-line="571" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#1;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -510,9 +484,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/system.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/system.php" />
     <entry file="file://$PROJECT_DIR$/css/custome.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -615,16 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -632,13 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Tables.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="57" lean-forward="true" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -700,20 +655,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="600">
+          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="258" column="9" lean-forward="true" selection-start-line="258" selection-start-column="9" selection-end-line="258" selection-end-column="9" />
+        <state relative-caret-position="-31491">
+          <caret line="321" selection-start-line="321" selection-end-line="321" />
           <folding>
-            <element signature="e#3604#4184#0" />
-            <element signature="e#4222#4528#0" />
-            <element signature="e#4574#4645#0" />
-            <element signature="e#4689#5813#0" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -752,17 +703,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1821">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/web/form_register_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#!!top" />
-            <element signature="n#div#5;n#div#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="534">
+          <caret line="137" column="10" lean-forward="true" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
         </state>
       </provider>
     </entry>
