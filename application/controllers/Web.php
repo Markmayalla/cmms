@@ -29,16 +29,17 @@ class Web extends CI_Controller {
 		$user_data = urldecode($this->input->post('myData'));
 		$array = json_decode($user_data);
 
-		//$this->load->model('Tables','insert');
-		//$this->insert->register_user($array);
-
-
+		$this->load->model('Tables','insert');
+		$this->insert->register_user($array);
 	}
 	
 	public function login_user(){
-		$user_data = urldecode($this->input->post('myData'));
-		$array = json_decode($user_data);
+		//$user_data = urldecode($this->input->post('myData'));
+		//$array = json_decode($user_data);
 
+		$username = $this->input->post('username');
+		$password = $this->input->post('password_user');
+		
 		//Loading All Impontant Models
 		$this->load->model('account_model');
 		$this->load->model('phone_model');
@@ -49,34 +50,36 @@ class Web extends CI_Controller {
 
 		//Assumming we don't know the user logs in by email or phone
         //We query the database to see if email or phone exists
-		$email = $this->email_model->get_by(array('email' => $this->input->post('username')));
-		$phone = $this->phone_model->get_by(array('phone' => $this->input->post('username')));
+		$email_num = $this->email_model->count_by(array('email' => $username));
+		$email = $this->email_model->get_by(array('email' => $username));
+		$phone_num = $this->phone_model->count_by(array('number' => $username));
+		$phone = $this->phone_model->get_by(array('number' => $username));
 
 		//If email or phone exists in the database
-		if ($email.count() > 0 || $phone.count() > 0) {
+		if ($email_num > 0 || $phone_num > 0) {
 
 		    //Aim is to get the user_id so as we can Query the Account Table for validating the password
 
 		    //If Email Exists
-		    if ($email.count() > 0) {
-		        $id = $email['id'];
+		    if ($email_num > 0) {
+		        $id = $email->id;
 		        $users_has_emails = $this->users_has_email_model->get_by(array('emails_id' => $id));
-		        $user_id = $users_has_emails['people_id'];
+		        $user_id = $users_has_emails->people_id;
             } else { //Phone Exists
-		        $id = $phone['id'];
+		        $id = $phone->id;
                 $users_has_phones = $this->users_has_phone_model->get_by(array('phones_id' => $id));
-                $user_id = $users_has_phones['people_id'];
+                $user_id = $users_has_phones->people_id;
             }
 
 
             //Using user id to get account
             $account = $this->account_model->get_by(array('user_id' => $user_id));
-
-		    if ($account['password'] == $this->input->post('password_user')) {
+		    if ($account->password == $password) {
 		        //Password Correct
-
+				echo "system/";
             } else {
 		        //Incorrect Password
+				echo "web/";
             }
 
         } else {
