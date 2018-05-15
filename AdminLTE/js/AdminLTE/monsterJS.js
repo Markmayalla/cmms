@@ -5,7 +5,7 @@
 
 
 
-    var base_url = 'http://localhost/pes.co.tz/';
+    var base_url = 'http://localhost/cmms/';
     var site_url = 'http://localhost/cmms/index.php/';
 
     console.log("The Monster is Active");
