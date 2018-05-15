@@ -3,6 +3,7 @@
 	class Tables extends CI_Model{
 		////Start Login user
 		public function login_user($array){
+			$whare[''] = "";
 			echo "Web/dashboard";
 		}
 		////End login user
