@@ -27,6 +27,34 @@ class System extends CI_Controller {
 		$data['requests']['display'] = $this->request_model->get_all();
 		
 		$this->load->library("table");
+		$template = array(
+							'table_open'  => '<table id="cmmsTable" class="table table table-striped table-bordered">',
+
+							'thead_open'            => '<thead>',
+							'thead_close'           => '</thead>',
+
+							'heading_row_start'     => '<tr>',
+							'heading_row_end'       => '</tr>',
+							'heading_cell_start'    => '<th>',
+							'heading_cell_end'      => '</th>',
+
+							'tbody_open'            => '<tbody>',
+							'tbody_close'           => '</tbody>',
+
+							'row_start'             => '<tr>',
+							'row_end'               => '</tr>',
+							'cell_start'            => '<td>',
+							'cell_end'              => '</td>',
+
+							'row_alt_start'         => '<tr>',
+							'row_alt_end'           => '</tr>',
+							'cell_alt_start'        => '<td>',
+							'cell_alt_end'          => '</td>',
+
+							'table_close'           => '</table>'
+					);
+		$this->table->set_template($template);
+		
         $data['main_content'] = 'dashboard';
         $this->load->view('includes/system', $data);
     }

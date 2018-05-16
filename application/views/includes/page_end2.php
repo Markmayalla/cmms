@@ -50,6 +50,10 @@
 
 
 
-
+<script>
+	$(document).ready( function () {
+		$('#cmmsTable').DataTable();
+	} );
+</script>
 </body>
 </html>
