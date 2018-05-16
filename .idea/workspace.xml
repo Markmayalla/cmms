@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/models/email_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Web.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Web.php" afterDir="false" />
-    </list>
+    <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="" />
     <ignored path="pes.co.tz.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -369,12 +364,12 @@
       <updated>1497303977153</updated>
       <workItem from="1525941979791" duration="7917000" />
       <workItem from="1525951846787" duration="22926000" />
-      <workItem from="1526360658900" duration="3406000" />
+      <workItem from="1526360658900" duration="3498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34249000" />
+    <option name="totallyTimeSpent" value="34341000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -398,7 +393,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23499268" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.3295129" />
