@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>
-                                    <input id="email_login" type="email" name="email" class="form-control" placeholder="Your Email" required>
+                                    <input id="email_login" type="text" name="email" class="form-control" placeholder="Your Username" required>
                                 </div>
                             </div>
 

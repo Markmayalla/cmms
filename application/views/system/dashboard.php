@@ -1,6 +1,54 @@
 <div class="row">
     <div class="col-md-8">
-
+		<div class="container" style="position: relative;  top: 20px; left:10px;">
+			<div class="tab-content">
+				<div class="tab-pane active" id="asset">
+						<?php 
+							$this->load->view('dashboard/assets/index'); 
+						?>
+				</div>
+				<div class="tab-pane" id="organization">
+						<?php 
+							$this->load->view('dashboard/organization/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="equipment">
+						<?php
+							$this->load->view('dashboard/equipment/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="parches">
+						<?php 
+							$this->load->view('dashboard/parches/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="request">
+						<?php 
+							$this->load->view('dashboard/request/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="spare">
+						<?php 
+							$this->load->view('dashboard/spare/index');
+						?>
+				</div>	
+				<div class="tab-pane" id="task">
+						<?php 
+							$this->load->view('dashboard/tasks/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="user">
+						<?php 
+							$this->load->view('dashboard/users/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="report">
+						<?php 
+							$this->load->view('dashboard/report/index'); 
+						?>
+				</div>
+			</div>
+		</div>
     </div>
 
     <div class="col-md-4" >
