@@ -43,6 +43,7 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/AdminLTE/monsterJS.js" type="text/javascript"></script>
+<script src="<?PHP echo base_url(); ?>js/dataTable.js" type="text/javascript"></script>
 
 
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/AdminLTE/gis.js" type="text/javascript"></script>

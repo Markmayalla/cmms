@@ -7,12 +7,12 @@
 				?>
 				<div class="tab-pane active" id="asset">
 						<?php 
-							$this->load->view('dashboard/assets/index'); 
+							$this->load->view('dashboard/assets/index',$assets); 
 						?>
 				</div>
 				<div class="tab-pane" id="organization">
 						<?php 
-							$this->load->view('dashboard/organization/index'); 
+							$this->load->view('dashboard/organization/index',$organizations); 
 						?>
 				</div>	
 				<div class="tab-pane" id="equipment">
@@ -27,7 +27,7 @@
 				</div>	
 				<div class="tab-pane" id="request">
 						<?php 
-							$this->load->view('dashboard/request/index'); 
+							$this->load->view('dashboard/request/index',$requests); 
 						?>
 				</div>	
 				<div class="tab-pane" id="spare">
@@ -37,12 +37,12 @@
 				</div>	
 				<div class="tab-pane" id="task">
 						<?php 
-							$this->load->view('dashboard/tasks/index'); 
+							$this->load->view('dashboard/tasks/index',$tasks); 
 						?>
 				</div>	
 				<div class="tab-pane" id="user">
 						<?php 
-							$this->load->view('dashboard/users/index'); 
+							$this->load->view('dashboard/users/index',$users); 
 						?>
 				</div>	
 				<div class="tab-pane" id="report">

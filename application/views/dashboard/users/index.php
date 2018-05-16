@@ -5,6 +5,9 @@
 		tools_action($data['link'], $data['data']);
 	?>
 	<div class="container">
-		Users
+		<?php
+			print_r($display);
+			
+		?>
 	</div>
 </div>
