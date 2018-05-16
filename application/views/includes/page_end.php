@@ -2,6 +2,7 @@
 <script src="<?PHP echo base_url(); ?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?PHP echo base_url(); ?>js/custome.js"></script>
 <script src="<?PHP echo base_url(); ?>js/dataTable.js" type="text/javascript"></script>
+<script src="<?PHP echo base_url(); ?>js/print.min.js" type="text/javascript"></script>
 
 
 <script>

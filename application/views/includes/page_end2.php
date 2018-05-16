@@ -44,6 +44,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/AdminLTE/monsterJS.js" type="text/javascript"></script>
 <script src="<?PHP echo base_url(); ?>js/dataTable.js" type="text/javascript"></script>
+<script src="<?PHP echo base_url(); ?>js/print.min.js" type="text/javascript"></script>
 
 
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/AdminLTE/gis.js" type="text/javascript"></script>
@@ -52,7 +53,15 @@
 
 <script>
 	$(document).ready( function () {
-		$('#cmmsTable').DataTable();
+		$('#table_assets').DataTable();
+		$('#table_equipment').DataTable();
+		$('#table_organization').DataTable();
+		$('#table_users').DataTable();
+		$('#table_parches').DataTable();
+		$('#table_report').DataTable();
+		$('#table_request').DataTable();
+		$('#table_spare').DataTable();
+		$('#table_tasks').DataTable();
 	} );
 </script>
 </body>
