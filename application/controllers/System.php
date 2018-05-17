@@ -13,6 +13,48 @@ class System extends CI_Controller {
     }
 
     public function dashboard() {
+		$this->load->model('user_model');
+		$this->load->model('task_model');
+		$this->load->model('organization_model');
+		$this->load->model('asset_model');
+		$this->load->model('request_model');
+		
+		
+		$data['users']['display'] = $this->user_model->get_all();
+		$data['assets']['display'] = $this->asset_model->get_all();
+		$data['organizations']['display'] = $this->organization_model->get_all();
+		$data['tasks']['display'] = $this->task_model->get_all();
+		$data['requests']['display'] = $this->request_model->get_all();
+		
+		$this->load->library("table");
+		$template = array(
+							'table_open'  => '<table id="cmmsTable" class="table table table-striped table-bordered">',
+
+							'thead_open'            => '<thead>',
+							'thead_close'           => '</thead>',
+
+							'heading_row_start'     => '<tr>',
+							'heading_row_end'       => '</tr>',
+							'heading_cell_start'    => '<th>',
+							'heading_cell_end'      => '</th>',
+
+							'tbody_open'            => '<tbody>',
+							'tbody_close'           => '</tbody>',
+
+							'row_start'             => '<tr>',
+							'row_end'               => '</tr>',
+							'cell_start'            => '<td>',
+							'cell_end'              => '</td>',
+
+							'row_alt_start'         => '<tr>',
+							'row_alt_end'           => '</tr>',
+							'cell_alt_start'        => '<td>',
+							'cell_alt_end'          => '</td>',
+
+							'table_close'           => '</table>'
+					);
+		$this->table->set_template($template);
+		
         $data['main_content'] = 'dashboard';
         $this->load->view('includes/system', $data);
     }

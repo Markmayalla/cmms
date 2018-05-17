@@ -1,6 +1,57 @@
 <div class="row">
     <div class="col-md-8">
-
+		<div class="container box box-success" style="position: relative;  top: 20px; left:10px;">
+			<div class="tab-content">
+				<?php
+					$this->load->view('tools/index');
+				?>
+				<div class="tab-pane active" id="asset">
+						<?php 
+							$this->load->view('dashboard/assets/index',$assets); 
+						?>
+				</div>
+				<div class="tab-pane" id="organization">
+						<?php 
+							$this->load->view('dashboard/organization/index',$organizations); 
+						?>
+				</div>	
+				<div class="tab-pane" id="equipment">
+						<?php
+							$this->load->view('dashboard/equipment/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="parches">
+						<?php 
+							$this->load->view('dashboard/parches/index'); 
+						?>
+				</div>	
+				<div class="tab-pane" id="request">
+						<?php 
+							$this->load->view('dashboard/request/index',$requests); 
+						?>
+				</div>	
+				<div class="tab-pane" id="spare">
+						<?php 
+							$this->load->view('dashboard/spare/index');
+						?>
+				</div>	
+				<div class="tab-pane" id="task">
+						<?php 
+							$this->load->view('dashboard/tasks/index',$tasks); 
+						?>
+				</div>	
+				<div class="tab-pane" id="user">
+						<?php 
+							$this->load->view('dashboard/users/index',$users); 
+						?>
+				</div>	
+				<div class="tab-pane" id="report">
+						<?php 
+							$this->load->view('dashboard/report/index'); 
+						?>
+				</div>
+			</div>
+		</div>
     </div>
 
     <div class="col-md-4" >

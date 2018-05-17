@@ -78,10 +78,12 @@
 						type : "POST",
 						url : link,
 						data : {
-							myData : string
+							username : loginObject.username,
+							password_user : loginObject.password_user
 						},
 						success : function(response){
 							window.location = site_url + response;
+							//alert(response);
 						},
 						error : function(response){
 							
