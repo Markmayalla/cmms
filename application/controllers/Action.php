@@ -42,9 +42,7 @@
 		public function excel(){
 			$name = $this->uri->segment(3);
 			$data['display'] = $this->models_data($name);
-			$this->load->view('includes/page_start2.php');
 			$this->load->view('dashboard/'.$name.'/excel',$data);
-			$this->load->view('includes/page_end2.php');
 		}
 		public function cvs(){
 			echo $this->uri->segment(3);

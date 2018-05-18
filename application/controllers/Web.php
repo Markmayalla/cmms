@@ -22,6 +22,87 @@ class Web extends CI_Controller {
 		$array = json_decode($user_data);
 		$this->load->model('Tables','insert');
 		$this->insert->register_organization($array);
+		
+				//$this->load->model();
+				$arrayUser['phones'] = array();
+				$arrayUser['address'] = array();
+				$arrayUser['emails'] = array();
+
+				$array_id = array();
+				$phone = $array->phones;
+				$email = $array->emails;
+				$address = $array->address;
+				 
+				$i = 0;
+				foreach($phone as $key => $value){
+					$arrayUser['phones'][$i]['title'] = $value->title;
+					$arrayUser['phones'][$i]['number'] = $value->number;
+					$i++;
+				}
+				$j = 0;
+				foreach($email as  $value){
+					$arrayUser['emails'][$j]['email'] = $value->email;
+					$j++;
+				}
+				
+				$k = 0;
+				foreach($address as  $value){
+					$arrayUser['address'][$k]['box'] = $value->box;
+					$arrayUser['address'][$k]['street'] = $value->street;
+					$arrayUser['address'][$k]['district'] = $value->district;
+					$arrayUser['address'][$k]['region'] = $value->region;
+					$arrayUser['address'][$k]['country'] = $value->country;
+					$k++;
+				}
+				
+				
+				$arrayUser['user']['first_name'] = $array->first_name;
+				$arrayUser['user']['last_name'] = $array->last_name;
+				$arrayUser['user']['middle_name'] = $array->middle_name;
+				$arrayUser['user']['gender'] = $array->gender;
+				$arrayUser['account']['password'] = $array->password_new;
+				$arrayUser['account']['type'] = $array->accont_type;
+				
+				
+				
+				if($this->db->insert('users',$arrayUser['user'])){
+				  $people_id = $this->db->insert_id();
+				  $arrayUser['account']['user_id'] = $people_id;
+				  
+				  $array_id['phones'] = array();
+				  $array_id['address'] = array();
+				  $array_id['emails'] = array();
+				  
+				  $this->db->insert('accounts',$arrayUser['account']);
+				  for($i = 0; $i < count($arrayUser['phones']); $i++){
+					  $this->db->insert('phones',$arrayUser['phones'][$i]);
+					  $array_id['phones'][$i]['people_id'] = $people_id;
+					  $array_id['phones'][$i]['phones_id'] = $this->db->insert_id();
+				  }
+				  
+				  for($i = 0; $i < count($arrayUser['address']); $i++){
+					  $this->db->insert('addresses',$arrayUser['address'][$i]);
+					  $array_id['address'][$i]['people_id'] = $people_id;
+					  $array_id['address'][$i]['addresses_id'] = $this->db->insert_id();
+				  }
+				  for($i = 0; $i < count($arrayUser['emails']); $i++){
+					  $this->db->insert('emails',$arrayUser['emails'][$i]);
+					  $array_id['emails'][$i]['people_id'] = $people_id;
+					  $array_id['emails'][$i]['emails_id'] = $this->db->insert_id();
+				  }
+				  
+				  if(count($array_id)){
+					foreach($array_id['phones'] as $phone)
+						$this->db->insert('users_has_phones',$phone); 
+					foreach($array_id['address'] as $address)
+						$this->db->insert('users_has_addresses',$address); 
+					foreach($array_id['emails'] as $emails)
+						$this->db->insert('users_has_emails',$emails);
+					echo 'inserted';					 
+				  }
+				}else{
+					echo "fail to insert user";
+				}
 	}
 	
 	public function register_user(){	

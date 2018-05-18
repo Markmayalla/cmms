@@ -1,6 +1,6 @@
-
 <!-- jQuery 2.0.2 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
 <!-- PUBNUB SDK libraries -->
 <script src="https://cdn.pubnub.com/pubnub-3.7.14.min.js"></script>
 <script src="https://cdn.pubnub.com/webrtc/webrtc.js"></script>
@@ -8,7 +8,9 @@
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 
 
-
+<?php
+	include 'excel_library.php';
+?>
 <!-- Bootstrap -->
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
 
