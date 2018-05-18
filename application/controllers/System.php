@@ -21,15 +21,13 @@ class System extends CI_Controller {
 		
 		
 		$data['users']['display'] = $this->user_model->get_all();
-		$data['assets']['display'] = $this->asset_model->get_all();
+		$data['assets']['display'] = $this->asset_model->select();
 		$data['organizations']['display'] = $this->organization_model->get_all();
 		$data['tasks']['display'] = $this->task_model->get_all();
 		$data['requests']['display'] = $this->request_model->get_all();
 		
 		$this->load->library("table");
-		$template = array(
-							'table_open'  => '<table id="cmmsTable" class="table table table-striped table-bordered">',
-
+		$data['template'] = array(
 							'thead_open'            => '<thead>',
 							'thead_close'           => '</thead>',
 
@@ -53,7 +51,7 @@ class System extends CI_Controller {
 
 							'table_close'           => '</table>'
 					);
-		$this->table->set_template($template);
+		
 		
         $data['main_content'] = 'dashboard';
         $this->load->view('includes/system', $data);
