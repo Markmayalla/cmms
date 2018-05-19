@@ -40,7 +40,9 @@
 			echo $this->uri->segment(3);
 		}
 		public function excel(){
-			echo $this->uri->segment(3);
+			$name = $this->uri->segment(3);
+			$data['display'] = $this->models_data($name);
+			$this->load->view('dashboard/'.$name.'/excel',$data);
 		}
 		public function cvs(){
 			echo $this->uri->segment(3);
