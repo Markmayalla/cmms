@@ -39,6 +39,39 @@
 		public function print_priview(){
 			echo $this->uri->segment(3);
 		}
+		public function view(){
+			$this->load->view('tools/index');
+			$this->load->library("table");
+		$data['template'] = array(
+							'thead_open'            => '<thead>',
+							'thead_close'           => '</thead>',
+
+							'heading_row_start'     => '<tr>',
+							'heading_row_end'       => '</tr>',
+							'heading_cell_start'    => '<th>',
+							'heading_cell_end'      => '</th>',
+
+							'tbody_open'            => '<tbody>',
+							'tbody_close'           => '</tbody>',
+
+							'row_start'             => '<tr>',
+							'row_end'               => '</tr>',
+							'cell_start'            => '<td>',
+							'cell_end'              => '</td>',
+
+							'row_alt_start'         => '<tr>',
+							'row_alt_end'           => '</tr>',
+							'cell_alt_start'        => '<td>',
+							'cell_alt_end'          => '</td>',
+
+							'table_close'           => '</table>'
+					);	
+			$name = $this->uri->segment(3);
+			$data['display'] = $this->models_data($name);
+			$this->load->view('includes/page_start2.php');
+			$this->load->view('dashboard/'.$name.'/index',$data);
+			$this->load->view('includes/page_end3.php');
+		}
 		public function excel(){
 			$name = $this->uri->segment(3);
 			$data['display'] = $this->models_data($name);
