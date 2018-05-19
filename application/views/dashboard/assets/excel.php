@@ -1,7 +1,7 @@
 <?php 
-		$name = "User_Report";
-		$array_heading = array('id','First Name','Last Name','Middle Name','Gender');
-		$array_shots = array('id','first_name','last_name','middle_name','gender');
+		$name = "Assert_Report";
+		$array_heading = array('Asset Id', 'Asset Name', 'Model Name', 'Organization');
+		$array_shots = array('ass_id', 'ass_name','ass_m_n','org_name');
 		$data['data'] = $display;
 		$data['heading'] = $array_heading;
 		$data['shots'] = $array_shots;

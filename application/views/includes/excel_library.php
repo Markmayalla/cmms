@@ -13,6 +13,7 @@
 					var data = objectJSON.data;
 					var heading = objectJSON.heading;
 					var shots = objectJSON.shots;
+					var excelName = objectJSON.excelName;
 					console.log(data);
 					 var columns = heading.length;
 					 var rows = data.length;
@@ -41,26 +42,8 @@
 							sheet.getCell(rowV[j] + (i+2)).value(dataPop[shot_i]);
 						}
 					}
-					/*
-					// Specify the style to use in the table (this can also be specified as an optional 3rd argument to the 'add' call above).
-					table.style(workbook.standardTableStyles('TableStyleMedium2'))
-
-					// Populate the table with data
-					sheet.getCell('A2').value(3223);
-					sheet.getCell('B2').value('Jack Banner');
-					sheet.getCell('C2').value('Approved');
-					sheet.getCell('D2').value('');
-
-
-					// Sort the table by the Applicant column
-					//table.columns('Applicant').sortCondition(new $.ig.excel.OrderedSortCondition());
-
-					// Filter out the Approved applicants
-					//table.columns('Status').applyCustomFilter(new $.ig.excel.CustomFilterCondition($.ig.excel.ExcelComparisonOperator.notEqual, 'Approved'));
-
-					// Save the workbook
-					*/
-					saveWorkbook(workbook, "Table.xlsx");
+					
+					saveWorkbook(workbook, excelName);
 				},
 				error: function(response){
 					//alert(response)

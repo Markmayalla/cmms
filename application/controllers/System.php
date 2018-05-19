@@ -13,19 +13,7 @@ class System extends CI_Controller {
     }
 
     public function dashboard() {
-		$this->load->model('user_model');
-		$this->load->model('task_model');
-		$this->load->model('organization_model');
-		$this->load->model('asset_model');
-		$this->load->model('request_model');
-		
-		
-		$data['users']['display'] = $this->user_model->get_all();
-		$data['assets']['display'] = $this->asset_model->select();
-		$data['organizations']['display'] = $this->organization_model->get_all();
-		$data['tasks']['display'] = $this->task_model->get_all();
-		$data['requests']['display'] = $this->request_model->get_all();
-		
+
 		$this->load->library("table");
 		$data['template'] = array(
 							'thead_open'            => '<thead>',
@@ -52,8 +40,56 @@ class System extends CI_Controller {
 							'table_close'           => '</table>'
 					);
 		
-		
-        $data['main_content'] = 'dashboard';
+		$name = "assets";
+        $data['main_content'] = 'dash_two';
+        $data['data']['display'] = $this->models_data($name);
+		$data['name'] = $name;
         $this->load->view('includes/system', $data);
     }
+	
+	public function view(){
+		$name = $this->uri->segment(3);
+		$this->load->library("table");
+		$data['template'] = array(
+							'thead_open'            => '<thead>',
+							'thead_close'           => '</thead>',
+
+							'heading_row_start'     => '<tr>',
+							'heading_row_end'       => '</tr>',
+							'heading_cell_start'    => '<th>',
+							'heading_cell_end'      => '</th>',
+
+							'tbody_open'            => '<tbody>',
+							'tbody_close'           => '</tbody>',
+
+							'row_start'             => '<tr>',
+							'row_end'               => '</tr>',
+							'cell_start'            => '<td>',
+							'cell_end'              => '</td>',
+
+							'row_alt_start'         => '<tr>',
+							'row_alt_end'           => '</tr>',
+							'cell_alt_start'        => '<td>',
+							'cell_alt_end'          => '</td>',
+
+							'table_close'           => '</table>'
+					);
+		
+		$data['data']['display'] = $this->models_data($name);
+		$data['name'] = $name;
+        $data['main_content'] = 'dash_two';
+        $this->load->view('includes/system',$data);
+	}
+	
+		function models_data($data){
+			if($data == 'users'){
+				$this->load->model('user_model');
+				return $this->user_model->get_all();
+			}else if($data == 'assets'){
+				$this->load->model('asset_model');
+				return $this->asset_model->select();
+			}else{
+				return "unknown model";
+			}
+		}
 }

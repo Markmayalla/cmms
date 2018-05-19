@@ -71,7 +71,6 @@
 	  var target = $(e.target).attr("href") // activated tab
 	  loadDataUi(target);
 	});
-	$("#assets").click();
 })(jQuery);
 
 

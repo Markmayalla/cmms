@@ -18,15 +18,15 @@
         <div class="col-md-3 col-lg-2">
             <div id="system_menu_wrapper">
                 <ul>
-                    <li class="active"><a href="#asset" data-toggle="tab"><i class="fa fa-anchor" style="font-size:30px;"></i> Assets</a> </li>
-                    <li><a href="#organization" data-toggle="tab"><i class="fa fa-user" style="font-size:30px;"> </i> Organizations</a> </li>
-                    <li><a href="#user" data-toggle="tab"><i class="fa fa-user" style="font-size:30px;"></i> Users</a> </li>
-                    <li><a href="#request" data-toggle="tab"><i class="fa fa-download" style="font-size:30px;"></i> Requests</a> </li>
-                    <li><a href="#task" data-toggle="tab"><i class="fa fa-user" style="font-size:30px;"></i> Tasks</a> </li>
-                    <li><a href="#equipment" data-toggle="tab"><i class="fa fa-cog" style="font-size:30px;"></i> Equipments</a> </li>
-                    <li><a href="#spare" data-toggle="tab"><i class="fa fa-cogs" style="font-size:30px;"></i> Spare Parts</a> </li>
-                    <li><a href="#parches" data-toggle="tab"><i class="fa fa-money" style="font-size:30px;"></i> Parches</a> </li>
-                    <li><a href="#report" data-toggle="tab"><i class="fa fa-book" style="font-size:30px;"></i> Report</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>assets"><i class="fa fa-anchor" style="font-size:30px;"></i> Assets</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>organization"><i class="fa fa-user" style="font-size:30px;"> </i> Organizations</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>users"><i class="fa fa-user" style="font-size:30px;"></i> Users</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>request"><i class="fa fa-download" style="font-size:30px;"></i> Requests</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" style="font-size:30px;"></i> Tasks</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>equipment" ><i class="fa fa-cog" style="font-size:30px;"></i> Equipments</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" style="font-size:30px;"></i> Spare Parts</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" style="font-size:30px;"></i> Parches</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>report"><i class="fa fa-book" style="font-size:30px;"></i> Report</a> </li>
                 </ul>
             </div>
         </div>
