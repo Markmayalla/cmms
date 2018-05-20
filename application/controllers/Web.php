@@ -118,59 +118,113 @@ class Web extends CI_Controller {
 		$this->account_model->register($user_data_array);
 
 	}
+
+	public function phone_exists() {
+        $this->load->model('phone_model');
+        $row = $this->phone_model->get_by(array('number'=>$this->input->post('phone')));
+        if (count($row) > 0) {
+           echo  http_response_code(404);
+        } else {
+           echo http_response_code(200);
+        }
+    }
+
+    public function email_exists() {
+        $this->load->model('email_model');
+        $row = $this->email_model->get_by(array('email'=>$this->input->post('email')));
+        if (count($row) > 0) {
+            echo http_response_code(404);
+        } else {
+            echo http_response_code(200);
+        }
+    }
+
+    public function username_exists() {
+       $this->load->model("user_model");
+        $tag = "###web/username_exists: ";
+       //Checkign if i could work with password
+       //This is called using data parsley remote function
+        ChromePhp::log($tag . "Password :::: " . $this->input->post("password"));
+        ChromePhp::log($tag . "Username :::: " . $this->input->post("username"));
+       if ($this->user_model->username_exists($this->input->post("username"))) {
+           echo http_response_code(200);
+       } else {
+           echo http_response_code(404);
+       }
+    }
+
+    public function check_password() {
+
+        $tag = "###web/check_password: ";
+
+        ChromePhp::log($tag . "Checking Password");
+        ChromePhp::log($tag . "PASSWORD RECEIVED: " . $this->input->post("password"));
+        ChromePhp::log($tag . "USERNAME RECEIVED: " .  $this->input->post("username"));
+
+        $this->load->model("account_model");
+        $this->load->model("email_model");
+        $this->load->model("phone_model");
+        $this->load->model("users_has_phone_model");
+        $this->load->model("users_has_email_model");
+
+        $username = $this->input->post("username");
+        $password = $this->input->post("password");
+
+        $email = $this->email_model->get_by(array("email"=>$username));
+        $phone = $this->phone_model->get_by(array("number"=>$username));
+
+        if (count($email) > 0 || count($phone) > 0) {
+            ChromePhp::log($tag . "Account Exists...");
+            if (count($email) > 0) {
+                ChromePhp::log($tag . "Email was used as account username");
+                $row = $this->users_has_email_model->get_by(array("emails_id"=>$email->id));
+                $user_id = $row->users_id;
+            } else {
+                ChromePhp::log($tag . "Phone was used as account username");
+                $row = $this->users_has_phone_model->get_by(array("phones_id"=>$phone->id));
+                $user_id = $row->users_id;
+            }
+            ChromePhp::log($tag . "USER_ID: " . $user_id);
+            $account = $this->account_model->get_by(array("user_id"=>$user_id));
+            ChromePhp::log($account);
+
+            if ($account->password == $password) {
+                // Password Correct
+                ChromePhp::log($tag . "Password Correct");
+                echo http_response_code(200);
+            } else {
+                ChromePhp::log($tag . "Password Incorrect");
+                echo http_response_code(404);
+            }
+        } else {
+            //User does not exists
+            ChromePhp::log($tag . "User does not exist");
+        }
+    }
 	
 	public function login_user(){
 		//$user_data = urldecode($this->input->post('myData'));
 		//$array = json_decode($user_data);
 
+        $tag = "###web/login_user: ";
+
 		$username = $this->input->post('username');
 		$password = $this->input->post('password_user');
 		
 		//Loading All Impontant Models
-		$this->load->model('account_model');
-		$this->load->model('phone_model');
-		$this->load->model('user_model');
-		$this->load->model('email_model');
-		$this->load->model('users_has_email_model');
-		$this->load->model('users_has_phone_model');
+		$this->load->model("account_model");
 
-		//Assumming we don't know the user logs in by email or phone
-        //We query the database to see if email or phone exists
-		$email_num = $this->email_model->count_by(array('email' => $username));
-		$email = $this->email_model->get_by(array('email' => $username));
-		$phone_num = $this->phone_model->count_by(array('number' => $username));
-		$phone = $this->phone_model->get_by(array('number' => $username));
+		ChromePhp::log($tag . "Username = " . $username);
+		ChromePhp::log($tag . "Password = " . $password);
 
-		//If email or phone exists in the database
-		if ($email_num > 0 || $phone_num > 0) {
-
-		    //Aim is to get the user_id so as we can Query the Account Table for validating the password
-
-		    //If Email Exists
-		    if ($email_num > 0) {
-		        $id = $email->id;
-		        $users_has_emails = $this->users_has_email_model->get_by(array('emails_id' => $id));
-		        $user_id = $users_has_emails->people_id;
-            } else { //Phone Exists
-		        $id = $phone->id;
-                $users_has_phones = $this->users_has_phone_model->get_by(array('phones_id' => $id));
-                $user_id = $users_has_phones->people_id;
-            }
-
-
-            //Using user id to get account
-            $account = $this->account_model->get_by(array('user_id' => $user_id));
-		    if ($account->password == $password) {
-		        //Password Correct
-				echo "system/";
-            } else {
-		        //Incorrect Password
-				echo "web/";
-            }
-
+		if ($this->account_model->login($username, $password) == false) {
+            ChromePhp::log($tag . "Login Failed");
         } else {
-		    //Error: The username does not exist
-
+		    //Set Session Params Here
+            //Redirect Users Here
+            ChromePhp::log($tag . "From Login User: Login Success");
+            $account = $this->account_model->login($username, $password);
+            $this->session->set_userdata("account_id", $account->id);
         }
 	}
 	

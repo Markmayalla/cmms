@@ -29,14 +29,23 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>
-                                    <input id="email_login" type="text" name="email" class="form-control" placeholder="Your Username" required>
+                                    <input id="username" type="text" name="username" class="form-control" placeholder="Your Username"
+                                           data-parsley-trigger="change"
+                                           data-parsley-remote="<?PHP echo base_url() ?>index.php/web/username_exists"
+                                           data-parsley-remote-message="Oops, Please insert a valid number or email as a username"
+                                           data-parsley-remote-options='{"type":"POST","dataType":"jsonp","data": {"request":"ajax"}}'
+                                           required />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-lock"></span> </span>
-                                    <input id="password_login" type="password" name="password" class="form-control" placeholder="Your Password" required>
+                                    <input id="password_login" type="password" name="password" class="form-control" placeholder="Your Password"
+                                           data-parsley-trigger="change"
+                                           data-parsley-remote="<?PHP echo base_url(); ?>index.php/web/check_password"
+                                           data-parsley-remote-message="Incorrect Password"
+                                           required>
                                 </div>
                             </div>
 

@@ -64,36 +64,44 @@
 	}
 	
 	$("#login_system").click(function(){
-		userStep1 = $("#login_form").parsley();
-		if(userStep1.validate()){
+	    var tag = "~~AJAX~~  ";
+	    console.log(tag + "Login to system function triggered")
+		loginForm = $("#login_form").parsley();
 
-			var link = site_url + "Web/login_user";
-			if(loginObject.retry > 0){
-				loginObject.password_user = $("#password_login").val();
-				loginObject.username = $("#email_login").val();
-				loginObject.retry = loginObject.retry - 1;
-				var string = JSON.stringify(loginObject);
-				$.ajax(
-					{
-						type : "POST",
-						url : link,
-						data : {
-							username : loginObject.username,
-							password_user : loginObject.password_user
-						},
-						success : function(response){
-							window.location = site_url + response;
-							//alert(response);
-						},
-						error : function(response){
-							
-						}
-					}
-				);
-			}else{
-				alert("Maximum retry is Three");
-			}
-		}
+		if (loginForm.isValid()) {
+            var link = site_url + "web/login_user";
+            if(loginObject.retry > 0){
+                loginObject.password_user = $("#password_login").val();
+                loginObject.username = $("#email_login").val();
+                loginObject.retry = loginObject.retry - 1;
+                var string = JSON.stringify(loginObject);
+                $.ajax(
+                    {
+                        type : "POST",
+                        url : link,
+                        data : {
+                            username : loginObject.username,
+                            password : loginObject.password_user
+                        },
+                        success : function(response){
+                            console.log(tag + "Login Success");
+                            console.log(tag + "Displaying Response");
+                            console.log(tag + response);
+                            window.location.href = site_url + "system"
+                            //alert(response);
+                        },
+                        error : function(response){
+                            console.log(tag + "Login Failed")
+                        }
+                    }
+                );
+            }else{
+                alert("Maximum retry is Three");
+            }
+        } else {
+		    console.log(tag + "Login Form is not valid");
+        }
+
 	});
 	///User Registration
     regObj = {
@@ -109,6 +117,14 @@
         addresses: []
     };
 
+    $("#password_login").focusout(function () {
+        console.log("Focus Change on password field");
+        var username = $("#username").val();
+        var options = {"type":"POST","dataType":"jsonp","data":{"request":"ajax","username":username}};
+        options = JSON.stringify(options);
+        console.log(options);
+        $("#password_login").attr("data-parsley-remote-options",options);
+    });
 
 
     $('#step2').hide();
@@ -121,10 +137,9 @@
 
         userStep1 = $('#user_step1').parsley();
 
-        if (userStep1.validate()) {
-
+        userStep1.whenValidate().done(function () {
             $('#step').html("2");
-            $('#reg_progress').css('width', '50%');
+            $('#reg_progress').css('width', '40%');
             $('#step1').hide();
             $('#step2').show();
 
@@ -134,41 +149,36 @@
             regObj.gender = $('#gender').val();
 
             console.log(regObj);
+        });
 
-        } else {
-
-        }
     });
-	
 
-
-    userStep2 = $('#user_step2').parsley();
     userStep3 = $('#user_step3').parsley();
 
     $('#back_to_1').click(function () {
         $('#step').html("1");
-        $('#reg_progress').css('width', '25%');
+        $('#reg_progress').css('width', '20%');
         $('#step1').show();
         $('#step2').hide();
     });
 
     $('#back_to_2').click(function () {
         $('#step').html("2");
-        $('#reg_progress').css('width', '50%');
+        $('#reg_progress').css('width', '40%');
         $('#step2').show();
         $('#step3').hide();
     });
 
     $('#back_to_3').click(function () {
         $('#step').html("3");
-        $('#reg_progress').css('width', '75%');
+        $('#reg_progress').css('width', '60%');
         $('#step3').show();
         $('#step4').hide();
     });
 	
 	$('#back_to_4').click(function () {
         $('#step').html("4");
-        $('#reg_progress').css('width', '75%');
+        $('#reg_progress').css('width', '80%');
         $('#step4').show();
         $('#step5').hide();
     });
@@ -179,8 +189,12 @@
     });
 
     $('#add_phone').click(function () {
+        userStep2 = $('#user_step2').parsley();
+        console.log("Add phone triggered");
 
-        if (userStep2.validate()) {
+        userStep2.whenValidate().done(function () {
+
+            console.log("add phone validation true");
             title = $('#title').val();
             number = $('#phone').val();
             console.log("title: " + title + ", number: " + number);
@@ -198,9 +212,8 @@
             }
 
             console.log(regObj);
-        } else {
 
-        }
+        });
 
     });
 
@@ -210,8 +223,10 @@
     });
 
     $('#add_email').click(function () {
-
-        if (userStep2.validate()) {
+        $userStep3 = $('#userStep3').parsley();
+        console.log("Add email is Triggered...");
+        userStep3.whenValidate().done(function () {
+            console.log("Validation Success");
             email = $('#email').val();
             console.log("email: " + email);
             emailObj = {};
@@ -222,32 +237,32 @@
             emails.append('<ul></ul>');
             emails = $('#emails ul');
 
-            for (i=0;i<regObj.emails.length;i++) {
+            for (i = 0; i < regObj.emails.length; i++) {
                 emails.append("<li>" + regObj.emails[i].email + "</li>");
             }
 
             console.log(regObj);
-        } else {
+        });
 
-        }
 
     });
 
     $('#next2').click(function () {
+        console.log("Next 2 Clicked...");
         userStep2 = $('#user_step2').parsley();
+        console.log(userStep2);
 
-        if (userStep2.validate()) {
-
+        console.log("User step 2 validation failed");
+        userStep2.whenValidate().done(function(){
+            console.log("User step 2 validation success");
             $('#step').html("3");
-            $('#reg_progress').css('width', '75%');
+            $('#reg_progress').css('width', '60%');
             $('#step2').hide();
             $('#step3').show();
 
             console.log(regObj);
+        });
 
-        } else {
-
-        }
     });
 
     $('#reset_address').click(function () {
@@ -257,8 +272,9 @@
 
     $('#add_address').click(function () {
 
+        userStep4 = $('#user_step4').parsley();
 
-        if (userStep3.validate()) {
+        userStep4.whenValidate().done(function () {
             box = $('#box').val();
             street = $('#street').val();
             district = $('#district').val();
@@ -285,41 +301,35 @@
             }
 
             console.log(regObj);
-        } else {
-
-        }
+        });
 
     });
 
     $('#next3').click(function () {
 		userStep3 = $('#user_step3').parsley();
 
-		if (userStep3.validate()) {
+		userStep3.whenValidate().done(function () {
+            $('#step').html("4");
+            $('#reg_progress').css('width', '80%');
+            $('#step3').hide();
+            $('#step4').show();
 
-			$('#step').html("4");
-			$('#reg_progress').css('width', '80%');
-			$('#step3').hide();
-			$('#step4').show();
+            console.log(regObj);
+        });
 
-			console.log(regObj);
-
-		} else {
-
-		}
 	});
 	
 	$('#next4').click(function () {
 		userStep4 = $('#user_step4').parsley();
 
-		if (userStep4.validate()) {
-			$('#step').html("5");
-			$('#reg_progress').css('width', '100%');
-			$('#step4').hide();
-			$('#step5').show();
-			console.log(regObj);
-		} else {
+		userStep4.whenValidate().done(function () {
+            $('#step').html("5");
+            $('#reg_progress').css('width', '100%');
+            $('#step4').hide();
+            $('#step5').show();
+            console.log(regObj);
+        });
 
-		}
 	});
 
 
@@ -328,33 +338,31 @@
         userStep4 = $('#user_step5').parsley();
 		regObj.password_new = $('#password_user_new').val();
 		regObj.accont_type = "user_account";
-		if(userStep4.validate()){
-			var string = escape(JSON.stringify(regObj));
-			var link = site_url + "Web/register_user"; 
-			
-		    //console.log(link);
-		    //console.log(string);
-			
-			if (userStep4.validate()){
-				$.ajax({
-					url: link,
-					type: 'post',
-					data: {
-						myData : string
-					},
-					success: function(response){
-						console.log("registration response");
-						console.log(response);
-					},
-					error: function(response){
-						console.log(response);
-					}
-				});
 
-			} else {
-				alert("failed");
-			}
-		}
+		userStep4.whenValidate().done(function () {
+            var string = escape(JSON.stringify(regObj));
+            var link = site_url + "Web/register_user";
+
+            //console.log(link);
+            //console.log(string);
+
+
+            $.ajax({
+                url: link,
+                type: 'post',
+                data: {
+                    myData : string
+                },
+                success: function(response){
+                    console.log("registration response");
+                    console.log(response);
+                    window.location.href = site_url + "web";
+                },
+                error: function(response){
+                    console.log(response);
+                }
+            });
+        });
     });
 
 

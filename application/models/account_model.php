@@ -60,4 +60,42 @@ class account_model extends MY_Model {
         ChromePhp::log("Master Query Success: Account_id = " . $account_id);
     }
 
+    public function login($username, $password) {
+        ChromePhp::log("@@@ Function Login in account model is triggered");
+        $this->load->model('email_model');
+        $this->load->model('phone_model');
+        $this->load->model('account_model');
+        $this->load->model('users_has_phone_model');
+        $this->load->model('users_has_email_model');
+
+        $email = $this->email_model->get_by(array('email'=>$username));
+        $phone = $this->phone_model->get_by(array('number'=>$username));
+
+        if (count($email) > 0 || count($phone) > 0) {
+
+            if (count($email) > 0) {
+                $row = $this->users_has_email_model->get_by(array('emails_id'=>$email->id));
+                $user_id = $row->users_id;
+            } else {
+                $row = $this->users_has_phone_model->get_by(array('phones_id'=>$phone->id));
+                $user_id = $row->users_id;
+            }
+
+            $account = $this->account_model->get_by(array('user_id'=>$user_id));
+
+            if ($account->password == $password) {
+                //Login Successfull
+                return $account;
+            } else {
+                //Password Error
+                return false;
+            }
+
+        } else {
+            //Username does not exists error
+            return false;
+        }
+
+    }
+
 }

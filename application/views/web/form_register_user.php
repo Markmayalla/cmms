@@ -3,10 +3,10 @@
     <p class="margin-top">Step <span id="step">1</span>/5</p>
     <div class="progress progress-striped active">
         <div id="reg_progress" class="progress-bar progress-bar-aqua" role="progressbar"
-             aria-valuenow="30"
+             aria-valuenow="20"
              aria-valuemin="0"
              aria-valuemax="100"
-             aria-valuetext="Step" style="width: 25%"></div>
+             aria-valuetext="Step" style="width: 20%"></div>
     </div>
     <div id="step1">
         <form id="user_step1" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
@@ -52,7 +52,12 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="number" id="phone" name="phone" class="form-control" placeholder="Phone No." required>
+                    <input type="number" id="phone" name="phone" class="form-control" placeholder="Phone No."
+                           data-parsley-trigger="change"
+                           data-parsley-remote="<?PHP echo base_url(); ?>index.php/web/phone_exists"
+                           data-parsley-remote-message="Sorry, the phone number already exists in our database"
+                           data-parsley-remote-options='{"type":"POST","dataType":"jsonp","data": {"request":"ajax"}}'
+                           required />
                 </div>
             </div>
 
@@ -73,7 +78,12 @@
 
 
             <div class="form-group">
-                <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email"
+                       data-parsley-trigger="change"
+                       data-parsley-remote="<?PHP echo base_url(); ?>index.php/web/email_exists"
+                       data-parsley-remote-message="Oops... Email exists"
+                       data-parsley-remote-options='{"type":"POST","dataType":"jsonp","data":{"request":"ajax"}}'
+                       required>
             </div>
 
 
