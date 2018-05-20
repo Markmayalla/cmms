@@ -107,11 +107,16 @@ class Web extends CI_Controller {
 	
 	public function register_user(){	
 		//$data = "";
+        ChromePhp::log("Ajax myData: " . $this->input->post('myData'));
 		$user_data = urldecode($this->input->post('myData'));
-		$array = json_decode($user_data);
+		ChromePhp::log("User Data: " . $user_data);
+		$user_data_array = json_decode($user_data);
+		ChromePhp::log($user_data_array);
 
-		$this->load->model('Tables','insert');
-		$this->insert->register_user($array);
+		$this->load->model('account_model');
+		ChromePhp::log("Triggering Account Model Function called: register()");
+		$this->account_model->register($user_data_array);
+
 	}
 	
 	public function login_user(){

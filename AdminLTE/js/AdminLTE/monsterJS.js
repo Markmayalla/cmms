@@ -106,7 +106,7 @@
 		password_confirm : "",
         phones: [],
         emails: [],
-        address: []
+        addresses: []
     };
 
 
@@ -270,18 +270,18 @@
             addressObj['district'] = district;
             addressObj['region'] = region;
             addressObj['country'] = country;
-            regObj.address.push(addressObj);
+            regObj.addresses.push(addressObj);
             addresses = $('#addresses');
             addresses.html("");
             addresses.append('<ul></ul>');
             addresses = $('#addresses ul');
 
-            for (i=0;i<regObj.address.length;i++) {
-                addresses.append("<li>" + regObj.address[i].box + ", " +
-                    regObj.address[i].street + ", " +
-                    regObj.address[i].district + ", " +
-                    regObj.address[i].region + ", " +
-                    regObj.address[i].country + "</li>");
+            for (i=0;i<regObj.addresses.length;i++) {
+                addresses.append("<li>" + regObj.addresses[i].box + ", " +
+                    regObj.addresses[i].street + ", " +
+                    regObj.addresses[i].district + ", " +
+                    regObj.addresses[i].region + ", " +
+                    regObj.addresses[i].country + "</li>");
             }
 
             console.log(regObj);
@@ -343,10 +343,11 @@
 						myData : string
 					},
 					success: function(response){
-						window.location = 'http://localhost/cmms';
+						console.log("registration response");
+						console.log(response);
 					},
 					error: function(response){
-						alert(response);
+						console.log(response);
 					}
 				});
 
