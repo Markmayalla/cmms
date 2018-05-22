@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/models/organizations_has_address_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/organizations_has_email_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/organizations_has_phone_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/organizations_has_user_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/dashboard/assets/add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/dashboard/assets/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/System.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/System.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Web.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/core/MY_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/core/MY_Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/organization_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/organization_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/dashboard/assets/download.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/assets/download.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/dashboard/assets/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/assets/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/dashboard/users/download.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/users/download.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/includes/system_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/includes/system_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/tools/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/tools/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/web/form_register_organization.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/web/form_register_organization.php" afterDir="false" />
-    </list>
+    <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="" />
     <ignored path="pes.co.tz.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="download.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="download.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -132,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monsterJS.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="monsterJS.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="627" column="33" selection-start-line="627" selection-start-column="33" selection-end-line="627" selection-end-column="33" />
+            <state relative-caret-position="482">
+              <caret line="628" column="49" selection-start-line="628" selection-start-column="49" selection-end-line="628" selection-end-column="49" />
               <folding>
                 <element signature="e#10714#10887#0" />
                 <element signature="e#11041#11385#0" />
@@ -410,12 +391,12 @@
       <workItem from="1526360658900" duration="3498000" />
       <workItem from="1526504709298" duration="1671000" />
       <workItem from="1526665957108" duration="6744000" />
-      <workItem from="1526751460423" duration="30211000" />
+      <workItem from="1526751460423" duration="30473000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72967000" />
+    <option name="totallyTimeSpent" value="73229000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -782,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="105" selection-start-line="10" selection-start-column="105" selection-end-line="10" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -825,8 +799,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="627" column="33" selection-start-line="627" selection-start-column="33" selection-end-line="627" selection-end-column="33" />
+        <state relative-caret-position="482">
+          <caret line="628" column="49" selection-start-line="628" selection-start-column="49" selection-end-line="628" selection-end-column="49" />
           <folding>
             <element signature="e#10714#10887#0" />
             <element signature="e#11041#11385#0" />
@@ -844,6 +818,13 @@
             <element signature="e#15792#16117#0" />
             <element signature="e#16157#16494#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="105" selection-start-line="10" selection-start-column="105" selection-end-line="10" selection-end-column="105" />
         </state>
       </provider>
     </entry>

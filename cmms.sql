@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 12, 2018 at 09:07 AM
+-- Generation Time: May 22, 2018 at 10:30 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -31,7 +31,18 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `password` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `password`, `type`, `user_id`) VALUES
+(1, 'markmayalla5991', NULL, 5),
+(2, 'gadson', NULL, 6),
+(3, 'password@123', NULL, 7),
+(4, NULL, 'organization', 1),
+(5, 'markmayalla', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -46,7 +57,21 @@ CREATE TABLE IF NOT EXISTS `addresses` (
   `region` varchar(45) DEFAULT NULL,
   `country` varchar(45) DEFAULT NULL,
   `box` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `addresses`
+--
+
+INSERT INTO `addresses` (`id`, `street`, `district`, `region`, `country`, `box`) VALUES
+(1, 'K/koo machinga Complex, Posta / Mkwepu Street', 'Kinondoni', 'Dar es Salaam', 'Tanzania', '5081'),
+(2, 'K/koo machinga Complex, Posta / Mkwepu Street', 'Kinondoni', 'Dar es Salaam', 'Tanzania', '5081'),
+(3, 'K/koo machinga Complex, Posta / Mkwepu Street', 'Kinondoni', 'Dar es Salaam', 'Tanzania', '5081'),
+(4, 'K/koo machinga Complex', 'Dar', 'Kinondoni', 'Tanzania', '5081'),
+(5, 'K/koo machinga Complex', 'dar es salaam', 'Kinondoni', 'Tanzania', '5081'),
+(6, 'K/koo machinga Complex', 'dar es salaam', 'Kinondoni', 'Tanzania', '5081'),
+(7, 'K/koo machinga Complex', 'dar es salaam', 'Kinondoni', 'Tanzania', '5081'),
+(8, 'K/koo machinga Complex', 'Dar', 'Kinondoni', 'Tanzania', '5081');
 
 -- --------------------------------------------------------
 
@@ -57,8 +82,17 @@ CREATE TABLE IF NOT EXISTS `addresses` (
 CREATE TABLE IF NOT EXISTS `assets` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `Model Number` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `model_number` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `assets`
+--
+
+INSERT INTO `assets` (`id`, `name`, `model_number`) VALUES
+(11, 'HP Printer', '800800'),
+(12, 'Hp Laptop', '876594'),
+(13, 'Hp Desktop', '8988992');
 
 -- --------------------------------------------------------
 
@@ -102,7 +136,25 @@ CREATE TABLE IF NOT EXISTS `categories` (
 CREATE TABLE IF NOT EXISTS `emails` (
   `id` int(11) NOT NULL,
   `email` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `emails`
+--
+
+INSERT INTO `emails` (`id`, `email`) VALUES
+(1, 'markmayalla@gmail.com'),
+(2, 'dan@gmail.com'),
+(3, 'din@gmail.com'),
+(4, 'markmayalla@gmail.coms'),
+(5, 'marc@gmail.com'),
+(6, 'marc@gmail.com'),
+(7, 'marc@gmail.com'),
+(8, 'marc@gmail.com'),
+(9, 'marc@gmail.com'),
+(10, 'marc@gmail.com'),
+(11, 'marc@gmail.com'),
+(12, 'samiet@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -113,7 +165,21 @@ CREATE TABLE IF NOT EXISTS `emails` (
 CREATE TABLE IF NOT EXISTS `organizations` (
   `id` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `organizations`
+--
+
+INSERT INTO `organizations` (`id`, `name`) VALUES
+(1, 'Pepsi'),
+(2, 'Coke'),
+(3, 'Coke'),
+(4, 'Coke'),
+(5, 'Coke'),
+(6, 'Coke'),
+(7, 'Coke'),
+(8, 'Coke');
 
 -- --------------------------------------------------------
 
@@ -125,6 +191,15 @@ CREATE TABLE IF NOT EXISTS `organizations_has_addresses` (
   `organizations_id` int(11) NOT NULL,
   `addresses_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `organizations_has_addresses`
+--
+
+INSERT INTO `organizations_has_addresses` (`organizations_id`, `addresses_id`) VALUES
+(1, 4),
+(7, 6),
+(8, 7);
 
 -- --------------------------------------------------------
 
@@ -175,6 +250,20 @@ CREATE TABLE IF NOT EXISTS `organizations_has_emails` (
   `emails_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `organizations_has_emails`
+--
+
+INSERT INTO `organizations_has_emails` (`organizations_id`, `emails_id`) VALUES
+(1, 4),
+(2, 5),
+(3, 6),
+(4, 7),
+(5, 8),
+(6, 9),
+(7, 10),
+(8, 11);
+
 -- --------------------------------------------------------
 
 --
@@ -185,6 +274,20 @@ CREATE TABLE IF NOT EXISTS `organizations_has_phones` (
   `organizations_id` int(11) NOT NULL,
   `phones_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `organizations_has_phones`
+--
+
+INSERT INTO `organizations_has_phones` (`organizations_id`, `phones_id`) VALUES
+(1, 5),
+(2, 6),
+(3, 7),
+(4, 8),
+(5, 9),
+(6, 10),
+(7, 11),
+(8, 12);
 
 -- --------------------------------------------------------
 
@@ -197,6 +300,13 @@ CREATE TABLE IF NOT EXISTS `organizations_has_users` (
   `users_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `organizations_has_users`
+--
+
+INSERT INTO `organizations_has_users` (`organizations_id`, `users_id`) VALUES
+(8, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -205,9 +315,28 @@ CREATE TABLE IF NOT EXISTS `organizations_has_users` (
 
 CREATE TABLE IF NOT EXISTS `phones` (
   `id` int(11) NOT NULL,
-  `titlle` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
   `number` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `phones`
+--
+
+INSERT INTO `phones` (`id`, `title`, `number`) VALUES
+(1, 'home', '0654303353'),
+(2, 'mob', '0654303354'),
+(3, 'mob', '0888999999'),
+(4, 'tel', '0888999991'),
+(5, 'mob', '0654303355'),
+(6, 'mob', '0555555555'),
+(7, 'mob', '0555555555'),
+(8, 'mob', '0555555555'),
+(9, 'mob', '0555555555'),
+(10, 'mob', '0555555555'),
+(11, 'mob', '0555555555'),
+(12, 'mob', '0555555555'),
+(13, 'mob', '0655445544');
 
 -- --------------------------------------------------------
 
@@ -275,7 +404,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `middle_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) NOT NULL,
   `gender` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `middle_name`, `last_name`, `gender`) VALUES
+(1, 'mark', 'pascal', 'mayalla', 'male'),
+(2, 'mark', 'pascal', 'mayalla', 'male'),
+(3, 'mark', 'pascal', 'mayalla', 'male'),
+(4, 'mark', 'pascal', 'mayalla', 'male'),
+(5, 'mark', 'pascal', 'mayalla', 'male'),
+(6, 'danny', 'paul', 'Gadson', 'male'),
+(7, 'dan', 'den', 'din', 'male'),
+(8, 'Samiet', 'Alal', 'Atieno', 'male');
 
 -- --------------------------------------------------------
 
@@ -284,9 +427,19 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 CREATE TABLE IF NOT EXISTS `users_has_addresses` (
-  `people_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `addresses_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_has_addresses`
+--
+
+INSERT INTO `users_has_addresses` (`users_id`, `addresses_id`) VALUES
+(5, 1),
+(6, 2),
+(7, 3),
+(8, 8);
 
 -- --------------------------------------------------------
 
@@ -295,9 +448,19 @@ CREATE TABLE IF NOT EXISTS `users_has_addresses` (
 --
 
 CREATE TABLE IF NOT EXISTS `users_has_emails` (
-  `people_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `emails_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_has_emails`
+--
+
+INSERT INTO `users_has_emails` (`users_id`, `emails_id`) VALUES
+(5, 1),
+(7, 2),
+(7, 3),
+(8, 12);
 
 -- --------------------------------------------------------
 
@@ -306,9 +469,20 @@ CREATE TABLE IF NOT EXISTS `users_has_emails` (
 --
 
 CREATE TABLE IF NOT EXISTS `users_has_phones` (
-  `people_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `phones_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_has_phones`
+--
+
+INSERT INTO `users_has_phones` (`users_id`, `phones_id`) VALUES
+(5, 1),
+(6, 2),
+(7, 3),
+(7, 4),
+(8, 13);
 
 -- --------------------------------------------------------
 
@@ -477,25 +651,25 @@ ALTER TABLE `users`
 -- Indexes for table `users_has_addresses`
 --
 ALTER TABLE `users_has_addresses`
-  ADD PRIMARY KEY (`people_id`,`addresses_id`),
+  ADD PRIMARY KEY (`users_id`,`addresses_id`),
   ADD KEY `fk_people_has_addresses_addresses1_idx` (`addresses_id`),
-  ADD KEY `fk_people_has_addresses_people1_idx` (`people_id`);
+  ADD KEY `fk_people_has_addresses_people1_idx` (`users_id`);
 
 --
 -- Indexes for table `users_has_emails`
 --
 ALTER TABLE `users_has_emails`
-  ADD PRIMARY KEY (`people_id`,`emails_id`),
+  ADD PRIMARY KEY (`users_id`,`emails_id`),
   ADD KEY `fk_people_has_emails_emails1_idx` (`emails_id`),
-  ADD KEY `fk_people_has_emails_people1_idx` (`people_id`);
+  ADD KEY `fk_people_has_emails_people1_idx` (`users_id`);
 
 --
 -- Indexes for table `users_has_phones`
 --
 ALTER TABLE `users_has_phones`
-  ADD PRIMARY KEY (`people_id`,`phones_id`),
+  ADD PRIMARY KEY (`users_id`,`phones_id`),
   ADD KEY `fk_people_has_phones_phones1_idx` (`phones_id`),
-  ADD KEY `fk_people_has_phones_people1_idx` (`people_id`);
+  ADD KEY `fk_people_has_phones_people1_idx` (`users_id`);
 
 --
 -- Indexes for table `workers`
@@ -512,17 +686,17 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `assets`
 --
 ALTER TABLE `assets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -532,17 +706,17 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `emails`
 --
 ALTER TABLE `emails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `phones`
 --
 ALTER TABLE `phones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `requests`
 --
@@ -562,7 +736,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `workers`
 --
@@ -654,20 +828,20 @@ ALTER TABLE `tasks`
 --
 ALTER TABLE `users_has_addresses`
   ADD CONSTRAINT `fk_people_has_addresses_addresses1` FOREIGN KEY (`addresses_id`) REFERENCES `addresses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_people_has_addresses_people1` FOREIGN KEY (`people_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_people_has_addresses_people1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `users_has_emails`
 --
 ALTER TABLE `users_has_emails`
   ADD CONSTRAINT `fk_people_has_emails_emails1` FOREIGN KEY (`emails_id`) REFERENCES `emails` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_people_has_emails_people1` FOREIGN KEY (`people_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_people_has_emails_people1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `users_has_phones`
 --
 ALTER TABLE `users_has_phones`
-  ADD CONSTRAINT `fk_people_has_phones_people1` FOREIGN KEY (`people_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_people_has_phones_people1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_people_has_phones_phones1` FOREIGN KEY (`phones_id`) REFERENCES `phones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
