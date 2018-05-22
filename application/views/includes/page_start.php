@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>CPMS | <?PHP $bool = isset($page_title); echo ($bool == true ? $page_title : ''); ?></title>
+        <title>CMMS | <?PHP $bool = isset($page_title); echo ($bool == true ? $page_title : ''); ?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="<?PHP echo base_url(); ?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -27,13 +25,19 @@
         <!-- My Custome CSS -->
         <!-- <link href="<?PHP echo base_url(); ?>css/custome.css" rel="stylesheet" type="text/css" /> -->
         <link href="<?PHP echo base_url(); ?>css/web.css" rel="stylesheet" type="text/css" />
+        <link href="<?PHP echo base_url(); ?>css/dataTable.css" rel="stylesheet" type="text/css" />
+        <link href="<?PHP echo base_url(); ?>css/font-awaresome.css" rel="stylesheet" type="text/css" />
+        <link href="<?PHP echo base_url(); ?>css/print.min.css" rel="stylesheet" type="text/css" />
+		
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
 
-
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+		
+		<!-- jQuery 2.0.2 -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     </head>
 <body class="skin-black">

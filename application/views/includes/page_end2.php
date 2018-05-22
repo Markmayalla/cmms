@@ -1,16 +1,16 @@
-
 <!-- jQuery 2.0.2 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="<?=base_url();?>js/jquery.min.js"></script>
+
 <!-- PUBNUB SDK libraries -->
-<script src="https://cdn.pubnub.com/pubnub-3.7.14.min.js"></script>
-<script src="https://cdn.pubnub.com/webrtc/webrtc.js"></script>
+<script src="<?=base_url();?>js/pubnub-3.7.14.min.js"></script>
+<script src="<?=base_url();?>js/webrtc.js"></script>
 <!-- jQuery UI 1.10.3 -->
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 
-<!-- Google Maps Javascript API -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyVbgwJq_0M--diI2SA4KbzMTZVIp1QY8&callback=initMap"></script>
 
-
+<?php
+	include 'excel_library.php';
+?>
 <!-- Bootstrap -->
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -45,12 +45,36 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/AdminLTE/monsterJS.js" type="text/javascript"></script>
+<script src="<?PHP echo base_url(); ?>js/dataTable.js" type="text/javascript"></script>
+<script src="<?PHP echo base_url(); ?>js/print.min.js" type="text/javascript"></script>
 
 
 <script src="<?PHP echo base_url(); ?>AdminLTE/js/AdminLTE/gis.js" type="text/javascript"></script>
 
 
 
+<script>
+(function($){
+	$(document).ready( function () {
+		$('#table_assets').DataTable();
+		$('#table_equipment').DataTable();
+		$('#table_organization').DataTable();
+		$('#table_users').DataTable();
+		$('#table_parches').DataTable();
+		$('#table_report').DataTable();
+		$('#table_request').DataTable();
+		$('#table_spare').DataTable();
+		$('#table_tasks').DataTable();
+	} );
+	
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+	  var target = $(e.target).attr("href") // activated tab
+	  loadDataUi(target);
+	});
+	$("#assets").click();
+})(jQuery);
 
+
+</script>
 </body>
 </html>
