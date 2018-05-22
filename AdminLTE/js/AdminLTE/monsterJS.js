@@ -340,7 +340,6 @@
             //console.log(link);
             //console.log(string);
 
-
             $.ajax({
                 url: link,
                 type: 'post',
@@ -611,6 +610,30 @@
         });
     });
 
+	
+	$("#add_asset_btn").click(function () {
+        var add_asset_form = $("#add_asset_btn").parsley();
+        add_asset_form.whenValidate().done(function () {
+           var name = $("#asset_name").val();
+           var model = $("#asset_model").val();
+           var data = {name: name, model: model};
+
+           $.ajax({
+               url: site_url + "system/add_asset",
+               type: "post",
+               data: data,
+               success: function () {
+                   $("#success_msg_msg").html("Asset Added");
+                   $("#success_msg").show();
+               },
+               error: function () {
+
+               }
+           });
+        });
+    });
+	
+	
     /// AJAX BASED SEARCH SUGGESTIONS
 
     function showAssets(str) {

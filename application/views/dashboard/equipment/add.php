@@ -1,9 +1,9 @@
-<div id="add_assets" class="modal fade" role="dialog">
+<div id="add_equipment" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Register New Asset</h4>
+                <h4 class="modal-title">Register New Equipment</h4>
             </div>
 
             <div class="modal-body">
@@ -15,22 +15,27 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="name">Asset Name</label>
-                        <input type="text" id="asset_name" name="name" class="form-control"
+                        <label class="control-label" for="name">Equipment Name</label>
+                        <input type="text" id="equipment_name" name="equipment_name" class="form-control"
                                onkeyup="showAssets(this.value)"
-                               placeholder="Asset Name" list="assets_names" required/>
-                        <datalist id="assets_names">
+                               placeholder="Equipment Name" list="equipment_names" required/>
+                        <datalist id="equipment_names">
 
                         </datalist>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="model_number">Model Number</label>
-                        <input type="text" id="asset_model" name="model_number" class="form-control" placeholder="Model Number" required/>
+                        <label class="control-label" for="model_number">Unit price</label>
+                        <input type="double" id="unit_price" name="unit_price" class="form-control" placeholder="Unit Price" required/>
                     </div>
 
+					<div class="form-group">
+                        <label class="control-label" for="model_number">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control" placeholder="Quantity" required/>
+                    </div>
+					
                     <div class="form-group">
-                        <button type="submit" id="add_asset_btn" name="add_asset" class="btn btn-info"><span class="fa fa-plus"></span> Add</button>
+                        <button type="submit" id="add_item_btn" name="add_item" class="btn btn-info"><span class="fa fa-plus"></span> Add</button>
                     </div>
                 </form>
             </div>

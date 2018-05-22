@@ -6,7 +6,8 @@
 		$template['table_open']  = '<table id="table_'.$data['data'].'" class="table table table-striped table-bordered">';
 		$this->table->set_template($template);
 	?>
-	<div class="container">
-		Equipment
-	</div>
 </div>
+<?php
+	include 'download.php';
+	include 'add.php';
+?>

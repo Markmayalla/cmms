@@ -87,7 +87,10 @@
 				return $this->user_model->get_all();
 			}else if($data == 'assets'){
 				$this->load->model('asset_model');
-				return $this->asset_model->select();
+				return $this->asset_model->get_all();
+			}else if($data == 'equipment'){
+				$this->load->model('equipment_model');
+				return $this->equipment_model->get_all();
 			}else{
 				return "unknown model";
 			}
