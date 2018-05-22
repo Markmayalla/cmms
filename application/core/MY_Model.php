@@ -174,6 +174,8 @@ class MY_Model extends CI_Model
         return $this->get_all();
     }
 
+
+
     /**
      * Fetch all the records in the table. Can be used as a generic call
      * to $this->_database->get() with scoped methods.

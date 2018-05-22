@@ -9,22 +9,10 @@
     var site_url = 'http://localhost/cmms/index.php/';
 
     console.log("The Monster is Active");
-    $('#gym_reg_form').parsley();
-    $('#add_spice_form').parsley();
-
-    $('#add_meal_form').parsley();
-
-    $('#registration_form').parsley();
-
-    $('#account_registration').parsley();
-
-    $('#login_form').parsley();
-
-    $('#trainer_info').parsley();
 
     $('#default_form').parsley();
+    $('#add_asset_form').parsley();
 
-    $('#gym_description').wysihtml5();
 
 
     $('[data-toggle="tooltip"]').tooltip();
@@ -68,7 +56,7 @@
 	    console.log(tag + "Login to system function triggered")
 		loginForm = $("#login_form").parsley();
 
-		if (loginForm.isValid()) {
+		loginForm.whenValidate().done(function () {
             var link = site_url + "web/login_user";
             if(loginObject.retry > 0){
                 loginObject.password_user = $("#password_login").val();
@@ -98,10 +86,7 @@
             }else{
                 alert("Maximum retry is Three");
             }
-        } else {
-		    console.log(tag + "Login Form is not valid");
-        }
-
+        });
 	});
 	///User Registration
     regObj = {
@@ -124,6 +109,15 @@
         options = JSON.stringify(options);
         console.log(options);
         $("#password_login").attr("data-parsley-remote-options",options);
+    });
+
+    $("#password_org").focusout(function () {
+        console.log("Focus Change on password field");
+        var username = $("#username_org").val();
+        var options = {"type":"POST","dataType":"jsonp","data":{"request":"ajax","username":username}};
+        options = JSON.stringify(options);
+        console.log(options);
+        $("#password_org").attr("data-parsley-remote-options",options);
     });
 
 
@@ -370,11 +364,13 @@
 	
 	regObj_org = {
         comp_name: "",
-        password_new: "",
-        account_type: "",
         phones: [],
         emails: [],
-        address: []
+        address: [],
+        account: {
+            "username":"",
+            "password":""
+        }
     };
 
 	
@@ -387,16 +383,14 @@
 
         userStep1 = $('#org_step1').parsley();
 
-        if (userStep1.validate()) {
-
+        userStep1.whenValidate().done(function () {
             $('#step_org').html("2");
             $('#reg_progress_org').css('width', '50%');
             $('#step1_org').hide();
             $('#step2_org').show();
             regObj_org.comp_name = $('#name_org').val();
-        } else {
+        });
 
-        }
     });
 	
 
@@ -439,7 +433,7 @@
 
     $('#add_phone_org').click(function () {
 
-        if (userStep2.validate()) {
+        userStep2.whenValidate().done(function () {
             title = $('#title_org').val();
             number = $('#phone_org').val();
             console.log("title: " + title + ", number: " + number);
@@ -457,9 +451,8 @@
             }
 
             console.log(regObj_org);
-        } else {
+        });
 
-        }
 
     });
 
@@ -470,7 +463,7 @@
 
     $('#add_email_org').click(function () {
 
-        if (userStep2.validate()) {
+        userStep2.whenValidate().done(function () {
             email = $('#email_org').val();
             console.log("email_org: " + email);
             emailObj = {};
@@ -486,27 +479,21 @@
             }
 
             console.log(regObj_org);
-        } else {
-
-        }
-
+        });
     });
 
     $('#next2_org').click(function () {
         userStep2 = $('#user_step2_org').parsley();
 
-        if (userStep2.validate()) {
-
+        userStep2.whenValidate().done(function () {
             $('#step_org').html("3");
             $('#reg_progress_org').css('width', '75%');
             $('#step2_org').hide();
             $('#step3_org').show();
-			
+
             console.log(regObj_org);
+        });
 
-        } else {
-
-        }
     });
 
     $('#reset_address_org').click(function () {
@@ -517,7 +504,7 @@
     $('#add_address_org').click(function () {
 
 
-        if (userStep3.validate()) {
+        userStep3.whenValidate().done(function () {
             box = $('#box_org').val();
             street = $('#street_org').val();
             district = $('#district_org').val();
@@ -544,1927 +531,110 @@
             }
 
             console.log(regObj_org);
-        } else {
-
-        }
+        });
 
     });
 
     $('#next3_org').click(function () {
         userStep3 = $('#user_step3_org').parsley();
-        if (userStep3.validate()) {
-			$('#step_org').html("4");
-			$('#reg_progress_org').css('width', '100%');
-			$('#step3_org').hide();
-			$('#step4_org').show();
-			console.log(regObj_org);
-		} else {
+        userStep3.whenValidate().done(function () {
+            $('#step_org').html("4");
+            $('#reg_progress_org').css('width', '100%');
+            $('#step3_org').hide();
+            $('#step4_org').show();
+            console.log(regObj_org);
+        });
 
-		}
 	});
 
 		$('#next4_org').click(function () {
 			userStep4 = $('#user_step4_org').parsley();
 
-			if (userStep4.validate()) {
-				$('#step_org').html("5");
-				$('#reg_progress_org').css('width', '100%');
-				$('#step4_org').hide();
-				$('#step5_org').show();
-				console.log(regObj);
-			} else {
+			userStep4.whenValidate().done(function () {
+                $('#step_org').html("5");
+                $('#reg_progress_org').css('width', '100%');
+                $('#step4_org').hide();
+                $('#step5_org').show();
+                console.log(regObj);
+            });
 
-			}
 		});
 
     $('#finish_organization').click(function () {
         userStep4 = $('#user_step5_org').parsley();
-
-		regObj_org.password_new = $("#password_user_new_org").val();
-		regObj_org.account_type = "organization";
 	
 		console.log(regObj_org);
 		
-        if (userStep4.validate()) {
-			var string = escape(JSON.stringify(regObj_org));
-			var link = site_url + "Web/register_organization"; 
-			$.ajax({
-				url: link,
-				type: 'post',
-				data: {
-					myData : string
-				},
-				success: function(response){
-					alert(response);
-				},
-				error: function(response){
-					alert(response);
-				}
-			});
+        userStep4.whenValidate().done(function () {
+            regObj_org.account.username = $("#username_org").val();
+            regObj_org.account.password = $("#password_org").val();
+            var string = escape(JSON.stringify(regObj_org));
+            var link = site_url + "web/register_organization";
+            $.ajax({
+                url: link,
+                type: 'post',
+                data: {
+                    myData : string
+                },
+                success: function(response){
+                    alert(response);
+                },
+                error: function(response){
+                    alert(response);
+                }
+            });
+        });
 
-        } else {
-			alert("failed");
-        }
     });
 	
 	/////Ended here
 
+    $("#add_asset_btn").click(function () {
+        var add_asset_form = $("#add_asset_btn").parsley();
+        add_asset_form.whenValidate().done(function () {
+           var name = $("#asset_name").val();
+           var model = $("#asset_model").val();
+           var data = {name: name, model: model};
 
-    $("#add_document").click(function() {
+           $.ajax({
+               url: site_url + "system/add_asset",
+               type: "post",
+               data: data,
+               success: function () {
+                   $("#success_msg_msg").html("Asset Added");
+                   $("#success_msg").show();
+               },
+               error: function () {
 
-        console.log("Add Document Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add document form");
-        var form_fields = $("#add_document_form input");
-        console.log("Data taken Successfully");
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/system/documents/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
+               }
+           });
         });
-
-
     });
 
-    $("#add_working_plan").click(function() {
+    /// AJAX BASED SEARCH SUGGESTIONS
 
-        console.log("Add Working Plan Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add Working Plan form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
+    function showAssets(str) {
         $.ajax({
-
-
-            url: base_url + 'index.php/administration/working_plan/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
+            url: site_url + "system/asset_suggestions",
+            type: "post",
+            data: {
+                myData: "%" + str + "%"
             },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_working_budget").click(function() {
-
-        console.log("Add Working Budget Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add Working Plan form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/working_budget/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
+            success: function (response) {
+                var data = JSON.parse(response);
+                var datalist = $("#assets_names");
+                for (var i=0; i<data.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = data[i].name;
+                    datalist.appendChild(option);
+                    console.log(data[i].name);
                 }
+
             },
-            error: function(response) {
-                $("#msg").html(response);
-            }
+            error: function (error) {
 
+            }
         });
-
-
-    });
-
-    $("#add_baseline_data").click(function() {
-
-        console.log("Add Baselien Data Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add Baseline Data form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/baseline_data/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_monitoring_status").click(function() {
-
-        console.log("Add Monitoring Status Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add Monitoring Status form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/monitoring_status/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_evaluation_remarks").click(function() {
-
-        console.log("Add Evaluation Remarks Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add evaluation remarks form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/evaluation_remarks/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_program_adjustments").click(function() {
-
-        var displayName = 'Program Adjustments';
-
-        console.log("Add Program Adjustments Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add program adjustments form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/program_adjustments/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_process_entries").click(function() {
-
-        var displayName = 'Process Entries';
-        var directory = 'process_entries';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_competition_endorsment").click(function() {
-
-        var displayName = 'Competition Endorsments';
-        var directory = 'competition_endorsments';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_competition_managment_team").click(function() {
-
-        var displayName = 'Competition Management Team';
-        var directory = 'competition_management_teams';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_competition_work_plans").click(function() {
-
-        var displayName = 'Competition Work Plans';
-        var directory = 'competition_work_plans';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_successfull_contract").click(function() {
-
-    var displayName = 'Successfull Contract';
-    var directory = 'successfull_contracts';
-
-    console.log("Add " + displayName + " Button Clicked");
-    $("#add_document_form #error").remove();
-    console.log("Taking Data form add " + displayName + " form");
-    var form_fields = $("#add_document_form input");
-    var form_selects = $("#add_document_form select");
-
-    console.log("Data taken Successfully");
-    console.log("Checking...");
-    console.log("Data Elements: " + form_fields.length);
-    console.log("Creating a form Object");
-    var form_data = new FormData;
-    console.log("Form DAta object created successfully");
-
-
-    for (i = 0; i < form_fields.length; i++) {
-
-
-        if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-            form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-        } else if (form_fields[i].getAttribute('type') == 'file') {
-
-            console.log("File data exists and proping begins");
-            var name = form_fields[i].getAttribute('name');
-
-            form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-            console.log("File append successful");
-        }
-
     }
-
-    if (form_selects.length > 0) {
-        for (i = 0; i < form_selects.length; i++) {
-            form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-            console.log("Select append successful");
-        }
-    }
-
-    $.ajax({
-
-
-        url: base_url + 'index.php/administration/' + directory + '/upload',
-        dataType: 'text',
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data,
-        type: 'post',
-        success: function(response) {
-            if (response != 'success') {
-
-                $('.error').remove();
-                console.log("The Response:::");
-                console.log(response);
-                console.log("::");
-
-                var jsonObject = JSON.parse(response);
-
-                console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                if (jsonObject.length == 1) {
-                    $("#document_file").css("border-color", "red");
-                    $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                } else {
-                    for (i = 0; i < jsonObject.length; i++) {
-
-                        var name = form_fields[i].getAttribute("name");
-                        console.log("The field Name targeted is: " + name);
-
-                        if (jsonObject[i][name] !== true) {
-                            console.log("Checking Results from server");
-                            console.log("JsonObject No." + i);
-                            console.log(name + " equals " + jsonObject[i][name]);
-                            if (jsonObject[i][name] !== "success") {
-                                console.log("Displaying error msg on field " + name);
-                                $("#" + name).css("border-color", "red");
-                                $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                            } else {
-                                console.log("Displaying success msg on field " + name);
-                                $("#" + name).css("border-color", "green");
-                            }
-                        }
-
-                    }
-                }
-
-
-
-            } else {
-                $('.error').next('input').css("border-color", "green");
-                $('.error').remove();
-                console.log("document Added successfully");
-                $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-            }
-        },
-        error: function(response) {
-            $("#msg").html(response);
-        }
-
-    });
-
-
-});
-
-    $("#add_competition_budget_plans").click(function() {
-
-        var displayName = 'Competition Budget Plans';
-        var directory = 'competition_budget_plans';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_group_organisation").click(function() {
-
-        var displayName = 'Group Organisation';
-        var directory = 'group_organisations';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_calender_of_meetings").click(function() {
-
-        var displayName = 'Calender Of Meetings';
-        var directory = 'calender_of_meetings';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_meeting_guidelines").click(function() {
-
-        var displayName = 'Meeting Guidelines';
-        var directory = 'meeting_guidlines';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
-
-    $("#add_group_leadership").click(function() {
-
-        var displayName = 'Group Leadership';
-        var directory = 'group_leaderships';
-
-        console.log("Add " + displayName + " Button Clicked");
-        $("#add_document_form #error").remove();
-        console.log("Taking Data form add " + displayName + " form");
-        var form_fields = $("#add_document_form input");
-        var form_selects = $("#add_document_form select");
-
-        console.log("Data taken Successfully");
-        console.log("Checking...");
-        console.log("Data Elements: " + form_fields.length);
-        console.log("Creating a form Object");
-        var form_data = new FormData;
-        console.log("Form DAta object created successfully");
-
-
-        for (i = 0; i < form_fields.length; i++) {
-
-
-            if (form_fields[i].getAttribute('type') == 'text' || form_fields[i].getAttribute('type') == 'password' || form_fields[i].getAttribute('type') == 'hidden') {
-
-                form_data.append(form_fields[i].getAttribute('name'), form_fields[i].value);
-
-            } else if (form_fields[i].getAttribute('type') == 'file') {
-
-                console.log("File data exists and proping begins");
-                var name = form_fields[i].getAttribute('name');
-
-                form_data.append(form_fields[i].getAttribute('name'),  $("#" + name).prop('files')[0]);
-                console.log("File append successful");
-            }
-
-        }
-
-        if (form_selects.length > 0) {
-            for (i = 0; i < form_selects.length; i++) {
-                form_data.append(form_selects[i].getAttribute('name'), form_selects[i].value);
-                console.log("Select append successful");
-            }
-        }
-
-        $.ajax({
-
-
-            url: base_url + 'index.php/administration/' + directory + '/upload',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(response) {
-                if (response != 'success') {
-
-                    $('.error').remove();
-                    console.log("The Response:::");
-                    console.log(response);
-                    console.log("::");
-
-                    var jsonObject = JSON.parse(response);
-
-                    console.log("JSON Object Contains " + jsonObject.length + " Elements");
-
-                    if (jsonObject.length == 1) {
-                        $("#document_file").css("border-color", "red");
-                        $("#document_file").before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[0]['document_file'] + '</span></div> ');
-                    } else {
-                        for (i = 0; i < jsonObject.length; i++) {
-
-                            var name = form_fields[i].getAttribute("name");
-                            console.log("The field Name targeted is: " + name);
-
-                            if (jsonObject[i][name] !== true) {
-                                console.log("Checking Results from server");
-                                console.log("JsonObject No." + i);
-                                console.log(name + " equals " + jsonObject[i][name]);
-                                if (jsonObject[i][name] !== "success") {
-                                    console.log("Displaying error msg on field " + name);
-                                    $("#" + name).css("border-color", "red");
-                                    $("#" + name).before('<div class="error" style="color: red"><span class="fa fa-warning"> ' + jsonObject[i][name] + '</span></div> ');
-
-                                } else {
-                                    console.log("Displaying success msg on field " + name);
-                                    $("#" + name).css("border-color", "green");
-                                }
-                            }
-
-                        }
-                    }
-
-
-
-                } else {
-                    $('.error').next('input').css("border-color", "green");
-                    $('.error').remove();
-                    console.log("document Added successfully");
-                    $("#msg").html("<div class='alert alert-success'> Document Added Successfully </div> ");
-                }
-            },
-            error: function(response) {
-                $("#msg").html(response);
-            }
-
-        });
-
-
-    });
 
 

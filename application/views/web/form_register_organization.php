@@ -8,6 +8,11 @@
                                          aria-valuetext="Step" style="width: 25%"></div>
                                 </div>
                                 <div id="step1_org">
+                                    <div class="alert alert-info alert-dismissable">
+                                        <i class="fa fa-info"></i>
+                                        <button type="button" class="close" data-dismiss="alert" arial-hidden="true">x</button>
+                                        Please, make sure you have an existing user account. It is a pre requisite in creating an organization.
+                                    </div>
                                     <form id="org_step1" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
                                         <div class="form-group">
                                             <input type="text" id="name_org" name="name" class="form-control" placeholder="Organization Name" required>
@@ -35,7 +40,12 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="number" id="phone_org" name="phone" class="form-control" placeholder="Phone No." required>
+                                                <input type="number" id="phone_org" name="phone" class="form-control" placeholder="Phone No."
+                                                       data-parsley-trigger="change"
+                                                       data-parsley-remote="<?PHP echo base_url(); ?>index.php/web/phone_exists"
+                                                       data-parsley-remote-message="Sorry, the phone number already exists in our database"
+                                                       data-parsley-remote-options='{"type":"POST","dataType":"jsonp","data": {"request":"ajax"}}'
+                                                       required>
                                             </div>
                                         </div>
 
@@ -56,7 +66,12 @@
 
 
                                         <div class="form-group">
-                                            <input type="email" id="email_org" name="email" class="form-control" placeholder="Email" required>
+                                            <input type="email" id="email_org" name="email" class="form-control" placeholder="Email"
+                                                   data-parsley-trigger="change"
+                                                   data-parsley-remote="<?PHP echo base_url(); ?>index.php/web/email_exists"
+                                                   data-parsley-remote-message="Oops... Email exists"
+                                                   data-parsley-remote-options='{"type":"POST","dataType":"jsonp","data":{"request":"ajax"}}'
+                                                   required>
                                         </div>
 
 
@@ -105,11 +120,20 @@
 								<div id="step5_org">
                                     <form id="user_step5_org" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>
                                         <div class="form-group">
-                                            <input type="password" id="password_user_new_org" data-parsley-length="[6, 20]" name="password" class="form-control" placeholder="Password">
+                                            <input type="text" id="username_org" name="username" class="form-control"
+                                                   data-parsley-trigger="change"
+                                                   data-parsley-remote="<?PHP echo base_url() ?>index.php/web/username_exists"
+                                                   data-parsley-remote-message="Please register if you have no valid username"
+                                                   data-parsley-remote-options='{"type":"POST","dataType":"jsonp","data":{"request":"ajax"}}'
+                                                   required/>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="password" id="password_user_new_confirm_org" data-parsley-equalto="#password_user_new_org" name="password_conf" class="form-control" placeholder="Confirm password" required>
+                                            <input type="password" id="password_org" name="password" class="form-control"
+                                                   ata-parsley-trigger="change"
+                                                   data-parsley-remote="<?PHP echo base_url(); ?>index.php/web/check_password"
+                                                   data-parsley-remote-message="Incorrect Password"
+                                                   required/>
                                         </div>
 
                                         <div class="form-group">
