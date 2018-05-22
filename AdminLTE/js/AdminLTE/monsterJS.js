@@ -611,25 +611,35 @@
     });
 
 	
-	$("#add_asset_btn").click(function () {
-        var add_asset_form = $("#add_asset_btn").parsley();
-        add_asset_form.whenValidate().done(function () {
-           var name = $("#asset_name").val();
-           var model = $("#asset_model").val();
-           var data = {name: name, model: model};
-
+	$("#add_item_btn").click(function () {
+        var add_item_form = $("#add_item_form").parsley();
+        add_item_form.whenValidate().done(function () {
+			
+			var y = document.getElementById("add_item_form").elements.length;
+			
+			var array_data = {};
+			for(var i = 0; i < y; i++){
+				var x = document.getElementById("add_item_form").elements[i].id;
+				if(($("#"+x).is(":button"))){
+					
+				}else{
+					array_data[x] = $("#"+x).val(); 
+				}
+			}
+			
            $.ajax({
-               url: site_url + "system/add_asset",
+               url: site_url + "system/add_item_to_db",
                type: "post",
-               data: data,
-               success: function () {
-                   $("#success_msg_msg").html("Asset Added");
+               data: array_data,
+               success: function (response) {
+                   $("#success_msg_msg").html(response);
                    $("#success_msg").show();
                },
                error: function () {
 
                }
            });
+		   
         });
     });
 	

@@ -7,7 +7,7 @@
             </div>
 
             <div class="modal-body">
-                <form id="add_asset_form" onsubmit="event.preventDefault()" data-parsley-validate>
+                <form id="add_item_form" onsubmit="event.preventDefault()" data-parsley-validate>
                     <div id="success_msg" class="alert alert-success alert-dismissable" style="display: none;">
                         <i class="fa fa-check"></i>
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -15,9 +15,9 @@
                     </div>
 
                     <div class="form-group">
+						<input type="text" id="id" value="equipment" hidden />
                         <label class="control-label" for="name">Equipment Name</label>
                         <input type="text" id="equipment_name" name="equipment_name" class="form-control"
-                               onkeyup="showAssets(this.value)"
                                placeholder="Equipment Name" list="equipment_names" required/>
                         <datalist id="equipment_names">
 
