@@ -8,7 +8,7 @@
 				//print_r($data);
                 $edit_btn = '<button class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </button>';
                 $delete_btn = '<button class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </button>';
-				$this->table->add_row($data->id, $data->name,$data->model_number, $edit_btn . $delete_btn);
+				$this->table->add_row($data->id, $data->name,$data->Model_Number, $edit_btn . $delete_btn);
 			}
 			echo $this->table->generate();
 		?>

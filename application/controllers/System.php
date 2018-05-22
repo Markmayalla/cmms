@@ -114,4 +114,6 @@ class System extends CI_Controller {
         $this->asset_model->insert(array("name" => $this->input->post("name"), "model_number" => $this->input->post("model")));
         ChromePhp::log("Asset Added Successfully");
     }
+	
+	function add_item_to_db(){}
 }
