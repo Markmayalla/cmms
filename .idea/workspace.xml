@@ -39,13 +39,13 @@
       <file leaf-file-name="System.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/System.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
+            <state relative-caret-position="353">
               <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="download.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="download.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -113,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monsterJS.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="monsterJS.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
+            <state relative-caret-position="3900">
               <caret line="628" column="49" selection-start-line="628" selection-start-column="49" selection-end-line="628" selection-end-column="49" />
               <folding>
                 <element signature="e#10714#10887#0" />
@@ -391,12 +391,12 @@
       <workItem from="1526360658900" duration="3498000" />
       <workItem from="1526504709298" duration="1671000" />
       <workItem from="1526665957108" duration="6744000" />
-      <workItem from="1526751460423" duration="30473000" />
+      <workItem from="1526751460423" duration="31086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73229000" />
+    <option name="totallyTimeSpent" value="73842000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -778,13 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/System.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -797,9 +790,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="105" selection-start-line="10" selection-start-column="105" selection-end-line="10" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/System.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
+        <state relative-caret-position="3900">
           <caret line="628" column="49" selection-start-line="628" selection-start-column="49" selection-end-line="628" selection-end-column="49" />
           <folding>
             <element signature="e#10714#10887#0" />
@@ -818,13 +825,6 @@
             <element signature="e#15792#16117#0" />
             <element signature="e#16157#16494#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="105" selection-start-line="10" selection-start-column="105" selection-end-line="10" selection-end-column="105" />
         </state>
       </provider>
     </entry>
