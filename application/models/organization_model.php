@@ -52,7 +52,17 @@ class organization_model extends MY_Model {
            "users_id" => $user_account->user_id
         ));
 
-
     }
 
+	public function select_organization(){
+		$this->db->select("*");
+		$this->db->join('organizations_has_addresses', 'organizations_has_addresses.organizations_id = organizations.id','inner');
+		$this->db->join('addresses', 'organizations_has_addresses.addresses_id = addresses.id','inner');
+		$this->db->join('organizations_has_phones', 'organizations_has_phones.organizations_id = organizations.id','inner');
+		$this->db->join('phones', 'organizations_has_phones.phones_id = phones.id','inner');
+		$this->db->join('organizations_has_emails', 'organizations_has_emails.organizations_id = organizations.id','inner');
+		$this->db->join('emails', 'organizations_has_emails.emails_id = emails.id','inner');
+		$this->db->from('organizations');
+		return $this->db->get()->result();
+	}
 }

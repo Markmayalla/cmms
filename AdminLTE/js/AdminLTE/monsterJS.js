@@ -340,7 +340,6 @@
             //console.log(link);
             //console.log(string);
 
-
             $.ajax({
                 url: link,
                 type: 'post',
@@ -611,6 +610,40 @@
         });
     });
 
+	
+	$("#add_item_btn").click(function () {
+        var add_item_form = $("#add_item_form").parsley();
+        add_item_form.whenValidate().done(function () {
+			
+			var y = document.getElementById("add_item_form").elements.length;
+			
+			var array_data = {};
+			for(var i = 0; i < y; i++){
+				var x = document.getElementById("add_item_form").elements[i].id;
+				if(($("#"+x).is(":button"))){
+					
+				}else{
+					array_data[x] = $("#"+x).val(); 
+				}
+			}
+			
+           $.ajax({
+               url: site_url + "system/add_item_to_db",
+               type: "post",
+               data: array_data,
+               success: function (response) {
+                   $("#success_msg_msg").html(response);
+                   $("#success_msg").show();
+               },
+               error: function () {
+
+               }
+           });
+		   
+        });
+    });
+	
+	
     /// AJAX BASED SEARCH SUGGESTIONS
 
     function showAssets(str) {

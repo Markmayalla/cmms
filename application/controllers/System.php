@@ -88,10 +88,32 @@ class System extends CI_Controller {
         }else if($data == 'assets'){
             $this->load->model('asset_model');
             return $this->asset_model->get_all();
+        }else if($data == 'equipment'){
+            $this->load->model('equipment_model');
+            return $this->equipment_model->get_all();
+        }else if($data == 'organization'){
+            $this->load->model('organization_model');
+            return $this->organization_model->select_organization();
         }else{
             return "unknown model";
         }
     }
+	
+	function model_loader($table,$data){
+		if($table == 'users'){
+            $this->load->model('user_model');
+            $this->user_model->insert($data);
+        }else if($table == 'assets'){
+			$this->load->model("asset_model");
+			$this->asset_model->insert($data);
+        }
+		else if($table == 'equipment'){
+            $this->load->model('equipment_model');
+            $this->equipment_model->insert($data);
+        }else{
+            return "unknown model";
+        }
+	}
 
     function asset_suggestions() {
         $data = $this->input->post("myData");
@@ -114,4 +136,21 @@ class System extends CI_Controller {
         $this->asset_model->insert(array("name" => $this->input->post("name"), "model_number" => $this->input->post("model")));
         ChromePhp::log("Asset Added Successfully");
     }
+	
+	function add_item_to_db(){
+		$data = array();
+		foreach ($_POST as $key => $value) {
+			$data[$key] = $value;
+            ChromePhp::log($key . "=" . $value);
+        }
+        foreach ($_GET as $key => $value) {
+            ChromePhp::log($key . "=" . $value);
+        }
+		$table_name = $data['id'];
+		unset($data['id']);
+        ChromePhp::log($table_name);
+        $this->model_loader($table_name,$data);
+		echo $table_name . " Added Successfully";
+        //ChromePhp::log($table_name . " Added Successfully");
+	}
 }
