@@ -39,6 +39,8 @@
 		public function print_priview(){
 			echo $this->uri->segment(3);
 		}
+		
+		
 		public function view(){
 			$this->load->view('tools/index');
 			$this->load->library("table");
@@ -77,6 +79,20 @@
 			$data['display'] = $this->models_data($name);
 			$this->load->view('dashboard/'.$name.'/excel',$data);
 		}
+		
+		public function delete_item(){
+			$name = $this->uri->segment(3);
+			$id = $this->uri->segment(4);
+			if(isset($_COOKIE['facebook_google_key_value'])) {
+				$idname =  $_COOKIE['facebook_google_key_value'];
+				$where[$idname] = $id;
+				$this->models_data_delete($name,$where);
+			} else {
+				//echo $_COOKIE['facebook_google_key_value'];
+			}
+			redirect('system/view/'.$name);
+		}
+		
 		public function cvs(){
 			echo $this->uri->segment(3);
 		}
@@ -91,6 +107,27 @@
 			}else if($data == 'equipment'){
 				$this->load->model('equipment_model');
 				return $this->equipment_model->get_all();
+			}else if($data == 'organization'){
+				$this->load->model('organization_model');
+				return $this->organization_model->select_organization();
+			}else{
+				return "unknown model";
+			}
+		}
+		
+		function models_data_delete($data, $where){
+			if($data == 'users'){
+				$this->load->model('user_model');
+				return $this->user_model->delete_by($where);
+			}else if($data == 'assets'){
+				$this->load->model('asset_model');
+				return $this->asset_model->delete_by($where);
+			}else if($data == 'equipment'){
+				$this->load->model('equipment_model');
+				return $this->equipment_model->delete_by($where);
+			}else if($data == 'organization'){
+				$this->load->model('organization_model');
+				return $this->organization_model->delete_by($where);
 			}else{
 				return "unknown model";
 			}
