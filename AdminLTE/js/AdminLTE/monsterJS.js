@@ -50,7 +50,7 @@
 		username : "",
 		retry : 3
 	}
-	
+
 	$("#login_system").click(function(){
 	    var tag = "~~AJAX~~  ";
 	    console.log(tag + "Login to system function triggered")
@@ -69,7 +69,7 @@
                         url : link,
                         data : {
                             username : loginObject.username,
-                            password : loginObject.password_user
+                            password_user : loginObject.password_user
                         },
                         success : function(response){
                             console.log(tag + "Login Success");
@@ -125,7 +125,7 @@
     $('#step3').hide();
     $('#step4').hide();
     $('#step5').hide();
-	
+
 
     $('#next1').click(function () {
 
@@ -169,7 +169,7 @@
         $('#step3').show();
         $('#step4').hide();
     });
-	
+
 	$('#back_to_4').click(function () {
         $('#step').html("4");
         $('#reg_progress').css('width', '80%');
@@ -312,7 +312,7 @@
         });
 
 	});
-	
+
 	$('#next4').click(function () {
 		userStep4 = $('#user_step4').parsley();
 
@@ -360,7 +360,7 @@
 
 
 ////Organization Registration
-	
+
 	regObj_org = {
         comp_name: "",
         phones: [],
@@ -372,7 +372,7 @@
         }
     };
 
-	
+
 	$('#step2_org').hide();
     $('#step3_org').hide();
     $('#step4_org').hide();
@@ -391,7 +391,7 @@
         });
 
     });
-	
+
 
 
     userStep2 = $('#user_step2_org').parsley();
@@ -417,7 +417,7 @@
         $('#step3_org').show();
         $('#step4_org').hide();
     });
-	
+
 	$('#back_to_4_org').click(function () {
         $('#step_org').html("4");
         $('#reg_progress_org').css('width', '75%');
@@ -561,9 +561,9 @@
 
     $('#finish_organization').click(function () {
         userStep4 = $('#user_step5_org').parsley();
-	
+
 		console.log(regObj_org);
-		
+
         userStep4.whenValidate().done(function () {
             regObj_org.account.username = $("#username_org").val();
             regObj_org.account.password = $("#password_org").val();
@@ -585,7 +585,7 @@
         });
 
     });
-	
+
 	/////Ended here
 
     $("#add_asset_btn").click(function () {
@@ -610,23 +610,23 @@
         });
     });
 
-	
+
 	$("#add_item_btn").click(function () {
         var add_item_form = $("#add_item_form").parsley();
         add_item_form.whenValidate().done(function () {
-			
+
 			var y = document.getElementById("add_item_form").elements.length;
-			
+
 			var array_data = {};
 			for(var i = 0; i < y; i++){
 				var x = document.getElementById("add_item_form").elements[i].id;
 				if(($("#"+x).is(":button"))){
-					
+
 				}else{
-					array_data[x] = $("#"+x).val(); 
+					array_data[x] = $("#"+x).val();
 				}
 			}
-			
+
            $.ajax({
                url: site_url + "system/add_item_to_db",
                type: "post",
@@ -639,11 +639,11 @@
 
                }
            });
-		   
+
         });
     });
-	
-	
+
+
     /// AJAX BASED SEARCH SUGGESTIONS
 
     function showAssets(str) {
@@ -695,7 +695,3 @@
             }
         });
     }
-
-
-
-
