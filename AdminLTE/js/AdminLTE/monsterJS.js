@@ -670,4 +670,32 @@
         });
     }
 
+    /// AJAX LOAD ORGANIZATIONS
+
+    function loadOrganizations() {
+        console.log("Loading organizations...");
+        $.ajax({
+            url: site_url + "system/loadOrganizations",
+            type: 'post',
+            data: {
+
+            },
+            success: function (response) {
+                console.log("Updating Options...");
+                var org = $("#organization_id");
+                var jsonObj = JSON.parse(response);
+                org.html("");
+                for (var i=0;i<jsonObj.length; i++) {
+                    org.append('<option value="'+jsonObj(i)->id+'">' + jsonObj(i)->name, '</option>');
+                }
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+
+
+
 

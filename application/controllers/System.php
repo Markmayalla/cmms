@@ -88,10 +88,10 @@ class System extends CI_Controller {
         }else if($data == 'assets'){
             $this->load->model('asset_model');
             return $this->asset_model->get_all();
-        }else if($data == 'equipment'){
+        }else if($data == 'equipments'){
             $this->load->model('equipment_model');
             return $this->equipment_model->get_all();
-        }else if($data == 'organization'){
+        }else if($data == 'organizations'){
             $this->load->model('organization_model');
             return $this->organization_model->select_organization();
         }else{
@@ -153,4 +153,12 @@ class System extends CI_Controller {
 		echo $table_name . " Added Successfully";
         //ChromePhp::log($table_name . " Added Successfully");
 	}
+
+	function loadOrganizations() {
+        $this->load->model("organization_model");
+        $results = $this->organization_model->get_all();
+        $results_json = json_encode($results);
+
+        echo $results_json;
+    }
 }

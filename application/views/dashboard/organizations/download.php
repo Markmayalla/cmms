@@ -9,7 +9,7 @@
 				//echo "<br><br>";
                 $edit_btn = '<button class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </button>';
                 $delete_btn = '<button class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </button>';
-				$this->table->add_row($data->name, $data->number,$data->email,$data->box . ", " .$data->street . ", " .$data->district . ", " .$data->region , $edit_btn . $delete_btn);
+				$this->table->add_row($data->name, $data->title." ".$data->number,$data->email,$data->box . ", " .$data->street . ", " .$data->district . ", " .$data->region , $edit_btn . $delete_btn);
 			}
 			echo $this->table->generate();
 		?>

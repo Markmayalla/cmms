@@ -19,13 +19,13 @@
             <div id="system_menu_wrapper">
                 <ul>
                     <li><a href="<?=site_url()."/system/view/";?>assets"><i class="fa fa-anchor" ></i> Assets</a> </li>
-                    <li><a href="<?=site_url()."/system/view/";?>organization"><i class="fa fa-user" > </i> Organizations</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>organizations"><i class="fa fa-user" > </i> Organizations</a> </li>
                     <li><a href="<?=site_url()."/system/view/";?>users"><i class="fa fa-user" ></i> Users</a> </li>
-                    <li><a href="<?=site_url()."/system/view/";?>request"><i class="fa fa-download" ></i> Requests</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
                     <li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
-                    <li><a href="<?=site_url()."/system/view/";?>equipment" ><i class="fa fa-cog" ></i> Equipments</a> </li>
-                    <li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
-                    <li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" ></i> Parches</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
+                    <li><a href="<?=site_url()."/system/view/";?>purchases"><i class="fa fa-money" ></i> Purchases</a> </li>
                     <li><a href="<?=site_url()."/system/view/";?>report"><i class="fa fa-book" ></i> Report</a> </li>
                 </ul>
             </div>

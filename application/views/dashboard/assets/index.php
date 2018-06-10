@@ -10,4 +10,5 @@
 <?php
 	include 'download.php';
 	include 'add.php';
+	include 'assign.php';
 ?>
