@@ -9,4 +9,6 @@
 </div>
 <?php
 	include 'download.php';
+    include 'model_account.php';
+    include 'edit_user.php';
 ?>

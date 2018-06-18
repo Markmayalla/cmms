@@ -5,9 +5,10 @@
 			$this->table->set_heading('First Name', 'Last name', 'Middle Name', 'Gender', 'Options');
 			for($i = 0; $i < $num_user; $i++){
 				$data = $display[$i];
-				$edit_btn = '<button class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </button>';
+				$edit_btn = '<a href="#edit_user" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
+				$account_settings = '<a href="#account_settings" data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-user"></span> </a>';
 				$delete_btn = '<button class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </button>';
-				$this->table->add_row($data->first_name, $data->last_name,$data->middle_name,$data->gender, $edit_btn . $delete_btn);
+				$this->table->add_row($data->first_name, $data->last_name,$data->middle_name,$data->gender, $edit_btn .$account_settings. $delete_btn);
 			}
 			echo $this->table->generate();
 		?>

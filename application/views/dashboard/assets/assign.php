@@ -18,6 +18,12 @@
                         <label class="control-label" for="organization_id">Choose Organization</label>
                         <select type="text" id="organization_id" name="organization_id" class="form-control">
                             <option value="">Choose...</option>
+                            <?PHP
+                              foreach ($organizations as $key => $value) {
+                                // code...
+                                echo '<option value="' . $value->id . '">' . $value->name . '</option>';
+                              }
+                            ?>
                         </select>
 
                     </div>
