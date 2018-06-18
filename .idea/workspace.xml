@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/users/edit_user.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/System.php" afterPath="$PROJECT_DIR$/application/controllers/System.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/assets/assign.php" afterPath="$PROJECT_DIR$/application/views/dashboard/assets/assign.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/assets/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/assets/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/organizations/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/organizations/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/users/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/users/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/organizations/edit.php" afterPath="$PROJECT_DIR$/application/views/dashboard/organizations/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/organizations/index.php" afterPath="$PROJECT_DIR$/application/views/dashboard/organizations/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/users/index.php" afterPath="$PROJECT_DIR$/application/views/dashboard/users/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/web/form_register_organization.php" afterPath="$PROJECT_DIR$/application/views/web/form_register_organization.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" afterPath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/organization_model.php" afterPath="$PROJECT_DIR$/application/models/organization_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/request_model.php" afterPath="$PROJECT_DIR$/application/models/request_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/task_model.php" afterPath="$PROJECT_DIR$/application/models/task_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/worker_model.php" afterPath="$PROJECT_DIR$/application/models/worker_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pes.co.tz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,35 +27,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/dashboard/organizations/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/dashboard/organizations/edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="82" selection-start="1646" selection-end="1646" vertical-scroll-proportion="-8.166667" vertical-offset="284" max-vertical-offset="885">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="organization_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/organization_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="49" selection-start="8027" selection-end="8027" vertical-scroll-proportion="-18.75" vertical-offset="60" max-vertical-offset="690">
+            <state line="181" column="13" selection-start="7735" selection-end="7735" vertical-scroll-proportion="-21.25" vertical-offset="225" max-vertical-offset="1110">
               <folding>
                 <element signature="n#register#0;n#organization_model#0;n#!!top" expanded="false" />
                 <element signature="n#select_organization#0;n#organization_model#0;n#!!top" expanded="false" />
                 <element signature="n#select_all_organizations_rec#0;n#organization_model#0;n#!!top" expanded="false" />
                 <element signature="n#populate#0;n#organization_model#0;n#!!top" expanded="false" />
-                <element signature="n#delete_rec#0;n#organization_model#0;n#!!top" expanded="false" />
-                <element signature="n#cleaner#0;n#organization_model#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monsterJS.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="213" column="41" selection-start="6057" selection-end="6057" vertical-scroll-proportion="0.1072" vertical-offset="2678" max-vertical-offset="5895">
+              <folding>
+                <element signature="e#5039#5104#0" expanded="false" />
+                <element signature="e#5146#6012#0" expanded="false" />
+                <element signature="e#6934#7424#0" expanded="false" />
+                <element signature="e#7470#7541#0" expanded="false" />
+                <element signature="e#7585#8771#0" expanded="false" />
+                <element signature="e#8809#9099#0" expanded="false" />
+                <element signature="e#9134#9424#0" expanded="false" />
+                <element signature="e#9510#10403#0" expanded="false" />
+                <element signature="e#10809#11153#0" expanded="false" />
+                <element signature="e#11298#11455#0" expanded="false" />
+                <element signature="e#11501#11658#0" expanded="false" />
+                <element signature="e#11704#11861#0" expanded="false" />
+                <element signature="e#11904#12061#0" expanded="false" />
+                <element signature="e#12109#12182#0" expanded="false" />
+                <element signature="e#12228#12988#0" expanded="false" />
+                <element signature="e#13036#13111#0" expanded="false" />
+                <element signature="e#13810#14139#0" expanded="false" />
+                <element signature="e#14189#14284#0" expanded="false" />
+                <element signature="e#14332#15516#0" expanded="false" />
+                <element signature="e#15558#15883#0" expanded="false" />
+                <element signature="e#15923#16260#0" expanded="false" />
+                <element signature="e#16312#17155#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_register_user.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/web/form_register_user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="31.25" vertical-offset="750" max-vertical-offset="2340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_register_organization.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/web/form_register_organization.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="120" column="60" selection-start="8689" selection-end="8689" vertical-scroll-proportion="-3.875" vertical-offset="1707" max-vertical-offset="2340">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,19 +111,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="worker_model.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="worker_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/worker_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="4" selection-start="130" selection-end="130" vertical-scroll-proportion="0.09983361" vertical-offset="0" max-vertical-offset="601">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="2120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+            <state line="10" column="1" selection-start="132" selection-end="132" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
@@ -179,10 +185,12 @@
         <option value="$PROJECT_DIR$/application/views/dashboard/organizations/download.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/organizations/edit.php" />
         <option value="$PROJECT_DIR$/example.php" />
-        <option value="$PROJECT_DIR$/application/models/organization_model.php" />
         <option value="$PROJECT_DIR$/application/models/request_model.php" />
         <option value="$PROJECT_DIR$/application/models/task_model.php" />
         <option value="$PROJECT_DIR$/application/models/worker_model.php" />
+        <option value="$PROJECT_DIR$/application/models/organization_model.php" />
+        <option value="$PROJECT_DIR$/application/views/web/form_register_organization.php" />
+        <option value="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" />
       </list>
     </option>
   </component>
@@ -296,7 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -310,19 +318,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="organizations" />
+              <option name="myItemId" value="AdminLTE" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,19 +332,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
+              <option name="myItemId" value="AdminLTE" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -362,11 +350,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
+              <option name="myItemId" value="AdminLTE" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminLTE" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -678,11 +670,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3165" />
@@ -778,20 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/organization_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="49" selection-start="8027" selection-end="8027" vertical-scroll-proportion="-18.75" vertical-offset="60" max-vertical-offset="690">
-          <folding>
-            <element signature="n#register#0;n#organization_model#0;n#!!top" expanded="false" />
-            <element signature="n#select_organization#0;n#organization_model#0;n#!!top" expanded="false" />
-            <element signature="n#select_all_organizations_rec#0;n#organization_model#0;n#!!top" expanded="false" />
-            <element signature="n#populate#0;n#organization_model#0;n#!!top" expanded="false" />
-            <element signature="n#delete_rec#0;n#organization_model#0;n#!!top" expanded="false" />
-            <element signature="n#cleaner#0;n#organization_model#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/request_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="5" selection-start="131" selection-end="1862" vertical-scroll-proportion="-23.166666" vertical-offset="134" max-vertical-offset="795">
@@ -808,8 +781,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/worker_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="130" selection-end="130" vertical-scroll-proportion="0.09983361" vertical-offset="0" max-vertical-offset="601">
+        <state line="10" column="1" selection-start="132" selection-end="132" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="165">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/organization_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="13" selection-start="7735" selection-end="7735" vertical-scroll-proportion="-21.25" vertical-offset="225" max-vertical-offset="1110">
+          <folding>
+            <element signature="n#register#0;n#organization_model#0;n#!!top" expanded="false" />
+            <element signature="n#select_organization#0;n#organization_model#0;n#!!top" expanded="false" />
+            <element signature="n#select_all_organizations_rec#0;n#organization_model#0;n#!!top" expanded="false" />
+            <element signature="n#populate#0;n#organization_model#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/web/form_register_organization.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="60" selection-start="8689" selection-end="8689" vertical-scroll-proportion="-3.875" vertical-offset="1707" max-vertical-offset="2340">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/web/form_register_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="31.25" vertical-offset="750" max-vertical-offset="2340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="213" column="41" selection-start="6057" selection-end="6057" vertical-scroll-proportion="0.1072" vertical-offset="2678" max-vertical-offset="5895">
+          <folding>
+            <element signature="e#5039#5104#0" expanded="false" />
+            <element signature="e#5146#6012#0" expanded="false" />
+            <element signature="e#6934#7424#0" expanded="false" />
+            <element signature="e#7470#7541#0" expanded="false" />
+            <element signature="e#7585#8771#0" expanded="false" />
+            <element signature="e#8809#9099#0" expanded="false" />
+            <element signature="e#9134#9424#0" expanded="false" />
+            <element signature="e#9510#10403#0" expanded="false" />
+            <element signature="e#10809#11153#0" expanded="false" />
+            <element signature="e#11298#11455#0" expanded="false" />
+            <element signature="e#11501#11658#0" expanded="false" />
+            <element signature="e#11704#11861#0" expanded="false" />
+            <element signature="e#11904#12061#0" expanded="false" />
+            <element signature="e#12109#12182#0" expanded="false" />
+            <element signature="e#12228#12988#0" expanded="false" />
+            <element signature="e#13036#13111#0" expanded="false" />
+            <element signature="e#13810#14139#0" expanded="false" />
+            <element signature="e#14189#14284#0" expanded="false" />
+            <element signature="e#14332#15516#0" expanded="false" />
+            <element signature="e#15558#15883#0" expanded="false" />
+            <element signature="e#15923#16260#0" expanded="false" />
+            <element signature="e#16312#17155#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

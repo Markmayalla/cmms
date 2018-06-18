@@ -217,7 +217,7 @@
     });
 
     $('#add_email').click(function () {
-        $userStep3 = $('#userStep3').parsley();
+        userStep3 = $('#user_step3').parsley();
         console.log("Add email is Triggered...");
         userStep3.whenValidate().done(function () {
             console.log("Validation Success");
@@ -377,6 +377,7 @@
     $('#step3_org').hide();
     $('#step4_org').hide();
     $('#step5_org').hide();
+    $('#success_msg').hide();
 
     $('#next_1_org').click(function () {
 
@@ -576,7 +577,8 @@
                     myData : string
                 },
                 success: function(response){
-                    alert(response);
+                    $('#success_msg').show();
+                    $('#user_step5_org').hide();
                 },
                 error: function(response){
                     alert(response);
