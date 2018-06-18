@@ -192,4 +192,9 @@ class System extends CI_Controller {
 
         echo $results_json;
     }
+	
+	public function logout(){
+		$this->sess->unsetData($this->sess->account_id);
+		$this->sess->redirect_on_session_destroy();
+	}
 }
