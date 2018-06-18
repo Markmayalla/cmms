@@ -109,8 +109,24 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
-
+$autoload['model'] = array('account_model',
+						   'address_model',
+						   'asset_model',
+						   'email_model',
+						   'equipment_model',
+						   'organizations_has_address_model',
+						   'organizations_has_email_model',
+						   'organizations_has_phone_model',
+						   'organizations_has_user_model',
+						   'organization_model',
+						   'phone_model',
+						   'request_model',
+						   'task_model',
+						   'users_has_address_model',
+						   'users_has_email_model',
+						   'users_has_phone_model',
+						   'user_model',
+						   'worker_model');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

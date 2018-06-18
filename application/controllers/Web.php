@@ -9,7 +9,18 @@
 include 'ChromePhp.php';
 
 class Web extends CI_Controller {
-
+	private $sess;
+	private $data;
+	private $profile_pic_properties = ""; 
+	public function __construct(){
+		parent::__construct();
+		$this->sess = $this->sessionlib;
+		
+		$this->profile_pic_properties;
+		$this->sess->startFunction($this->profile_pic_properties,true);
+		$this->data = $this->sess->data_user_data;
+		
+	}
     public function index() {
         $data['main_content'] = "index";
         $this->load->view("includes/web", $data);

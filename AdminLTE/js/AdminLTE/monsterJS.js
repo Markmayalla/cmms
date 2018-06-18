@@ -75,7 +75,7 @@
                             console.log(tag + "Login Success");
                             console.log(tag + "Displaying Response");
                             console.log(tag + response);
-                            //window.location.href = site_url + "system"
+                            window.location.href = site_url + "system"
                             //alert(response);
                         },
                         error : function(response){
