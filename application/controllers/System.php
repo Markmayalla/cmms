@@ -7,6 +7,19 @@
  */
 include "ChromePhp.php";
 class System extends CI_Controller {
+	private $sess;
+	private $data;
+	private $profile_pic_properties = ""; 
+	public function __construct(){
+		parent::__construct();
+		$this->sess = $this->sessionlib;
+		
+		$this->profile_pic_properties;
+		$this->sess->startFunction($this->profile_pic_properties,true);
+		$this->data = $this->sess->data_user_data;
+		$this->data['counted'] = $this->countervalue->result;
+		//print_r($this->data);
+	}
 
     public function index() {
         $this->dashboard();
@@ -41,10 +54,10 @@ class System extends CI_Controller {
 					);
 
 		$name = "assets";
-        $data['main_content'] = 'dash_two';
-        $data['data']['display'] = $this->models_data($name);
-		$data['name'] = $name;
-        $this->load->view('includes/system', $data);
+        $this->data['main_content'] = 'dash_two';
+        $this->data['data']['display'] = $this->models_data($name);
+		$this->data['name'] = $name;
+        $this->load->view('includes/system', $this->data);
     }
 
 	public function view(){
@@ -79,11 +92,11 @@ class System extends CI_Controller {
 							'table_close'           => '</table>'
 					);
 
-		$data['data']['display'] = $this->models_data($name);
+		$this->data['data']['display'] = $this->models_data($name);
     //print_r($data['data']);
-		$data['name'] = $name;
-        $data['main_content'] = 'dash_two';
-        $this->load->view('includes/system',$data);
+		$this->data['name'] = $name;
+        $this->data['main_content'] = 'dash_two';
+        $this->load->view('includes/system',$this->data);
 	}
 
     private function perform_task($model, $action, $id) {
@@ -179,4 +192,9 @@ class System extends CI_Controller {
 
         echo $results_json;
     }
+	
+	public function logout(){
+		$this->sess->unsetData($this->sess->account_id);
+		$this->sess->redirect_on_session_destroy();
+	}
 }
