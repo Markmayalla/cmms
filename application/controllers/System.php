@@ -125,7 +125,10 @@ class System extends CI_Controller {
         }else if($data == 'organizations'){
             $this->load->model('organization_model');
             return $this->organization_model->select_all_organizations_rec();
-        }else{
+        }else if($data == 'requests'){
+            return $this->request_model->select_request();
+        }
+		else{
             return "unknown model";
         }
     }

@@ -50,4 +50,23 @@ class request_model extends MY_Model {
         $this->load->model('request_model');
         return $this->request_model->get_all();
     }
+	
+	public function select_request(){
+		$data = array();
+		$request = $this->get_all_requests();
+		$i = 0;
+		foreach($request as $key){
+			$account = $this->account_model->get_by($key->account_id)->users_id;
+			$orgname = $this->organization_model->get_by($key->organizations_has_assets_organizations_id)->name;
+			$asset = $this->asset_model->get_by($key->organizations_has_assets_assets_id)->name;
+			$username = $this->user_model->get_by($account);
+			
+			$data[$i]['account_name'] = $username;
+			$data[$i]['organization'] = $orgname;
+			$data[$i]['asset'] = $asset;
+			$i++;
+		}
+		
+		return $data;
+	}
 }

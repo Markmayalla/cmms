@@ -1,4 +1,4 @@
-<div class="container-fluid">
+	<div class="container-fluid">
     <div class="row" id="system_top_row">
         <div class="col-md-12">
             <div id="system_logo" class="pull-left">
@@ -24,7 +24,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>assets"><i class="fa fa-anchor" ></i> Assets </a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>organization"><i class="fa fa-user" > </i> Organizations</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>users"><i class="fa fa-user" ></i> Users </a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>request"><i class="fa fa-download" ></i> Requests</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
@@ -36,7 +36,7 @@
 					<?php 
 						if($accountRole == $role['user']){
 					?>
-							<li><a href="<?=site_url()."/system/view/";?>request"><i class="fa fa-download" ></i> Requests <span class='badge'><?=@$counted['requests'];?></span></a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests <span class='badge'><?=@$counted['requests'];?></span></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks <span class='badge'><?=@$counted['tasks'];?></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments <span class='badge'><?=@$counted['equipments'];?></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts <span class='badge'><?=@$counted['equipments'];?></a> </li>
@@ -48,7 +48,7 @@
 					?>
 							<li><a href="<?=site_url()."/system/view/";?>organization"><i class="fa fa-user" > </i> Organizations</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>users"><i class="fa fa-user" ></i> Users</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>request"><i class="fa fa-download" ></i> Requests</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
@@ -59,7 +59,7 @@
 					<?php 
 						if($accountRole == $role['worker']){
 					?>
-							<li><a href="<?=site_url()."/system/view/";?>request"><i class="fa fa-download" ></i> Requests</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
