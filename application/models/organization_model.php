@@ -176,8 +176,10 @@ class organization_model extends MY_Model {
 
         $this->{$relationship_model}->delete_by(array('organizations_id' => $id));
 
-        foreach ($pointer as $value) {
-            $this->{$model}->delete($value->{$cleaning_id});
+        if (count($pointer) > 0) {
+            foreach ($pointer as $value) {
+                $this->{$model}->delete($value->{$cleaning_id});
+            }
         }
 
     }
