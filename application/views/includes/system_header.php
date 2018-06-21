@@ -36,6 +36,7 @@
 					<?php 
 						if($accountRole == $role['user']){
 					?>
+							<li><a href="<?=site_url()."/system/view/";?>assets"><i class="fa fa-anchor" ></i> Assets </a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests <span class='badge'><?=@$counted['requests'];?></span></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks <span class='badge'><?=@$counted['tasks'];?></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments <span class='badge'><?=@$counted['equipments'];?></a> </li>
