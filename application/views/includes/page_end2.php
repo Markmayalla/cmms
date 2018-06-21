@@ -72,6 +72,9 @@
 	  loadDataUi(target);
 	});
 	$("#assets").click();
+
+
+
 })(jQuery);
 
 

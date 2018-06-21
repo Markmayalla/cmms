@@ -168,6 +168,13 @@ class System extends CI_Controller {
         ChromePhp::log("Asset Added Successfully");
     }
 
+    function assign_asset() {
+        $this->load->model('asset_model');
+        $insert_id = $this->asset_model->assign_asset($_POST);
+
+
+    }
+
 	function add_item_to_db(){
 		$data = array();
 		foreach ($_POST as $key => $value) {

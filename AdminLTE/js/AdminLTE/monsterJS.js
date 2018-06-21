@@ -672,4 +672,45 @@
         });
     }
 
+    /// ASSIGN ASSETS AJAX REQUEST
+
+    function loadAssetId(id){
+        $('#asset_id').val(id);
+    }
+    var assign_asset_form = $('#assign_asset_form').parsley();
+
+    $('#assign_asset').click(function() {
+       assign_asset_form.whenValidate().done(function() {
+           var organization_id = $('#organization_id').val();
+           var serial_no = $('#serial_no').val();
+           var price = $('#price').val();
+           var due_date = $('#due_date').val();
+           var asset_id = $('#asset_id').val();
+
+           var data = {
+               'organizations_id': organization_id,
+               'serial_no': serial_no,
+               'price': price,
+               'due_date': due_date,
+               'assets_id': asset_id
+           };
+
+           $.ajax({
+               url: site_url + 'system/assign_asset',
+               type:'post',
+               data: data,
+               success: function(response) {
+                    if (response == true) {
+                        alert('true: ' + response);
+                    } else {
+                        alert('false: ' + response);
+                    }
+               },
+               error: function(error) {
+                    console.log(error);
+               }
+           })
+       });
+    });
+
 

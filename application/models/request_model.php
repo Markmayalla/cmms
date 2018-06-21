@@ -48,6 +48,7 @@ class request_model extends MY_Model {
 
     public function get_all_requests() {
         $this->load->model('request_model');
+
         return $this->request_model->get_all();
     }
 }

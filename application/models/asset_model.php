@@ -12,18 +12,14 @@ class asset_model extends MY_Model {
 
 	}
 
-	public function assign_asset($organizations_id, $asset_id, $serial_no, $price, $due_date) {
-	    $this->load->model("organizations_has_assets");
+	public function assign_asset($postedData) {
+	    $this->load->model("organizations_has_asset_model");
+        $data = array();
+	    foreach ($postedData as $key => $value) {
+            $data[$key] = $this->input->post($key);
+        }
 
-	    $data = array(
-	        'organizations_id' => $organizations_id,
-            'assets_id' => $asset_id,
-            'serial_no' => $serial_no,
-            'price' => $price,
-            'due_date' => $due_date
-        );
-
-	    $this->organizations_has_assets->insert($data);
+	    return $this->organizations_has_asset_model->insert($data);
 
     }
 
