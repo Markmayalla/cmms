@@ -71,9 +71,9 @@ class account_model extends MY_Model {
         $email = $this->email_model->get_by(array('email'=>$username));
         $phone = $this->phone_model->get_by(array('number'=>$username));
 
-        if (count($email) > 0 || count($phone) > 0) {
+        if (count((array)$email) > 0 || count((array)$phone) > 0) {
 
-            if (count($email) > 0) {
+            if (count((array)$email) > 0) {
                 $row = $this->users_has_email_model->get_by(array('emails_id'=>$email->id));
                 $user_id = $row->users_id;
             } else {

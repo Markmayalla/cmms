@@ -27,7 +27,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" ></i> Parches</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>workers"><i class="fa fa-money" ></i> Workers</a> </li>
 					<?php 
@@ -40,7 +40,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests <span class='badge'><?=@$counted['requests'];?></span></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks <span class='badge'><?=@$counted['tasks'];?></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments <span class='badge'><?=@$counted['equipments'];?></a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts <span class='badge'><?=@$counted['equipments'];?></a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts <span class='badge'><?=@$counted['equipments'];?></a> </li>
 					<?php 
 						}
 					?>
@@ -52,7 +52,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" ></i> Parches</a> </li>
 					<?php 
 						}
@@ -63,7 +63,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>spare" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" ></i> Parches</a> </li>
 					<?php 
 						}

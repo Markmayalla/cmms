@@ -53,14 +53,14 @@
 
 	$("#login_system").click(function(){
 	    var tag = "~~AJAX~~  ";
-	    console.log(tag + "Login to system function triggered")
+	    //console.log(tag + "Login to system function triggered")
 		loginForm = $("#login_form").parsley();
 
 		loginForm.whenValidate().done(function () {
             var link = site_url + "web/login_user";
             if(loginObject.retry > 0){
                 loginObject.password_user = $("#password_login").val();
-                loginObject.username = $("#email_login").val();
+                loginObject.username = $("#username").val();
                 loginObject.retry = loginObject.retry - 1;
                 var string = JSON.stringify(loginObject);
                 $.ajax(
@@ -72,9 +72,9 @@
                             password_user : loginObject.password_user
                         },
                         success : function(response){
-                            console.log(tag + "Login Success");
-                            console.log(tag + "Displaying Response");
-                            console.log(tag + response);
+                            //console.log(tag + "Login Success");
+                            //console.log(tag + "Displaying Response");
+                            //console.log(tag + response);
                             window.location.href = site_url + "system"
                             //alert(response);
                         },
@@ -629,6 +629,7 @@
 				}
 			}
 
+			console.log(array_data);
            $.ajax({
                url: site_url + "system/add_item_to_db",
                type: "post",
@@ -673,10 +674,6 @@
     }
 
     /// ASSIGN ASSETS AJAX REQUEST
-
-    function loadAssetId(id){
-        $('#asset_id').val(id);
-    }
     var assign_asset_form = $('#assign_asset_form').parsley();
 
     $('#assign_asset').click(function() {
@@ -712,5 +709,64 @@
            })
        });
     });
+	
+	
+	
+	
+	
+	
+	
+	
+	//////Request TAsk
+	
+	var request_task_form = $('#request_task_form').parsley();
+
+    $('#request_task').click(function() {
+       request_task_form.whenValidate().done(function() {
+           var desc = $('#description').val();
+           var serial_no = $('#serial_no_request').val();
+
+           var data = {
+               'description': desc,
+               'serial_no': serial_no
+           };
+			
+           $.ajax({
+               url: site_url + 'system/request_task',
+               type:'post',
+               data: data,
+               success: function(response) {
+                    $("#success_msg_msg_request").html(response);
+					$("#success_msg_request").show();
+					console.log(response);
+               },
+               error: function(error) {
+                    console.log(error);
+               }
+           })
+       });
+    });
 
 
+	////VIEW LOADERS
+	function loadAssetId(id){
+        $('#asset_id').val(id);
+    }
+	
+	function loadAssetIdVy(id){
+        $('#serial_no_request').val(id);
+    }
+	
+	function loadRequestIdView(id){
+		$.ajax({
+			type : "post",
+			url : site_url + "system/load_description",
+			data : {
+				serial_no : id
+			},
+			success : function(response){
+				alert(response);
+				console.log(response);
+			}
+		});
+	}

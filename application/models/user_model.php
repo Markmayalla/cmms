@@ -15,7 +15,7 @@ class user_model extends MY_Model {
         $email = $this->email_model->get_by(array('email'=>$username));
         $phone = $this->phone_model->get_by(array('number'=>$username));
 
-        if (count($email) > 0 || count($phone) > 0) {
+        if (count((array)$email) > 0 || count((array)$phone) > 0) {
             return true;
 
         } else {

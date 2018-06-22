@@ -11,4 +11,5 @@
 	include 'download.php';
 	include 'add.php';
 	include 'assign.php';
+	include 'request.php';
 ?>

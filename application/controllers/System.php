@@ -55,7 +55,9 @@ class System extends CI_Controller {
 
 		$name = "assets";
         $this->data['main_content'] = 'dash_two';
-        $this->data['data']['display'] = $this->models_data($name);
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+        $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
 		$this->data['name'] = $name;
         $this->load->view('includes/system', $this->data);
     }
@@ -92,8 +94,11 @@ class System extends CI_Controller {
 							'table_close'           => '</table>'
 					);
 
-		$this->data['data']['display'] = $this->models_data($name);
-    //print_r($data['data']);
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+		$this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
+		//print_r($this->data['data']);
+		//die();
 		$this->data['name'] = $name;
         $this->data['main_content'] = 'dash_two';
         $this->load->view('includes/system',$this->data);
@@ -106,32 +111,7 @@ class System extends CI_Controller {
         }
     }
 
-    function models_data($data){
-        if($data == 'users'){
-            $this->load->model('user_model');
-            return $this->user_model->get_all();
-        }else if($data == 'assets'){
-            $this->load->model('asset_model');
-            $this->load->model('organization_model');
-            $data = array(
-              'assets' => $this->asset_model->get_all(),
-              'organizations' => $this->organization_model->get_all()
-            );
-
-            return $data;
-        }else if($data == 'equipments'){
-            $this->load->model('equipment_model');
-            return $this->equipment_model->get_all();
-        }else if($data == 'organizations'){
-            $this->load->model('organization_model');
-            return $this->organization_model->select_all_organizations_rec();
-        }else if($data == 'requests'){
-            return $this->request_model->select_request();
-        }
-		else{
-            return "unknown model";
-        }
-    }
+    
 
 	function model_loader($table,$data){
 		if($table == 'users'){
@@ -172,12 +152,40 @@ class System extends CI_Controller {
     }
 
     function assign_asset() {
-        $this->load->model('asset_model');
+		$this->load->model('asset_model');
         $insert_id = $this->asset_model->assign_asset($_POST);
-
-
+    }
+	
+	function request_task() {
+		$this->load->model('organizations_has_asset_model');
+		
+		$serial_no = $this->input->post('serial_no');
+		
+		
+        $check = $this->organizations_has_asset_model->get_by('serial_no',$serial_no);
+		
+		$description = $this->input->post('description');
+		$orgid = $check->organizations_id;
+		$asset = $check->assets_id;
+		$account = $this->sess->data_user_data['accountId'];
+		
+		$insert = array(
+				'accounts_id' => $account,
+				'organizations_has_assets_organizations_id' => $orgid,
+				'organizations_has_assets_assets_id' => $asset,
+				'description' => $description,
+				'status' => 'pending'
+		);
+		
+		$this->load->model('request_model');
+		$this->request_model->insert($insert);
     }
 
+	
+	function load_description(){
+		$serial_no = $this->input->post('serial_no');
+		echo $this->request_model->get_by('id',$serial_no)->description;
+	}
 	function add_item_to_db(){
 		$data = array();
 		foreach ($_POST as $key => $value) {
@@ -190,7 +198,8 @@ class System extends CI_Controller {
 		$table_name = $data['id'];
 		unset($data['id']);
         ChromePhp::log($table_name);
-        $this->model_loader($table_name,$data);
+        $this->shareddata->model_loader($table_name,$data);
+		//print_r($data);
 		echo $table_name . " Added Successfully";
         //ChromePhp::log($table_name . " Added Successfully");
 	}

@@ -2,7 +2,10 @@
 	<div class="col-md-12">
 		<?php
 			$num_user = count($display);
-				$array_header = array('First Name', 'Last name', 'Middle Name', 'Gender');
+			@$to_delete = $data['data'];
+			
+				$array_header = array('Spare Name', 'Model', 'Category','Quantity');
+				
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
@@ -15,19 +18,23 @@
 				}
 				
 				$this->table->set_heading($array_header);
-				
 			for($i = 0; $i < $num_user; $i++){
 				$data = $display[$i];
-				$edit_btn = '<a href="#edit_user" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
-				$account_settings = '<a href="#account_settings" data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-user"></span> </a>';
-				$delete_btn = '<button class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </button>';
+				//print_r($data);
+                $edit_btn = '<a href="#" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
+                $delete_btn = '<a href="'.site_url().'/action/delete_item/'.$to_delete.'/'.$data->id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
 				
+				$cookie_name = "facebook_google_key_value";
+				$cookie_value = "id";
+				setcookie($cookie_name, $cookie_value, time() + (90000), "/");
+				
+			
 				$option_link = "";
-				$array_body = array($data->first_name, $data->last_name,$data->middle_name,$data->gender);
+				$array_body = array($data->name, $data->model,$data->category,$data->inventory);
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
-					$option_link =  $account_settings . $edit_btn . $delete_btn;
+					$option_link =  $edit_btn . $delete_btn;
 					array_push($array_body,$option_link);
 				}else if($accountRole == $role['worker']){
 					$option_link =  "";

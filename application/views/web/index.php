@@ -42,7 +42,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-lock"></span> </span>
                                     <input id="password_login" type="password" name="password" class="form-control" placeholder="Your Password"
-                                           data-parsley-trigger="change"
+                                           data-parsley-trigger=""
                                            data-parsley-remote="<?PHP echo base_url(); ?>index.php/web/check_password"
                                            data-parsley-remote-message="Incorrect Password"
                                            required>

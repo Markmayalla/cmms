@@ -12,20 +12,32 @@
 			echo "Hi, there am using class";
 		}
 		
-		function models_data($data,$usertype){
-			if($data == 'users'){
-				return $this->CI->user_model->select($usertype);
-			}else if($data == 'assets'){
-				return $this->CI->asset_model->get_all();
-			}else if($data == 'equipments'){
-				return $this->CI->equipment_model->select($usertype);
-			}else if($data == 'organization'){
-				return $this->CI->organization_model->select_organization();
-			}else if($data == 'tasks'){
-				return $this->CI->task_model->get_all();
-			}else if($data == 'workers'){
-				return $this->CI->worker_model->select($usertype);
-			}else{
+		function models_data($data){
+			if($data['table'] == 'users'){
+				$this->CI->load->model('user_model');
+				return $this->CI->user_model->get_all();
+			}else if($data['table'] == 'assets'){
+				$this->CI->load->model('asset_model');
+				$this->CI->load->model('organization_model');
+				
+				$asset = $this->CI->asset_model->select($data['user_info']);
+				$data = array(
+				  'assets' => $asset,
+				  'organizations' => $this->CI->organization_model->get_all()
+				);
+				return $data;
+			}else if($data['table'] == 'equipments'){
+				$this->CI->load->model('equipment_model');
+				return $this->CI->equipment_model->get_all();
+			}else if($data['table'] == 'organizations'){
+				$this->CI->load->model('organization_model');
+				return $this->CI->organization_model->select_all_organizations_rec();
+			}else if($data['table'] == 'requests'){
+				return $this->CI->request_model->select_request($data['user_info']);
+			}else if($data['table'] == 'spares'){
+				return $this->CI->spare_part_model->get_all();
+			}
+			else{
 				return "unknown model";
 			}
 		}
@@ -38,7 +50,12 @@
 			}
 			else if($table == 'equipment'){
 				$this->CI->equipment_model->insert($data);
-			}else{
+			}else if($table == 'spare_parts'){
+				$this->CI->spare_part_model->insert($data);
+			}else if($table == 'tasks'){
+				$this->CI->spare_part_model->insert($data);
+			}
+			else{
 				return "unknown model";
 			}
 		}

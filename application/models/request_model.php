@@ -46,15 +46,23 @@ class request_model extends MY_Model {
         $this->request_model->delete($id);
     }
 
-    public function get_all_requests() {
+    public function get_all_requests($arrayData) {
         $this->load->model('request_model');
-
-        return $this->request_model->get_all();
+		$accRole = $arrayData['accountRole'];
+		$role = $arrayData['role'];
+		$accountId = $arrayData['accountId'];
+		if($accRole == $role['admin']){
+			return $this->request_model->get_many_by(array('status' => 'pending'));
+		}else if($accRole == $role['user']){
+			$org_id = $this->organizations_has_user_model->get_by('users_id',$this->account_model->get($accountId)->user_id)->organizations_id;
+			return $this->request_model->get_many_by(array('status' => 'pending','organizations_has_assets_organizations_id' => $org_id));
+		}
+        
     }
 	
-	public function select_request(){
+	public function select_request($datas){
 		$data = array();
-		$request = $this->get_all_requests();
+		$request = $this->get_all_requests($datas);
 		$i = 0;
 		foreach($request as $key){
 			$account = $this->account_model->get($key->accounts_id)->user_id;
@@ -68,7 +76,6 @@ class request_model extends MY_Model {
 			$data[$i]['request'] = $key;
 			$i++;
 		}
-		
 		return (object)$data;
 	}
 }

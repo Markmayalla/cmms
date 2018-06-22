@@ -57,13 +57,13 @@
 (function($){
 	$(document).ready( function () {
 		$('#table_assets').DataTable();
-		$('#table_equipment').DataTable();
+		$('#table_equipments').DataTable();
 		$('#table_organization').DataTable();
 		$('#table_users').DataTable();
 		$('#table_parches').DataTable();
 		$('#table_report').DataTable();
-		$('#table_request').DataTable();
-		$('#table_spare').DataTable();
+		$('#table_requests').DataTable();
+		$('#table_spares').DataTable();
 		$('#table_tasks').DataTable();
 	} );
 	

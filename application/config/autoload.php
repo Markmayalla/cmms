@@ -126,7 +126,8 @@ $autoload['model'] = array('account_model',
 						   'users_has_email_model',
 						   'users_has_phone_model',
 						   'user_model',
-						   'worker_model');
+						   'worker_model',
+						   'spare_part_model');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

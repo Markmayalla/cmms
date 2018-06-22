@@ -8,10 +8,45 @@
 
 class asset_model extends MY_Model {
 
-	public function select(){
-
+	public function select($arrayData){
+		$accRole = $arrayData['accountRole'];
+		$role = $arrayData['role'];
+		$accountId = $arrayData['accountId'];
+		if($accRole == $role['admin']){
+			return $this->select_admin();
+		}else if($accRole == $role['user']){
+			return $this->select_user($accountId);
+		}
 	}
 
+	function select_admin(){
+		$Datas = $this->asset_model->get_all();
+		$i = 0;
+		foreach($Datas as $data){
+			 $returned[$i]['has_asset'] = $data;
+			 $returned[$i]['has_properties'] = "";
+			 $i++;
+		}
+		 return (object)$returned;
+	}
+	
+	function select_user($arrayData){
+		$org_id = $this->organizations_has_user_model->get_by('users_id',$this->account_model->get($arrayData)->user_id)->organizations_id;
+		$this->load->model('organizations_has_asset_model');
+		
+		$returned  = array();
+		$Datas =  $this->organizations_has_asset_model->get_many_by('organizations_id',$org_id);
+		
+		$i = 0;
+		foreach($Datas as $data){
+				$returned[$i]['has_asset'] = $data;
+				$returned[$i]['has_properties'] = $this->asset_model->get_many_by('id',$data->assets_id);
+				$i++;
+		}
+		
+		return (object)$returned;
+	}
+	
 	public function assign_asset($postedData) {
 	    $this->load->model("organizations_has_asset_model");
         $data = array();
