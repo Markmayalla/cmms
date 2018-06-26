@@ -52,7 +52,8 @@ class account_model extends MY_Model {
 
         $account_details = array(
           "password" => $reg_arr->password_new,
-          "user_id" => $user_id
+          "user_id" => $user_id,
+		  "type" => "user_account"
         );
 
         $account_id = $this->account_model->insert($account_details);

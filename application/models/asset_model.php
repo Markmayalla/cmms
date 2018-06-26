@@ -31,12 +31,17 @@ class asset_model extends MY_Model {
 	}
 	
 	function select_user($arrayData){
-		$org_id = $this->organizations_has_user_model->get_by('users_id',$this->account_model->get($arrayData)->user_id)->organizations_id;
-		$this->load->model('organizations_has_asset_model');
-		
+		$userrrr = $this->account_model->get($arrayData)->user_id;
+		$org_id = $this->organizations_has_user_model->get_by('users_id',$userrrr);
 		$returned  = array();
-		$Datas =  $this->organizations_has_asset_model->get_many_by('organizations_id',$org_id);
+		$Datas  = array();
 		
+		if(count((array)$org_id)){
+			$org_id = $org_id->organizations_id;
+			$this->load->model('organizations_has_asset_model');
+			$returned  = array();
+			$Datas =  $this->organizations_has_asset_model->get_many_by('organizations_id',$org_id);
+		}
 		$i = 0;
 		foreach($Datas as $data){
 				$returned[$i]['has_asset'] = $data;
