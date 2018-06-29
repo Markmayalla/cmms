@@ -8,6 +8,16 @@
 
 class account_model extends MY_Model {
 
+    public function update_account($where,$id,$insert_worker){
+        $acc['accounts_id'] = $id['user_id'];
+        if($insert_worker){
+            $this->worker_model->insert($acc);
+        }else{
+            $this->worker_model->update_worker($acc);
+        }
+        $this->db->where($id);
+        return $this->db->update('accounts',$where);
+    }
     public function register($reg_arr) {
         ChromePhp::log("account_model->register triggered");
         ChromePhp::log("Data Received");

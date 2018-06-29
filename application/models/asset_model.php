@@ -22,6 +22,7 @@ class asset_model extends MY_Model {
 	function select_admin(){
 		$Datas = $this->asset_model->get_all();
 		$i = 0;
+		$returned = array();
 		foreach($Datas as $data){
 			 $returned[$i]['has_asset'] = $data;
 			 $returned[$i]['has_properties'] = "";

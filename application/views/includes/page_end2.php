@@ -58,7 +58,7 @@
 	$(document).ready( function () {
 		$('#table_assets').DataTable();
 		$('#table_equipments').DataTable();
-		$('#table_organization').DataTable();
+		$('#table_organizations').DataTable();
 		$('#table_users').DataTable();
 		$('#table_parches').DataTable();
 		$('#table_report').DataTable();
