@@ -35,7 +35,7 @@
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
-					$option_link =  $account_settings . $edit_btn . $delete_btn;
+					$option_link =   $edit_btn . $delete_btn;
 					array_push($array_body,$option_link);
 				}else if($accountRole == $role['worker']){
 					$option_link =  "";

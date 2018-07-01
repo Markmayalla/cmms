@@ -15,7 +15,7 @@
 		function models_data($data){
 			if($data['table'] == 'users'){
 				$this->CI->load->model('user_model');
-				return $this->CI->user_model->get_all();
+				return $this->CI->user_model->select_user();
 			}else if($data['table'] == 'assets'){
 				$this->CI->load->model('asset_model');
 				$this->CI->load->model('organization_model');
@@ -36,8 +36,9 @@
 				return $this->CI->request_model->select_request($data['user_info']);
 			}else if($data['table'] == 'spares'){
 				return $this->CI->spare_part_model->get_all();
-			}
-			else{
+			}else if($data['table'] == 'tasks'){
+				return $this->CI->task_model->select_tasks(array());
+			}else{
 				return "unknown model";
 			}
 		}

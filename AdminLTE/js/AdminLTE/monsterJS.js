@@ -39,11 +39,11 @@
 
     });
 
-    $('#spices').DataTable();
-    $('#meals').DataTable();
-    $('#contacts').DataTable();
-    $('#products_table').DataTable();
-    $('#default_table').DataTable();
+    //$('#spices').DataTable();
+    //$('#meals').DataTable();
+    //$('#contacts').DataTable();
+    //$('#products_table').DataTable();
+    //$('#default_table').DataTable();
 	/// Login User In System
 	loginObject = {
 		password_user : "",
@@ -647,6 +647,63 @@
     });
 
 
+    /////Updating Password and Assign Task
+
+    $("#update_account_type_btn").click(function () {
+        var update_account_type = $("#update_account_type").parsley();
+           var pass = $("#account_type").val();
+           var new_pass = $("#user_id_to_edit").val();
+           var data = {user_account: pass, user_id: new_pass,action:"account"};
+
+           console.log(data);
+           $.ajax({
+               url: site_url + "system/update_user_password_admin",
+               type: "post",
+               data: data,
+               success: function (response) {
+                   console.log("returned " + response);
+                   $("#update_user_password_success_msg_msg").html(response);
+                   $("#update_user_password_success_msg").show();
+               },
+               error: function () {
+
+               }
+        });
+    });
+
+    $("#update_user_password_btn").click(function () {
+        var update_user_password = $("#update_user_password").parsley();
+           var pass = $("#password_new_password_update").val();
+           var new_pass = $("#password_confirm_password_update").val();
+           var user = $("#user_id_to_edit").val();
+           var data = {password: pass, new_password: new_pass, user_id : user,action:"password"};
+
+           console.log(data);
+           if(pass !== new_pass){
+                $("#update_user_password_wrong_msg_msg").html("Password Mismatch");
+                $("#update_user_password_wrong_msg").show();
+                $("#update_user_password_success_msg").hide();
+           }else{
+                $.ajax({
+                    url: site_url + "system/update_user_password_admin",
+                    type: "post",
+                    data: data,
+                    success: function (response) {
+                        console.log("returned " + response);
+                        $("#update_user_password_success_msg_msg").html(response);
+                        $("#update_user_password_success_msg").show();
+                        $("#update_user_password_wrong_msg").hide();
+                    },
+                    error: function () {
+
+                    }
+                });
+            }
+    });
+
+    ///End assigning
+
+
     /// AJAX BASED SEARCH SUGGESTIONS
 
     function showAssets(str) {
@@ -756,6 +813,11 @@
 	function loadAssetIdVy(id){
         $('#serial_no_request').val(id);
     }
+
+    function loadUserIdView(id){
+        $('#user_id_to_edit').val(id);
+    }
+    
 	
 	function loadRequestIdView(id){
 		$.ajax({

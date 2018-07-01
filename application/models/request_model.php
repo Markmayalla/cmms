@@ -54,8 +54,17 @@ class request_model extends MY_Model {
 		if($accRole == $role['admin']){
 			return $this->request_model->get_many_by(array('status' => 'pending'));
 		}else if($accRole == $role['user']){
-			$org_id = $this->organizations_has_user_model->get_by('users_id',$this->account_model->get($accountId)->user_id)->organizations_id;
-			return $this->request_model->get_many_by(array('status' => 'pending','organizations_has_assets_organizations_id' => $org_id));
+			$userrrr = $this->account_model->get($accountId)->user_id;
+			$org_id = $this->organizations_has_user_model->get_by('users_id',$userrrr);
+			$returned  = array();
+			$Datas  = array();
+			
+			if(count((array)$org_id)){
+				$org_id = $org_id->organizations_id;
+				$returned  = array();
+				$Datas =  $this->request_model->get_many_by(array('status' => 'pending','organizations_has_assets_organizations_id' => $org_id));;
+			}
+			return $Datas;
 		}
         
     }

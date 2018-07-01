@@ -216,4 +216,28 @@ class System extends CI_Controller {
 		$this->sess->unsetData($this->sess->account_id);
 		$this->sess->redirect_on_session_destroy();
 	}
+
+	public function update_user_password_admin(){
+		$action = $this->input->post('action');
+		$data = array();
+		$user_id['user_id'] = $this->input->post('user_id');
+		$insert_worker = false;
+		if($action == "account"){
+			$type = $this->input->post('user_account');
+			$data['type'] = $this->sess->data_user_data['role'][$type];
+			if($type == 'worker'){
+				$insert_worker = true;
+			}
+		}else if($action == "password"){
+			$data['password'] = $this->input->post('password');
+		}
+
+		$return = $this->account_model->update_account($data,$user_id,$insert_worker);
+
+		if($return == true){
+			echo "Successful Updated";
+		}else{
+			echo "Failed to update";
+		}
+	}
 }
