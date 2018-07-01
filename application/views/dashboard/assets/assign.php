@@ -30,7 +30,7 @@
 
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label class="control-label" for="serial_no">Serial No.</label>
                         <input type="text" id="serial_no" name="serial_no" class="form-control" placeholder="e.g. 0203.jkdlf.8939" required>
                     </div>
