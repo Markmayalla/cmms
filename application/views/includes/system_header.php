@@ -28,7 +28,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" ></i> Parches</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" ></i> Purchases</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>workers"><i class="fa fa-money" ></i> Workers</a> </li>
 					<?php 
 						}

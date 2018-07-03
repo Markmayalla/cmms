@@ -51,6 +51,7 @@ class account_model extends MY_Model {
         }
 
         $account_details = array(
+			"type" => "user_account",
           "password" => $reg_arr->password_new,
           "user_id" => $user_id
         );
