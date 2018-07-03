@@ -72,8 +72,7 @@
             </div>
         </div>
         <div class="col-md-9 col-lg-10">
-            <?PHP $this->load->view('system/' . $main_content); ?>
-			
+            <?PHP $this->load->view($main_content); ?>
         </div>
     </div>
 </div>

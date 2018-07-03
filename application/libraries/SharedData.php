@@ -5,7 +5,30 @@
 			///Load Instance of Called controller
 			$this->CI=& get_instance();
 			$this->CI->load->database('default');
-			
+			$this->template = array(
+					'thead_open'            => '<thead>',
+					'thead_close'           => '</thead>',
+
+					'heading_row_start'     => '<tr>',
+					'heading_row_end'       => '</tr>',
+					'heading_cell_start'    => '<th>',
+					'heading_cell_end'      => '</th>',
+
+					'tbody_open'            => '<tbody>',
+					'tbody_close'           => '</tbody>',
+
+					'row_start'             => '<tr>',
+					'row_end'               => '</tr>',
+					'cell_start'            => '<td>',
+					'cell_end'              => '</td>',
+
+					'row_alt_start'         => '<tr>',
+					'row_alt_end'           => '</tr>',
+					'cell_alt_start'        => '<td>',
+					'cell_alt_end'          => '</td>',
+
+					'table_close'           => '</table>'
+			);
 		}
 		
 		function hello(){
@@ -13,9 +36,13 @@
 		}
 		
 		function models_data($data){
-			if($data['table'] == 'users'){
+			if($data['table'] == 'users' || $data['table'] == 'workers'){
 				$this->CI->load->model('user_model');
-				return $this->CI->user_model->select_user();
+				if(isset($data['user_id'])){
+					return $this->CI->user_model->select_user_by_id($data['table'],$data['user_id']);
+				}else{
+					return $this->CI->user_model->select_user($data['table']);
+				}
 			}else if($data['table'] == 'assets'){
 				$this->CI->load->model('asset_model');
 				$this->CI->load->model('organization_model');
