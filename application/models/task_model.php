@@ -39,13 +39,26 @@ class task_model extends MY_Model {
             'notes' => !is_null($notes) ? $notes : $task->notes,
             'status' => !is_null($status) ? $status : $task->status
         );
-
         $this->task_model->update($id, $data);
     }
 
 
-	public function select_task(){
-		
+	public function select_tasks($datas){
+		$data = array();
+		$tasks = $this->task_model->get_all();
+		$i = 0;
+		foreach($tasks as $key){
+            $request = $this->request_model->get($key->requests_id);
+            $worker = $this->worker_model->get($key->workers_id)->accounts_id;
+            $account = $this->account_model->get($worker)->user_id;
+			$username = $this->user_model->get($account);
+			
+			$data[$i]['username'] = $username;
+			$data[$i]['request'] = $request;
+			$data[$i]['task'] = $key;
+			$i++;
+		}
+		return (object)$data;
 	}
 
 }

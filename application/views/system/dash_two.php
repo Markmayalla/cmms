@@ -5,7 +5,7 @@
 				<div class="tab-pane active" id="request">
 						<?php 
 							$this->load->view('tools/index');
-							$this->load->view('dashboard/'.$name.'/index',$data); 
+							$this->load->view('dashboard/'.$name.'/'.$page,$data); 
 						?>
 				</div>
 			</div>

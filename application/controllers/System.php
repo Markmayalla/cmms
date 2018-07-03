@@ -26,39 +26,16 @@ class System extends CI_Controller {
     }
 
     public function dashboard() {
-
 		$this->load->library("table");
-		$data['template'] = array(
-							'thead_open'            => '<thead>',
-							'thead_close'           => '</thead>',
-
-							'heading_row_start'     => '<tr>',
-							'heading_row_end'       => '</tr>',
-							'heading_cell_start'    => '<th>',
-							'heading_cell_end'      => '</th>',
-
-							'tbody_open'            => '<tbody>',
-							'tbody_close'           => '</tbody>',
-
-							'row_start'             => '<tr>',
-							'row_end'               => '</tr>',
-							'cell_start'            => '<td>',
-							'cell_end'              => '</td>',
-
-							'row_alt_start'         => '<tr>',
-							'row_alt_end'           => '</tr>',
-							'cell_alt_start'        => '<td>',
-							'cell_alt_end'          => '</td>',
-
-							'table_close'           => '</table>'
-					);
+		$data['template'] = $this->shareddata->template;
 
 		$name = "assets";
-        $this->data['main_content'] = 'dash_two';
+        $this->data['main_content'] = 'system/dash_two';
 		$for_loading_data['table'] = $name;
 		$for_loading_data['user_info'] = $this->data;
         $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
 		$this->data['name'] = $name;
+		$this->data['page'] = 'index';
         $this->load->view('includes/system', $this->data);
     }
 
@@ -69,38 +46,14 @@ class System extends CI_Controller {
         $id = $this->uri->segment(6);
         $this->perform_task($model, $action, $id);
 		$this->load->library("table");
-		$data['template'] = array(
-							'thead_open'            => '<thead>',
-							'thead_close'           => '</thead>',
-
-							'heading_row_start'     => '<tr>',
-							'heading_row_end'       => '</tr>',
-							'heading_cell_start'    => '<th>',
-							'heading_cell_end'      => '</th>',
-
-							'tbody_open'            => '<tbody>',
-							'tbody_close'           => '</tbody>',
-
-							'row_start'             => '<tr>',
-							'row_end'               => '</tr>',
-							'cell_start'            => '<td>',
-							'cell_end'              => '</td>',
-
-							'row_alt_start'         => '<tr>',
-							'row_alt_end'           => '</tr>',
-							'cell_alt_start'        => '<td>',
-							'cell_alt_end'          => '</td>',
-
-							'table_close'           => '</table>'
-					);
+		$data['template'] = $this->shareddata->template;
 
 		$for_loading_data['table'] = $name;
 		$for_loading_data['user_info'] = $this->data;
 		$this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
-		//print_r($this->data['data']);
-		//die();
 		$this->data['name'] = $name;
-        $this->data['main_content'] = 'dash_two';
+		$this->data['page'] = 'index';
+        $this->data['main_content'] = 'system/dash_two';
         $this->load->view('includes/system',$this->data);
 	}
 
@@ -215,5 +168,29 @@ class System extends CI_Controller {
 	public function logout(){
 		$this->sess->unsetData($this->sess->account_id);
 		$this->sess->redirect_on_session_destroy();
+	}
+
+	public function update_user_password_admin(){
+		$action = $this->input->post('action');
+		$data = array();
+		$user_id['user_id'] = $this->input->post('user_id');
+		$insert_worker = false;
+		if($action == "account"){
+			$type = $this->input->post('user_account');
+			$data['type'] = $this->sess->data_user_data['role'][$type];
+			if($type == 'worker'){
+				$insert_worker = true;
+			}
+		}else if($action == "password"){
+			$data['password'] = $this->input->post('password');
+		}
+
+		$return = $this->account_model->update_account($data,$user_id,$insert_worker);
+
+		if($return == true){
+			echo "Successful Updated";
+		}else{
+			echo "Failed to update";
+		}
 	}
 }

@@ -1,3 +1,4 @@
+
 <div class="row" style="margin-top:25px;">
 	<div class="col-md-12">
 		<?php
@@ -18,7 +19,7 @@
 				
 			for($i = 0; $i < $num_user; $i++){
 				$data = $display[$i];
-				$edit_btn = '<a href="'.site_url().'/users/edit/'.$data->id.'" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
+				$edit_btn = '<a href="#edit_user" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
 				$account_settings = '<a href="#account_settings" onclick="loadUserIdView('.$data->id.')" data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-user"></span> </a>';
 				$delete_btn = '<button class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </button>';
 				
