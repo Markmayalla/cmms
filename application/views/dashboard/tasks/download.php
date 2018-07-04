@@ -30,10 +30,10 @@
 					
 				$array_body = array($assets->name,$assets->model_number,$username->first_name . " " . $username->last_name, $task->date_start,$task->date_end);
 				
-                $assign_btn = '<a onclick="loadAssetId(\''.$id.'\')" href="#assign_assets"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
-                $request_btn = '<a onclick="loadAssetIdVy(\''.$id.'\')" href="#request_assets"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-eye"></span> </a>';
-                $edit_btn = '<a href="#" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
-                $delete_btn = '<a href="'.site_url().'/action/delete_item/'.@$to_delete.'/'.$id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+                $assign_btn_asset = '<a href="'.site_url().'/tasks/assign_spare/'.$id.'"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
+                $assign_btn_equipment = '<a href="'.site_url().'/tasks/assign_equipment/'.$id.'"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
+                $edit_btn = '<a href="'.site_url().'/tasks/edit/'.$id.'" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
+                $delete_btn = '<a href="'.site_url().'/tasks/delete/'.$id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
 
 				$cookie_name = "facebook_google_key_value";
 				$cookie_value = "id";
@@ -43,10 +43,10 @@
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
-					$option_link =  $assign_btn . $edit_btn . $delete_btn;
+					$option_link =  $edit_btn . $delete_btn. $assign_btn_asset .$assign_btn_equipment ;
 					array_push($array_body,$option_link);
 				}else if($accountRole == $role['worker']){
-					$option_link =  $request_btn;
+					$option_link =  $assign_btn_asset .$assign_btn_equipment;
 					array_push($array_body,$option_link);
 				}else if($accountRole == $role['owner']){
 					//$option_link =   $request_btn;

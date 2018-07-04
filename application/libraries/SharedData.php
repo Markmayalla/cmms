@@ -29,6 +29,8 @@
 
 					'table_close'           => '</table>'
 			);
+
+			//$this->CI->countervalue->countedDashboard();
 		}
 		
 		function hello(){
@@ -81,7 +83,12 @@
 			}else if($data['table'] == 'spares'){
 				return $this->CI->spare_part_model->get_all();
 			}else if($data['table'] == 'tasks'){
-				return $this->CI->task_model->select_tasks(array());
+				if(isset($data['task_id'])){
+					return $this->CI->task_model->select_tasks(array('id' => $data['task_id']));
+				}else{
+					return $this->CI->task_model->select_tasks(null);
+				}
+				
 			}else{
 				return "unknown model";
 			}
