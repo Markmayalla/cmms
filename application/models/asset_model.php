@@ -19,6 +19,10 @@ class asset_model extends MY_Model {
 		}
 	}
 
+	public function select_by_id($arrayData,$id){
+		return $this->asset_model->get($id);
+	}
+
 	function select_admin(){
 		$Datas = $this->asset_model->get_all();
 		$i = 0;

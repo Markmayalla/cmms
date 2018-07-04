@@ -9,7 +9,7 @@
 				//print_r($data);
 				//echo "<br><br>";
                 $delete_url = base_url() . 'index.php/system/view/organizations/organization_model/delete/' . $display['organizations'][$i]->id;
-                $edit_btn = '<a href="#edit_organization" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </button>';
+                $edit_btn = '<a href="'.site_url().'/organizations/edit/'.$data->id.'" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
                 $delete_btn = '<a href="' . $delete_url . '" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
 				$this->table->add_row($data->name,
                     $this->organization_model->populate($i, $display["phones"], array('title', 'number') , "","<br />", ": ", "null") ,

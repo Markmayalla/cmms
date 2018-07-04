@@ -8,19 +8,9 @@
 
 class task_model extends MY_Model {
 
-    public function add_task($req_id, $workers_id, $date_start, $date_end, $notes, $status) {
+    public function add_task($req_id, $data) {
         $this->load->model("task_model");
         $this->load->model("request_model");
-
-
-        $data = array(
-            'requests_id' => $req_id,
-            'workers_id' => $workers_id,
-            'date_start' => $date_start,
-            'date_end' => $date_end,
-            'notes' => $notes,
-            'status' => 'pending'
-        );
 
         $this->task_model->insert($data);
         $this->request_model->update($req_id, array('status' => 'scheduled'));
@@ -52,10 +42,12 @@ class task_model extends MY_Model {
             $worker = $this->worker_model->get($key->workers_id)->accounts_id;
             $account = $this->account_model->get($worker)->user_id;
 			$username = $this->user_model->get($account);
-			
+            $assets = $this->asset_model->get_by('id',$request->organizations_has_assets_assets_id);
+            
 			$data[$i]['username'] = $username;
 			$data[$i]['request'] = $request;
 			$data[$i]['task'] = $key;
+			$data[$i]['assets'] = $assets;
 			$i++;
 		}
 		return (object)$data;

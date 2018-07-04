@@ -28,11 +28,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
-<<<<<<< HEAD
-							<li><a href="<?=site_url()."/system/view/";?>parches"><i class="fa fa-money" ></i> Purchases</a> </li>
-=======
 							<li><a href="<?=site_url()."/system/view/";?>purchases"><i class="fa fa-money" ></i> Purchases</a> </li>
->>>>>>> 1af018f2c3a60bc2e6eb2818627be8430dd7b8a7
 							<li><a href="<?=site_url()."/system/view/";?>workers"><i class="fa fa-money" ></i> Workers</a> </li>
 					<?php 
 						}
@@ -43,8 +39,6 @@
 							<li><a href="<?=site_url()."/system/view/";?>assets"><i class="fa fa-anchor" ></i> Assets </a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests <span class='badge'><?=@$counted['requests'];?></span></a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks <span class='badge'><?=@$counted['tasks'];?></a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments <span class='badge'><?=@$counted['equipments'];?></a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts <span class='badge'><?=@$counted['equipments'];?></a> </li>
 					<?php 
 						}
 					?>
@@ -64,11 +58,9 @@
 					<?php 
 						if($accountRole == $role['worker']){
 					?>
-							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>purchases"><i class="fa fa-money" ></i> Purchases</a> </li>
 					<?php 
 						}
 					?>

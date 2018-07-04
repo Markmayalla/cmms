@@ -66,7 +66,7 @@ class organization_model extends MY_Model {
 		return $this->db->get()->result();
 	}
 
-    public function select_all_organizations_rec() {
+    public function select_all_organizations_rec($data) {
         $this->load->model("organization_model");
         $this->load->model("email_model");
         $this->load->model("phone_model");
@@ -75,7 +75,12 @@ class organization_model extends MY_Model {
         $this->load->model("organizations_has_phone_model");
         $this->load->model("organizations_has_address_model");
 
-        $organizations = $this->organization_model->get_all();
+        if($data != null){
+            $organizations['data'] = $this->organization_model->get($data);
+        }else{
+            $organizations = $this->organization_model->get_all();
+        }
+
         $emails = array();
         $phones = array();
         $addresses = array();

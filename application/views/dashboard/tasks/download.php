@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<?php
 			
-				$array_header = array('Worker Name', 'Date start', 'Date end');
+				$array_header = array('Asset Name','Asset model','Worker Name', 'Date start', 'Date end');
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
@@ -24,10 +24,11 @@
 				$username = $data['username'];
 				$request = $data['request'];
 				$task = $data['task'];
+				$assets = $data['assets'];
 				
 				$id = $task->id;
 					
-				$array_body = array($username->first_name . " " . $username->last_name, $task->date_start,$task->date_end);
+				$array_body = array($assets->name,$assets->model_number,$username->first_name . " " . $username->last_name, $task->date_start,$task->date_end);
 				
                 $assign_btn = '<a onclick="loadAssetId(\''.$id.'\')" href="#assign_assets"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
                 $request_btn = '<a onclick="loadAssetIdVy(\''.$id.'\')" href="#request_assets"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-eye"></span> </a>';

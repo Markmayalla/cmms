@@ -10,70 +10,43 @@
                 <li class="pull-left header"><i class="fa fa-user"></i> Profile</li>
             </ul>
                     <?php
-                        $people_data_to_edit = @$display['users'];
-                        $email_data_to_edit = @$display['emails'];
-                        $phone_data_to_edit = @$display['phones'];
-                        $address_data_to_edit = @$display['addresses'];
+                        $data['people_data_to_edit'] = @$display['users'];
+                        $data['email_data_to_edit'] = @$display['emails'];
+                        $data['phone_data_to_edit'] = @$display['phones'];
+                        $data['address_data_to_edit'] = @$display['addresses'];
+                        $error = $this->sessionlib->sess_get($this->sessionlib->flashdata,'error_sms');
+
+                        $data['back_id'] = @$data['people_data_to_edit']->id;
+                        if($error != ""){
+                            ?>
+                                <br />
+                                <div class="alert alert-success alert-dismissable" style="display: block;margin-top:10px;width:60%;">
+                                    <i class="fa fa-check"></i>
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <?=$error;?>
+                                </div>
+                            <?php
+                        }
                     ?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="personal_info">
-                            <form action="<?=site_url().'/users/update_profile';?>" method="POST">
-                                <h4>Personal Info</h4>
-                                    <input type="text" value="<?=@$people_data_to_edit[0]->id;?>"  hidden name="users_id" >
-                                    <div class="form-group">
-                                        <label class="control-label" for="first_name">First Name</label>
-                                        <input type="text" value="<?=@$people_data_to_edit[0]->first_name;?>" class="form-control" name="first_name" placeholder="First Name">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for="middle_name">Middle Name</label>
-                                         <input type="text" value="<?=@$people_data_to_edit[0]->middle_name;?>" class="form-control" name="middle_name" placeholder="Middle Name">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for="last_name">Last Name</label>
-                                        <input type="text" value="<?=@$people_data_to_edit[0]->last_name;?>" class="form-control" name="last_name" placeholder="Last Name">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for="gender">Gender Name</label>
-                                        <select name="gender" class="form-control">
-                                            <option value="">Choose...</option>
-                                            <?php 
-                                                if(@$people_data_to_edit[0]->gender == 'male'){
-                                            ?>
-                                                <option value="male" selected >Male</option>
-                                                <option value="female">Female</option>
-                                            <?php
-                                                }else{
-                                            ?>
-                                                <option value="male">Male</option>
-                                                <option value="female" selected >Female</option>
-                                            <?php
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-success">Update Profile</button>
-                                    </div>
-                                </form>
-
+                            <?php
+                                $this->load->view('dashboard/forms/user',$data);
+                            ?>
                         </div>
                         <div class="tab-pane" id="phones">
                             <?php
-                                print_r($phone_data_to_edit);
+                                $this->load->view('dashboard/forms/phones',$data);
                             ?>
                         </div>
                         <div class="tab-pane" id="emails">
                             <?php
-                                print_r($email_data_to_edit);
+                                $this->load->view('dashboard/forms/emails',$data);
                             ?>
                         </div>
                         <div class="tab-pane" id="addresses">
                             <?php
-                                print_r($address_data_to_edit);
+                                $this->load->view('dashboard/forms/address',$data);
                             ?>
                         </div>
                     </div>

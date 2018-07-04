@@ -47,20 +47,37 @@
 				$this->CI->load->model('asset_model');
 				$this->CI->load->model('organization_model');
 				
-				$asset = $this->CI->asset_model->select($data['user_info']);
-				$data = array(
-				  'assets' => $asset,
-				  'organizations' => $this->CI->organization_model->get_all()
-				);
+				if(isset($data['asset_id'])){
+					$asset = $this->CI->asset_model->select_by_id($data['user_info'],$data['asset_id']);
+					$data = array(
+						'assets' => $asset
+					);
+				}else{
+					$asset = $this->CI->asset_model->select($data['user_info']);
+					$data = array(
+					'assets' => $asset,
+					'organizations' => $this->CI->organization_model->get_all()
+					);
+				}
 				return $data;
 			}else if($data['table'] == 'equipments'){
 				$this->CI->load->model('equipment_model');
 				return $this->CI->equipment_model->get_all();
 			}else if($data['table'] == 'organizations'){
 				$this->CI->load->model('organization_model');
-				return $this->CI->organization_model->select_all_organizations_rec();
+				if(isset($data['org_id'])){
+					return $this->CI->organization_model->select_all_organizations_rec($data['org_id']);
+				}else{
+					return $this->CI->organization_model->select_all_organizations_rec(null);
+				}
+				
 			}else if($data['table'] == 'requests'){
-				return $this->CI->request_model->select_request($data['user_info']);
+				if(isset($data['request_id'])){
+					return $this->CI->request_model->select_request_by_id($data['table'],$data['request_id']);
+				}else{
+					return $this->CI->request_model->select_request($data['user_info']);
+				}
+				
 			}else if($data['table'] == 'spares'){
 				return $this->CI->spare_part_model->get_all();
 			}else if($data['table'] == 'tasks'){
