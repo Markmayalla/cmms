@@ -10,5 +10,4 @@
 <?php
 	include 'download.php';
 	include 'add.php';
-	include 'view.php';
 ?>

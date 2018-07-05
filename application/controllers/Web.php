@@ -148,7 +148,7 @@ class Web extends CI_Controller {
 		ChromePhp::log($tag . "Password = " . $password);
 
 		$account = $this->account_model->login($username, $password);
-		print_r($account);
+		//print_r($account);
 		if ($account == false) {
             //ChromePhp::log($tag . "Login Failed");
 			echo "web";

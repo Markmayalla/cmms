@@ -9,5 +9,4 @@
 </div>
 <?php
 	include 'download.php';
-    include 'edit.php';
 ?>

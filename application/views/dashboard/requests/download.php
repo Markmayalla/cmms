@@ -33,9 +33,9 @@
 				$request_id = $request->id;
 				
 				$edit_btn = '<a href="#" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
-				$delete_btn = '<a href="'.site_url().'/action/delete_item/'.$to_delete.'/'.$request_id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
-				$assign_btn = '<a onclick="loadRequestIdAssign(\''.$request_id.'\')" href="#assign_request_to_worker"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
-				$view = '<a onclick="loadRequestIdView(\''.$request_id.'\')" href="#view_request"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-eye"></span> </a>';
+				$delete_btn = '<a href="'.site_url().'/requests/change_request_status/'.$request_id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+				$assign_btn = '<a  href="'.site_url().'/requests/assign_request_to_task/'.$request_id.'"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
+				$view = '<a href="'.site_url().'/requests/view/'.$request_id.'"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-eye"></span> </a>';
 				
 				$cookie_name = "facebook_google_key_value";
 				$cookie_value = "equipment_id";
@@ -46,7 +46,7 @@
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
-					$option_link =  $view. $assign_btn . $edit_btn . $delete_btn;
+					$option_link =  $view. $assign_btn  . $delete_btn;
 					array_push($array_body,$option_link);
 				}else if($accountRole == $role['worker']){
 					$option_link =  "";

@@ -29,7 +29,13 @@ class System extends CI_Controller {
 		$this->load->library("table");
 		$data['template'] = $this->shareddata->template;
 
-		$name = "assets";
+		if($this->sess->data_user_data['accountType'] == $this->sess->data_user_data['role']['admin']){
+			$name = "assets";
+		}else if($this->sess->data_user_data['accountType'] == $this->sess->data_user_data['role']['worker']){
+			$name = "tasks";
+		}else{
+			$name = "assets";
+		}
         $this->data['main_content'] = 'system/dash_two';
 		$for_loading_data['table'] = $name;
 		$for_loading_data['user_info'] = $this->data;

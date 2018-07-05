@@ -65,6 +65,18 @@ class request_model extends MY_Model {
 				$Datas =  $this->request_model->get_many_by(array('status' => 'pending','organizations_has_assets_organizations_id' => $org_id));;
 			}
 			return $Datas;
+		}else if($accRole == $role['worker']){
+			$userrrr = $this->account_model->get($accountId)->user_id;
+			$org_id = $this->organizations_has_user_model->get_by('users_id',$userrrr);
+			$returned  = array();
+			$Datas  = array();
+			
+			if(count((array)$org_id)){
+				$org_id = $org_id->organizations_id;
+				$returned  = array();
+				$Datas =  $this->request_model->get_many_by(array('status' => 'pending','organizations_has_assets_organizations_id' => $org_id));;
+			}
+			return $Datas;
 		}
         
     }
@@ -84,6 +96,33 @@ class request_model extends MY_Model {
 			$data[$i]['asset'] = $asset;
 			$data[$i]['request'] = $key;
 			$i++;
+		}
+		return (object)$data;
+	}
+
+	public function select_request_by_id($datas,$id){
+		$data = array();
+		$key = $this->request_model->get($id);
+		
+		if($key){
+			$i = 0;
+			$account = $this->account_model->get($key->accounts_id)->user_id;
+			$orgname = $this->organization_model->get($key->organizations_has_assets_organizations_id);
+			$asset = $this->asset_model->get($key->organizations_has_assets_assets_id);
+			$username = $this->user_model->get($account);
+			
+			$data[$i]['username'] = $username;
+			$data[$i]['organization'] = $orgname;
+			$data[$i]['asset'] = $asset;
+			$data[$i]['request'] = $key;
+			$names = $data[$i]['workers'] = $this->worker_model->get_all();
+			$j = 0;
+			foreach($names as $name){
+				$yes_acc = $this->account_model->get($name->accounts_id)->user_id;
+				$data[$i]['worker'][$j] = (array)$this->user_model->get($yes_acc);
+				array_push($data[$i]['worker'][$j], $account);
+				$j++;
+			}
 		}
 		return (object)$data;
 	}

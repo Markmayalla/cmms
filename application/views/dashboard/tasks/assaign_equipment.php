@@ -4,17 +4,33 @@
     if($num < 1){
         echo "No data found";
     }
+
     foreach($display as $data){
-        $account = $data['username'];
-		$organization = $data['organization'];
-		$asset = $data['asset'];
-        $request = $data['request'];
-        $worker = $data['worker'];
+        $account = @$data['username'];
+		$organization = @$data['organization'];
+		$task = @$data['task'];
+		$asset = @$data['assets'];
+        $request = @$data['request'];
+        $worker = @$data['worker'];
 
         $total_worker = count($worker);
        
         ?>
-            <form class="form" method="POST" action="<?=site_url();?>/requests/create_task">
+            <form class="form" method="POST" action="<?=site_url();?>/tasks/edit_item">
+                    <?php
+                        $error = $this->sessionlib->sess_get($this->sessionlib->flashdata,'error_sms');
+
+                        if($error != ""){
+                            ?>
+                                <br />
+                                <div class="alert alert-success alert-dismissable" style="display: block;margin-top:10px;width:60%;">
+                                    <i class="fa fa-check"></i>
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <?=$error;?>
+                                </div>
+                            <?php
+                        }
+                    ?>
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Users</h4>
@@ -52,50 +68,15 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Worker</h4>
-                        <div class="form-group">
-                            <select name="workers" class="form-control">
-                                <?php
-                                    for($i= 0; $i<$total_worker;$i++){
-                                        ?>
-                                            <option value="<?=$worker[$i][0];?>"><?=$worker[$i]['first_name'] ." ".$worker[$i]['last_name'] ;?></option>
-                                        <?php
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
                         <h4>Task</h4>
                                 <div class="col-md-6">
-                                    <label class="label-control" for="workrer">Name</label>
-                                    <input type="date" name="start_date" class="form-control">
+                                    <label class="label-control" for="workrer">Start date</label>
+                                    <input value="<?=@$task->id;?>" type="text" name="task_id" hidden>
+                                    <input readonly value="<?=@$task->date_start;?>" type="date"  class="form-control">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="label-control" for="duration">Duration</label>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <select name="duration_number" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <select name="duration_name" class="form-control">
-                                                <option>hours</option>
-                                                <option>days</option>
-                                                <option>weeks</option>
-                                                <option>months</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <label class="label-control" for="workrer">End date</label>
+                                    <input readonly value="<?=@$task->date_end;?>" type="date"  class="form-control">
                                 </div>
                             </div>
                 </div>
@@ -103,7 +84,20 @@
                     <div class="col-md-12">
                         <h4>Description</h4>
                         <div class="form-group">
-                            <textarea name="description" rows="8" class="form-control"></textarea>
+                            <h5><?=@$task->notes;?></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="equipment1" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="equipment2" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="equipment3" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -113,5 +107,4 @@
             </form>
         <?php
     }
-
  ?>

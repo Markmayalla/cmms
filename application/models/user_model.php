@@ -30,6 +30,8 @@ class user_model extends MY_Model {
     public function select_user_by_id($type,$id){
         $data['users'] = $this->user_model->get_many_by('id',$id);
         $phone_ids = $this->users_has_phone_model->get_many_by('users_id',$id);
+        $emails_ids = $this->users_has_email_model->get_many_by('users_id',$id);
+        $address_ids = $this->users_has_address_model->get_many_by('users_id',$id);
 
         $i = 0;
         foreach($phone_ids as $id){
@@ -38,14 +40,14 @@ class user_model extends MY_Model {
         }
 
         $i = 0;
-        foreach($phone_ids as $id){
-            $data['emails'][$i] = $this->email_model->get($id->phones_id);
+        foreach($emails_ids as $id){
+            $data['emails'][$i] = $this->email_model->get($id->emails_id);
             $i++;
         }
 
         $i = 0;
-        foreach($phone_ids as $id){
-            $data['addresses'][$i] = $this->address_model->get($id->phones_id);
+        foreach($address_ids as $id){
+            $data['addresses'][$i] = $this->address_model->get($id->addresses_id);
             $i++;
         }
 
