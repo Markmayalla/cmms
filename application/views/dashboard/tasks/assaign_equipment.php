@@ -90,6 +90,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
+                        <label for="equipment" class="label-control">Equipments</label>
                         <div class="form-group">
                             <input type="text" name="equipment1" class="form-control">
                         </div>

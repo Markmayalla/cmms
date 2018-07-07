@@ -13,7 +13,6 @@
 
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-3 col-lg-2">
             <div id="system_menu_wrapper">
@@ -68,7 +67,7 @@
             </div>
         </div>
         <div class="col-md-9 col-lg-10">
-            <?PHP $this->load->view($main_content); ?>
+            <?PHP $this->load->view($main_content,$counted_dashboard); ?>
         </div>
     </div>
 </div>

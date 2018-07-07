@@ -29,8 +29,6 @@
 
 					'table_close'           => '</table>'
 			);
-
-			//$this->CI->countervalue->countedDashboard();
 		}
 		
 		function hello(){

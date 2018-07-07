@@ -73,6 +73,7 @@
 											$this->owner_role_page => "owner_account"
 										);
 			//$this->check_is_has_data();
+			$this->CI->countervalue->countedDashboard();
 		}
 			
 		public function startFunction($profile_pic_properties,$action){
@@ -85,7 +86,8 @@
 								'accountRole' => $this->getUserRole(),
 								'profilePicture' => $this->getUserProfile($profile_pic_properties),
 								'role' => $this->user_page_role,
-								'action_show_option' => $action
+								'action_show_option' => $action,
+								'counted_dashboard' => $this->CI->countervalue->result_dashboard
 							);
 		}
 		

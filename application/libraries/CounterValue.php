@@ -27,10 +27,10 @@
 		}
 		
 		public function countedDashboard(){
-			$tables = array('tasks' => array('pending','scheduled','done'),'requests' => array('pending','scheduled','done'));
+			$tables = array('tasks' => array('pending','scheduled','complete','suspended'),'requests' => array('suspended','pending','scheduled','complete'));
 			foreach($tables as $table => $values){
 				$this->CI->db->select('count(*) as '.$table);
-				$i = $this->CI->db->get($table)->result();
+				$i = $this->CI->db->get($table)->result()[0]->$table;
 				$this->result_dashboard[$table]['total'] = $i;
 				foreach($values as $value){
 					$this->CI->db->select('count(*) as '.$value);
@@ -40,8 +40,6 @@
 					$this->result_dashboard[$table][$value] = $i;
 				}
 			}
-
-			print_r($this->result_dashboard);
 		}
 	}
 ?>
