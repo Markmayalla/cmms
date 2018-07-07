@@ -23,12 +23,12 @@
 
 					<div class="form-group">
                         <label class="control-label" for="model_number">Category</label>
-                        <input type="text" id="category" name="category" class="form-control" placeholder="Unit Price" required/>
+                        <input type="text" id="category" name="category" class="form-control" placeholder="Category" required/>
                     </div>
 					
                     <div class="form-group">
                         <label class="control-label" for="model_number">Model</label>
-                        <input type="text" id="model" name="model" class="form-control" placeholder="Unit Price" required/>
+                        <input type="text" id="model" name="model" class="form-control" placeholder="Model" required/>
                     </div>
 					
 					<div class="form-group">

@@ -41,9 +41,11 @@
 					$array_body = array($id, $has_propert[0]->name,$has_propert[0]->model_number,$has_asset->serial_no,$has_asset->due_date);
 				}
                 $assign_btn = '<a onclick="loadAssetId(\''.$id.'\')" href="#assign_assets"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
-                $request_btn = '<a onclick="loadAssetIdVy(\''.$id.'\')" href="#request_assets"  data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-database"></span> Request </a>';
-                $edit_btn = '<a href="#" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
-                $delete_btn = '<a href="'.site_url().'/action/delete_item/'.$to_delete.'/'.$id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+
+                $request_btn = '<a onclick="loadAssetIdVy(\''.$id.'\')" href="#request_assets"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-eye"></span> </a>';
+                $edit_btn = '<a href="'.site_url().'/assets/edit/'.$id.'" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
+                $delete_btn = '<a href="'.site_url().'/assets/delete/'.$id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+
 
 				$cookie_name = "facebook_google_key_value";
 				$cookie_value = "id";

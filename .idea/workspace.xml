@@ -2,7 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Assets.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Equipments.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Organizations.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Requests.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Spares.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Tasks.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Users.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/forms/address.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_equipment.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_spare.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/forms/emails.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/forms/organization.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/forms/phones.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/forms/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/libraries/CounterValue.php" afterPath="$PROJECT_DIR$/application/libraries/CounterValue.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/libraries/SessionLib.php" afterPath="$PROJECT_DIR$/application/libraries/SessionLib.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/libraries/SharedData.php" afterPath="$PROJECT_DIR$/application/libraries/SharedData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/System.php" afterPath="$PROJECT_DIR$/application/controllers/System.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Web.php" afterPath="$PROJECT_DIR$/application/controllers/Web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/account_model.php" afterPath="$PROJECT_DIR$/application/models/account_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/spares/add.php" afterPath="$PROJECT_DIR$/application/views/dashboard/spares/add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/asset_model.php" afterPath="$PROJECT_DIR$/application/models/asset_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/system/dash_two.php" afterPath="$PROJECT_DIR$/application/views/system/dash_two.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/assets/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/assets/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/equipments/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/equipments/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/organizations/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/organizations/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/requests/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/requests/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/spares/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/spares/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/tasks/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/tasks/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/users/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/users/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/workers/download.php" afterPath="$PROJECT_DIR$/application/views/dashboard/workers/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/assets/edit.php" afterPath="$PROJECT_DIR$/application/views/dashboard/assets/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/equipments/edit.php" afterPath="$PROJECT_DIR$/application/views/dashboard/equipments/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/organizations/edit.php" afterPath="$PROJECT_DIR$/application/views/dashboard/organizations/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/requests/edit.php" afterPath="$PROJECT_DIR$/application/views/dashboard/requests/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/spares/edit.php" afterPath="$PROJECT_DIR$/application/views/dashboard/spares/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/tasks/edit.php" afterPath="$PROJECT_DIR$/application/views/dashboard/tasks/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/users/edit_user.php" afterPath="$PROJECT_DIR$/application/views/dashboard/users/edit_user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/organizations/index.php" afterPath="$PROJECT_DIR$/application/views/dashboard/organizations/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/requests/index.php" afterPath="$PROJECT_DIR$/application/views/dashboard/requests/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/users/index.php" afterPath="$PROJECT_DIR$/application/views/dashboard/users/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/organization_model.php" afterPath="$PROJECT_DIR$/application/models/organization_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/request_model.php" afterPath="$PROJECT_DIR$/application/models/request_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/includes/system.php" afterPath="$PROJECT_DIR$/application/views/includes/system.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/includes/system_header.php" afterPath="$PROJECT_DIR$/application/views/includes/system_header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/task_model.php" afterPath="$PROJECT_DIR$/application/models/task_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/user_model.php" afterPath="$PROJECT_DIR$/application/models/user_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/requests/view.php" afterPath="$PROJECT_DIR$/application/views/dashboard/requests/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/includes/web_footer.php" afterPath="$PROJECT_DIR$/application/views/includes/web_footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/worker_model.php" afterPath="$PROJECT_DIR$/application/models/worker_model.php" />
     </list>
     <ignored path="pes.co.tz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +87,7 @@
       <file leaf-file-name="asset_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/asset_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="28" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1785">
+            <state line="32" column="18" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1845">
               <folding />
             </state>
           </provider>
@@ -46,7 +96,7 @@
       <file leaf-file-name="System.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/System.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="9" selection-start="3000" selection-end="3017" vertical-scroll-proportion="0.0" vertical-offset="1229" max-vertical-offset="3735">
+            <state line="81" column="9" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.0" vertical-offset="614" max-vertical-offset="3120">
               <folding />
             </state>
           </provider>
@@ -82,7 +132,7 @@
       <file leaf-file-name="download.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="188" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.0051020407" vertical-offset="642" max-vertical-offset="1230">
+            <state line="44" column="10" selection-start="1700" selection-end="1702" vertical-scroll-proportion="0.43367347" vertical-offset="405" max-vertical-offset="1260">
               <folding />
             </state>
           </provider>
@@ -100,7 +150,7 @@
       <file leaf-file-name="request_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/request_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="33" selection-start="2242" selection-end="2242" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1425">
+            <state line="97" column="17" selection-start="3625" selection-end="3625" vertical-scroll-proportion="0.0" vertical-offset="1455" max-vertical-offset="2010">
               <folding />
             </state>
           </provider>
@@ -813,7 +863,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/request_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="33" selection-start="2242" selection-end="2242" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1425">
+        <state line="97" column="17" selection-start="3625" selection-end="3625" vertical-scroll-proportion="0.0" vertical-offset="1455" max-vertical-offset="2010">
           <folding />
         </state>
       </provider>
@@ -827,7 +877,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/asset_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="28" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1785">
+        <state line="32" column="18" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1845">
           <folding />
         </state>
       </provider>
@@ -841,7 +891,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/System.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="9" selection-start="3000" selection-end="3017" vertical-scroll-proportion="0.0" vertical-offset="1229" max-vertical-offset="3735">
+        <state line="81" column="9" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.0" vertical-offset="614" max-vertical-offset="3120">
           <folding />
         </state>
       </provider>
@@ -862,7 +912,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard/assets/download.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="188" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.0051020407" vertical-offset="642" max-vertical-offset="1230">
+        <state line="44" column="10" selection-start="1700" selection-end="1702" vertical-scroll-proportion="0.43367347" vertical-offset="405" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
