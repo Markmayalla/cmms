@@ -16,6 +16,34 @@
 
         <div class="box box-success" style="position: relative;  top: 20px; right: 10px;">
             <div class="box-header">
+                <h3 class="box-title">Update Request</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="btn btn-success" onclick="select_all_assets_on_due_date()">Update</div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="automated_classess_sms">Updating...</div>
+                    </div>
+                </div>
+                <div class="row" id="loader_layout" style="padding:5px;display:none">
+                    <div class="col-md-12">
+                        <div class="progress progress-striped active">
+                            <div id="automatomate_loading" class="progress-bar progress-bar-aqua" role="progressbar"
+                                aria-valuenow="20"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuetext="Step" style="width: 0%"
+                                ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box box-success" style="position: relative;  top: 20px; right: 10px;">
+
+            <div class="box-header">
                 <h3 class="box-title">Requests</h3>
             </div>
 

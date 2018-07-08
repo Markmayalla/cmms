@@ -832,3 +832,111 @@
 			}
 		});
 	}
+
+
+    //////// AUTOOMATION PLACE //////////////
+
+    $auto_sms = $('#automated_classess_sms');
+    $loader = $('#automatomate_loading');
+    
+    $sleepingtime = 1000;
+    function select_all_assets_on_due_date(){
+        $auto_sms.html("Selecting assets ....");
+        $("#loader_layout").css('display','block');
+        $loader.css('width', '10%');
+        //sleep($sleepingtime);
+        $.ajax({
+            type : "post",
+            url : site_url + "automate",
+            success : function (response){
+                var data_return = JSON.parse(response);
+                if(data_return.success){
+                    $auto_sms.html(data_return.sms_back);
+                    insert_request(data_return.assets);
+                    $loader.css('width', '20%');
+                }else{
+                    $auto_sms.html("No assets is on due date");
+                    $loader.css('width', '100%');
+                }
+            },
+            error : function(response){
+                sleep($sleepingtime);
+               // window.location = site_url + "system/view/automate_result";
+            }
+        });
+    }
+
+
+    function insert_request(requests){
+        //console.log(requests);
+         $.ajax({
+             type : 'POST',
+             url : site_url + "automate/insert_request",
+             data : {data :requests},
+             success : function (response){
+                 $auto_sms.html("request Added, success assigning worker.");
+                 $loader.css('width', '40%');
+                 selecting_worker(response);
+
+             },
+             error : function(response){
+                sleep($sleepingtime);
+               //  window.location = site_url + "system/view/automate_result";
+             }
+         });
+    }
+
+    function selecting_worker(request){
+        $auto_sms.html('selecting worker on due date..');
+        $loader.css('width', '45%');
+        var request_s = JSON.parse(request);
+        $.ajax({
+            type : "POST",
+            url : site_url + "automate/select_worker_on_date",
+            data : {data : request_s.request },
+            success : function (response){
+                $auto_sms.html('Worker arranged..');
+                $loader.css('width', '65%');
+                create_task(response);
+            },
+            error : function(response){
+                sleep($sleepingtime);
+               // window.location = site_url + "system/view/automate_result";
+            }
+        });
+    }
+
+    function create_task(worker_with_task){
+        $auto_sms.html('Creating task..');
+        $loader.css('width', '85%');
+        var task = JSON.parse(worker_with_task);
+        $.ajax({
+            type : "POST",
+            url : site_url + "automate/insert_task",
+            data : { data : task},
+            success : function(response){
+                $auto_sms.html(response + " Task(s) created success.");
+                $loader.css('width', '100%');
+                sleep($sleepingtime);
+                $("#loader_layout").css('display','none');
+                //window.location = site_url + "system/view/automate_result";
+            },
+            error : function(){
+                
+                $auto_sms.html("Task errors .");
+                $loader.css('width', '100%');
+                sleep($sleepingtime);
+                $("#loader_layout").css('display','none');
+               // window.location = site_url + "system/view/automate_result";
+            }
+        });
+    }
+
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+      }

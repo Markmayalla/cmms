@@ -15,6 +15,7 @@
         $equipments = @$data['equipments'];
 
         $total_worker = count($worker);
+        
         ?>
 
         <h3 class="text-aqua"><span class="fa fa-tasks"></span> Task</h3>
@@ -25,9 +26,15 @@
         <p><?=@$task->notes; ?></p>
 
 
-        <form data-parsley-validate>
-
+        <form id="add_item_form" onsubmit="event.preventDefault()" data-parsley-validate>
+            <div id="success_msg" class="alert alert-success alert-dismissable" style="display: none;">
+                <i class="fa fa-check"></i>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p id="success_msg_msg"></p>
+            </div>
             <div class="form-group">
+                <input type="hidden" id="id" value="tasks_has_equipments">
+                <input type="hidden" name="tasks_id" value="<?=@$task->id;?>">
                 <label class="control-label" for="equipment_id">Equipment</label>
                 <select class="form-control" name="equipment_id" onchange="updateQuantity(this)" required>
                     <option value="">Choose...</option>
@@ -39,18 +46,18 @@
 
             <div class="form-group">
                 <label class="label-control" for="quantity">Quantity</label>
-                <input id="quantity" type="number" name="quantity" max="" class="form-control" />
+                <input id="quantity" type="number" name="quantity" max="" class="form-control" required/>
             </div>
 
             <div class="form-group">
-                <button class="btn btn-info">Add Reservation</button>
+                <button id="add_item_btn" class="btn btn-info">Add Reservation</button>
             </div>
         </form>
 
         <script>
             function updateQuantity(select) {
-                var max = select.attr
-                $('#quantity').attr('max',);
+                var max = $('option:selected').attr('tag');
+                $('#quantity').attr('max', max);
             }
         </script>
 
