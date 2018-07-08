@@ -104,7 +104,9 @@
 				$this->CI->spare_part_model->insert($data);
 			}else if($table == 'tasks'){
 				$this->CI->spare_part_model->insert($data);
-			}
+			}else if($table == 'tasks_has_equipment') {
+                $this->CI->tasks_has_equipment_model->insert($data);
+            }
 			else{
 				return "unknown model";
 			}
