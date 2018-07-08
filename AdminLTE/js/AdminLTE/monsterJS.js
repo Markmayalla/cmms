@@ -4,6 +4,11 @@
 
 
 
+    ///This variable set the time to check is assets available
+    /// 1 = 1s;
+    var select_asset_interval_time = 20;
+    var asssetsInterval;
+    initiateInterval();
 
     var base_url = 'http://localhost/cmms/';
     var site_url = 'http://localhost/cmms/index.php/';
@@ -845,6 +850,11 @@
         $("#loader_layout").css('display','block');
         $loader.css('width', '10%');
         //sleep($sleepingtime);
+        selecting_assets(true);
+    }
+
+    function selecting_assets(is_true){
+        clearInterval(asssetsInterval);
         $.ajax({
             type : "post",
             url : site_url + "automate",
@@ -852,11 +862,16 @@
                 var data_return = JSON.parse(response);
                 if(data_return.success){
                     $auto_sms.html(data_return.sms_back);
-                    insert_request(data_return.assets);
+                    if(is_true){
+                        insert_request(data_return.assets);
+                    }else{
+                        select_all_assets_on_due_date();
+                    }
                     $loader.css('width', '20%');
                 }else{
                     $auto_sms.html("No assets is on due date");
                     $loader.css('width', '100%');
+                    initiateInterval();
                 }
             },
             error : function(response){
@@ -865,7 +880,6 @@
             }
         });
     }
-
 
     function insert_request(requests){
         //console.log(requests);
@@ -919,6 +933,7 @@
                 $loader.css('width', '100%');
                 sleep($sleepingtime);
                 $("#loader_layout").css('display','none');
+                initiateInterval();
                 //window.location = site_url + "system/view/automate_result";
             },
             error : function(){
@@ -928,6 +943,7 @@
                 sleep($sleepingtime);
                 $("#loader_layout").css('display','none');
                // window.location = site_url + "system/view/automate_result";
+               initiateInterval();
             }
         });
     }
@@ -940,3 +956,21 @@
           }
         }
       }
+
+
+
+      var myVar = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            document.getElementById("TheTimeExcuter").innerHTML = d.toLocaleTimeString();
+        }
+
+   
+    function initiateInterval(){
+        console.log("Time initiated " + select_asset_interval_time + "s recurseve");
+        asssetsInterval = setInterval(select_all_assets_on_due_date_intervaled,(select_asset_interval_time * 1000))
+    }
+     function select_all_assets_on_due_date_intervaled(){
+        selecting_assets(false);
+    }

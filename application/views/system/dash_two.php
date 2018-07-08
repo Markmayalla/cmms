@@ -24,7 +24,7 @@
                         <div class="btn btn-success" onclick="select_all_assets_on_due_date()">Update</div>
                     </div>
                     <div class="col-md-8">
-                        <div id="automated_classess_sms">Updating...</div>
+                        <div id="automated_classess_sms">Click to auto request...</div>
                     </div>
                 </div>
                 <div class="row" id="loader_layout" style="padding:5px;display:none">

@@ -7,6 +7,9 @@
 
 
             <ul class="list-inline pull-right">
+				<li>
+					<div id="TheTimeExcuter"></div>
+				</li>
                 <li><button class="btn btn-link"><span class="fa fa-user"></span> <?=$fullName;?></button></li>
                 <li><a class="btn btn-link" href="<?=site_url()."/system/logout";?>"><span class="fa fa-sign-out"></span> Logout </a></li>
             </ul>
