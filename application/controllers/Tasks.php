@@ -64,7 +64,22 @@ class Tasks extends CI_Controller {
 	}
 
 	public function create_equipment(){
+		$id = $this->input->post('tasks_id');
+		$this->load->model('tasks_has_equipment_model');
+		$this->tasks_has_equipment_model->insert($this->input->post());
+		$this->equipment_model->update_equipment_number(-1,$this->input->post('equipments_id'));
+		$id = '/tasks/assign_equipment/'.$id;
+		$sms = "Equipment added to task success";
+		$this->back_to_previous_page($id,$sms);
+	}
 
+	public function remove_equipment(){
+		$this->load->model('tasks_has_equipment_model');
+		$this->tasks_has_equipment_model->delete_by(array('tasks_id' => $this->uri->segment(4),'equipments_id' => $this->uri->segment(3)));
+		$this->equipment_model->update_equipment_number(1,$this->uri->segment(3));
+		$id = '/tasks/assign_equipment/'.$this->uri->segment(4);
+		$sms = "Equipment removed to task success";
+		$this->back_to_previous_page($id,$sms);
 	}
 
 	public function assign_spare(){

@@ -48,7 +48,7 @@ class task_model extends MY_Model {
             $account = $this->account_model->get($worker)->user_id;
 			$username = $this->user_model->get($account);
             $assets = $this->asset_model->get_by('id',$request->organizations_has_assets_assets_id);
-            $equipments = $this->equipment_model->get_all();
+            $equipments = $this->equipment_model->select_tasked_equipment($key->id);
             $orgname = $this->organization_model->get($request->organizations_has_assets_organizations_id);
 
 			$data[$i]['username'] = $username;
@@ -57,6 +57,8 @@ class task_model extends MY_Model {
 			$data[$i]['task'] = $key;
 			$data[$i]['assets'] = $assets;
             $data[$i]['equipments'] = $equipments;
+            $this->load->model('tasks_has_equipment_model');
+            $data[$i]['equipment_view'] = $this->tasks_has_equipment_model->get_many_by(array('tasks_id' => $key->id));
             $i++;
             $j = 0;
             foreach($names as $name){

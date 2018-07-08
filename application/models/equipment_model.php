@@ -7,5 +7,12 @@
  */
 
 class equipment_model extends MY_Model {
+    public function select_tasked_equipment($id){
+        $sql = "SELECT * FROM equipments WHERE equipment_id NOT IN (SELECT equipments_id FROM tasks_has_equipments WHERE tasks_id = '$id')";
+        return $this->db->query($sql)->result();
+    }
 
+    public function update_equipment_number($number,$id){
+        $this->db->query("UPDATE equipments SET quantity = quantity + '$number' WHERE equipment_id = '$id'");
+    }
 }
