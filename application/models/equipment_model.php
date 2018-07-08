@@ -8,7 +8,7 @@
 
 class equipment_model extends MY_Model {
     public function select_tasked_equipment($id){
-        $sql = "SELECT * FROM equipments WHERE equipment_id NOT IN (SELECT equipments_id FROM tasks_has_equipments WHERE tasks_id = '$id')";
+        $sql = "SELECT * FROM equipments WHERE equipment_id NOT IN (SELECT equipments_id FROM tasks_has_equipments WHERE tasks_id = '$id') AND quantity > 0";
         return $this->db->query($sql)->result();
     }
 
