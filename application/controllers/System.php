@@ -18,7 +18,7 @@ class System extends CI_Controller {
 		$this->sess->startFunction($this->profile_pic_properties,true);
 		$this->data = $this->sess->data_user_data;
 		$this->data['counted'] = $this->countervalue->result;
-		//print_r($this->data);
+		//print_r($this->sess->data_user_data);
 	}
 
     public function index() {
