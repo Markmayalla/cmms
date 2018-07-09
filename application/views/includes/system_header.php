@@ -70,7 +70,10 @@
             </div>
         </div>
         <div class="col-md-9 col-lg-10">
-            <?PHP $this->load->view($main_content,$counted_dashboard); ?>
+						
+			<?PHP 
+				$this->load->view($main_content,$counted_dashboard); 
+			?>
         </div>
     </div>
 </div>

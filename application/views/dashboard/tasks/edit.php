@@ -17,20 +17,6 @@
        
         ?>
             <form class="form" method="POST" action="<?=site_url();?>/tasks/edit_item">
-                    <?php
-                        $error = $this->sessionlib->sess_get($this->sessionlib->flashdata,'error_sms');
-
-                        if($error != ""){
-                            ?>
-                                <br />
-                                <div class="alert alert-success alert-dismissable" style="display: block;margin-top:10px;width:60%;">
-                                    <i class="fa fa-check"></i>
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <?=$error;?>
-                                </div>
-                            <?php
-                        }
-                    ?>
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Users</h4>

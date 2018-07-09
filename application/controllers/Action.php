@@ -96,6 +96,7 @@
 			$name = $this->uri->segment(3);
 			$for_loading_data['table'] = $name;
 			$for_loading_data['user_info'] = $this->data;
+			$for_loading_data['assets_down'] = "download";
 			$data['display'] = $this->shareddata->models_data($for_loading_data);
 			$this->load->view('dashboard/'.$name.'/excel',$data);
 		}

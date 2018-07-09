@@ -4,7 +4,19 @@
 			<div class="tab-content">
 				<div class="tab-pane active" id="request">
 						<?php 
-							$this->load->view('tools/index');
+                            $this->load->view('tools/index');
+                            $error = $this->sessionlib->sess_get($this->sessionlib->flashdata,'error_sms');
+		
+                            if($error != ""){
+                                ?>
+                                    <br />
+                                    <div class="alert alert-success alert-dismissable" style="display: block;margin-top:10px;width:60%;">
+                                        <i class="fa fa-check"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <?=$error;?>
+                                    </div>
+                                <?php
+                            }
 							$this->load->view('dashboard/'.$name.'/'.$page,$data); 
 						?>
 				</div>

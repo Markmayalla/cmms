@@ -7,7 +7,7 @@
             </div>
 
             <div class="modal-body">
-                <form id="add_item_form" onsubmit="event.preventDefault()" data-parsley-validate>
+                <form action="<?=site_url()?>/assets/add" method="POST">
                     <div id="success_msg" class="alert alert-success alert-dismissable" style="display: none;">
                         <i class="fa fa-check"></i>
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" id="add_item_btn" name="add_asset" class="btn btn-info"><span class="fa fa-plus"></span> Add</button>
+                        <button  class="btn btn-info"><span class="fa fa-plus"></span> Add</button>
                     </div>
                 </form>
             </div>

@@ -31,6 +31,13 @@ class Assets extends CI_Controller {
         $this->load->view('includes/system', $this->data);
     }
 
+    public function add(){
+        $this->asset_model->insert($this->input->post());
+        $id = "/system/view/assets";
+        $sms = "Asset Added Success";
+        $this->back_to_previous_page($id,$sms);
+    }
+
     public function delete(){
         echo $this->uri->segment(3);
     }

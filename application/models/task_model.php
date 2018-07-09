@@ -13,6 +13,7 @@ class task_model extends MY_Model {
         $this->load->model("request_model");
 
         $this->task_model->insert($data);
+        //echo $req_id;
         return $this->request_model->update($req_id, array('status' => 'scheduled'));
     }
 

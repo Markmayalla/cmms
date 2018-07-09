@@ -68,8 +68,16 @@ class Requests extends CI_Controller {
             'status' => $status
         );
 
-        $request = $this->input->post('requests_id');
-
+        $request = $this->input->post('request_id');
         $this->task_model->add_task($request,$data);
+
+        $id = "/system/view/requests";
+        $sms = "Task created successfull";
+        $this->back_to_previous_page($id,$sms);
     }
+
+    public function back_to_previous_page($id,$sms){
+		$this->sessionlib->sess_set($this->sessionlib->flashdata,array('error_sms' => $sms));
+		redirect(site_url().$id);
+	}
 }

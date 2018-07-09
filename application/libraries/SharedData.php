@@ -52,6 +52,9 @@
 					$data = array(
 						'assets' => $asset
 					);
+				}else if(isset($data['assets_down'])){
+					$datar['assets'] = $this->CI->asset_model->get_all();
+					return $datar;
 				}else{
 					$asset = $this->CI->asset_model->select($data['user_info']);
 					$data = array(
