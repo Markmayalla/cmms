@@ -116,6 +116,12 @@
                                         </div>
                                     </form>
                                 </div>
+
+                                <div id="success_msg" class="alert alert-success alert-dismissable">
+                                    <i class="fa fa-building"></i>
+                                    <button type="button" class="close" data-dismiss="alert" arial-hidden="true">x</button>
+                                    Organization Registration was successfull
+                                </div>
 								
 								<div id="step5_org">
                                     <form id="user_step5_org" class="margin-top" onsubmit="event.preventDefault()" data-parsley-validate>

@@ -4,6 +4,11 @@
 
 
 
+    ///This variable set the time to check is assets available
+    /// 1 = 1s;
+    var select_asset_interval_time = 20;
+    var asssetsInterval;
+    initiateInterval();
 
     var base_url = 'http://localhost/cmms/';
     var site_url = 'http://localhost/cmms/index.php/';
@@ -39,11 +44,11 @@
 
     });
 
-    $('#spices').DataTable();
-    $('#meals').DataTable();
-    $('#contacts').DataTable();
-    $('#products_table').DataTable();
-    $('#default_table').DataTable();
+    //$('#spices').DataTable();
+    //$('#meals').DataTable();
+    //$('#contacts').DataTable();
+    //$('#products_table').DataTable();
+    //$('#default_table').DataTable();
 	/// Login User In System
 	loginObject = {
 		password_user : "",
@@ -53,14 +58,14 @@
 
 	$("#login_system").click(function(){
 	    var tag = "~~AJAX~~  ";
-	    console.log(tag + "Login to system function triggered")
+	    //console.log(tag + "Login to system function triggered")
 		loginForm = $("#login_form").parsley();
 
 		loginForm.whenValidate().done(function () {
             var link = site_url + "web/login_user";
             if(loginObject.retry > 0){
                 loginObject.password_user = $("#password_login").val();
-                loginObject.username = $("#email_login").val();
+                loginObject.username = $("#username").val();
                 loginObject.retry = loginObject.retry - 1;
                 var string = JSON.stringify(loginObject);
                 $.ajax(
@@ -72,9 +77,9 @@
                             password_user : loginObject.password_user
                         },
                         success : function(response){
-                            console.log(tag + "Login Success");
-                            console.log(tag + "Displaying Response");
-                            console.log(tag + response);
+                            //console.log(tag + "Login Success");
+                            //console.log(tag + "Displaying Response");
+                            //console.log(tag + response);
                             window.location.href = site_url + "system"
                             //alert(response);
                         },
@@ -217,7 +222,7 @@
     });
 
     $('#add_email').click(function () {
-        $userStep3 = $('#userStep3').parsley();
+        userStep3 = $('#user_step3').parsley();
         console.log("Add email is Triggered...");
         userStep3.whenValidate().done(function () {
             console.log("Validation Success");
@@ -349,7 +354,7 @@
                 success: function(response){
                     console.log("registration response");
                     console.log(response);
-                    window.location.href = site_url + "web";
+                    //window.location.href = site_url + "web";
                 },
                 error: function(response){
                     console.log(response);
@@ -377,6 +382,7 @@
     $('#step3_org').hide();
     $('#step4_org').hide();
     $('#step5_org').hide();
+    $('#success_msg').hide();
 
     $('#next_1_org').click(function () {
 
@@ -576,7 +582,8 @@
                     myData : string
                 },
                 success: function(response){
-                    alert(response);
+                    $('#success_msg').show();
+                    $('#user_step5_org').hide();
                 },
                 error: function(response){
                     alert(response);
@@ -627,6 +634,7 @@
 				}
 			}
 
+			console.log(array_data);
            $.ajax({
                url: site_url + "system/add_item_to_db",
                type: "post",
@@ -642,6 +650,63 @@
 
         });
     });
+
+
+    /////Updating Password and Assign Task
+
+    $("#update_account_type_btn").click(function () {
+        var update_account_type = $("#update_account_type").parsley();
+           var pass = $("#account_type").val();
+           var new_pass = $("#user_id_to_edit").val();
+           var data = {user_account: pass, user_id: new_pass,action:"account"};
+
+           console.log(data);
+           $.ajax({
+               url: site_url + "system/update_user_password_admin",
+               type: "post",
+               data: data,
+               success: function (response) {
+                   console.log("returned " + response);
+                   $("#update_user_password_success_msg_msg").html(response);
+                   $("#update_user_password_success_msg").show();
+               },
+               error: function () {
+
+               }
+        });
+    });
+
+    $("#update_user_password_btn").click(function () {
+        var update_user_password = $("#update_user_password").parsley();
+           var pass = $("#password_new_password_update").val();
+           var new_pass = $("#password_confirm_password_update").val();
+           var user = $("#user_id_to_edit").val();
+           var data = {password: pass, new_password: new_pass, user_id : user,action:"password"};
+
+           console.log(data);
+           if(pass !== new_pass){
+                $("#update_user_password_wrong_msg_msg").html("Password Mismatch");
+                $("#update_user_password_wrong_msg").show();
+                $("#update_user_password_success_msg").hide();
+           }else{
+                $.ajax({
+                    url: site_url + "system/update_user_password_admin",
+                    type: "post",
+                    data: data,
+                    success: function (response) {
+                        console.log("returned " + response);
+                        $("#update_user_password_success_msg_msg").html(response);
+                        $("#update_user_password_success_msg").show();
+                        $("#update_user_password_wrong_msg").hide();
+                    },
+                    error: function () {
+
+                    }
+                });
+            }
+    });
+
+    ///End assigning
 
 
     /// AJAX BASED SEARCH SUGGESTIONS
@@ -670,28 +735,242 @@
         });
     }
 
-    /// AJAX LOAD ORGANIZATIONS
+    /// ASSIGN ASSETS AJAX REQUEST
+    var assign_asset_form = $('#assign_asset_form').parsley();
 
-    function loadOrganizations() {
-        console.log("Loading organizations...");
+    $('#assign_asset').click(function() {
+       assign_asset_form.whenValidate().done(function() {
+           var organization_id = $('#organization_id').val();
+           var serial_no = $('#serial_no').val();
+           var price = $('#price').val();
+           var due_date = $('#due_date').val();
+           var asset_id = $('#asset_id').val();
+
+           var data = {
+               'organizations_id': organization_id,
+               'serial_no': serial_no,
+               'price': price,
+               'due_date': due_date,
+               'assets_id': asset_id
+           };
+
+           $.ajax({
+               url: site_url + 'system/assign_asset',
+               type:'post',
+               data: data,
+               success: function(response) {
+                    if (response == true) {
+                        alert('true: ' + response);
+                    } else {
+                        alert('false: ' + response);
+                    }
+               },
+               error: function(error) {
+                    console.log(error);
+               }
+           })
+       });
+    });
+	
+	
+	
+	
+	
+	
+	
+	
+	//////Request TAsk
+	
+	var request_task_form = $('#request_task_form').parsley();
+
+    $('#request_task').click(function() {
+       request_task_form.whenValidate().done(function() {
+           var desc = $('#description').val();
+           var serial_no = $('#serial_no_request').val();
+
+           var data = {
+               'description': desc,
+               'serial_no': serial_no
+           };
+			
+           $.ajax({
+               url: site_url + 'system/request_task',
+               type:'post',
+               data: data,
+               success: function(response) {
+                    $("#success_msg_msg_request").html(response);
+					$("#success_msg_request").show();
+					console.log(response);
+               },
+               error: function(error) {
+                    console.log(error);
+               }
+           })
+       });
+    });
+
+
+	////VIEW LOADERS
+	function loadAssetId(id){
+        $('#asset_id').val(id);
+    }
+	
+	function loadAssetIdVy(id){
+        $('#serial_no_request').val(id);
+    }
+
+    function loadUserIdView(id){
+        $('#user_id_to_edit').val(id);
+    }
+    
+	
+	function loadRequestIdView(id){
+		$.ajax({
+			type : "post",
+			url : site_url + "system/load_description",
+			data : {
+				serial_no : id
+			},
+			success : function(response){
+				alert(response);
+				console.log(response);
+			}
+		});
+	}
+
+
+    //////// AUTOOMATION PLACE //////////////
+
+    $auto_sms = $('#automated_classess_sms');
+    $loader = $('#automatomate_loading');
+    
+    $sleepingtime = 1000;
+    function select_all_assets_on_due_date(){
+        $auto_sms.html("Selecting assets ....");
+        $("#loader_layout").css('display','block');
+        $loader.css('width', '10%');
+        //sleep($sleepingtime);
+        selecting_assets(true);
+    }
+
+    function selecting_assets(is_true){
+        clearInterval(asssetsInterval);
         $.ajax({
-            url: site_url + "system/loadOrganizations",
-            type: 'post',
-            data: {
-
-            },
-            success: function (response) {
-                console.log("Updating Options...");
-                var org = $("#organization_id");
-                var jsonObj = JSON.parse(response);
-                org.html("");
-                for (var i=0;i<jsonObj.length; i++) {
-                    org.append('<option value="'+jsonObj(i)->id+'">' + jsonObj(i)->name, '</option>');
+            type : "post",
+            url : site_url + "automate",
+            success : function (response){
+                var data_return = JSON.parse(response);
+                if(data_return.success){
+                    $auto_sms.html(data_return.sms_back);
+                    if(is_true){
+                        insert_request(data_return.assets);
+                    }else{
+                        select_all_assets_on_due_date();
+                    }
+                    $loader.css('width', '20%');
+                }else{
+                    $auto_sms.html("No assets is on due date");
+                    $loader.css('width', '100%');
+                    initiateInterval();
                 }
-
             },
-            error: function () {
-
+            error : function(response){
+                sleep($sleepingtime);
+               // window.location = site_url + "system/view/automate_result";
             }
         });
+    }
+
+    function insert_request(requests){
+        //console.log(requests);
+         $.ajax({
+             type : 'POST',
+             url : site_url + "automate/insert_request",
+             data : {data :requests},
+             success : function (response){
+                 $auto_sms.html("request Added, success assigning worker.");
+                 $loader.css('width', '40%');
+                 selecting_worker(response);
+
+             },
+             error : function(response){
+                sleep($sleepingtime);
+               //  window.location = site_url + "system/view/automate_result";
+             }
+         });
+    }
+
+    function selecting_worker(request){
+        $auto_sms.html('selecting worker on due date..');
+        $loader.css('width', '45%');
+        var request_s = JSON.parse(request);
+        $.ajax({
+            type : "POST",
+            url : site_url + "automate/select_worker_on_date",
+            data : {data : request_s.request },
+            success : function (response){
+                $auto_sms.html('Worker arranged..');
+                $loader.css('width', '65%');
+                create_task(response);
+            },
+            error : function(response){
+                sleep($sleepingtime);
+               // window.location = site_url + "system/view/automate_result";
+            }
+        });
+    }
+
+    function create_task(worker_with_task){
+        $auto_sms.html('Creating task..');
+        $loader.css('width', '85%');
+        var task = JSON.parse(worker_with_task);
+        $.ajax({
+            type : "POST",
+            url : site_url + "automate/insert_task",
+            data : { data : task},
+            success : function(response){
+                $auto_sms.html(response + " Task(s) created success.");
+                $loader.css('width', '100%');
+                sleep($sleepingtime);
+                $("#loader_layout").css('display','none');
+                initiateInterval();
+                //window.location = site_url + "system/view/automate_result";
+            },
+            error : function(){
+                
+                $auto_sms.html("Task errors .");
+                $loader.css('width', '100%');
+                sleep($sleepingtime);
+                $("#loader_layout").css('display','none');
+               // window.location = site_url + "system/view/automate_result";
+               initiateInterval();
+            }
+        });
+    }
+
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+      }
+
+
+
+      var myVar = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            document.getElementById("TheTimeExcuter").innerHTML = d.toLocaleTimeString();
+        }
+
+   
+    function initiateInterval(){
+        console.log("Time initiated " + select_asset_interval_time + "s recurseve");
+        asssetsInterval = setInterval(select_all_assets_on_due_date_intervaled,(select_asset_interval_time * 1000))
+    }
+     function select_all_assets_on_due_date_intervaled(){
+        selecting_assets(false);
     }

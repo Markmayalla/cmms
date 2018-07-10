@@ -8,22 +8,63 @@
 
 class asset_model extends MY_Model {
 
-	public function select(){
-
+	public function select($arrayData){
+		$accRole = $arrayData['accountRole'];
+		$role = $arrayData['role'];
+		$accountId = $arrayData['accountId'];
+		if($accRole == $role['admin']){
+			return $this->select_admin();
+		}else if($accRole == $role['user']){
+			return $this->select_user($accountId);
+		}
 	}
 
-	public function assign_asset($organizations_id, $asset_id, $serial_no, $price, $due_date) {
-	    $this->load->model("organizations_has_assets");
+	public function select_by_id($arrayData,$id){
+		return $this->asset_model->get($id);
+	}
 
-	    $data = array(
-	        'organizations_id' => $organizations_id,
-            'assets_id' => $asset_id,
-            'serial_no' => $serial_no,
-            'price' => $price,
-            'due_date' => $due_date
-        );
+	function select_admin(){
+		$Datas = $this->asset_model->get_many_by(array('state' => 'show'));
+		$i = 0;
+		$returned = array();
+		foreach($Datas as $data){
+			 $returned[$i]['has_asset'] = $data;
+			 $returned[$i]['has_properties'] = "";
+			 $i++;
+		}
+		 return (object)$returned;
+	}
+	
+	function select_user($arrayData){
+		$userrrr = $this->account_model->get($arrayData)->user_id;
+		$org_id = $this->organizations_has_user_model->get_by('users_id',$userrrr);
+		$returned  = array();
+		$Datas  = array();
+		
+		if(count((array)$org_id)){
+			$org_id = $org_id->organizations_id;
+			$this->load->model('organizations_has_asset_model');
+			$returned  = array();
+			$Datas =  $this->organizations_has_asset_model->get_many_by('organizations_id',$org_id);
+		}
+		$i = 0;
+		foreach($Datas as $data){
+				$returned[$i]['has_asset'] = $data;
+				$returned[$i]['has_properties'] = $this->asset_model->get_many_by('id',$data->assets_id);
+				$i++;
+		}
+		
+		return (object)$returned;
+	}
+	
+	public function assign_asset($postedData) {
+	    $this->load->model("organizations_has_asset_model");
+        $data = array();
+	    foreach ($postedData as $key => $value) {
+            $data[$key] = $this->input->post($key);
+        }
 
-	    $this->organizations_has_assets->insert($data);
+	    return $this->organizations_has_asset_model->insert($data);
 
     }
 

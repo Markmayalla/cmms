@@ -1,4 +1,4 @@
-<div id="add_equipment" class="modal fade" role="dialog">
+<div id="add_equipments" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,7 +17,7 @@
                     <div class="form-group">
 						<input type="text" id="id" value="equipment" hidden />
                         <label class="control-label" for="name">Equipment Name</label>
-                        <input type="text" id="equipment_name" name="equipment_name" class="form-control"
+                        <input type="text" id="name" name="equipment_name" class="form-control"
                                placeholder="Equipment Name" list="equipment_names" required/>
                         <datalist id="equipment_names">
 

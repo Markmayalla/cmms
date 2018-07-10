@@ -9,7 +9,18 @@
 include 'ChromePhp.php';
 
 class Web extends CI_Controller {
-
+	private $sess;
+	private $data;
+	private $profile_pic_properties = ""; 
+	public function __construct(){
+		parent::__construct();
+		$this->sess = $this->sessionlib;
+		
+		$this->profile_pic_properties;
+		$this->sess->startFunction($this->profile_pic_properties,true);
+		$this->data = $this->sess->data_user_data;
+		
+	}
     public function index() {
         $data['main_content'] = "index";
         $this->load->view("includes/web", $data);
@@ -92,9 +103,9 @@ class Web extends CI_Controller {
         $email = $this->email_model->get_by(array("email"=>$username));
         $phone = $this->phone_model->get_by(array("number"=>$username));
 
-        if (count($email) > 0 || count($phone) > 0) {
+        if (count((array)$email) > 0 || count((array)$phone) > 0) {
             ChromePhp::log($tag . "Account Exists...");
-            if (count($email) > 0) {
+            if (count((array)$email) > 0) {
                 ChromePhp::log($tag . "Email was used as account username");
                 $row = $this->users_has_email_model->get_by(array("emails_id"=>$email->id));
                 $user_id = $row->users_id;
@@ -127,7 +138,7 @@ class Web extends CI_Controller {
 
         $tag = "###web/login_user: ";
 
-		$username = $this->input->post('username');
+		echo $username = $this->input->post('username');
 		$password = $this->input->post('password_user');
 		
 		//Loading All Impontant Models
@@ -136,15 +147,33 @@ class Web extends CI_Controller {
 		ChromePhp::log($tag . "Username = " . $username);
 		ChromePhp::log($tag . "Password = " . $password);
 
-		if ($this->account_model->login($username, $password) == false) {
-            ChromePhp::log($tag . "Login Failed");
+		$account = $this->account_model->login($username, $password);
+		//print_r($account);
+		if ($account == false) {
+            //ChromePhp::log($tag . "Login Failed");
+			echo "web";
         } else {
 		    //Set Session Params Here
             //Redirect Users Here
-            ChromePhp::log($tag . "From Login User: Login Success");
-            $account = $this->account_model->login($username, $password);
-            $this->session->set_userdata("account_id", $account->id);
-        }
+            //ChromePhp::log($tag . "From Login User: Login Success");
+			//echo $account->id;
+            $this->set_user_session($account);
+			echo "system";
+		}
+	}
+	
+	private function set_user_session($account){
+		$user_row = $this->user_model->get_by(array('id' => $account->user_id));
+		$array_user = array(
+								$this->sess->user_role => $account->type,
+								$this->sess->account_type => $account->type,
+								$this->sess->account_id => $account->id,
+								$this->sess->first_name => $user_row->first_name,
+								$this->sess->last_name => $user_row->last_name
+							);
+							
+							echo json_encode($array_user);
+		$this->sess->sess_set($this->sess->userdata,$array_user);
 	}
 	
 	public function dashboard(){

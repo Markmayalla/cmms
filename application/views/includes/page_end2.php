@@ -57,14 +57,16 @@
 (function($){
 	$(document).ready( function () {
 		$('#table_assets').DataTable();
-		$('#table_equipment').DataTable();
-		$('#table_organization').DataTable();
+		$('#table_equipments').DataTable();
+		$('#table_organizations').DataTable();
 		$('#table_users').DataTable();
 		$('#table_parches').DataTable();
 		$('#table_report').DataTable();
-		$('#table_request').DataTable();
-		$('#table_spare').DataTable();
+		$('#table_requests').DataTable();
+		$('#table_spares').DataTable();
 		$('#table_tasks').DataTable();
+		$('#table_tasc').DataTable();
+		$('#table_workers').DataTable();
 	} );
 	
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
@@ -72,6 +74,9 @@
 	  loadDataUi(target);
 	});
 	$("#assets").click();
+
+
+
 })(jQuery);
 
 

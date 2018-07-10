@@ -1,5 +1,20 @@
-d<?php
+<?php
 	class Action extends CI_Controller {
+		
+		private $sess;
+		private $data;
+		private $profile_pic_properties = ""; 
+		public function __construct(){
+			parent::__construct();
+			$this->sess = $this->sessionlib;
+			
+			$this->profile_pic_properties;
+			$this->sess->startFunction($this->profile_pic_properties,false);
+			$this->data = $this->sess->data_user_data;
+			$this->data['counted'] = $this->countervalue->result;
+			//print_r($this->data);
+		}
+		
 		public function pdf(){
 			$this->load->library("table");
 			$template = array(
@@ -31,9 +46,12 @@ d<?php
 			$this->table->set_template($template);
 			$name = $this->uri->segment(3);
 			
-			$data['display'] = $this->models_data($name);
+			$for_loading_data['table'] = $name;
+			$for_loading_data['user_info'] = $this->data;
+			
+			$this->data['display'] = $this->shareddata->models_data($for_loading_data);
 			$this->load->view('includes/page_start2.php');
-			$this->load->view('dashboard/'.$name.'/download',$data);
+			$this->load->view('dashboard/'.$name.'/download',$this->data);
 			$this->load->view('includes/page_end2.php');
 		}
 		public function print_priview(){
@@ -69,14 +87,22 @@ d<?php
 							'table_close'           => '</table>'
 					);	
 			$name = $this->uri->segment(3);
-			$data['display'] = $this->models_data($name);
+			$this->data['display'] = $this->models_data($name);
 			$this->load->view('includes/page_start2.php');
-			$this->load->view('dashboard/'.$name.'/index',$data);
+			$this->load->view('dashboard/'.$name.'/index',$this->data);
 			$this->load->view('includes/page_end3.php');
 		}
 		public function excel(){
 			$name = $this->uri->segment(3);
-			$data['display'] = $this->models_data($name);
+			$for_loading_data['table'] = $name;
+			$for_loading_data['user_info'] = $this->data;
+			$for_loading_data['assets_down'] = "download";
+			if($this->sess->data_user_data['accountType'] == $this->sess->data_user_data['role']['admin']){
+				$for_loading_data['type_of_user'] = "admin";
+			}else{
+				$for_loading_data['type_of_user'] = "user";
+			}
+			$data['display'] = $this->shareddata->models_data($for_loading_data);
 			$this->load->view('dashboard/'.$name.'/excel',$data);
 		}
 		

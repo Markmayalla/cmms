@@ -1,0 +1,175 @@
+<?php
+include "ChromePhp.php";
+class Tasks extends CI_Controller {
+	private $sess;
+	private $data;
+	private $profile_pic_properties = ""; 
+	public function __construct(){
+		parent::__construct();
+		$this->sess = $this->sessionlib;
+		
+		$this->profile_pic_properties;
+		$this->sess->startFunction($this->profile_pic_properties,true);
+		$this->data = $this->sess->data_user_data;
+		$this->data['counted'] = $this->countervalue->result;
+		//print_r($this->data);
+	}
+	
+	public function edit(){
+		$user_id =  $this->uri->segment(3);
+        $this->load->library("table");
+        $this->data['template'] = $this->shareddata->template;
+        $name = "tasks";
+        $this->data['main_content'] = 'system/dash_two';
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+		$for_loading_data['task_id'] = $user_id;
+        $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
+        $this->data['name'] = $name;
+        $this->data['page'] = 'edit';
+        $this->load->view('includes/system', $this->data);
+	}
+
+	public function edit_item(){
+		$id = $this->input->post('task_id');
+		$workers_id = $this->input->post('workers');
+		$date_start = $this->input->post('date_start');
+		$date_end = $this->input->post('date_end');
+		$notes = $this->input->post('description');
+
+		 if($this->task_model->update_task_status($id, $workers_id, $date_start, $date_end, $notes)){
+			$id = '/tasks/edit/'.$id;
+			$sms = "Task Updated Success";
+			$this->back_to_previous_page($id,$sms);
+		 }
+	}
+
+	public function finish(){
+		$this->load->model('assets_comment_model');
+		$this->assets_comment_model->finish($this->input->post());
+		$id = '/system/view/tasks';
+		$sms = "Task Completed Success";
+		$this->back_to_previous_page($id,$sms);
+	}
+
+	public function completed(){
+		$user_id =  $this->uri->segment(3);
+        $this->load->library("table");
+        $this->data['template'] = $this->shareddata->template;
+        $name = "tasks";
+        $this->data['main_content'] = 'system/dash_two';
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+		$for_loading_data['task_id'] = $user_id;
+        $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
+        $this->data['name'] = $name;
+        $this->data['page'] = 'completing';
+        $this->load->view('includes/system', $this->data);
+	}
+
+	public function change_request_status_lock(){
+        $id = $this->uri->segment(3);
+        $id_a = array('id' => $id);
+		$this->task_model->update_byy($id_a,array('status' => $this->uri->segment(4)));
+		if($this->uri->segment(4) == 'completed'){
+			$id = '/tasks/completed/'.$id;
+		}else{
+			$id = '/system/view/tasks';
+		}
+        $this->back_to_previous_page($id,"Task Locked (".$this->uri->segment(4).")");
+	
+	}
+
+	public function view_resource(){
+		$user_id =  $this->uri->segment(3);
+        $this->load->library("table");
+        $this->data['template'] = $this->shareddata->template;
+        $name = "tasks";
+        $this->data['main_content'] = 'system/dash_two';
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+		$for_loading_data['task_id'] = $user_id;
+        $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
+        $this->data['name'] = $name;
+        $this->data['page'] = 'view_resource';
+        $this->load->view('includes/system', $this->data);
+	}
+
+	public function assign_equipment(){
+		$user_id =  $this->uri->segment(3);
+        $this->load->library("table");
+        $this->data['template'] = $this->shareddata->template;
+        $name = "tasks";
+        $this->data['main_content'] = 'system/dash_two';
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+		$for_loading_data['task_id'] = $user_id;
+        $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
+        $this->data['name'] = $name;
+        $this->data['page'] = 'assaign_equipment';
+        $this->load->view('includes/system', $this->data);
+	}
+
+	public function create_equipment(){
+		$id = $this->input->post('tasks_id');
+		$this->load->model('tasks_has_equipment_model');
+		$this->tasks_has_equipment_model->insert($this->input->post());
+		//$this->equipment_model->update_equipment_number(-1,$this->input->post('equipments_id'));
+		$id = '/tasks/assign_equipment/'.$id;
+		$sms = "Equipment added to task success";
+		$this->back_to_previous_page($id,$sms);
+	}
+
+	public function remove_equipment(){
+		$this->load->model('tasks_has_equipment_model');
+		$this->tasks_has_equipment_model->delete_by(array('tasks_id' => $this->uri->segment(4),'equipments_id' => $this->uri->segment(3)));
+		
+		$id = '/tasks/assign_equipment/'.$this->uri->segment(4);
+		$sms = "Equipment removed to task success";
+		$this->back_to_previous_page($id,$sms);
+	}
+
+	public function approve(){
+		$this->load->model('tasks_has_equipment_model');
+		$data = $this->tasks_has_equipment_model->get_many_by(array('tasks_id' => $this->uri->segment(3)));
+
+		foreach($data as $d){
+			$this->equipment_model->update_equipment_number(-1,$d->equipments_id);
+		}
+
+		$id = '/system/view/tasks';
+		$sms = "Approved success";
+		$this->back_to_previous_page($id,$sms);
+	}
+
+	public function depprove(){
+		$this->load->model('tasks_has_equipment_model');
+		$data = $this->tasks_has_equipment_model->get_many_by(array('tasks_id' => $this->uri->segment(3)));
+
+		foreach($data as $d){
+			$this->equipment_model->update_equipment_number(-1,$d->equipments_id);
+		}
+
+		$id = '/system/view/tasks';
+		$sms = "Approved success";
+		$this->back_to_previous_page($id,$sms);
+	}
+
+	public function assign_spare(){
+		
+	}
+
+	public function create_spare(){
+		
+	}
+
+	public function delete(){
+
+	}
+
+	public function back_to_previous_page($id,$sms){
+		$this->sessionlib->sess_set($this->sessionlib->flashdata,array('error_sms' => $sms));
+		redirect(site_url().$id);
+	}
+}
+?>
