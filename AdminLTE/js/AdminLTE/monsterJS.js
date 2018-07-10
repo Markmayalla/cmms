@@ -10,8 +10,8 @@
     var asssetsInterval;
     initiateInterval();
 
-    var base_url = 'http://localhost/cmms/';
-    var site_url = 'http://localhost/cmms/index.php/';
+    var base_url = 'http://localhost/cmms2/';
+    var site_url = 'http://localhost/cmms2/index.php/';
 
     console.log("The Monster is Active");
 
