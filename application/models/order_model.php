@@ -6,6 +6,6 @@
  * Time: 19:22
  */
 
-class tasks_has_equipment_model extends MY_Model {
+class order_model extends MY_Model {
 
 }

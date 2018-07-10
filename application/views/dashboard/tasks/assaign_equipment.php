@@ -15,17 +15,17 @@
         $equipments = @$data['equipments'];
 
         $total_worker = count($worker);
-        
+
         ?>
 
-        <h3 class="text-aqua"><span class="fa fa-tasks"></span> Task</h3>
+        <h3 class="text-aqua"><span class="fa fa-tasks"></span> Task Description</h3>
         <p><span class="fa fa-calendar"></span> <?=@$task->date_start; ?> <strong>to</strong>  <?=@$task->date_end; ?> |
             <strong>Organization:</strong> <?=$organization->name;?> |
             <strong>Asset:</strong> <?=$asset->name; ?> <?=$asset->model_number; ?></p>
 
         <p><?=@$task->notes; ?></p>
 
-
+        <legend>Reserve Equipments Form</legend>
         <form id="add_item_form" onsubmit="event.preventDefault()" data-parsley-validate>
             <div id="success_msg" class="alert alert-success alert-dismissable" style="display: none;">
                 <i class="fa fa-check"></i>

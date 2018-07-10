@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dc68747-0c96-4f71-913f-3dfbfe266dcd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Automate.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/automation_model.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/automate_result/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/libraries/SharedData.php" afterPath="$PROJECT_DIR$/application/libraries/SharedData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/purchases/Tasks.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/purchases/download.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/purchases/edit_user.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/purchases/excel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Tasks.php" afterPath="$PROJECT_DIR$/application/controllers/Tasks.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_equipment.php" afterPath="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_equipment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/system/dash_two.php" afterPath="$PROJECT_DIR$/application/views/system/dash_two.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" afterPath="$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_spare.php" afterPath="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_spare.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/purchases/index.php" afterPath="$PROJECT_DIR$/application/views/dashboard/purchases/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/order_model.php" afterPath="$PROJECT_DIR$/application/models/order_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/task_model.php" afterPath="$PROJECT_DIR$/application/models/task_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -33,22 +35,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="assaign_equipment.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="assaign_equipment.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/assaign_equipment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="8" selection-start="432" selection-end="432" vertical-scroll-proportion="0.27454242" vertical-offset="90" max-vertical-offset="1095">
+            <state line="27" column="39" selection-start="880" selection-end="880" vertical-scroll-proportion="3.0833333" vertical-offset="479" max-vertical-offset="1095">
               <folding>
-                <element signature="e#1008#1030#0" expanded="true" />
+                <element signature="e#1060#1082#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="62" selection-start="2030" selection-end="2042" vertical-scroll-proportion="-14.5" vertical-offset="207" max-vertical-offset="795">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -56,8 +49,55 @@
       <file leaf-file-name="Tasks.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Tasks.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="37" selection-start="1863" selection-end="1863" vertical-scroll-proportion="-8.791667" vertical-offset="629" max-vertical-offset="1320">
+            <state line="111" column="40" selection-start="4048" selection-end="4048" vertical-scroll-proportion="-14.375" vertical-offset="1320" max-vertical-offset="2130">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tasks.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/dashboard/purchases/Tasks.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2130">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/dashboard/purchases/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="27" selection-start="332" selection-end="332" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="255">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SharedData.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/libraries/SharedData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="8" selection-start="912" selection-end="912" vertical-scroll-proportion="0.024958402" vertical-offset="435" max-vertical-offset="2625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/order_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="17" selection-start="103" selection-end="103" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="assaign_spare.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/assaign_spare.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="152" column="41" selection-start="5997" selection-end="5997" vertical-scroll-proportion="-11.375" vertical-offset="2007" max-vertical-offset="2805">
+              <folding>
+                <element signature="e#1429#1451#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,52 +105,7 @@
       <file leaf-file-name="monsterJS.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="756" column="27" selection-start="22614" selection-end="22614" vertical-scroll-proportion="0.0" vertical-offset="9140" max-vertical-offset="14205">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="System.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/System.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="54" selection-start="4943" selection-end="4943" vertical-scroll-proportion="-9.375" vertical-offset="2160" max-vertical-offset="3120">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SharedData.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/libraries/SharedData.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="29" selection-start="2979" selection-end="2991" vertical-scroll-proportion="-7.5" vertical-offset="1230" max-vertical-offset="2625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tasks_has_equipment_model.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/tasks_has_equipment_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="165">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="asset_model.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/asset_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="18" selection-start="739" selection-end="739" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="1770">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spare_part_model.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/spare_part_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="165">
+            <state line="84" column="18" selection-start="1527" selection-end="2399" vertical-scroll-proportion="0.0" vertical-offset="665" max-vertical-offset="14205">
               <folding />
             </state>
           </provider>
@@ -119,7 +114,16 @@
       <file leaf-file-name="task_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/task_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="17" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="1155">
+            <state line="51" column="39" selection-start="1858" selection-end="1858" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="1110">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tables.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Tables.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2715">
               <folding />
             </state>
           </provider>
@@ -168,7 +172,6 @@
         <option value="$PROJECT_DIR$/application/models/asset_has_category_model.php" />
         <option value="$PROJECT_DIR$/application/models/assets_has_category_model.php" />
         <option value="$PROJECT_DIR$/application/models/tasks_has_equipment_model.php" />
-        <option value="$PROJECT_DIR$/application/models/order_model.php" />
         <option value="$PROJECT_DIR$/application/models/spare_part_model.php" />
         <option value="$PROJECT_DIR$/application/models/orders_has_spare_part_model.php" />
         <option value="$PROJECT_DIR$/application/models/purchase_order_model.php" />
@@ -185,9 +188,13 @@
         <option value="$PROJECT_DIR$/application/views/dashboard/assets/download.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/equipments/add.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/equipments/download.php" />
-        <option value="$PROJECT_DIR$/application/models/task_model.php" />
         <option value="$PROJECT_DIR$/application/libraries/SharedData.php" />
+        <option value="$PROJECT_DIR$/application/models/task_model.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_equipment.php" />
+        <option value="$PROJECT_DIR$/application/models/order_model.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/tasks/assaign_spare.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Tasks.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/purchases/index.php" />
       </list>
     </option>
   </component>
@@ -315,28 +322,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -355,111 +340,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="equipments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="third_party" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -531,46 +412,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminLTE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminLTE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminLTE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -582,6 +423,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../app" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="recentsLimit" value="5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/dashboard/purchases" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -668,14 +514,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23499268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23499268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -712,41 +558,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/organizations/download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="77" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="435" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="51" selection-start="2551" selection-end="2551" vertical-scroll-proportion="2.845258" vertical-offset="0" max-vertical-offset="1800" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/organizations/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="82" selection-start="1646" selection-end="1646" vertical-scroll-proportion="-8.166667" vertical-offset="284" max-vertical-offset="885" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/worker_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="1" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/web/form_register_organization.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="60" selection-start="8689" selection-end="8689" vertical-scroll-proportion="0.0" vertical-offset="1707" max-vertical-offset="2340" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/web/form_register_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="2340" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/SessionLib.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="82" selection-start="3331" selection-end="3343" vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="3345" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/orders_has_spare_part_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="1" selection-start="141" selection-end="141" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="240" />
@@ -780,11 +591,6 @@
     <entry file="file://$PROJECT_DIR$/application/models/organization_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="181" column="13" selection-start="7735" selection-end="7735" vertical-scroll-proportion="-8.875" vertical-offset="2427" max-vertical-offset="3015" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/order_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="240" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Web.php">
@@ -901,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/assaign_spare.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard/equipments/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="51" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="795">
@@ -929,20 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/task_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="17" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="1155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Tasks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="37" selection-start="1863" selection-end="1863" vertical-scroll-proportion="-8.791667" vertical-offset="629" max-vertical-offset="1320">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/spare_part_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="165">
@@ -957,13 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="62" selection-start="2030" selection-end="2042" vertical-scroll-proportion="-14.5" vertical-offset="207" max-vertical-offset="795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/tasks_has_equipment_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="165">
@@ -971,33 +749,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/SharedData.php">
+    <entry file="file://$PROJECT_DIR$/application/libraries/CounterValue.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="29" selection-start="2979" selection-end="2991" vertical-scroll-proportion="-7.5" vertical-offset="1230" max-vertical-offset="2625">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.75" vertical-offset="162" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Action.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="756" column="27" selection-start="22614" selection-end="22614" vertical-scroll-proportion="0.0" vertical-offset="9140" max-vertical-offset="14205">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2415">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Equipments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/System.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="54" selection-start="4943" selection-end="4943" vertical-scroll-proportion="-9.375" vertical-offset="2160" max-vertical-offset="3120">
+        <state line="159" column="54" selection-start="4943" selection-end="4943" vertical-scroll-proportion="-99.375" vertical-offset="0" max-vertical-offset="3120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="62" selection-start="2030" selection-end="2042" vertical-scroll-proportion="-15.5" vertical-offset="183" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/parsley.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/order_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="17" selection-start="103" selection-end="103" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/task_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="39" selection-start="1858" selection-end="1858" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/assaign_equipment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="8" selection-start="432" selection-end="432" vertical-scroll-proportion="0.27454242" vertical-offset="90" max-vertical-offset="1095">
+        <state line="27" column="39" selection-start="880" selection-end="880" vertical-scroll-proportion="3.0833333" vertical-offset="479" max-vertical-offset="1095">
           <folding>
-            <element signature="e#1008#1030#0" expanded="true" />
+            <element signature="e#1060#1082#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/tasks/assaign_spare.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="41" selection-start="5997" selection-end="5997" vertical-scroll-proportion="-11.375" vertical-offset="2007" max-vertical-offset="2805">
+          <folding>
+            <element signature="e#1429#1451#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdminLTE/js/AdminLTE/monsterJS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="18" selection-start="1527" selection-end="2399" vertical-scroll-proportion="0.0" vertical-offset="665" max-vertical-offset="14205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Tasks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="40" selection-start="4048" selection-end="4048" vertical-scroll-proportion="-14.375" vertical-offset="1320" max-vertical-offset="2130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/purchases/Tasks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/purchases/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="27" selection-start="332" selection-end="332" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/SharedData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="8" selection-start="912" selection-end="912" vertical-scroll-proportion="0.024958402" vertical-offset="435" max-vertical-offset="2625">
+          <folding />
         </state>
       </provider>
     </entry>
