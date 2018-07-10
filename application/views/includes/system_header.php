@@ -47,10 +47,6 @@
 					<?php 
 						if($accountRole == $role['owner']){
 					?>
-							<li><a href="<?=site_url()."/system/view/";?>organizations"><i class="fa fa-user" > </i> Organizations</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>users"><i class="fa fa-user" ></i> Users</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>requests"><i class="fa fa-download" ></i> Requests</a> </li>
-							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>purchases"><i class="fa fa-money" ></i> Purchases</a> </li>
@@ -63,6 +59,7 @@
 							<li><a href="<?=site_url()."/system/view/";?>tasks" ><i class="fa fa-user" ></i> Tasks</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>equipments" ><i class="fa fa-cog" ></i> Equipments</a> </li>
 							<li><a href="<?=site_url()."/system/view/";?>spares" ><i class="fa fa-cogs" ></i> Spare Parts</a> </li>
+							<li><a href="<?=site_url()."/system/view/";?>tasc" ><i class="fa fa-cogs" ></i> Completed Tasks</a> </li>
 					<?php 
 						}
 					?>

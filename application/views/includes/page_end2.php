@@ -65,6 +65,7 @@
 		$('#table_requests').DataTable();
 		$('#table_spares').DataTable();
 		$('#table_tasks').DataTable();
+		$('#table_tasc').DataTable();
 		$('#table_workers').DataTable();
 	} );
 	

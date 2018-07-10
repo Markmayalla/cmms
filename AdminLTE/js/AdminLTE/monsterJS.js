@@ -354,7 +354,7 @@
                 success: function(response){
                     console.log("registration response");
                     console.log(response);
-                    window.location.href = site_url + "web";
+                    //window.location.href = site_url + "web";
                 },
                 error: function(response){
                     console.log(response);

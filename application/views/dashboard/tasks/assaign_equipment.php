@@ -27,25 +27,11 @@
         <p><?=@$task->notes; ?></p>
         <p><?php
                 foreach($equipment_views as $equipment_view){
-                    echo $this->equipment_model->get_by(array('equipment_id' => @$equipment_view->equipments_id))->equipment_name . " ( " .  $equipment_view->quantity . " )" . " <a href='".site_url()."/tasks/remove_equipment/".@$equipment_view->equipments_id."/".@$task->id."'>Remove</a>"; 
+                    echo $this->equipment_model->get_by(array('equipment_id' => @$equipment_view->equipments_id))->equipment_name . " ( " .  $equipment_view->quantity . " )" . " <a href='".site_url()."/tasks/remove_equipment/".@$equipment_view->equipments_id."/".@$task->id."'>Remove</a><br>"; 
                 }
             ?></p>
 
         <form  action="<?=site_url()?>/tasks/create_equipment" method="POST">
-                    <?php
-                        $error = $this->sessionlib->sess_get($this->sessionlib->flashdata,'error_sms');
-
-                        if($error != ""){
-                            ?>
-                                <br />
-                                <div class="alert alert-success alert-dismissable" style="display: block;margin-top:10px;width:60%;">
-                                    <i class="fa fa-check"></i>
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <?=$error;?>
-                                </div>
-                            <?php
-                        }
-                    ?>
             <div class="form-group">
                 <input type="hidden" id="id" value="tasks_has_equipments">
                 <input type="hidden" name="tasks_id" value="<?=@$task->id;?>">

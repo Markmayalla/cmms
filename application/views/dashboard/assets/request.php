@@ -7,14 +7,8 @@
             </div>
 
             <div class="modal-body">
-                <form id="request_task_form" onsubmit="event.preventDefault()" data-parsley-validate>
-                    <div id="success_msg_request" class="alert alert-success alert-dismissable" style="display: none;">
-                        <i class="fa fa-check"></i>
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <p id="success_msg_msg_request"></p>
-                    </div>
-
-                    <input type="text" id="serial_no_request" value="" readonly />
+                <form action="<?=site_url();?>/requests/asset_request" method="POST">
+                    <input type="text" id="serial_no_request" name="serial_no_request" value="" readonly />
 
 
                     <div class="form-group">
@@ -23,7 +17,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" id="request_task" class="btn btn-info">Request Task</button>
+                        <button type="submit" class="btn btn-info">Request Task</button>
                     </div>
                 </form>
             </div>

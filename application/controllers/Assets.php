@@ -39,7 +39,11 @@ class Assets extends CI_Controller {
     }
 
     public function delete(){
-        echo $this->uri->segment(3);
+        $id = $this->uri->segment(3);
+        $id_a = array('id' => $id);
+        $this->asset_model->update_by($id_a,array('state' => 'hide'));
+        $id = '/system/view/assets';
+        $this->back_to_previous_page($id,"Assets Deleted Success");
     }
 
     public function edit_item(){

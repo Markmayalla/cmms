@@ -36,7 +36,16 @@ class Organizations extends CI_Controller {
         $this->load->view('includes/system', $this->data);
 	}
 	
-	public function edit_item(){
-		print_r($this->input->post());
+	public function delete(){
+		$id = $this->uri->segment(3);
+        $id_a = array('id' => $id);
+        $this->organization_model->update_by($id_a,array('state' => 'hide'));
+        $id = '/system/view/organizations';
+        $this->back_to_previous_page($id,"Organization Deleted");
+	}
+
+	public function back_to_previous_page($id,$sms){
+		$this->sessionlib->sess_set($this->sessionlib->flashdata,array('error_sms' => $sms));
+		redirect(site_url().$id);
 	}
 }

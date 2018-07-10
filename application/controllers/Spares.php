@@ -54,7 +54,7 @@ class Spares extends CI_Controller {
     public function delete(){
         $id = $this->uri->segment(3);
         $id_a = array('id' => $id);
-        $this->spare_part_model->delete_by($id_a);
+        $this->spare_part_model->update_by($id_a,array('state' => 'hide'));
         $id = '/system/view/spares';
         $this->back_to_previous_page($id,"Spare part Deleted");
     }

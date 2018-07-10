@@ -54,7 +54,7 @@ class Equipments extends CI_Controller {
     public function delete(){
         $id = $this->uri->segment(3);
         $id_a = array('equipment_id' => $id);
-        $this->equipment_model->delete_by($id_a);
+        $this->equipment_model->update_by($id_a,array('state' => 'hide'));
         $id = '/system/view/equipments';
         $this->back_to_previous_page($id,"Equipment Deleted");
     }

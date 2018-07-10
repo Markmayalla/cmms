@@ -20,7 +20,7 @@
 				$data = $display[$i];
 				$edit_btn = '<a href="'.site_url().'/users/edit/'.$data->id.'" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
 				$account_settings = '<a href="#account_settings" onclick="loadUserIdView('.$data->id.')" data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-user"></span> </a>';
-				$delete_btn = '<button class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </button>';
+				$delete_btn = '<a href="'.site_url().'/users/delete/'.$data->id.'/users" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
 				
 				$option_link = "";
 				$array_body = array($data->first_name, $data->last_name,$data->middle_name,$data->gender);

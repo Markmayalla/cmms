@@ -44,6 +44,7 @@
 					return $this->CI->user_model->select_user($data['table']);
 				}
 			}else if($data['table'] == 'assets'){
+				$whereee = array('state' => 'show');
 				$this->CI->load->model('asset_model');
 				$this->CI->load->model('organization_model');
 				
@@ -53,7 +54,20 @@
 						'assets' => $asset
 					);
 				}else if(isset($data['assets_down'])){
-					$datar['assets'] = $this->CI->asset_model->get_all();
+					$datar['assets'] = $this->CI->asset_model->get_many_by($whereee);
+					return $datar;
+				}else if(isset($data['type_of_user'])){
+					$d = $data['type_of_user'];
+					if($d == 'admin'){
+						$datar['assets'] = $this->CI->asset_model->get_many_by($whereee);
+					}else{
+						$asset = $this->CI->asset_model->select($data['user_info']);
+						$datar = array(
+						'assets' => $asset,
+						'organizations' => $this->CI->organization_model->get_all()
+						);
+					}
+					
 					return $datar;
 				}else{
 					$asset = $this->CI->asset_model->select($data['user_info']);
@@ -65,7 +79,7 @@
 				return $data;
 			}else if($data['table'] == 'equipments'){
 				$this->CI->load->model('equipment_model');
-				return $this->CI->equipment_model->get_all();
+				return $this->CI->equipment_model->get_many_by(array('state' => 'show'));
 			}else if($data['table'] == 'organizations'){
 				$this->CI->load->model('organization_model');
 				if(isset($data['org_id'])){
@@ -82,12 +96,16 @@
 				}
 				
 			}else if($data['table'] == 'spares'){
-				return $this->CI->spare_part_model->get_all();
-			}else if($data['table'] == 'tasks'){
-				if(isset($data['task_id'])){
-					return $this->CI->task_model->select_tasks(array('id' => $data['task_id']));
+				return $this->CI->spare_part_model->get_many_by(array('state' => 'show'));
+			}else if($data['table'] == 'tasks' || $data['table'] == 'tasc'){
+				if($data['table'] == 'tasc'){
+					$acc = $data['user_info']['accountId'];
+					$wor = $this->CI->worker_model->get_by(array('accounts_id' => $acc))->id;
+					return $this->CI->task_model->select_tasks("tasc",$wor);
+				}else if(isset($data['task_id'])){
+					return $this->CI->task_model->select_tasks("data",array('id' => $data['task_id']));
 				}else{
-					return $this->CI->task_model->select_tasks(null);
+					return $this->CI->task_model->select_tasks(null,$data['user_info']);
 				}
 				
 			}else{

@@ -78,7 +78,7 @@ class organization_model extends MY_Model {
         if($data != null){
             $organizations['data'] = $this->organization_model->get($data);
         }else{
-            $organizations = $this->organization_model->get_all();
+            $organizations = $this->organization_model->get_many_by(array('state' => 'show'));
         }
 
         $emails = array();

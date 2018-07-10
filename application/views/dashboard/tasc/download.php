@@ -8,7 +8,7 @@
 				}else if($accountRole == $role['admin']){
 					array_push($array_header,"Options");
 				}else if($accountRole == $role['worker']){
-					array_push($array_header,"Options");
+					//array_push($array_header,"Options");
 				}else if($accountRole == $role['owner']){
 					//array_push($array_header,"Options");
 				}else if($accountRole == $role['user']){
@@ -19,15 +19,12 @@
 			//$num_user = count((array)$alldata);
 			@$to_delete = $data['data'];
 			
+			
 			foreach($display as $data){
-				
 				$username = $data['username'];
 				$request = $data['request'];
 				$task = $data['task'];
 				$assets = $data['assets'];
-				if($task->status == 'completed'){
-					continue;
-				}
 
 				
 				$id = $task->id;
@@ -42,7 +39,7 @@
                 $assign_btn_asset = '<a href="'.site_url().'/tasks/assign_spare/'.$id.'"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
                 $assign_btn_equipment = '<a href="'.site_url().'/tasks/assign_equipment/'.$id.'"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
                 $edit_btn = '<a href="'.site_url().'/tasks/edit/'.$id.'" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
-                $delete_btn = '<a href="'.site_url().'/tasks/change_request_status_lock/'.$id.'/suspended" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+                $delete_btn = '<a href="'.site_url().'/tasks/delete/'.$id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
 				
 				$cookie_name = "facebook_google_key_value";
 				$cookie_value = "id";
@@ -52,11 +49,11 @@
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
-					$option_link =  $edit_btn . $delete_btn. $assign_btn_asset .$assign_btn_equipment;
+					$option_link =  "";//$edit_btn . $delete_btn. $assign_btn_asset .$assign_btn_equipment .$lock;
 					array_push($array_body,$option_link);
 				}else if($accountRole == $role['worker']){
-					$option_link =  $assign_btn_asset .$assign_btn_equipment.$lock;
-					array_push($array_body,$option_link);
+					$option_link =  "";//$assign_btn_asset .$assign_btn_equipment.$lock;
+					//array_push($array_body,$option_link);
 				}else if($accountRole == $role['owner']){
 					//$option_link =   $request_btn;
 					//array_push($array_body,$option_link);

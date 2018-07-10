@@ -33,6 +33,8 @@ class System extends CI_Controller {
 			$name = "assets";
 		}else if($this->sess->data_user_data['accountType'] == $this->sess->data_user_data['role']['worker']){
 			$name = "tasks";
+		}else if($this->sess->data_user_data['accountType'] == $this->sess->data_user_data['role']['owner']){
+			$name = "equipments";
 		}else{
 			$name = "assets";
 		}
@@ -115,31 +117,6 @@ class System extends CI_Controller {
         $insert_id = $this->asset_model->assign_asset($_POST);
     }
 	
-	function request_task() {
-		$this->load->model('organizations_has_asset_model');
-		
-		$serial_no = $this->input->post('serial_no');
-		
-		
-        $check = $this->organizations_has_asset_model->get_by('serial_no',$serial_no);
-		
-		$description = $this->input->post('description');
-		$orgid = $check->organizations_id;
-		$asset = $check->assets_id;
-		$account = $this->sess->data_user_data['accountId'];
-		
-		$insert = array(
-				'accounts_id' => $account,
-				'organizations_has_assets_organizations_id' => $orgid,
-				'organizations_has_assets_assets_id' => $asset,
-				'description' => $description,
-				'status' => 'pending'
-		);
-		
-		$this->load->model('request_model');
-		$this->request_model->insert($insert);
-    }
-
 	
 	function load_description(){
 		$serial_no = $this->input->post('serial_no');
