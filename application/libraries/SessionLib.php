@@ -72,7 +72,7 @@
 											$this->user_role_page => "user_account",
 											$this->owner_role_page => "owner_account"
 										);
-			//$this->check_is_has_data();
+			$this->check_is_has_data();
 			$this->CI->countervalue->countedDashboard();
 		}
 			
@@ -103,7 +103,7 @@
 		}
 		
 		public function getFullName(){
-			return $this->getData($this->first_name) . " " . $this->getData($this->last_name);
+			return $this->getFirstName() . " " . $this->getLastName();
 		}
 		
 		public function getFirstName(){
@@ -150,7 +150,13 @@
 		}
 		
 		public function hasData($data){
-			return empty($this->getData($data));
+			$check = $this->getData($data);
+			if($check == ""){
+				$yes =  true;
+			}else{
+				$yes = false;
+			}
+			return $yes;
 		}
 		
 		private function setData($data){

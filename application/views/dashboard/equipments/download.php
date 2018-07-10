@@ -14,7 +14,7 @@
 				}else if($accountRole == $role['worker']){
 					//array_push($array_header,"Options");
 				}else if($accountRole == $role['owner']){
-					//array_push($array_header,"Options");
+					array_push($array_header,"Options");
 				}else if($accountRole == $role['user']){
 				}
 				
@@ -22,8 +22,8 @@
 			for($i = 0; $i < $num_user; $i++){
 				$data = $display[$i];
 				//print_r($data);
-                $edit_btn = '<a href="'.site_url().'/equipments/edit/'.$data->id.'" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
-                $delete_btn = '<a href="'.site_url().'/equipments/delete/'.$data->id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+                $edit_btn = '<a href="'.site_url().'/equipments/edit/'.$data->equipment_id.'" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
+                $delete_btn = '<a href="'.site_url().'/equipments/delete/'.$data->equipment_id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
 				
 				$cookie_name = "facebook_google_key_value";
 				$cookie_value = "equipment_id";
@@ -31,7 +31,7 @@
 				
 			
 				$option_link = "";
-				$array_body = array($data->id, $data->name,$data->unit_price,$data->quantity);
+				$array_body = array($data->equipment_id, $data->equipment_name,$data->unit_price,$data->quantity);
 				if(!$action_show_option){
 					
 				}else if($accountRole == $role['admin']){
@@ -40,7 +40,8 @@
 				}else if($accountRole == $role['worker']){
 					$option_link =  "";
 				}else if($accountRole == $role['owner']){
-					$option_link =  "";
+					$option_link = $edit_btn . $delete_btn;
+					array_push($array_body,$option_link);
 				}else if($accountRole == $role['user']){
 					$option_link =  "";
 				}

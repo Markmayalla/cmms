@@ -23,7 +23,7 @@ class user_model extends MY_Model {
 
     public function select_user($type){
         $type = $type == "users" ? "user_account" : "worker_account";
-        $select = "SELECT * FROM users as u INNER JOIN accounts as a ON u.id = a.user_id AND a.type =  '$type'";
+        $select = "SELECT * FROM users as u INNER JOIN accounts as a ON u.id = a.user_id AND a.type =  '$type' AND u.state ='show'";
         return $this->db->query($select)->result();
     }
 

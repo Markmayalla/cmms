@@ -57,8 +57,14 @@
                 </div>
             </form>
             <div class="form-group text-right">
-                <a class="btn btn-success" href="<?=site_url();?>/requests/assign_request_to_task/<?=@$this->uri->segment(3);?>">Give task</a>
-                <a class="btn btn-warning" href="<?=site_url();?>/requests/change_request_status/<?=@$this->uri->segment(3);?>">Susspend</a>
+                <?php
+                    if($accountType == $role['admin']){
+                ?>
+                    <a class="btn btn-success" href="<?=site_url();?>/requests/assign_request_to_task/<?=@$this->uri->segment(3);?>">Give task</a>
+                    <a class="btn btn-warning" href="<?=site_url();?>/requests/change_request_status/<?=@$this->uri->segment(3);?>" >Susspend</a>
+                <?php
+                    }
+                ?>
             </div>
         <?php
     }

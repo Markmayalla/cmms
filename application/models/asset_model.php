@@ -24,7 +24,7 @@ class asset_model extends MY_Model {
 	}
 
 	function select_admin(){
-		$Datas = $this->asset_model->get_all();
+		$Datas = $this->asset_model->get_many_by(array('state' => 'show'));
 		$i = 0;
 		$returned = array();
 		foreach($Datas as $data){

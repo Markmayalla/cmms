@@ -16,7 +16,7 @@
         $total_worker = count($worker);
        
         ?>
-            <form class="form" method="POST" action="<?=site_url();?>/tasks/edit_item">
+            <form class="form" method="POST" action="<?=site_url();?>/tasks/finish">
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Users</h4>
@@ -45,26 +45,9 @@
                          <h4>Request</h4>
                          <div class="form-group">
                             <input class="form-control" type="text" readonly value="<?=@$request->description;?>">
-                            <input type="text" name="request_id" hidden value="<?=@$this->uri->segment(3);?>">
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="text" readonly value="<?=@$request->status;?>">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4>Worker</h4>
-                        <div class="form-group">
-                            <select name="workers" class="form-control">
-                                <?php
-                                    for($i= 0; $i<$total_worker;$i++){
-                                        ?>
-                                            <option <?=$task->workers_id == $worker[0][0] ? 'selected' : '';?> value="<?=$worker[$i][0];?>"><?=$worker[$i]['first_name'] ." ".$worker[$i]['last_name'] ;?></option>
-                                        <?php
-                                    }
-                                ?>
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -91,7 +74,7 @@
                     </div>
                 </div>
                 <div class="form-group text-right">
-                    <input type="submit" class="btn btn-success" value="Assign Task">
+                    <input type="submit" class="btn btn-success" value="finish">
                 </div>
             </form>
         <?php

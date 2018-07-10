@@ -44,8 +44,55 @@ class Tasks extends CI_Controller {
 		 }
 	}
 
-	public function delete(){
+	public function finish(){
+		$this->load->model('assets_comment_model');
+		$this->assets_comment_model->finish($this->input->post());
+		$id = '/system/view/tasks';
+		$sms = "Task Completed Success";
+		$this->back_to_previous_page($id,$sms);
+	}
 
+	public function completed(){
+		$user_id =  $this->uri->segment(3);
+        $this->load->library("table");
+        $this->data['template'] = $this->shareddata->template;
+        $name = "tasks";
+        $this->data['main_content'] = 'system/dash_two';
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+		$for_loading_data['task_id'] = $user_id;
+        $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
+        $this->data['name'] = $name;
+        $this->data['page'] = 'completing';
+        $this->load->view('includes/system', $this->data);
+	}
+
+	public function change_request_status_lock(){
+        $id = $this->uri->segment(3);
+        $id_a = array('id' => $id);
+		$this->task_model->update_byy($id_a,array('status' => $this->uri->segment(4)));
+		if($this->uri->segment(4) == 'completed'){
+			$id = '/tasks/completed/'.$id;
+		}else{
+			$id = '/system/view/tasks';
+		}
+        $this->back_to_previous_page($id,"Task Locked (".$this->uri->segment(4).")");
+	
+	}
+
+	public function view_resource(){
+		$user_id =  $this->uri->segment(3);
+        $this->load->library("table");
+        $this->data['template'] = $this->shareddata->template;
+        $name = "tasks";
+        $this->data['main_content'] = 'system/dash_two';
+		$for_loading_data['table'] = $name;
+		$for_loading_data['user_info'] = $this->data;
+		$for_loading_data['task_id'] = $user_id;
+        $this->data['data']['display'] = $this->shareddata->models_data($for_loading_data);
+        $this->data['name'] = $name;
+        $this->data['page'] = 'view_resource';
+        $this->load->view('includes/system', $this->data);
 	}
 
 	public function assign_equipment(){
@@ -64,7 +111,48 @@ class Tasks extends CI_Controller {
 	}
 
 	public function create_equipment(){
+		$id = $this->input->post('tasks_id');
+		$this->load->model('tasks_has_equipment_model');
+		$this->tasks_has_equipment_model->insert($this->input->post());
+		//$this->equipment_model->update_equipment_number(-1,$this->input->post('equipments_id'));
+		$id = '/tasks/assign_equipment/'.$id;
+		$sms = "Equipment added to task success";
+		$this->back_to_previous_page($id,$sms);
+	}
 
+	public function remove_equipment(){
+		$this->load->model('tasks_has_equipment_model');
+		$this->tasks_has_equipment_model->delete_by(array('tasks_id' => $this->uri->segment(4),'equipments_id' => $this->uri->segment(3)));
+		
+		$id = '/tasks/assign_equipment/'.$this->uri->segment(4);
+		$sms = "Equipment removed to task success";
+		$this->back_to_previous_page($id,$sms);
+	}
+
+	public function approve(){
+		$this->load->model('tasks_has_equipment_model');
+		$data = $this->tasks_has_equipment_model->get_many_by(array('tasks_id' => $this->uri->segment(3)));
+
+		foreach($data as $d){
+			$this->equipment_model->update_equipment_number(-1,$d->equipments_id);
+		}
+
+		$id = '/system/view/tasks';
+		$sms = "Approved success";
+		$this->back_to_previous_page($id,$sms);
+	}
+
+	public function depprove(){
+		$this->load->model('tasks_has_equipment_model');
+		$data = $this->tasks_has_equipment_model->get_many_by(array('tasks_id' => $this->uri->segment(3)));
+
+		foreach($data as $d){
+			$this->equipment_model->update_equipment_number(-1,$d->equipments_id);
+		}
+
+		$id = '/system/view/tasks';
+		$sms = "Approved success";
+		$this->back_to_previous_page($id,$sms);
 	}
 
 	public function assign_spare(){
@@ -73,6 +161,10 @@ class Tasks extends CI_Controller {
 
 	public function create_spare(){
 		
+	}
+
+	public function delete(){
+
 	}
 
 	public function back_to_previous_page($id,$sms){

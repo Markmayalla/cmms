@@ -12,6 +12,7 @@
 		$asset = @$data['assets'];
         $request = @$data['request'];
         $worker = @$data['worker'];
+        $equipment_views = @$data['equipment_view'];
 
         $total_worker = count($worker);
        
@@ -65,6 +66,7 @@
                                     }
                                 ?>
                             </select>
+                            
                         </div>
                     </div>
                 </div>
@@ -84,14 +86,25 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Description</h4>
-                        <div class="form-group">
-                            <textarea  name="description" rows="8" class="form-control"><?=@$task->notes;?></textarea>
-                        </div>
+                        <h4>Equipments</h4>
+                        <p>
+                            <?php
+                                foreach($equipment_views as $equipment_view){
+                                    echo $this->equipment_model->get_by(array('equipment_id' => @$equipment_view->equipments_id))->equipment_name . " ( " .  $equipment_view->quantity . " )" . " <a href='".site_url()."/tasks/remove_equipment/".@$equipment_view->equipments_id."/".@$task->id."'>Remove</a><br>"; 
+                                }
+                            ?>
+                        </p>
                     </div>
                 </div>
                 <div class="form-group text-right">
-                    <input type="submit" class="btn btn-success" value="Assign Task">
+                                <?php
+                                    if($task->status != 'completed'){
+                                        $app = "approve";
+                                    }else{
+                                        $app = "depprove";
+                                    }
+                                ?>
+                    <a href="<?=site_url();?>/tasks/<?=$app;?>/<?=$this->uri->segment(3);?>"  class="btn btn-success" ><?=$app;?></a>
                 </div>
             </form>
         <?php

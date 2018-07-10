@@ -1,8 +1,8 @@
 <?php
     class Automation_Model extends CI_model{
         public function select_assets(){
-            $sql = "SELECT * FROM organizations_has_assets as ass WHERE EXISTS (SELECT * FROM requests as req   
-                    WHERE ass.assets_id = req.organizations_has_assets_assets_id AND ass.organizations_id = req.organizations_has_assets_organizations_id)
+            $sql = "SELECT * FROM organizations_has_assets as ass WHERE NOT EXISTS (SELECT * FROM requests as req   
+                    WHERE ass.assets_id = req.organizations_has_assets_assets_id AND ass.organizations_id = req.organizations_has_assets_organizations_id AND req.status != 'completed')
                     AND (ass.due_date < CURRENT_DATE OR ass.due_date = CURRENT_DATE)";
             
             $sql2 = "SELECT org.organizations_id as org, acc.id as account FROM  (( organizations_has_users as org INNER JOIN users as us ON us.id = org.users_id) INNER JOIN accounts as acc ON acc.user_id = us.id)";

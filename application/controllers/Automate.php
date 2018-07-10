@@ -32,7 +32,7 @@
                 if(count($r)){
                     $added['requests_id'] = $data[$i]['id'];
                     $added['date_start'] = $data[$i]['date'];
-                    $added['workers_id'] = $r[0]->accounts_id;
+                    $added['workers_id'] = $r[0]->id;
                     $this->sessionlib->unsetData('request_success');
                     $this->sessionlib->sess_set($this->sessionlib->flashdata,array("request_success" => array($data[$i]['id']=>"Has given task")));
                 }else{
@@ -47,6 +47,7 @@
             $post_data = $this->input->post('data');
 
             //print_r($post_data);
+            $i = 0;
             for($i = 0; $i < count($_POST); $i++){
                 $end_date = date('Y-m-d',strtotime($post_data['date_start']. ' +  2  days'));
                 $status = 'pending';

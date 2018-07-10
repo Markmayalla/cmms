@@ -1,8 +1,8 @@
 <?php 
 		$name = "Assert_Report";
-		$array_heading = array('Asset Id', 'Asset Name', 'Model Name', 'Organization');
-		$array_shots = array('ass_id', 'ass_name','ass_m_n','org_name');
-		$data['data'] = $display;
+		$array_heading = array('Asset Id', 'Asset Name', 'Model Name');
+		$array_shots = array('id', 'name','model_number');
+		$data['data'] = $display['assets'];
 		$data['heading'] = $array_heading;
 		$data['shots'] = $array_shots;
 		$date = date('Y-m-d:His');
