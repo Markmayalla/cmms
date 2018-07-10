@@ -50,7 +50,7 @@ class task_model extends MY_Model {
 		$accRole = $arrayData['accountRole'];
 		$role = $arrayData['role'];
 		$accountId = $arrayData['accountId'];
-		if($accRole == $role['admin']){
+		if($accRole == $role['admin'] || $accRole == $role['owner']){
 			return $this->task_model->get_all();
 		}else if($accRole == $role['worker']){
 			$userrrr = $this->account_model->get($accountId)->user_id;

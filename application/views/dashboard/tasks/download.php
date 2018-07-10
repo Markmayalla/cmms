@@ -10,7 +10,7 @@
 				}else if($accountRole == $role['worker']){
 					array_push($array_header,"Options");
 				}else if($accountRole == $role['owner']){
-					//array_push($array_header,"Options");
+					array_push($array_header,"Options");
 				}else if($accountRole == $role['user']){
 					//array_push($array_header,"Options");
 				}
@@ -43,6 +43,7 @@
                 $assign_btn_equipment = '<a href="'.site_url().'/tasks/assign_equipment/'.$id.'"  data-toggle="modal" class="btn btn-sm btn-success"><span class="fa fa-reorder"></span> </a>';
                 $edit_btn = '<a href="'.site_url().'/tasks/edit/'.$id.'" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
                 $delete_btn = '<a href="'.site_url().'/tasks/change_request_status_lock/'.$id.'/suspended" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+                $view_resources = '<a href="'.site_url().'/tasks/view_resource/'.$id.'" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> </a>';
 				
 				$cookie_name = "facebook_google_key_value";
 				$cookie_value = "id";
@@ -58,8 +59,8 @@
 					$option_link =  $assign_btn_asset .$assign_btn_equipment.$lock;
 					array_push($array_body,$option_link);
 				}else if($accountRole == $role['owner']){
-					//$option_link =   $request_btn;
-					//array_push($array_body,$option_link);
+					$option_link =   $view_resources;
+					array_push($array_body,$option_link);
 				}else if($accountRole == $role['user']){
 					//$option_link =   $request_btn;
 					//array_push($array_body,$option_link);

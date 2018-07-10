@@ -14,7 +14,7 @@
 				}else if($accountRole == $role['worker']){
 					//array_push($array_header,"Options");
 				}else if($accountRole == $role['owner']){
-					//array_push($array_header,"Options");
+					array_push($array_header,"Options");
 				}else if($accountRole == $role['user']){
 				}
 				
@@ -40,7 +40,8 @@
 				}else if($accountRole == $role['worker']){
 					$option_link =  "";
 				}else if($accountRole == $role['owner']){
-					$option_link =  "";
+					$option_link = $edit_btn . $delete_btn;
+					array_push($array_body,$option_link);
 				}else if($accountRole == $role['user']){
 					$option_link =  "";
 				}

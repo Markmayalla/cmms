@@ -25,11 +25,13 @@
             <strong>Asset:</strong> <?=$asset->name; ?> <?=$asset->model_number; ?></p>
 
         <p><?=@$task->notes; ?></p>
-        <p><?php
+        <p>
+            <?php
                 foreach($equipment_views as $equipment_view){
                     echo $this->equipment_model->get_by(array('equipment_id' => @$equipment_view->equipments_id))->equipment_name . " ( " .  $equipment_view->quantity . " )" . " <a href='".site_url()."/tasks/remove_equipment/".@$equipment_view->equipments_id."/".@$task->id."'>Remove</a><br>"; 
                 }
-            ?></p>
+            ?>
+        </p>
 
         <form  action="<?=site_url()?>/tasks/create_equipment" method="POST">
             <div class="form-group">
