@@ -32,11 +32,20 @@ foreach($display as $data){
     <legend>Order Spares Form</legend>
     <p class="pull-right"><span class="fa fa-shopping-cart"></span> <strong>In Cart:</strong> <span id="cart_count">0</span> </p>
     <form id="spare_parts" onsubmit="event.preventDefault()" data-parsley-validate>
-        <div id="success_msg" class="alert alert-success alert-dismissable" style="display: none;">
-            <i class="fa fa-check"></i>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <p id="success_msg_msg"></p>
-        </div>
+        <?php
+            $error = $this->sessionlib->sess_get($this->sessionlib->flashdata,'error_sms');
+
+            if($error != ""){
+                ?>
+                <br />
+                <div class="alert alert-success alert-dismissable" style="display: block;margin-top:10px;width:60%;">
+                    <i class="fa fa-check"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?=$error;?>
+                </div>
+            <?php
+            }
+        ?>
         <div class="form-group">
             <input type="hidden" id="taskId" value="<?=@$task->id?>" />
             <input type="hidden" id="id" value="tasks_has_equipments">
@@ -134,7 +143,7 @@ foreach($display as $data){
                         //console.log(tag + "Login Success");
                         //console.log(tag + "Displaying Response");
                         //console.log(tag + response);
-                        console.log(response);
+                        window.location = site_url + 'tasks/assign_spare/'+data['taskId'];
                         //alert(response);
                     },
                     error : function(response){
@@ -161,6 +170,7 @@ foreach($display as $data){
                         //console.log(tag + "Login Success");
                         //console.log(tag + "Displaying Response");
                         //console.log(tag + response);
+                        window.location = site_url + 'tasks/assign_spare/'+data['taskId'];
                         console.log(response);
                         //alert(response);
                     },

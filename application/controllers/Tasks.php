@@ -102,7 +102,8 @@ class Tasks extends CI_Controller {
                             'quantity' => (int) $jsonObject->quantity);
             $this->orders_has_spare_part_model->insert($data2);
         }
-
+        $sms = 'Order successfully add';
+        $this->sessionlib->sess_set($this->sessionlib->flashdata,array('error_sms' => $sms));
 
     }
 
@@ -122,6 +123,8 @@ class Tasks extends CI_Controller {
 
        $id = $this->purchase_order_model->insert($data);
         print_r('Success: ' + $id);
+        $sms = 'Purchase order added successful';
+        $this->sessionlib->sess_set($this->sessionlib->flashdata,array('error_sms' => $sms));
 
     }
 

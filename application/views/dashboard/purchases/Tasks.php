@@ -103,7 +103,6 @@ class Tasks extends CI_Controller {
             $this->orders_has_spare_part_model->insert($data2);
         }
 
-
     }
 
     public function add_purchase_order() {
