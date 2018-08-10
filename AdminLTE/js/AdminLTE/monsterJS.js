@@ -626,6 +626,7 @@
 
 			var array_data = {};
 			for(var i = 0; i < y; i++){
+               
 				var x = document.getElementById("add_item_form").elements[i].id;
 				if(($("#"+x).is(":button"))){
 
@@ -760,9 +761,9 @@
                data: data,
                success: function(response) {
                     if (response == true) {
-                        alert('true: ' + response);
+                        alert("Asset inserted error");
                     } else {
-                        alert('false: ' + response);
+                        alert("Asset inserted");
                     }
                },
                error: function(error) {

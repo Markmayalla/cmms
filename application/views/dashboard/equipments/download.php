@@ -23,7 +23,7 @@
 				$data = $display[$i];
 				//print_r($data);
                 $edit_btn = '<a href="'.site_url().'/equipments/edit/'.$data->equipment_id.'" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-pencil"></span> </a>';
-                $delete_btn = '<a href="'.site_url().'/equipments/delete/'.$data->equipment_id.'" class="btn btn-sm btn-danger"><span class="fa fa-trash-o"></span> </a>';
+                $delete_btn = '<a href="'.site_url().'/equipments/delete/'.$data->equipment_id.'" class="btn btn-sm btn-danger" ><span class="fa fa-trash-o"></span> </a>';
 				
 				$cookie_name = "facebook_google_key_value";
 				$cookie_value = "equipment_id";
