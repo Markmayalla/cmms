@@ -1,0 +1,129 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Mark
+ * Date: 14/05/2018
+ * Time: 13:44
+ */
+
+class request_model extends MY_Model {
+
+    public function add_request($req_type, $acc_id, $org_id, $asset_id, $description, $status) {
+        $this->load->model("request_model");
+        $this->load->model("request_type_model");
+
+        $data = array(
+            'request_types_id' => $req_type,
+            'accounts_id' => $acc_id,
+            'organizations_has_assets_organizations_id' => $org_id,
+            'organizations_has_assets_assets_id' => $asset_id,
+            'description' => $description,
+            'status' => 'pending'
+        );
+
+        $this->request_model->insert($data);
+    }
+
+    public function update_reqest_status($id, $req_type, $acc_id, $org_id, $asset_id, $description, $status) {
+        $this->load->model('request_model');
+
+        $req = $this->request_model->get($id);
+
+        $data = array(
+            'request_types_id' => !is_null($req_type) ? $req_type : $req->request_types_id,
+            'accounts_id' => !is_null($acc_id) ? $acc_id : $req->accounts_id,
+            'organizations_has_assets_organizations_id' => !is_null($org_id) ? $org_id : $req->organizations_has_assets_organizations_id,
+            'organizations_has_assets_assets_id' =>!is_null($asset_id) ? $asset_id : $req->organizations_has_assets_assets_id,
+            'description' => !is_null($description) ? $description : $req->description,
+            'status' => !is_null($status) ? $status : $req->status
+        );
+
+        $this->request_model->update($id, $data);
+    }
+
+    public function delete_request($id) {
+        $this->load->model('request_model');
+        $this->request_model->delete($id);
+    }
+
+    public function get_all_requests($arrayData) {
+        $this->load->model('request_model');
+		$accRole = $arrayData['accountRole'];
+		$role = $arrayData['role'];
+		$accountId = $arrayData['accountId'];
+		if($accRole == $role['admin']){
+			return $this->request_model->get_many_by(array('status' => 'pending'));
+		}else if($accRole == $role['user']){
+			$userrrr = $this->account_model->get($accountId)->user_id;
+			$org_id = $this->organizations_has_user_model->get_by('users_id',$userrrr);
+			$returned  = array();
+			$Datas  = array();
+			
+			if(count((array)$org_id)){
+				$org_id = $org_id->organizations_id;
+				$returned  = array();
+				$Datas =  $this->request_model->get_many_by(array('status' => 'pending','organizations_has_assets_organizations_id' => $org_id));;
+			}
+			return $Datas;
+		}else if($accRole == $role['worker']){
+			$userrrr = $this->account_model->get($accountId)->user_id;
+			$org_id = $this->organizations_has_user_model->get_by('users_id',$userrrr);
+			$returned  = array();
+			$Datas  = array();
+			
+			if(count((array)$org_id)){
+				$org_id = $org_id->organizations_id;
+				$returned  = array();
+				$Datas =  $this->request_model->get_many_by(array('status' => 'pending','organizations_has_assets_organizations_id' => $org_id));;
+			}
+			return $Datas;
+		}
+        
+    }
+	
+	public function select_request($datas){
+		$data = array();
+		$request = $this->get_all_requests($datas);
+		$i = 0;
+		foreach($request as $key){
+			$account = $this->account_model->get($key->accounts_id)->user_id;
+			$orgname = $this->organization_model->get($key->organizations_has_assets_organizations_id);
+			$asset = $this->asset_model->get($key->organizations_has_assets_assets_id);
+			$username = $this->user_model->get($account);
+			
+			$data[$i]['username'] = $username;
+			$data[$i]['organization'] = $orgname;
+			$data[$i]['asset'] = $asset;
+			$data[$i]['request'] = $key;
+			$i++;
+		}
+		return (object)$data;
+	}
+
+	public function select_request_by_id($datas,$id){
+		$data = array();
+		$key = $this->request_model->get($id);
+		
+		if($key){
+			$i = 0;
+			$account = $this->account_model->get($key->accounts_id)->user_id;
+			$orgname = $this->organization_model->get($key->organizations_has_assets_organizations_id);
+			$asset = $this->asset_model->get($key->organizations_has_assets_assets_id);
+			$username = $this->user_model->get($account);
+			
+			$data[$i]['username'] = $username;
+			$data[$i]['organization'] = $orgname;
+			$data[$i]['asset'] = $asset;
+			$data[$i]['request'] = $key;
+			$names = $data[$i]['workers'] = $this->worker_model->get_all();
+			$j = 0;
+			foreach($names as $name){
+				$yes_acc = $this->account_model->get($name->accounts_id)->user_id;
+				$data[$i]['worker'][$j] = (array)$this->user_model->get($yes_acc);
+				array_push($data[$i]['worker'][$j], $account);
+				$j++;
+			}
+		}
+		return (object)$data;
+	}
+}

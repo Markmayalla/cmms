@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 12, 2018 at 09:07 AM
+-- Generation Time: Jun 19, 2018 at 07:14 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -107,6 +107,43 @@ CREATE TABLE IF NOT EXISTS `emails` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `equipments`
+--
+
+CREATE TABLE IF NOT EXISTS `equipments` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL,
+  `orderscol` varchar(45) DEFAULT NULL,
+  `tasks_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_has_spare_parts`
+--
+
+CREATE TABLE IF NOT EXISTS `orders_has_spare_parts` (
+  `orders_id` int(11) NOT NULL,
+  `orders_tasks_id` int(11) NOT NULL,
+  `spare_parts_id` int(11) NOT NULL,
+  `quantity` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `organizations`
 --
 
@@ -205,8 +242,21 @@ CREATE TABLE IF NOT EXISTS `organizations_has_users` (
 
 CREATE TABLE IF NOT EXISTS `phones` (
   `id` int(11) NOT NULL,
-  `titlle` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
   `number` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchase_orders`
+--
+
+CREATE TABLE IF NOT EXISTS `purchase_orders` (
+  `id` int(11) NOT NULL,
+  `spare_name` varchar(45) DEFAULT NULL,
+  `quantity` varchar(45) DEFAULT NULL,
+  `tasks_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -250,6 +300,33 @@ CREATE TABLE IF NOT EXISTS `services` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `spare_parts`
+--
+
+CREATE TABLE IF NOT EXISTS `spare_parts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `category` varchar(45) DEFAULT NULL,
+  `model` varchar(45) DEFAULT NULL,
+  `inventory` varchar(45) DEFAULT NULL,
+  `minimumRequired` varchar(45) DEFAULT NULL,
+  `price` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+CREATE TABLE IF NOT EXISTS `suppliers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tasks`
 --
 
@@ -261,6 +338,17 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `date_end` varchar(45) NOT NULL,
   `notes` varchar(45) DEFAULT NULL,
   `status` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks_has_equipments`
+--
+
+CREATE TABLE IF NOT EXISTS `tasks_has_equipments` (
+  `tasks_id` int(11) NOT NULL,
+  `equipments_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -284,7 +372,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 CREATE TABLE IF NOT EXISTS `users_has_addresses` (
-  `people_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `addresses_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -295,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `users_has_addresses` (
 --
 
 CREATE TABLE IF NOT EXISTS `users_has_emails` (
-  `people_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `emails_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -306,7 +394,7 @@ CREATE TABLE IF NOT EXISTS `users_has_emails` (
 --
 
 CREATE TABLE IF NOT EXISTS `users_has_phones` (
-  `people_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `phones_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -371,6 +459,27 @@ ALTER TABLE `emails`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `equipments`
+--
+ALTER TABLE `equipments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`,`tasks_id`),
+  ADD KEY `fk_orders_tasks1_idx` (`tasks_id`);
+
+--
+-- Indexes for table `orders_has_spare_parts`
+--
+ALTER TABLE `orders_has_spare_parts`
+  ADD PRIMARY KEY (`orders_id`,`orders_tasks_id`,`spare_parts_id`),
+  ADD KEY `fk_orders_has_spare_parts_spare_parts1_idx` (`spare_parts_id`),
+  ADD KEY `fk_orders_has_spare_parts_orders1_idx` (`orders_id`,`orders_tasks_id`);
+
+--
 -- Indexes for table `organizations`
 --
 ALTER TABLE `organizations`
@@ -421,8 +530,7 @@ ALTER TABLE `organizations_has_emails`
 --
 ALTER TABLE `organizations_has_phones`
   ADD PRIMARY KEY (`organizations_id`,`phones_id`),
-  ADD KEY `fk_organizations_has_phones_phones1_idx` (`phones_id`),
-  ADD KEY `fk_organizations_has_phones_organizations1_idx` (`organizations_id`);
+  ADD KEY `fk_organizations_has_phones_phones1_idx` (`phones_id`);
 
 --
 -- Indexes for table `organizations_has_users`
@@ -437,6 +545,13 @@ ALTER TABLE `organizations_has_users`
 --
 ALTER TABLE `phones`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `purchase_orders`
+--
+ALTER TABLE `purchase_orders`
+  ADD PRIMARY KEY (`id`,`tasks_id`),
+  ADD KEY `fk_purchase_order_tasks1_idx` (`tasks_id`);
 
 --
 -- Indexes for table `requests`
@@ -460,12 +575,32 @@ ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `spare_parts`
+--
+ALTER TABLE `spare_parts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tasks`
 --
 ALTER TABLE `tasks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_tasks_requests1_idx` (`requests_id`),
   ADD KEY `fk_tasks_workers1_idx` (`workers_id`);
+
+--
+-- Indexes for table `tasks_has_equipments`
+--
+ALTER TABLE `tasks_has_equipments`
+  ADD PRIMARY KEY (`tasks_id`,`equipments_id`),
+  ADD KEY `fk_tasks_has_equipments_equipments1_idx` (`equipments_id`),
+  ADD KEY `fk_tasks_has_equipments_tasks1_idx` (`tasks_id`);
 
 --
 -- Indexes for table `users`
@@ -477,25 +612,25 @@ ALTER TABLE `users`
 -- Indexes for table `users_has_addresses`
 --
 ALTER TABLE `users_has_addresses`
-  ADD PRIMARY KEY (`people_id`,`addresses_id`),
+  ADD PRIMARY KEY (`users_id`,`addresses_id`),
   ADD KEY `fk_people_has_addresses_addresses1_idx` (`addresses_id`),
-  ADD KEY `fk_people_has_addresses_people1_idx` (`people_id`);
+  ADD KEY `fk_people_has_addresses_people1_idx` (`users_id`);
 
 --
 -- Indexes for table `users_has_emails`
 --
 ALTER TABLE `users_has_emails`
-  ADD PRIMARY KEY (`people_id`,`emails_id`),
+  ADD PRIMARY KEY (`users_id`,`emails_id`),
   ADD KEY `fk_people_has_emails_emails1_idx` (`emails_id`),
-  ADD KEY `fk_people_has_emails_people1_idx` (`people_id`);
+  ADD KEY `fk_people_has_emails_people1_idx` (`users_id`);
 
 --
 -- Indexes for table `users_has_phones`
 --
 ALTER TABLE `users_has_phones`
-  ADD PRIMARY KEY (`people_id`,`phones_id`),
+  ADD PRIMARY KEY (`users_id`,`phones_id`),
   ADD KEY `fk_people_has_phones_phones1_idx` (`phones_id`),
-  ADD KEY `fk_people_has_phones_people1_idx` (`people_id`);
+  ADD KEY `fk_people_has_phones_people1_idx` (`users_id`);
 
 --
 -- Indexes for table `workers`
@@ -534,6 +669,16 @@ ALTER TABLE `categories`
 ALTER TABLE `emails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `equipments`
+--
+ALTER TABLE `equipments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `organizations`
 --
 ALTER TABLE `organizations`
@@ -544,14 +689,34 @@ ALTER TABLE `organizations`
 ALTER TABLE `phones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `purchase_orders`
+--
+ALTER TABLE `purchase_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `request_types`
+--
+ALTER TABLE `request_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `spare_parts`
+--
+ALTER TABLE `spare_parts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tasks`
@@ -576,7 +741,7 @@ ALTER TABLE `workers`
 -- Constraints for table `accounts`
 --
 ALTER TABLE `accounts`
-  ADD CONSTRAINT `fk_accounts_people` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_accounts_people` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `assets_has_categories`
@@ -584,6 +749,19 @@ ALTER TABLE `accounts`
 ALTER TABLE `assets_has_categories`
   ADD CONSTRAINT `fk_assets_has_categories_assets1` FOREIGN KEY (`assets_id`) REFERENCES `assets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_assets_has_categories_categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_orders_tasks1` FOREIGN KEY (`tasks_id`) REFERENCES `tasks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `orders_has_spare_parts`
+--
+ALTER TABLE `orders_has_spare_parts`
+  ADD CONSTRAINT `fk_orders_has_spare_parts_orders1` FOREIGN KEY (`orders_id`, `orders_tasks_id`) REFERENCES `orders` (`id`, `tasks_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_orders_has_spare_parts_spare_parts1` FOREIGN KEY (`spare_parts_id`) REFERENCES `spare_parts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `organizations_has_addresses`
@@ -617,15 +795,15 @@ ALTER TABLE `organizations_has_assets_has_services`
 -- Constraints for table `organizations_has_emails`
 --
 ALTER TABLE `organizations_has_emails`
-  ADD CONSTRAINT `fk_organizations_has_emails_emails1` FOREIGN KEY (`emails_id`) REFERENCES `emails` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_organizations_has_emails_organizations1` FOREIGN KEY (`organizations_id`) REFERENCES `organizations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_organizations_has_emails_emails1` FOREIGN KEY (`emails_id`) REFERENCES `emails` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_organizations_has_emails_organizations1` FOREIGN KEY (`organizations_id`) REFERENCES `organizations` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `organizations_has_phones`
 --
 ALTER TABLE `organizations_has_phones`
-  ADD CONSTRAINT `fk_organizations_has_phones_organizations1` FOREIGN KEY (`organizations_id`) REFERENCES `organizations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_organizations_has_phones_phones1` FOREIGN KEY (`phones_id`) REFERENCES `phones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_organizations_has_phones_organizations1` FOREIGN KEY (`organizations_id`) REFERENCES `organizations` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_organizations_has_phones_phones1` FOREIGN KEY (`phones_id`) REFERENCES `phones` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `organizations_has_users`
@@ -633,6 +811,12 @@ ALTER TABLE `organizations_has_phones`
 ALTER TABLE `organizations_has_users`
   ADD CONSTRAINT `fk_organizations_has_users_organizations1` FOREIGN KEY (`organizations_id`) REFERENCES `organizations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_organizations_has_users_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `purchase_orders`
+--
+ALTER TABLE `purchase_orders`
+  ADD CONSTRAINT `fk_purchase_order_tasks1` FOREIGN KEY (`tasks_id`) REFERENCES `tasks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `requests`
@@ -650,25 +834,32 @@ ALTER TABLE `tasks`
   ADD CONSTRAINT `fk_tasks_workers1` FOREIGN KEY (`workers_id`) REFERENCES `workers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `tasks_has_equipments`
+--
+ALTER TABLE `tasks_has_equipments`
+  ADD CONSTRAINT `fk_tasks_has_equipments_equipments1` FOREIGN KEY (`equipments_id`) REFERENCES `equipments` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tasks_has_equipments_tasks1` FOREIGN KEY (`tasks_id`) REFERENCES `tasks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `users_has_addresses`
 --
 ALTER TABLE `users_has_addresses`
-  ADD CONSTRAINT `fk_people_has_addresses_addresses1` FOREIGN KEY (`addresses_id`) REFERENCES `addresses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_people_has_addresses_people1` FOREIGN KEY (`people_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_people_has_addresses_addresses1` FOREIGN KEY (`addresses_id`) REFERENCES `addresses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_people_has_addresses_people1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users_has_emails`
 --
 ALTER TABLE `users_has_emails`
-  ADD CONSTRAINT `fk_people_has_emails_emails1` FOREIGN KEY (`emails_id`) REFERENCES `emails` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_people_has_emails_people1` FOREIGN KEY (`people_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_people_has_emails_emails1` FOREIGN KEY (`emails_id`) REFERENCES `emails` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_people_has_emails_people1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users_has_phones`
 --
 ALTER TABLE `users_has_phones`
-  ADD CONSTRAINT `fk_people_has_phones_people1` FOREIGN KEY (`people_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_people_has_phones_phones1` FOREIGN KEY (`phones_id`) REFERENCES `phones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_people_has_phones_people1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_people_has_phones_phones1` FOREIGN KEY (`phones_id`) REFERENCES `phones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `workers`
